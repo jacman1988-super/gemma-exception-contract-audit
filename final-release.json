@@ -1,0 +1,20 @@
+{
+  "author": "Jacek Adamek",
+  "paper": "paper-final-review.txt",
+  "contest_ready": false,
+  "model_repair_claimed": false,
+  "reference_repair_validated": true,
+  "reference_repair_origin": "Manual reconstruction of known public upstream correction, not a new contribution",
+  "ready_for_local_review": true,
+  "published": false,
+  "submitted": false,
+  "files": {
+    "paper-final-review.txt": "90f569429abd12c796ff5bbe72454ab2b07ecd5ecea4972f8d49bcc6f8b91236",
+    "results/itsdangerous-reference-repair/repair.patch": "4e54c9e81201e4139520ddae2020defb88f2d61015313faad3227dee06cea820",
+    "results/itsdangerous-reference-repair/validation.json": "6ef6651b371bb95d984f18edf89e004379f7a528fd08665fa359b18da804e058",
+    "results/itsdangerous-model-budget1024/payload-diagnostic.json": "e81f0cfcf2f315b101fac5745a4ba0a0338d9ee6ba1c1b0cc1776ad989f175de",
+    "results/itsdangerous-model-contract-feedback/patch-evaluation.json": "7f7c48c4fad9c455e9c9c096d7936b2121ad0a5813685f9bfe7c549ebe37ad70",
+    "results/itsdangerous-model-localized-feedback/patch-evaluation.json": "19ee01234ce368c1478569880bda91dd09059c75f60ae7d1ca68c277bd7a8085",
+    "verify_final.py": "af36ae49ce4d2511795954a10a8b10486ad438cffaf76cfd6ad578324cd81ee3"
+  }
+}

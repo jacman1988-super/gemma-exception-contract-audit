@@ -1,0 +1,2 @@
+# Optional: only the upstream real-bug pilot needs pytest.
+pytest==8.4.2

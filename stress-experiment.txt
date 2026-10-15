@@ -1,0 +1,65 @@
+IMPORTGUARD — CONTROLLED STRESS EXPERIMENT
+14 October 2026. Unpublished local working note, not a finished contest paper.
+
+Problem: import-only test selection can hide regressions when a coding agent
+uses a limited test budget. Explicit fallback must recognize uncertainty, and
+passing simple direct-import fixtures does not demonstrate that recognition.
+
+Eight original executable cases: direct import, transitive import, relative
+import, importlib dynamic import, aliased importlib import, aliased __import__,
+non-Python resource change, and package initialization change. Each contains
+six test modules, one of which detects the deliberately introduced fee error.
+Five unrelated tests exercise separate behavior. In alias cases, one unrelated
+test imports the changed module without exercising fee, preventing an empty
+selection fallback from accidentally hiding the alias blind spot.
+
+Every clean full suite passed. A full run on every mutation failed with the
+expected test_fee assertion, not an import or infrastructure error. Clean
+per-test line coverage was collected before mutation using Python trace.
+Coverage collection cost is additional work, excluded from selected test counts.
+The no-fallback arm uses the exact same import graph and retains an empty
+selection when applicable. Random selection samples the same number of test
+modules as the fallback arm with seeds 0–19. Repeated identical subsets share
+one executed result; these are not independent timing repetitions.
+
+Method                         Faults detected / 8   Test modules
+Full suite                     8                     48
+Initial fallback selector      6                     23
+Corrected fallback selector    8                     33
+Static imports, no fallback    4                      6
+Clean Python-line coverage     7                      7
+Random, initial budget         3.25 mean             23 per replicate
+Random, corrected budget       5.15 mean             33 per replicate
+
+The initial selector missed both alias cases. The correction tracks directly
+imported import_module aliases and assignments of known dynamic-call names,
+including assignment chains. It conservatively falls back to the full suite.
+This is not scope-sensitive analysis: shadowing may trigger excess fallback,
+and reflection, containers and indirect runtime bindings can still escape.
+
+Resource changes show a complementary limitation: Python line coverage cannot
+observe arbitrary file-read dependencies. ImportGuard falls back for a changed
+non-Python path. This does not imply superiority over production coverage tools
+that also instrument resource access or use hybrid dependencies.
+
+The cases are purpose-built and were inspected before the alias correction.
+The corrected 8/8 is a regression check, not held-out evidence. Counts of test
+modules are not runtime speedups. There is no meaningful population confidence
+interval for these eight deliberately constructed cases. No Gemma model was
+run, no real-repository generalization measured, and novelty is unestablished.
+
+Reproduce (Python 3.12+, standard library only), from this project directory:
+python -m unittest -v
+python stress_benchmark.py --selector v1 --output results/stress-baseline-v1.json
+python stress_benchmark.py --output results/stress-alias-fix-v2.json
+
+The initial selector snapshot is preserved in importguard_v1_snapshot.py. The
+JSONs retain clean coverage, selections, seed mappings, raw process outputs,
+timings and source hashes. The earlier four-case smoke benchmark is historical.
+
+Next scientific gate: freeze independently sourced permissively licensed real
+bug/fix pairs, split by repository, and run an actual Gemma agent with controlled
+inference and testing budgets. Compare fault detection and total execution cost,
+including coverage setup. Do not claim contest readiness before these steps.
+AI assistance: Codex wrote and executed this implementation and working note.
+The participant must review and understand the work before submission.

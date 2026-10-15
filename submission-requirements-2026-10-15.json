@@ -1,0 +1,21 @@
+{
+  "source": "https://www.kaggle.com/competitions/gemma-4-developer-agent-paper/overview",
+  "rules_source": "https://www.kaggle.com/competitions/gemma-4-developer-agent-paper/rules",
+  "verified": "2026-10-15",
+  "verification_method": "Read official rendered Overview and Rules in background browser; no login, join, acceptance, writeup creation or submission",
+  "max_words": 3000,
+  "required_sections": ["Title and subtitle", "Abstract", "Introduction", "Methods and experiments", "Related works and citations"],
+  "submission_type": "Kaggle Writeup",
+  "optional_assets": ["Public notebook in Project Links", "Publicly accessible PDF/project link"],
+  "main_prediction_competition_required": false,
+  "judging_equal_weights": ["Novelty including new insights or properties", "Quality/generalization", "Relevance", "Verifiability", "Clarity"],
+  "deadline_utc": "2026-11-12T23:59:00Z",
+  "deadline_warsaw": "2026-11-13T00:59:00+01:00",
+  "entry_purchase_required": false,
+  "winner_license": "Apache-2.0",
+  "model_rule_scope": "This paper analyzes local E2B diagnostics. It does not claim compliance with the separate prediction track's 31B agent-harness requirement.",
+  "eligibility": "Poland is not among the listed excluded territories; age, sanctions, employer and individual eligibility still require participant attestation.",
+  "published": false,
+  "submitted": false,
+  "rules_accepted_in_this_work": false
+}

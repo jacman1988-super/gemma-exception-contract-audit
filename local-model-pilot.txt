@@ -1,0 +1,68 @@
+Gemma 4 E2B: local patch-suggestion pilot
+14 October 2026. Unpublished working note, not a full coding-agent experiment.
+
+Actual inference: official Google gemma-4-E2B-it-qat-q4_0-gguf,
+revision 675cff42a74c774d6cb76f76d8eacb49b48c9b93, Q4_0 text-only use.
+SHA-256 fa401b55b07ee70a54c6dae3903c783a6e65064312529ea57175cb5f8dec6634.
+Runtime llama.cpp build 11429, commit d81235049, official Windows CPU binary.
+Two CPU threads, 2048-token context, 192 output-token cap, temperature zero,
+seed 20261014, reasoning off, one response per case, no test-feedback loop.
+No visual projector was used. These are local inferences, not a paid API.
+
+Each prompt contained a public bug description and a short buggy source snippet.
+The model did not receive the reference patch or regression test source. These
+known public fixes can be in model training data; no contamination-free model
+capability estimate is claimed. Prompts were constructed by an assistant that
+had already inspected the fixes. No independence from researcher choices is
+claimed. There were no multiple samples selected by test outcomes.
+
+Recorded responses:
+- boltons: changed chain(others) to list(chain(others)). This still fails to
+  flatten iterables. It also returned a two-line old/new block despite being
+  asked for one line. The suggested block was retained without repair.
+- more-itertools: changed validator or default to a conditional expression
+  using validator is not None. This is the expected behavior, although written
+  in a different order from the reference patch.
+
+After Codex inspected the two exact local assignments, they were applied to
+copies of parent production files with fixed upstream regression tests:
+- boltons: 4 failures and 70 passes; patch does not resolve the bug.
+- more-itertools: all 768 declared tests pass.
+The evaluator only accepts the two explicitly reviewed JSON edits; it does not
+execute arbitrary model output. 'Reviewed' here means assistant inspection, not
+participant approval. No generated command, import or external action is run.
+
+Process times were about 9.6 and 10.0 seconds. They include model loading and
+startup and are single observations, not stable performance estimates. Runtime
+output also reports approximate prompt/generation throughput; no speedup claim
+is based on it. Two tasks cannot establish a meaningful success rate for real
+software. The separate selector comparison did not save test modules in this
+pilot. Together these observations do not establish an end-to-end agent gain.
+
+Initial restricted-process attempts timed out without output. A direct local
+launch worked, and both task prompts then ran successfully using that execution
+context. Failed attempts remain separate in results/local-model-pilot/. They
+must not be interpreted as model-quality failures or deleted from the record.
+
+results/local-model-direct-pilot/ contains protocol, exact prompt text, raw
+responses, executable/model hashes, download provenance and test outputs.
+protocol-audit.json corrects a historical decoded-text versus file-byte hash
+distinction while verifying that both prompt snippets match the UTF-8 source.
+The original protocol is retained. No inference was invented or simulated.
+
+Reproduce after obtaining and checksum-checking the same official local files:
+python local_model_pilot.py /path/to/llama-cli.exe /path/to/model.gguf /path/to/pilot-data --output results/local-model-direct-pilot
+Review the resulting edits; then the evaluator accepts only the two recorded edits:
+python evaluate_reviewed_pilot.py /path/to/pilot-data /path/to/execution-copies
+Different model output causes the reviewed evaluator to refuse execution.
+
+Source snippets retain boltons BSD-3-Clause and more-itertools MIT attribution;
+see THIRD-PARTY-NOTICES.txt and the copied license texts. Weights and runtime
+are not redistributed. Model page:
+https://huggingface.co/google/gemma-4-E2B-it-qat-q4_0-gguf
+Runtime: https://github.com/ggml-org/llama.cpp/releases/tag/b11429
+
+Remaining research: independent larger task selection, real iterative agents,
+matched inference and total-test-cost budgets, repository splits, stronger
+baselines, related-work review and a defensible novel contribution. Participant
+review is required before publication. No competition entry was sent.

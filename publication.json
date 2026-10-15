@@ -1,0 +1,10 @@
+{
+  "author": "Jacek Adamek",
+  "repository_url": "https://github.com/jacman1988-super/gemma-exception-contract-audit",
+  "publication_authorized": true,
+  "scope": "Reviewed code and reports; no competition submission",
+  "competition_submitted": false,
+  "new_rules_accepted": false,
+  "original_review_manifest_sha256": "3a1b63bb57b55181a08eba43ba5ed2c6a333c08658133e4182c2da9210252c75",
+  "public_release_notes": "README updated for public visibility. Dated research/verification snapshots remain unchanged."
+}

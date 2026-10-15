@@ -1,0 +1,13 @@
+{
+  "title": "Beyond 297 Passing Tests: Auditing Exception Contracts in Local Gemma Repairs",
+  "subtitle": "An executable case study and six diagnostic tasks with calibrated validation gates",
+  "author": "Jacek Adamek",
+  "body_file": "submission-writeup.txt",
+  "word_count_including_references": 1886,
+  "optional_notebook_file": "submission-review.ipynb",
+  "executed_notebook_file": "submission-review-executed.ipynb",
+  "optional_pdf_file": "submission-paper.pdf",
+  "public_project_links": [],
+  "created_on_platform": false,
+  "submitted": false
+}

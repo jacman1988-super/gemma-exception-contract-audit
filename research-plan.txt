@@ -1,0 +1,49 @@
+UPDATE: 14 October 2026. stress-experiment.txt records an executed eight-case
+comparison and alias correction. real-bugs-pilot.txt records two upstream bug/fix
+pairs with successful fixed references and reproduced failures. Both are now
+inspected development pilots. Their negative results are retained. The original
+plan below is historical; a larger repository split and real-agent study remain.
+
+ImportGuard: uncertainty-aware regression-test selection for local coding agents
+Working research plan, NOT a finished paper. 14 October 2026.
+
+Abstract: We implement an inspectable Python import-graph selector with explicit
+uncertainty fallback and a small executable diagnostic resource. Controlled fixtures
+check behavior; they do not establish effectiveness on real software or Gemma agents.
+
+Introduction: Local coding agents have limited inference and testing budgets. Test
+selection can save work but can also hide regressions. We investigate whether exposing
+uncertainty and retaining a full-suite fallback improves the tradeoff.
+
+Methods implemented: Parse source with ast; construct module import dependencies;
+traverse reverse dependencies; select connected test modules. Dynamic execution,
+parse failures, unknown changes and empty selections trigger full-suite fallback.
+Record hashes, selected paths, reasons and actual subprocess outputs.
+
+Experiments implemented: Four original synthetic dependency patterns, each with a
+clean implementation and a deliberately wrong arithmetic mutation. Run clean suite,
+then full suite, fixed-prefix budget control and ImportGuard on the mutation. Raw
+outputs are stored in results/smoke-benchmark.json after execution. These are diagnostic
+fixtures, not evidence of generalization or new state of the art.
+
+Next experiment: Freeze a manifest of public, permissively licensed Python bug/fix
+pairs and document each license. Split by repository before tuning. Compare full,
+random equal-budget (multiple seeds), coverage selection, static imports without
+fallback and with fallback. Never expose held-out test outcomes to the selector.
+Run an actual local Gemma agent with the same tasks and inference budget in each arm.
+Use existing baseline implementations only after checking licenses. Report all failures,
+empty selections and timeouts, and measure false-negative fault detection explicitly.
+
+Related work: initial primary-source notes are in related-work-notes.txt; a systematic
+review and comparative experiments remain pending. Required topics: safe regression test selection,
+dynamic test impact analysis, mutation testing and execution-guided SWE agents.
+Use primary papers and precise citations before drafting novelty claims. Existing
+contest resources also cover code graphs and localization; this is not a novelty claim.
+
+Conclusions: pending. No Gemma capability, benchmark ranking or contest score is claimed.
+The participant must review methods and writing before any submission.
+
+Submission checklist: <=3000 words; title/subtitle, abstract, introduction, methods,
+experiments, related work/citations; original and unpublished research; Kaggle Writeup.
+Optional publicly accessible notebook/project links. Winner license: Apache 2.0.
+Deadline: 12 November 2026 23:59 UTC = 13 November 00:59 Europe/Warsaw.

@@ -1,0 +1,37 @@
+The ImportGuard selector and experiment harnesses are original project code.
+The real-bug pilot consumes third-party source and regression tests from:
+
+boltons (Mahmoud Hashemi and contributors), BSD-3-Clause.
+https://github.com/mahmoud/boltons
+License: results/real-bugs-pilot/boltons-indexedset-LICENSE.txt
+
+more-itertools (Erik Rose and contributors), MIT.
+https://github.com/more-itertools/more-itertools
+License: results/real-bugs-pilot/more-itertools-bucket-LICENSE.txt
+
+The local-model prompt files quote small buggy source snippets from those
+projects. Their original licenses and attribution remain applicable. Upstream
+test names and failure output are retained for scientific reproducibility.
+No upstream source repository is redistributed as original ImportGuard work.
+
+Gemma 4 E2B QAT GGUF model: Google DeepMind, Apache 2.0 as stated by Google.
+https://huggingface.co/google/gemma-4-E2B-it-qat-q4_0-gguf
+llama.cpp runtime: ggml-org and contributors, MIT.
+https://github.com/ggml-org/llama.cpp
+The downloaded weights, runtime and dependencies are local experiment resources;
+they are not included in the project archive. See local-model-pilot provenance.
+
+Expansion source snippets and upstream tests:
+cachetools, Thomas Kemmer and contributors, MIT; https://github.com/tkem/cachetools
+jmespath, Amazon.com and contributors, MIT; https://github.com/jmespath/jmespath.py
+License texts are copied in results/expansion/ and results/expansion-utf8/.
+The known fixes, test data and regression tests remain attributed upstream work.
+
+ECA-6 sources, tests, constructed calibration patches and resource harnesses are
+new project code, Apache-2.0. Six task sources were created with Codex assistance.
+The ItsDangerous motivating source, generated prompts and reference-equivalent
+patch remain Pallets BSD-3-Clause material; see retained LICENSE texts in
+results/new-repositories*/ and results/itsdangerous-reference-repair/.
+SortedContainers context remains Apache-2.0 upstream material; see its license
+in results/new-repositories*/. No research-paper PDFs are redistributed as code.
+Bibliographic sources are cited in submission-writeup.txt.

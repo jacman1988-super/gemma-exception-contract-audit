@@ -1,0 +1,44 @@
+Exception Contract Audit (ECA-6), version 1 plus separately labeled post-outcome v2.
+Author: Jacek Adamek. Assisted development and evaluation: Codex.
+License for original code, six generated task sources, tests and calibration
+variants: Apache-2.0, LICENSE.txt. Third-party real-case snippets retain their
+upstream notices. This resource is new project material, not a SWE-bench subset.
+
+Purpose: small executable diagnostics for exception metadata and validation gaps.
+Not a representative benchmark, safety proof or source of model-wide error rates.
+The resource was motivated by an already inspected ItsDangerous failure.
+All six tasks share a template, making observations strongly correlated.
+
+Units: 6 tasks, 6 buggy/reference pairs, 36 deliberately flawed calibration
+patches, 6 actual one-shot local Gemma outputs. Each v1 task has 3 weak and
+4 additional contract tests. V2 adds 2 tests after the first outcomes were seen.
+No held-out data or independent validation for v2. No private Kaggle data used.
+
+Frozen original data: results/exception-contract-resource/protocol.json.
+Its generator hash identifies contract_resource.py. Inference protocol pins
+weights/runtime by hash and records parameters; actual text is in *.output.txt.
+reviewed-model-patches.json records exact reviewed edits and source/output hashes.
+calibration-evaluation.json and model-evaluation.json are primary v1 outcomes.
+posthoc-v2-protocol.json and posthoc-v2-evaluation.json are developmental follow-up.
+All failure logs and intermediate validator limitations are retained.
+
+Measured gates:
+- Weak: all 36 calibration variants and 6/6 model outputs accepted.
+- V1: 35/36 calibration variants rejected; 6/6 model outputs accepted.
+- V2 post-outcome: 36/36 variants rejected; 5/6 model outputs accepted.
+One text-domain stringification variant escaped v1's nominated input domain;
+additional domains expose it. The type_tuple model output changes an existing
+negative-input message; that specific discrepancy is detected only by v2.
+Unspecified new-error message changes are recorded without automatically
+classifying them as faults. Other uncovered behavior may remain.
+
+Recompute without model weights:
+  python reproduce_contract_resource.py FRESH_DESTINATION
+Needs Python 3.12 and pytest==8.4.2; refuses to overwrite an existing destination.
+This reruns tests, not model inference, and compares recorded outcome summaries.
+To repeat inference, use a separate project copy, the pinned model/runtime and
+a fresh results/exception-contract-resource directory. Never erase original
+evidence to rerun. New results must not overwrite the recorded protocols.
+
+Do not train on these exact cases and then describe their evaluation as held out.
+No publication, platform upload, external messages or paid services are performed.

@@ -1,0 +1,39 @@
+GEMMA — ODTWORZENIE I GRANICE WYNIKÓW
+
+Podstawowy selektor wymaga Python 3.12. Testy: pytest 8.4.2.
+Dodatkowe zależności testów upstream: requirements-new-repositories.txt.
+Sprawdzenie bez pobierania danych:
+  python -m pytest -q
+  python verify_final.py
+
+Zwykły wybór testów w Twoim repozytorium:
+  python importguard_discovery.py SCIEZKA_REPO ZMIENIONY_PLIK --source-root src
+Zastąp SCIEZKA_REPO oraz ZMIENIONY_PLIK swoimi ścieżkami. Dla płaskiego
+repozytorium pomiń --source-root. Niestandardowe nazwy testów wymagają
+jawnego --test-pattern. Selektor nie daje gwarancji bezpieczeństwa dla
+dynamicznego Pythona. Zachowano wcześniejsze zamrożone wersje.
+
+Nowe przypadki pobiera fetch_new_repositories.py do katalogu work/new-upstream
+obok nadrzędnego katalogu outputs. Zapisany protokół results/new-repositories/
+zawiera dokładne rewizje, hashe archiwów i licencje; bieżąca historia GitHub
+może prowadzić do innego wyboru niż w zapisanym badaniu. Do dokładnego
+odtworzenia użyj zapisanych rewizji i archiwów o tych samych sumach.
+Nie traktuj ponownego wyboru z aktualnej historii jako odtworzenia próby.
+
+Model lokalny nie jest dołączony. Prompty, wersja, sumy wag i runtime,
+budżety oraz odpowiedzi są w results/itsdangerous-model*/. Skrypty zachowują
+odmowę nadpisania istniejących wyników. Odtwarzaj w osobnej kopii, ze świeżym
+katalogiem wyników i lokalnymi wagami/runtime o wskazanych sumach.
+Wszystkie próby były na CPU. Nie wysyłano kodu do zewnętrznego modelu.
+
+Poprawka używalna lokalnie znajduje się jako repair.patch w
+results/itsdangerous-reference-repair/. Dotyczy wyłącznie zapisanej wersji
+rodzica ItsDangerous; nie nakładaj jej bez sprawdzenia na inne wersje.
+prepare_reference_repair.py rekonstruuje ją i uruchamia testy w osobnej kopii.
+To ręczna rekonstrukcja znanej poprawki upstream, nie wygenerowana naprawa.
+Oryginalna licencja i źródło są dołączone.
+
+Raport końcowy paper-final-review.txt ma mniej niż 3000 słów. Nie jest
+zgłoszony ani nie twierdzi, że uzyskano nowy bezpieczny algorytm selekcji,
+ogólną przewagę modelu lub pracę gotową konkursowo. Historyczne wersje
+papieru, kodu, niepowodzenia i wyniki kontrolne pozostały w paczce.

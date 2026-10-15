@@ -1,0 +1,46 @@
+GEMMA — PRZYGOTOWANA PRACA DO PAPER TRACK
+Autor: Jacek Adamek. Stan: 15 października 2026.
+
+Praca: Beyond 297 Passing Tests: Auditing Exception Contracts in Local Gemma Repairs.
+Gotowy tekst do pola Kaggle Writeup: submission-writeup.txt.
+PDF: submission-paper.pdf. Pola tytułu i podtytułu: submission-fields.json.
+Praca ma 1886 słów z bibliografią; wymagany limit to 3000.
+
+Przedmiotem zgłoszenia jest oryginalny zasób ECA-6 i audyt jakości walidacji,
+a nie deklaracja naprawy ItsDangerous przez model ani nowy bezpieczny selektor.
+Opisano zarówno pozytywne wyniki na prostych zadaniach, jak i niepowodzenia.
+Nowość jest ograniczona do konkretnego zasobu, pomiarów i obserwacji;
+nie twierdzimy, że wynaleziono testowanie różnicowe lub że praca wygra nagrodę.
+
+Zawartość gotowa do przeglądu i ewentualnego wklejenia po Twojej decyzji:
+- pełny tekst: tytuł, podtytuł, abstrakt, wstęp, metody, wyniki, literatura;
+- 6 oryginalnych zadań, 36 wariantów kalibracyjnych, jawne licencje;
+- 6 rzeczywistych prób Gemma i wszystkie surowe odpowiedzi;
+- protokoły v1 oraz oddzielny audyt v2 po obejrzeniu wyników;
+- notebook przeglądowy oraz wykonana kopia (plain CPython, nie kernel Jupyter);
+- sprawdzone odtworzenie testów w świeżym katalogu, bez modelu;
+- komplet starszych wyników, w tym nieudane próby ItsDangerous.
+
+Kontrole lokalne:
+  python -m pytest -q
+  python verify_submission.py
+Odtworzenie zasobu (Python 3.12 i pytest 8.4.2):
+  python reproduce_contract_resource.py NOWY_KATALOG
+Nie nadpisuje istniejących danych. Nie wymaga wag modelu.
+Wagi i runtime do nowej inferencji są osobnymi, przypiętymi zasobami.
+
+Wymagania sprawdzono 15.10.2026 na oficjalnych Overview i Rules.
+Kaggle Writeup jest wymagany; publiczny notebook i PDF/link są opcjonalne.
+Nie trzeba uczestniczyć w głównym tracku predykcyjnym. Termin:
+12.11.2026 23:59 UTC, czyli 13.11.2026 00:59 w Polsce.
+Źródła i szczegóły: submission-requirements-2026-10-15.json.
+
+Stan zewnętrzny: NIE utworzono Writeup, NIE dołączono do konkursu w tej pracy,
+NIE zaakceptowano nowych warunków, NIE opublikowano kodu i NIE wysłano zgłoszenia.
+Wcześniejszy zakaz nadal obowiązuje. Przed przyszłą publikacją uczestnik musi
+przeczytać pracę, potwierdzić własne uprawnienia i świadomie zaakceptować
+odpowiedzialność autora. Ocena naukowa i decyzja o nagrodzie należą do jury.
+
+Starsze README/historyczne raporty opisywały wcześniejszy niedokończony zakres.
+Aktualny zakres i wynik kontroli zawierają submission-package.json oraz
+submission-verification.json; nie przypisuj im wyników starych modeli.

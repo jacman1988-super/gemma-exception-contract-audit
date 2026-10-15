@@ -1,0 +1,23 @@
+Initial source notes — 14 October 2026. Not a systematic literature review.
+
+Rothermel, Gregg; Harrold, Mary Jean. A Safe, Efficient Regression Test Selection
+Technique. ACM TOSEM 6(2), 173–210, April 1997. DOI: 10.1145/248233.248262.
+Primary paper copy reviewed (abstract and introductory definitions):
+https://www.cs.purdue.edu/homes/xyzhang/spring07/Papers/p173-rothermel.pdf
+The authors use control-flow graphs and execution history and prove safety under
+specified assumptions. ImportGuard uses coarse static module imports and has no
+corresponding safety proof. Fallback on recognized dynamic behavior does not make
+it a safe selector. Dependency-based test selection itself is established prior work;
+we cannot claim it as a novel contribution.
+
+Jimenez et al. SWE-bench: Can Language Models Resolve Real-World GitHub Issues?
+ICLR 2024; arXiv:2310.06770. Primary abstract and project description reviewed:
+https://arxiv.org/abs/2310.06770
+https://www.swebench.com/original.html
+The benchmark uses real repository issues and evaluates generated changes through
+execution. Four constructed arithmetic mutations in ImportGuard are not comparable
+to this scale or task difficulty. A later real-agent experiment must state benchmark
+version, task selection and contamination controls and inspect data/code licenses.
+
+Novelty remains unestablished. These sources motivate better comparisons; no
+published baseline has yet been reimplemented or experimentally compared here.

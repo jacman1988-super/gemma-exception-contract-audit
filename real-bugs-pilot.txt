@@ -1,0 +1,73 @@
+ImportGuard: pilot on two public bug/fix pairs
+14 October 2026. Unpublished local working note; not a contest-ready paper.
+
+Pinned primary sources and licenses:
+1. boltons, IndexedSet.update multiple-iterable fix, BSD-3-Clause.
+   https://github.com/mahmoud/boltons/commit/a180020c760b532e8889f161d97d05647adfee8c
+   Parent e00c10a809525027b8167fbb7ac233cfc25a01f5.
+2. more-itertools, bucket falsey validator fix, MIT.
+   https://github.com/more-itertools/more-itertools/commit/67fcf640477c78605580f5ee703a54c73c1e7a8a
+   Parent 1ea82a711c69f590054987b5cb194157f8ce8ac4.
+
+The unmodified upstream regression tests are used; the two fixes and these tests
+are not our original contribution. Third-party license texts are copied beside
+the results. Full third-party repositories are not redistributed in the package.
+
+Protocol: fixed-version tests and other files remain constant. Only the changed
+production Python file is reverted to its parent version. This intentionally
+transfers newly added upstream regression tests to the buggy implementation.
+All selection methods see the same fixed tests and changed production path;
+the changed test file is not supplied as an additional changed path. No selector
+parameter or algorithm was altered after these upstream results were observed.
+
+The explicitly declared test pool is three modules for boltons (setutils,
+iterutils, listutils), two for more-itertools (more, recipes). These are bounded
+subsets, not full upstream suites. Selection scans the complete source tree;
+the resulting choices are intersected with this declared pool. Pytest 8.4.2 runs
+without automatic external plugin loading. Upstream conftest is retained.
+
+Observed fixed references:
+- boltons: 74 tests passed.
+- more-itertools: 768 tests passed.
+
+Reverting production code with those tests held constant:
+- boltons: 4 expected regression failures, 70 passes.
+- more-itertools: 1 expected regression failure, 767 passes.
+
+                         Detected bug/fix pairs   Selected module runs
+Full declared pool       2 / 2                    5
+Imports with fallback    2 / 2                    5
+Imports without fallback 2 / 2                    3
+
+There is no selection saving for the fallback method on these two cases. Its
+global uncertainty rule detects exec/import_module in boltons production code,
+documentation and function-builder tests, and in more_itertools/more.py. The
+method chooses the full declared pool. This is a useful negative observation:
+recognizing more dynamic behavior can eliminate the intended savings even when
+that behavior is unrelated to the changed module. The no-fallback result is not
+evidence of safety; its alias failures remain in the controlled experiment.
+
+The 20 seeded random choices match fallback's budget. Here every choice is the
+full declared pool, so they provide no independent comparison. Identical subsets
+reuse the same process result. No runtime speedup or population interval is
+claimed. The raw process times include startup and environment effects.
+
+Convenience selection and only two repositories prevent generalization. These
+are inspected development pilot cases, not a held-out assessment. They were
+chosen for small stdlib-oriented fixes and permissive licenses, not by selector
+outcomes. No model or full coding agent was executed as part of this selector
+comparison. A separate local-model diagnostic records any actual inference.
+
+Reproduction from this project directory (Python 3.12, pytest==8.4.2):
+python fetch_pilot.py /path/to/pilot-data
+python real_bug_benchmark.py /path/to/pilot-data /path/to/execution-copies
+
+fetch_pilot.py downloads only public archives, checks recorded SHA-256 and CRC,
+and checks extraction paths. It does not execute them. The harness executes
+reviewed test subsets in local copies. Run external source in a suitable sandbox.
+results/real-bugs-pilot/pilot-manifest.json records fixed and parent commits,
+archive, source, test, license and selector hashes before upstream execution.
+results.json retains the successful references, failures, selections and output.
+
+AI assistance: Codex implementation, research and drafting. The participant must
+review methods, attribution and writing. No publication or submission occurred.

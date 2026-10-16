@@ -1,0 +1,4 @@
+{
+  "reason": "Packaging collection failed due to absent tomli_w. Install tomli-w==1.2.0; unchanged source, tests and case selection. Keep initial failure.",
+  "model_has_run": false
+}

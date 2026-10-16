@@ -1,0 +1,30 @@
+{
+  "reviewed_by": "Codex; not participant approval",
+  "review": "All three exact assignment/exception-handler changes inspected. No added imports, commands, file operations or network access. Semantic correctness is left to tests; no edit repaired.",
+  "cases": [
+    {
+      "id": "cachetools-empty",
+      "output_sha256": "9aa26dfa8ca0120907cf22e831a35a9af33f807205c17bcb2fac208ceff0bc56",
+      "reviewed_edit": {
+        "old": "        try:\n            key = self.__choice(self.__keys)\n        except IndexError:\n            raise KeyError(\"%s is empty\" % type(self).__name__) from None\n        else:\n            return (key, self.pop(key))",
+        "new": "        try:\n            key = self.__choice(self.__keys)\n        except (IndexError, KeyError):\n            raise KeyError(\"%s is empty\" % type(self).__name__) from None\n        else:\n            return (key, self.pop(key))"
+      }
+    },
+    {
+      "id": "cachetools-growth",
+      "output_sha256": "e2a16f818cda442e860830849d7fdc0dc59f0b89014919fe92c83fefb0a96fd1",
+      "reviewed_edit": {
+        "old": "        if key not in self.__data or self.__size[key] < size:",
+        "new": "        if key not in self.__data or self.__size.get(key, 0) < size:"
+      }
+    },
+    {
+      "id": "cachetools-stale",
+      "output_sha256": "6d108fffcfb39a6b54eedfb111aa8fdc128db2d4d1b4fd429abf7421f613e9d8",
+      "reviewed_edit": {
+        "old": "        # removing an existing item would break the heap structure, so\n        # only mark it as removed for now\n        try:\n            self.__getitem(key).removed = True\n        except KeyError:\n            pass",
+        "new": "        # removing an existing item would break the heap structure, so\n        # only mark it as removed for now\n        if key in self.__items:\n            self.__items[key].removed = True"
+      }
+    }
+  ]
+}

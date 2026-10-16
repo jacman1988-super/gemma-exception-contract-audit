@@ -1,0 +1,44 @@
+{
+  "cases": [
+    {
+      "arm": "no_feedback",
+      "reviewed_by": "Codex; not participant approval",
+      "review": "Exact displayed local function; list(chain(*others)) flattens iterables. No new external effects.",
+      "output_sha256": "bac03d4b29fa9536f368102cf0234b6601e37461e5ba0d9c8e89c3b3d05c87cf",
+      "edit": {
+        "old": "    def update(self, *others):\n        \"update(*others) -> add values from one or more iterables\"\n        if not others:\n            return  # raise?\n        elif len(others) == 1:\n            other = others[0]\n        else:\n            other = list(chain(others))\n        for o in other:\n            self.add(o)",
+        "new": "    def update(self, *others):\n        \"update(*others) -> add values from one or more iterables\"\n        if not others:\n            return\n        elif len(others) == 1:\n            other = others[0]\n        else:\n            other = list(chain(*others))\n        for o in other:\n            self.add(o)"
+      },
+      "patched_source_text_sha256": "cf2e87846c8250def3d3f6e6de0c6e4d92044dbcec0888bee274064702848411",
+      "reused_identical_patch_test_result": false,
+      "test_result": {
+        "returncode": 0,
+        "modules": 3,
+        "seconds": 1.4571222000013222,
+        "stdout": "........................................................................ [ 97%]\n..                                                                       [100%]\n74 passed in 0.79s\n",
+        "stderr": ""
+      }
+    },
+    {
+      "arm": "test_feedback",
+      "reviewed_by": "Codex; not participant approval",
+      "review": "Exact displayed local function; list(chain(*others)) flattens iterables. No new external effects.",
+      "output_sha256": "27bcda7ad9e610475003ca3c7d29242b1d8bac6773e24b3b1a6443f56efd929f",
+      "edit": {
+        "old": "    def update(self, *others):\n        \"update(*others) -> add values from one or more iterables\"\n        if not others:\n            return  # raise?\n        elif len(others) == 1:\n            other = others[0]\n        else:\n            other = list(chain(others))\n        for o in other:\n            self.add(o)",
+        "new": "    def update(self, *others):\n        \"update(*others) -> add values from one or more iterables\"\n        if not others:\n            return\n        elif len(others) == 1:\n            other = others[0]\n        else:\n            other = list(chain(*others))\n        for o in other:\n            self.add(o)"
+      },
+      "patched_source_text_sha256": "cf2e87846c8250def3d3f6e6de0c6e4d92044dbcec0888bee274064702848411",
+      "reused_identical_patch_test_result": true,
+      "test_result": {
+        "returncode": 0,
+        "modules": 3,
+        "seconds": 1.4571222000013222,
+        "stdout": "........................................................................ [ 97%]\n..                                                                       [100%]\n74 passed in 0.79s\n",
+        "stderr": ""
+      }
+    }
+  ],
+  "unique_patch_test_runs": 1,
+  "scope": "Same known development case. Identical patches share one test run; not independent performance repetitions."
+}

@@ -1,0 +1,24 @@
+{
+  "scope": "Post-test differential diagnostic; not part of original frozen test pool.",
+  "rows": [
+    {
+      "variant": "fixed",
+      "exception": "BadTimeSignature",
+      "payload_type": "bytes",
+      "payload_repr": "b'value'"
+    },
+    {
+      "variant": "parent",
+      "exception": "OSError",
+      "payload_type": "NoneType",
+      "payload_repr": "None"
+    },
+    {
+      "variant": "generated",
+      "exception": "BadTimeSignature",
+      "payload_type": "str",
+      "payload_repr": "'Timestamp 21959264258072993 caused OSError: [Errno 22] Invalid argument'"
+    }
+  ],
+  "model_patch_manually_corrected": false
+}

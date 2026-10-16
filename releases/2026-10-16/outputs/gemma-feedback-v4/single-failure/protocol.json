@@ -1,0 +1,12 @@
+{
+  "method": "Single remaining failure plus passing-behavior ledger",
+  "attempts": 1,
+  "tokens": 512,
+  "context": 4096,
+  "seed": 20261016,
+  "temperature": 0,
+  "previous_generation_sha256": "3a5e97515c04b043437ad4b014b3bac56db68336cb33bca8a0d1eea25d2a008d",
+  "source_sha256": "9f98deeb010d2b0c60f5b2e2d4dc99b025372a3808170b8162f8048094d3ec8c",
+  "gold_source_supplied": false,
+  "withheld_tests_shared": false
+}

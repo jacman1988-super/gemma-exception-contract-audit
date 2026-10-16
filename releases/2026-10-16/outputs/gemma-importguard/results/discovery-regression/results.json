@@ -1,0 +1,256 @@
+{
+  "cases": [
+    {
+      "case": "flat_prefix",
+      "clean_exit": 0,
+      "mutated_full_exit": 1,
+      "full_modules": 2,
+      "old": {
+        "selection": {
+          "selected": [
+            "test_z_fee.py"
+          ],
+          "static_selected": [
+            "test_z_fee.py"
+          ],
+          "total_tests": 2,
+          "fallback": false,
+          "reasons": [],
+          "changed": [
+            "core.py"
+          ],
+          "declared_source_roots": [
+            "."
+          ],
+          "source_sha256": {
+            "core.py": "013eb769bd81fa46872213ddbdbc957819b97f173272fa907c9bf40ea80a2ff4",
+            "test_a_unrelated.py": "44ab0bccce4a05e94abda152ea7de64a540f6cec71568bde475a66dd5eb42e34",
+            "test_z_fee.py": "94543c3e3f559eeae2b36267af3f07792aea0d4daaeef011b70807506f9992ef"
+          },
+          "limitations": "Static imports only; plugins, reflection and runtime monkeypatching may escape detection."
+        },
+        "exit": 1
+      },
+      "new": {
+        "selection": {
+          "selected": [
+            "test_z_fee.py"
+          ],
+          "static_selected": [
+            "test_z_fee.py"
+          ],
+          "total_tests": 2,
+          "fallback": false,
+          "reasons": [],
+          "changed": [
+            "core.py"
+          ],
+          "declared_source_roots": [
+            "."
+          ],
+          "test_filename_patterns": [
+            "test*.py",
+            "*_test.py"
+          ],
+          "source_sha256": {
+            "core.py": "013eb769bd81fa46872213ddbdbc957819b97f173272fa907c9bf40ea80a2ff4",
+            "test_a_unrelated.py": "44ab0bccce4a05e94abda152ea7de64a540f6cec71568bde475a66dd5eb42e34",
+            "test_z_fee.py": "94543c3e3f559eeae2b36267af3f07792aea0d4daaeef011b70807506f9992ef"
+          },
+          "limitations": "Static imports only; plugins, reflection and runtime monkeypatching may escape detection."
+        },
+        "exit": 1
+      }
+    },
+    {
+      "case": "flat_suffix",
+      "clean_exit": 0,
+      "mutated_full_exit": 1,
+      "full_modules": 2,
+      "old": {
+        "selection": {
+          "selected": [
+            "test_a_unrelated.py"
+          ],
+          "static_selected": [],
+          "total_tests": 1,
+          "fallback": true,
+          "reasons": [
+            "no statically connected tests; full suite required"
+          ],
+          "changed": [
+            "core.py"
+          ],
+          "declared_source_roots": [
+            "."
+          ],
+          "source_sha256": {
+            "core.py": "013eb769bd81fa46872213ddbdbc957819b97f173272fa907c9bf40ea80a2ff4",
+            "fee_test.py": "94543c3e3f559eeae2b36267af3f07792aea0d4daaeef011b70807506f9992ef",
+            "test_a_unrelated.py": "44ab0bccce4a05e94abda152ea7de64a540f6cec71568bde475a66dd5eb42e34"
+          },
+          "limitations": "Static imports only; plugins, reflection and runtime monkeypatching may escape detection."
+        },
+        "exit": 0
+      },
+      "new": {
+        "selection": {
+          "selected": [
+            "fee_test.py"
+          ],
+          "static_selected": [
+            "fee_test.py"
+          ],
+          "total_tests": 2,
+          "fallback": false,
+          "reasons": [],
+          "changed": [
+            "core.py"
+          ],
+          "declared_source_roots": [
+            "."
+          ],
+          "test_filename_patterns": [
+            "test*.py",
+            "*_test.py"
+          ],
+          "source_sha256": {
+            "core.py": "013eb769bd81fa46872213ddbdbc957819b97f173272fa907c9bf40ea80a2ff4",
+            "fee_test.py": "94543c3e3f559eeae2b36267af3f07792aea0d4daaeef011b70807506f9992ef",
+            "test_a_unrelated.py": "44ab0bccce4a05e94abda152ea7de64a540f6cec71568bde475a66dd5eb42e34"
+          },
+          "limitations": "Static imports only; plugins, reflection and runtime monkeypatching may escape detection."
+        },
+        "exit": 1
+      }
+    },
+    {
+      "case": "src_prefix",
+      "clean_exit": 0,
+      "mutated_full_exit": 1,
+      "full_modules": 2,
+      "old": {
+        "selection": {
+          "selected": [
+            "test_z_fee.py"
+          ],
+          "static_selected": [
+            "test_z_fee.py"
+          ],
+          "total_tests": 2,
+          "fallback": false,
+          "reasons": [],
+          "changed": [
+            "src/core.py"
+          ],
+          "declared_source_roots": [
+            "src"
+          ],
+          "source_sha256": {
+            "src/core.py": "013eb769bd81fa46872213ddbdbc957819b97f173272fa907c9bf40ea80a2ff4",
+            "test_a_unrelated.py": "44ab0bccce4a05e94abda152ea7de64a540f6cec71568bde475a66dd5eb42e34",
+            "test_z_fee.py": "94543c3e3f559eeae2b36267af3f07792aea0d4daaeef011b70807506f9992ef"
+          },
+          "limitations": "Static imports only; plugins, reflection and runtime monkeypatching may escape detection."
+        },
+        "exit": 1
+      },
+      "new": {
+        "selection": {
+          "selected": [
+            "test_z_fee.py"
+          ],
+          "static_selected": [
+            "test_z_fee.py"
+          ],
+          "total_tests": 2,
+          "fallback": false,
+          "reasons": [],
+          "changed": [
+            "src/core.py"
+          ],
+          "declared_source_roots": [
+            "src"
+          ],
+          "test_filename_patterns": [
+            "test*.py",
+            "*_test.py"
+          ],
+          "source_sha256": {
+            "src/core.py": "013eb769bd81fa46872213ddbdbc957819b97f173272fa907c9bf40ea80a2ff4",
+            "test_a_unrelated.py": "44ab0bccce4a05e94abda152ea7de64a540f6cec71568bde475a66dd5eb42e34",
+            "test_z_fee.py": "94543c3e3f559eeae2b36267af3f07792aea0d4daaeef011b70807506f9992ef"
+          },
+          "limitations": "Static imports only; plugins, reflection and runtime monkeypatching may escape detection."
+        },
+        "exit": 1
+      }
+    },
+    {
+      "case": "src_suffix",
+      "clean_exit": 0,
+      "mutated_full_exit": 1,
+      "full_modules": 2,
+      "old": {
+        "selection": {
+          "selected": [
+            "test_a_unrelated.py"
+          ],
+          "static_selected": [],
+          "total_tests": 1,
+          "fallback": true,
+          "reasons": [
+            "no statically connected tests; full suite required"
+          ],
+          "changed": [
+            "src/core.py"
+          ],
+          "declared_source_roots": [
+            "src"
+          ],
+          "source_sha256": {
+            "fee_test.py": "94543c3e3f559eeae2b36267af3f07792aea0d4daaeef011b70807506f9992ef",
+            "src/core.py": "013eb769bd81fa46872213ddbdbc957819b97f173272fa907c9bf40ea80a2ff4",
+            "test_a_unrelated.py": "44ab0bccce4a05e94abda152ea7de64a540f6cec71568bde475a66dd5eb42e34"
+          },
+          "limitations": "Static imports only; plugins, reflection and runtime monkeypatching may escape detection."
+        },
+        "exit": 0
+      },
+      "new": {
+        "selection": {
+          "selected": [
+            "fee_test.py"
+          ],
+          "static_selected": [
+            "fee_test.py"
+          ],
+          "total_tests": 2,
+          "fallback": false,
+          "reasons": [],
+          "changed": [
+            "src/core.py"
+          ],
+          "declared_source_roots": [
+            "src"
+          ],
+          "test_filename_patterns": [
+            "test*.py",
+            "*_test.py"
+          ],
+          "source_sha256": {
+            "fee_test.py": "94543c3e3f559eeae2b36267af3f07792aea0d4daaeef011b70807506f9992ef",
+            "src/core.py": "013eb769bd81fa46872213ddbdbc957819b97f173272fa907c9bf40ea80a2ff4",
+            "test_a_unrelated.py": "44ab0bccce4a05e94abda152ea7de64a540f6cec71568bde475a66dd5eb42e34"
+          },
+          "limitations": "Static imports only; plugins, reflection and runtime monkeypatching may escape detection."
+        },
+        "exit": 1
+      }
+    }
+  ],
+  "old_detected": 2,
+  "new_detected": 4,
+  "case_count": 4,
+  "model_inference": false
+}

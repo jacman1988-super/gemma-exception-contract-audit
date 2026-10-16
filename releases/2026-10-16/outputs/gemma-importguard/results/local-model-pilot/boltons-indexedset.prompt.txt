@@ -1,0 +1,15 @@
+You are reviewing a Python bug. Suggest the smallest source edit. Return only JSON with string fields old and new containing one exact old line and its replacement. Do not run commands.
+
+Task: IndexedSet.update accepts several iterables. Add their elements in order, not the iterables themselves. Preserve the zero-argument and one-argument behavior.
+File: boltons/setutils.py
+Buggy source:
+    def update(self, *others):
+        "update(*others) -> add values from one or more iterables"
+        if not others:
+            return  # raise?
+        elif len(others) == 1:
+            other = others[0]
+        else:
+            other = chain(others)
+        for o in other:
+            self.add(o)

@@ -1,0 +1,179 @@
+{
+  "kind": "controlled_synthetic_fixture_experiment",
+  "model_used": null,
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "benchmark_sha256": "27c1314a10095e11ca00210930c756f5a3625d15e0c724871039e8cdac8e2271",
+  "cases": [
+    {
+      "fixture": "direct",
+      "selection": {
+        "selected": [
+          "test_z_fee.py"
+        ],
+        "total_tests": 2,
+        "fallback": false,
+        "reasons": [],
+        "changed": [
+          "core.py"
+        ],
+        "source_sha256": {
+          "core.py": "046525bbb5fb8b9ffa8296eb4d274d1b848e72f47fd4296eb17e148aade90735",
+          "test_a_unrelated.py": "4916f60aecaf0175666fd08559a51172398ce4e686a8f70fbb64eb2d0a735265",
+          "test_z_fee.py": "9c71dd5ee91ae45a6f2ea500604ac18463d6c2c1e2cf1fbc8091fa6418cd9abe",
+          "unrelated.py": "f131cca9aca8e51d1d9574813df186c3b689dbbfa8c03566e4f66e3052d6eca2"
+        },
+        "limitations": "Static imports only; plugins, reflection and runtime monkeypatching may escape detection."
+      },
+      "runs": {
+        "full": {
+          "returncode": 1,
+          "seconds": 0.15789420000146492,
+          "stdout": "",
+          "stderr": ".F\n======================================================================\nFAIL: test_fee (test_z_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmptt4oijne\\test_z_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3), 6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 2 tests in 0.001s\n\nFAILED (failures=1)\n"
+        },
+        "prefix_budget_1": {
+          "returncode": 0,
+          "seconds": 0.15471229999820935,
+          "stdout": "",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n"
+        },
+        "importguard": {
+          "returncode": 1,
+          "seconds": 0.15583649999825866,
+          "stdout": "",
+          "stderr": "F\n======================================================================\nFAIL: test_fee (test_z_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmptt4oijne\\test_z_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3), 6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n"
+        }
+      }
+    },
+    {
+      "fixture": "transitive",
+      "selection": {
+        "selected": [
+          "test_z_fee.py"
+        ],
+        "total_tests": 2,
+        "fallback": false,
+        "reasons": [],
+        "changed": [
+          "core.py"
+        ],
+        "source_sha256": {
+          "bridge.py": "7731718e2642c6dae76653fee2cfc9bfc3aa077174c9bb8a6467bc88c65882b8",
+          "core.py": "046525bbb5fb8b9ffa8296eb4d274d1b848e72f47fd4296eb17e148aade90735",
+          "test_a_unrelated.py": "4916f60aecaf0175666fd08559a51172398ce4e686a8f70fbb64eb2d0a735265",
+          "test_z_fee.py": "6d9ebfb2d8a5a25b8d7a87d3c86c37bbd704a942ad5dbdb1ba9be3c7a06e212b",
+          "unrelated.py": "f131cca9aca8e51d1d9574813df186c3b689dbbfa8c03566e4f66e3052d6eca2"
+        },
+        "limitations": "Static imports only; plugins, reflection and runtime monkeypatching may escape detection."
+      },
+      "runs": {
+        "full": {
+          "returncode": 1,
+          "seconds": 0.15485040000203298,
+          "stdout": "",
+          "stderr": ".F\n======================================================================\nFAIL: test_fee (test_z_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp67lm1k_q\\test_z_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3), 6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 2 tests in 0.001s\n\nFAILED (failures=1)\n"
+        },
+        "prefix_budget_1": {
+          "returncode": 0,
+          "seconds": 0.14848500000152853,
+          "stdout": "",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n"
+        },
+        "importguard": {
+          "returncode": 1,
+          "seconds": 0.1538393000009819,
+          "stdout": "",
+          "stderr": "F\n======================================================================\nFAIL: test_fee (test_z_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp67lm1k_q\\test_z_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3), 6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n"
+        }
+      }
+    },
+    {
+      "fixture": "relative",
+      "selection": {
+        "selected": [
+          "test_z_fee.py"
+        ],
+        "total_tests": 2,
+        "fallback": false,
+        "reasons": [],
+        "changed": [
+          "pkg/core.py"
+        ],
+        "source_sha256": {
+          "pkg/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "pkg/bridge.py": "570550bd73740410906a9f60a896f2e434d03b48f28ab03e4a5765e493f1256c",
+          "pkg/core.py": "046525bbb5fb8b9ffa8296eb4d274d1b848e72f47fd4296eb17e148aade90735",
+          "test_a_unrelated.py": "4916f60aecaf0175666fd08559a51172398ce4e686a8f70fbb64eb2d0a735265",
+          "test_z_fee.py": "5665d001eefd9588e3a8c55436a79ad505a05bed61a4d51ec234a68b8451d858",
+          "unrelated.py": "f131cca9aca8e51d1d9574813df186c3b689dbbfa8c03566e4f66e3052d6eca2"
+        },
+        "limitations": "Static imports only; plugins, reflection and runtime monkeypatching may escape detection."
+      },
+      "runs": {
+        "full": {
+          "returncode": 1,
+          "seconds": 0.15566289999696892,
+          "stdout": "",
+          "stderr": ".F\n======================================================================\nFAIL: test_fee (test_z_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp06l3lp75\\test_z_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3), 6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 2 tests in 0.001s\n\nFAILED (failures=1)\n"
+        },
+        "prefix_budget_1": {
+          "returncode": 0,
+          "seconds": 0.15116789999956382,
+          "stdout": "",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n"
+        },
+        "importguard": {
+          "returncode": 1,
+          "seconds": 0.15230569999766885,
+          "stdout": "",
+          "stderr": "F\n======================================================================\nFAIL: test_fee (test_z_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp06l3lp75\\test_z_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3), 6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n"
+        }
+      }
+    },
+    {
+      "fixture": "dynamic",
+      "selection": {
+        "selected": [
+          "test_a_unrelated.py",
+          "test_z_fee.py"
+        ],
+        "total_tests": 2,
+        "fallback": true,
+        "reasons": [
+          "dynamic execution/import: test_z_fee.py"
+        ],
+        "changed": [
+          "core.py"
+        ],
+        "source_sha256": {
+          "core.py": "046525bbb5fb8b9ffa8296eb4d274d1b848e72f47fd4296eb17e148aade90735",
+          "test_a_unrelated.py": "4916f60aecaf0175666fd08559a51172398ce4e686a8f70fbb64eb2d0a735265",
+          "test_z_fee.py": "e6e1f07ca546c41668fa48906d2d3c9522b6024e63ac01d31008399acb5ca078",
+          "unrelated.py": "f131cca9aca8e51d1d9574813df186c3b689dbbfa8c03566e4f66e3052d6eca2"
+        },
+        "limitations": "Static imports only; plugins, reflection and runtime monkeypatching may escape detection."
+      },
+      "runs": {
+        "full": {
+          "returncode": 1,
+          "seconds": 0.15767799999957788,
+          "stdout": "",
+          "stderr": ".F\n======================================================================\nFAIL: test_fee (test_z_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpzsca4ql7\\test_z_fee.py\", line 5, in test_fee\n    def test_fee(self): self.assertEqual(fee(3), 6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 2 tests in 0.001s\n\nFAILED (failures=1)\n"
+        },
+        "prefix_budget_1": {
+          "returncode": 0,
+          "seconds": 0.1509226000016497,
+          "stdout": "",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n"
+        },
+        "importguard": {
+          "returncode": 1,
+          "seconds": 0.15537440000116476,
+          "stdout": "",
+          "stderr": ".F\n======================================================================\nFAIL: test_fee (test_z_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpzsca4ql7\\test_z_fee.py\", line 5, in test_fee\n    def test_fee(self): self.assertEqual(fee(3), 6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 2 tests in 0.001s\n\nFAILED (failures=1)\n"
+        }
+      }
+    }
+  ],
+  "caveat": "Four constructed cases; no real-repository or model capability evidence."
+}

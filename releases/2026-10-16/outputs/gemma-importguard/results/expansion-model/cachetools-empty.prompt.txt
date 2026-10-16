@@ -1,0 +1,20 @@
+Fix a Python bug. Return only JSON with string fields old and new for an exact source block and its replacement. Make the smallest edit, preserve unrelated behavior, and do not run commands.
+Task description (public commit message):
+Fix #423: Detect an empty RRCache before calling choice.
+
+RRCache.popitem() relied on the choice function raising IndexError on an
+empty sequence, which is what the default random.choice does. Any other
+valid choice function raised its own exception instead of KeyError, even
+though the documented contract only requires choice to handle non-empty
+sequences. The other cache classes each detect emptiness on their own
+structure first.
+Buggy source:
+File: src/cachetools/__init__.py
+    def popitem(self):
+        """Remove and return a random `(key, value)` pair."""
+        try:
+            key = self.__choice(self.__keys)
+        except IndexError:
+            raise KeyError("%s is empty" % type(self).__name__) from None
+        else:
+            return (key, self.pop(key))

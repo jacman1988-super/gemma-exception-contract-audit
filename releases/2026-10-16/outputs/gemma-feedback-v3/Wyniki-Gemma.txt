@@ -1,0 +1,26 @@
+Gemma — dwie rundy informacji zwrotnej, 16.10.2026
+Autor: Jacek Adamek
+
+Wynik: 0/2 pełnych napraw mimo dwóch rund informacji o błędach. Zachowano wszystkie cztery odpowiedzi.
+
+Tenacity:
+Runda 1: odpowiedź powtarza pola i urywa się przy limicie 1536 tokenów. Niekompletny JSON odrzucono bez wykonania.
+Runda 2: model zwrócił identyczne bloki old/new — brak zmiany. Odrzucono bez wykonania. Pierwotny problem z wywoływalnymi obiektami o fałszywej wartości logicznej pozostaje.
+
+Packaging:
+Runda 1: model przywrócił oryginalne wyrażenie .match(), usuwając regresję poprawnych nazw, ale przywracając akceptację końcowego znaku nowej linii.
+Runda 2: model dodał rstrip; testy nadal wykazują przyjmowanie niepoprawnych nazw z końcowym znakiem nowej linii.
+
+tenacity-new-v2 — liczby:
+round1: Unterminated string starting at: line 1 column 4430 (char 4429)
+round2: No-op edit is not a repair
+
+packaging-new-v2 — liczby:
+round1: upstream 73/74, feedback_tests 6/7, withheld_tests 9/9
+round2: upstream 73/74, feedback_tests 6/7, withheld_tests 8/9
+
+Referencje upstream: 249/249 sprawdzeń przechodzi. Zawiera to 216 testów ze zmienionych modułów, 15 wcześniejszych kontroli oraz 18 nowych kontroli niepokazanych modelowi w żadnej rundzie. Każdy raport sprawdzono pod względem kompletności, liczby i tożsamości testów oraz zgodności z kodem zakończenia.
+
+Metoda: ten sam lokalny model Gemma 4 E2B Q4_0, temperatura 0, seed 20261016, kontekst 4096. Runda 1 otrzymała dokładne wyjście nieudanych testów poprzedniej poprawki, limit 1536 tokenów. Runda 2 otrzymała krótszą informację zbiorczą o pierwotnym błędzie, regresjach i problemie formatu, limit 512 tokenów. Jedna generacja na przypadek w każdej rundzie; żadnych cichych powtórzeń i ręcznych napraw przypisanych modelowi. Model nie otrzymał poprawionego kodu upstream ani złotego patcha.
+
+Ograniczenia: zadania publiczne, dobrane wygodnie; lokalizacja funkcji i ręcznie przygotowane informacje zwrotne. Wynik dotyczy tego modelu i tej procedury, nie ogólnej możliwości rozwiązania tych błędów przez inne modele lub agentów. Wysłany artykuł, repozytoria i zgłoszenia pozostają bez zmian.

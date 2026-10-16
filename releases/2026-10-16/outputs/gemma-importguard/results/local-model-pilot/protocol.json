@@ -1,0 +1,38 @@
+{
+  "model": "google/gemma-4-E2B-it-qat-q4_0-gguf",
+  "revision": "675cff42a74c774d6cb76f76d8eacb49b48c9b93",
+  "model_sha256": "fa401b55b07ee70a54c6dae3903c783a6e65064312529ea57175cb5f8dec6634",
+  "runtime_version": "version: 0.6.0-dev (build 11429, commit d81235049)\nbuilt with Clang 20.1.8 for Windows x86_64\n",
+  "runtime_executable_sha256": "db2ca6b1255759101d8933370c992a9f2e219a0d62bc6528072eb4e0e7a323ba",
+  "context_tokens": 2048,
+  "max_generated_tokens": 192,
+  "temperature": 0,
+  "seed": 20261014,
+  "threads": 2,
+  "batch": 64,
+  "reasoning": "off",
+  "hardware": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "tasks": [
+    {
+      "id": "boltons-indexedset",
+      "file": "boltons/setutils.py",
+      "description": "IndexedSet.update accepts several iterables. Add their elements in order, not the iterables themselves. Preserve the zero-argument and one-argument behavior.",
+      "anchor": "    def update(self, *others):",
+      "lines": 10,
+      "prompt": "You are reviewing a Python bug. Suggest the smallest source edit. Return only JSON with string fields old and new containing one exact old line and its replacement. Do not run commands.\n\nTask: IndexedSet.update accepts several iterables. Add their elements in order, not the iterables themselves. Preserve the zero-argument and one-argument behavior.\nFile: boltons/setutils.py\nBuggy source:\n    def update(self, *others):\n        \"update(*others) -> add values from one or more iterables\"\n        if not others:\n            return  # raise?\n        elif len(others) == 1:\n            other = others[0]\n        else:\n            other = chain(others)\n        for o in other:\n            self.add(o)",
+      "buggy_file_sha256": "aa806bb553ca1114e95d730fd7195c02e946db4eba03fc44927180dbb7bbc5bb"
+    },
+    {
+      "id": "more-itertools-bucket",
+      "file": "more_itertools/more.py",
+      "description": "bucket must honor a supplied validator even when that callable is falsey, for example an empty set subclass with __call__. Only the absence of a validator should select the default.",
+      "anchor": "    def __init__(self, iterable, key, validator=None):",
+      "lines": 8,
+      "prompt": "You are reviewing a Python bug. Suggest the smallest source edit. Return only JSON with string fields old and new containing one exact old line and its replacement. Do not run commands.\n\nTask: bucket must honor a supplied validator even when that callable is falsey, for example an empty set subclass with __call__. Only the absence of a validator should select the default.\nFile: more_itertools/more.py\nBuggy source:\n    def __init__(self, iterable, key, validator=None):\n        self._it = iter(iterable)\n        self._key = key\n        self._cache = defaultdict(deque)\n        self._validator = validator or (lambda x: True)\n\n    def __contains__(self, value):\n        if not self._validator(value):",
+      "buggy_file_sha256": "b24479fcf9ae3b171a20acdd7ad4fa9fae8f33ff0f403898c0d18bb6061a110b"
+    }
+  ],
+  "automatic_execution_of_output": false,
+  "scope": "Two known public bug snippets, no tools or feedback loop; not a full coding-agent benchmark or held-out model capability estimate."
+}

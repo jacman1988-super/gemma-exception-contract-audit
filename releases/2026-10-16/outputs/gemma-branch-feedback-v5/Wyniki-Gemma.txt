@@ -1,0 +1,12 @@
+Gemma — rozdzielenie przypadków na osobne warunki, 16.10.2026
+Autor: Jacek Adamek
+
+Packaging: 90/90 zadeklarowanych sprawdzeń przechodzi (74 upstream, 7 kontroli przykładów, 9 kontroli niepokazanych modelowi). Dodatkowo zgodność z rzeczywistą przypiętą poprawką upstream dla 1245 różnych nazw plików, bez rozbieżności. Dodatkowy test różnicowy powstał po odczytaniu odpowiedzi modelu; to kontrola odporności, nie uprzednio ukryty benchmark.
+
+Nowa odpowiedź zawiera osobną gałąź dla dokładnego pylock.toml i osobne sprawdzanie prefiksu, sufiksu oraz niepustego członu bez kropki. Nie usuwa znaków nowej linii i nie normalizuje nazw. Ciało funkcji pochodzi dosłownie z modelu; nie poprawiano go ręcznie. Lokalny patch ma zweryfikowaną zgodność hashy z przetestowanymi źródłami.
+
+Metoda: jedna generacja, ten sam Gemma E2B Q4_0, temperatura 0, seed 20261016, limit 512 tokenów. Informacja zwrotna jawnie rozdziela dwa dozwolone typy nazw i prosi o osobne gałęzie if, zamiast kolejnego jednowierszowego regexu. To silna pomoc człowieka w strukturze rozwiązania. Nie dostarczono kodu poprawki upstream, ale nie należy przedstawiać wyniku jako samodzielnego odkrycia rozwiązania przez agenta.
+
+Tenacity zachowuje wynik 159/159 z poprzedniego etapu; jego kodu nie zmieniano i nie powtarzano bez potrzeby testów. Oba publiczne przypadki mają teraz wygenerowane poprawki przechodzące zadeklarowany zakres testów (łącznie 249/249), po różnej liczbie prób i różnej pomocy. Nie jest to wynik pierwszej próby ani szeroka miara skuteczności modelu. Wszystkie wcześniejsze niepowodzenia pozostają zachowane.
+
+Nic nie opublikowano ani nie wysłano. Artykuł, repozytoria i zgłoszenia konkursowe pozostają niezmienione.

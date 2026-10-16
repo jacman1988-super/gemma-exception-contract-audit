@@ -1,0 +1,29 @@
+Explicit source-root development variant
+14 October 2026. Post-outcome correction, not a new independent assessment.
+
+Frozen importguard.py is unchanged, including the hash in the expansion protocol.
+The separate importguard_layout.py accepts explicit repository-relative source
+roots, e.g. --source-root src. It strips that prefix when resolving module imports
+while retaining repository-relative file paths in selections. Relative imports
+and alias uncertainty are retained. Duplicate module names across declared roots
+trigger full fallback. No source is imported or executed by selection.
+
+Seven new regression tests pass; together with the nine frozen-selector tests,
+16 tests pass. They check src dependencies, relative chains, package-init fallback,
+aliased loading, collisions, root containment and exact directory-prefix matching.
+
+On the three previously inspected cachetools cases, the corrected static graph
+selects all four declared test modules per case instead of zero. Actual upstream
+test runs detect the known bugs. Identical static/fallback selections share one
+run per case. Package initialization changes still require full fallback: this
+does not reduce test cost or establish scientific novelty or generalization.
+Old model failures and frozen primary results are not rewritten.
+
+Example:
+python importguard_layout.py /path/to/repo src/package/module.py --source-root src
+Recheck the already inspected upstream cases:
+python layout_regression.py /path/to/expansion-data /path/to/scratch results/layout-regression-new
+
+Record: results/layout-regression/protocol.json and results.json.
+Use the original importguard.py for reproducing the frozen scientific assessment.
+Any future quality claim for this variant requires a separately declared new set.

@@ -1,0 +1,30 @@
+{
+  "tasks": [
+    {
+      "id": "tenacity-new-v2",
+      "prompt_sha256": "1d3e810fc653cde980ca1acc487d0b2e5ff1137c2c281a8ef94879de822c4aec",
+      "previous_patch": {
+        "old": "        if not self.wait:  # type: ignore[truthy-bool]\n            retry_state.upcoming_sleep = 0.0\n        else:\n            retry_state.upcoming_sleep = self.wait(retry_state)",
+        "new": "        if not self.wait or self.wait is None or self.wait == 0:\n            retry_state.upcoming_sleep = 0.0\n        else:\n            retry_state.upcoming_sleep = self.wait(retry_state)"
+      }
+    },
+    {
+      "id": "packaging-new-v2",
+      "prompt_sha256": "913470d3ad223ad899a10024e920260fe937b36a02089d0575e5fe84bd618aa0",
+      "previous_patch": {
+        "old": "def is_valid_pylock_path(path: Path) -> bool:\n    \"\"\"Check if the given path is a valid pylock file path.\"\"\"\n    return path.name == \"pylock.toml\" or bool(_PYLOCK_FILE_NAME_RE.match(path.name))",
+        "new": "def is_valid_pylock_path(path: Path) -> bool:\n    \"\"\"Check if the given path is a valid pylock file path.\"\"\"\n    return path.name == \"pylock.toml\" or bool(_PYLOCK_FILE_NAME_RE.match(path.name) and path.name == \"pylock.toml\")"
+      }
+    }
+  ],
+  "attempts_per_case": 1,
+  "feedback": "Exact failed-test output from previous model full module and extra controls. No upstream fixed source or gold patch supplied.",
+  "max_tokens": 1536,
+  "context": 4096,
+  "seed": 20261016,
+  "temperature": 0,
+  "timeout": 240,
+  "model_sha256": "fa401b55b07ee70a54c6dae3903c783a6e65064312529ea57175cb5f8dec6634",
+  "source_sha256": "b425247977376928c8b3b995648fcb97e4c951dc478b9765feecf440cdf37399",
+  "limitations": "Known public tasks with oracle localization and now test feedback; no independent evaluation claim."
+}

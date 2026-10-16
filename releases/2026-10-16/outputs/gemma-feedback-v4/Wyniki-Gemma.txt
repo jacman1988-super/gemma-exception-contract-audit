@@ -1,0 +1,32 @@
+Gemma — wynik końcowy nowych sposobów informacji zwrotnej, 16.10.2026
+Autor: Jacek Adamek
+
+Tenacity: 159/159 sprawdzeń, oba warianty (sync/async) naprawione w zadeklarowanym zakresie. Gotowa lokalna poprawka tenacity-tested.patch ma identyczne hashe źródeł jak przetestowany kod.
+
+Packaging: po dodatkowej tabeli wyników wykonania i dokumentacji metod regex poprawka odrzuca końcowy znak nowej linii, ale nadal odrzuca poprawne pylock.toml. Najnowsza zmieniona funkcja przechodzi 88/90 sprawdzeń: upstream 73/74, kontrole przykładów 6/7, kontrole niepokazane modelowi 9/9. Ostatnia próba z jednym pozostałym błędem i listą działających zachowań powtórzyła identyczną funkcję; odrzucono ją bez ponownego wykonania.
+
+Łącznie 6 generacji w tej turze: diagnoza i naprawa po jednej dla każdego repozytorium oraz dwa dodatkowe podejścia Packaging. Zachowano pierwszy wynik 1/2 i wszystkie niepowodzenia. Dokumentacja fullmatch została jawnie dostarczona w dodatkowej próbie; to mocniejsza pomoc, nie samodzielne odkrycie API przez model. Złotego kodu upstream nie przekazano.
+
+Techniczna uwaga: wygenerowany wynik API zapisano poprawnie przed błędem wypisywania znaków Unicode do konsoli. Nie powtarzano przez to generacji; oceniono zachowany kompletny wynik.
+
+Nadal 1/2 przypadków przechodzi cały zadeklarowany zakres. Nie zmieniono artykułu ani zgłoszeń i niczego nie opublikowano.
+
+Szczegóły pierwszego etapu:
+
+Gemma — diagnoza i przykłady zamiast raportu błędów, 16.10.2026
+Autor: Jacek Adamek
+
+Wynik: 1/2 przypadków przechodzi pełny zadeklarowany zestaw sprawdzeń.
+
+tenacity-new-v2: 159/159. upstream: 142/142, examples: 8/8, withheld: 9/9
+packaging-new-v2: 86/90. upstream: 72/74, examples: 5/7, withheld: 9/9
+
+Tenacity: wygenerowana poprawka zastępuje sprawdzanie fałszywej wartości logicznej rozróżnieniem None/0 i wywołuje pozostałe strategie. Poprawione oba warianty _run_wait — synchroniczny i asynchroniczny. Przechodzi 142 testy ze zmienionego modułu upstream, 8 kontroli związanych z przykładami i 9 wcześniej przygotowanych kontroli niepokazanych modelowi. To 159/159 w tym zadeklarowanym zakresie, nie dowód poprawności całej biblioteki.
+
+Packaging: model odrzuca poprawne pylock.toml i nadal przyjmuje nazwę z końcowym znakiem nowej linii. Wygenerował też niezamówiony kontekst modułu (importy i regex); przetestowano literalnie wygenerowaną funkcję w oryginalnym module, zgodnie z interfejsem zastępowania wyłącznie funkcji. Dodatkowego kontekstu nie zastosowano ani ręcznie nie naprawiono funkcji. Próba odrzucona.
+
+Zmiana procedury: zaczęto od czystych przypiętych wersji z błędem, a nie od poprzednich wadliwych edycji. Model otrzymał tabelę wejście/oczekiwany wynik i istotny kontekst, w tym definicję regexu Packaging. Najpierw wygenerował krótką diagnozę bez kodu (256 tokenów), następnie pełne funkcje Python bez JSON (768 tokenów). Jedna generacja na etap, temperatura 0, seed 20261016, kontekst 4096; ten sam lokalny model Gemma 4 E2B Q4_0. Nie dostarczono złotej poprawki ani ukrytych kontroli.
+
+Obsługa formatu: zaakceptowano dosłowne funkcje z nagłówkami FILE bez wymaganych ogrodzeń oraz pojedynczy blok dla jednoznacznego pliku Packaging. Zachowano oryginalne dekoratory poza zastępowanym zakresem. Pierwszy kontroler błędnie uznał zachowany dekorator override za zmianę sygnatury; poprawiono ten test interfejsu przed wykonaniem wygenerowanego kodu i zachowano pierwszy zapis odrzucenia. Ciała funkcji nie były redagowane.
+
+Ograniczenia: mała publiczna próbka, lokalizacja funkcji i ręcznie podane przykłady. Diagnoza Tenacity zawiera niepoprawną sugestię, że samo 0.0 zamiast 0 wyjaśnia niepowodzenie; ta teza nie jest potwierdzona. Wynik naprawy oparto na testach, nie na jakości wyjaśnienia. Zmieniono kilka elementów procedury naraz, więc nie można przypisać sukcesu wyłącznie etapowi diagnozy. Wynik nie jest niezależnym porównaniem skuteczności metod. Wszystkie odpowiedzi i nieudane próby z poprzednich etapów zachowano. Niczego nie opublikowano ani nie wysłano; artykuł i zgłoszenia są niezmienione.

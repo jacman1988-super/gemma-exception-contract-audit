@@ -1,0 +1,25 @@
+Repair the current Python source using this cumulative test feedback. Return ONLY complete JSON {"edits":[{"file":"relative/path.py","old":"exact block","new":"replacement"}]}. Keep edits concise; do not repeat keys. No commands.
+Feedback:
+Previous feedback response was invalid, incomplete JSON with repeated keys and was not applied. Current code still skips falsey callable wait strategies. Both sync and async must call these strategies. A falsey callable returning 1.25 must yield upcoming_sleep 1.25, and an empty list subclass returning .75 must yield .75. None and numeric zero must still mean zero wait. Do not change other behavior.
+Current source:
+File: tenacity/__init__.py
+    def _run_wait(self, retry_state: "RetryCallState") -> None:
+        # `wait` is annotated as always set, so a type checker sees this guard
+        # as always true -- but untyped callers legitimately pass `None` or `0`
+        # to mean "no wait", and `sum([])` over an empty list of strategies
+        # yields the int 0. Keep honouring those.
+        if not self.wait or self.wait is None or self.wait == 0:
+            retry_state.upcoming_sleep = 0.0
+        else:
+            retry_state.upcoming_sleep = self.wait(retry_state)
+
+File: tenacity/asyncio/__init__.py
+    async def _run_wait(self, retry_state: "RetryCallState") -> None:  # type: ignore[override]
+        # See BaseRetrying._run_wait: falsy `wait` values mean "no wait" and
+        # reach us from untyped callers.
+        if not self.wait:  # type: ignore[truthy-bool]
+            retry_state.upcoming_sleep = 0.0
+        else:
+            retry_state.upcoming_sleep = await _utils.wrap_to_async_func(self.wait)(
+                retry_state
+            )

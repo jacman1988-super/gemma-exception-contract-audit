@@ -1,0 +1,16 @@
+{
+  "author": "Jacek Adamek",
+  "local_checks_passed": true,
+  "draft_words": 2465,
+  "frozen_selector_preserved": true,
+  "negative_results_preserved": true,
+  "published": false,
+  "submitted": false,
+  "contest_ready": false,
+  "remaining_research": [
+    "Independent assessment for layout variant",
+    "Stronger baselines and agent study",
+    "Establish a defensible original contribution",
+    "Participant review"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "model_revision": "675cff42a74c774d6cb76f76d8eacb49b48c9b93",
+  "model_sha256": "fa401b55b07ee70a54c6dae3903c783a6e65064312529ea57175cb5f8dec6634",
+  "runtime_executable_sha256": "db2ca6b1255759101d8933370c992a9f2e219a0d62bc6528072eb4e0e7a323ba",
+  "selection_protocol_sha256": "b37fe19f4997d83144cf14754c58a7e72263bfe0700acf9f958a249d958f5072",
+  "tasks": [
+    {
+      "id": "cachetools-empty",
+      "prompt": "Fix a Python bug. Return only JSON with string fields old and new for an exact source block and its replacement. Make the smallest edit, preserve unrelated behavior, and do not run commands.\nTask description (public commit message):\nFix #423: Detect an empty RRCache before calling choice.\n\nRRCache.popitem() relied on the choice function raising IndexError on an\nempty sequence, which is what the default random.choice does. Any other\nvalid choice function raised its own exception instead of KeyError, even\nthough the documented contract only requires choice to handle non-empty\nsequences. The other cache classes each detect emptiness on their own\nstructure first.\nBuggy source:\nFile: src/cachetools/__init__.py\n    def popitem(self):\n        \"\"\"Remove and return a random `(key, value)` pair.\"\"\"\n        try:\n            key = self.__choice(self.__keys)\n        except IndexError:\n            raise KeyError(\"%s is empty\" % type(self).__name__) from None\n        else:\n            return (key, self.pop(key))",
+      "source_snippet": "File: src/cachetools/__init__.py\n    def popitem(self):\n        \"\"\"Remove and return a random `(key, value)` pair.\"\"\"\n        try:\n            key = self.__choice(self.__keys)\n        except IndexError:\n            raise KeyError(\"%s is empty\" % type(self).__name__) from None\n        else:\n            return (key, self.pop(key))",
+      "localization": "Removed-line coordinates identify buggy functions. No added patch lines or test source supplied."
+    },
+    {
+      "id": "cachetools-growth",
+      "prompt": "Fix a Python bug. Return only JSON with string fields old and new for an exact source block and its replacement. Make the smallest edit, preserve unrelated behavior, and do not run commands.\nTask description (public commit message):\nFix #405: Fix Cache.__setitem__ over-evicting when growing an existing key\n\n* Fix Cache.__setitem__ over-evicting when growing an existing key\n\nWhen getsizeof is set and an existing key's value grows, __currsize\nalready includes that key's old size, so reserving the full new size\ndouble-counts it and evicts an unrelated entry even though the updated\ncache would still fit within maxsize.\n\nReserve only the size delta instead, and recompute the reservation as a\nfull insert if popitem() happens to evict the key being updated.\n\nAdds a regression test covering all cache types.\n\nCloses #405\n\n* Address review: drop changelog entry, split setitem branches\n\nUse separate insert/replace branches in Cache.__setitem__ so the\ninsert path does not re-check key presence on every eviction, and\nonly the replace path re-derives diffsize after popitem.\n\nKeep test keys aligned with their values and add replace cases for\nsame-size and smaller values.\nBuggy source:\nFile: src/cachetools/__init__.py\n    def __setitem__(self, key, value):\n        maxsize = self.__maxsize\n        size = self.getsizeof(value)\n        if size < 0:\n            raise ValueError(\"value size must be non-negative\")\n        if size > maxsize:\n            raise ValueError(\"value too large\")\n        if key not in self.__data or self.__size[key] < size:\n            while self.__currsize + size > maxsize:\n                self.popitem()\n        if key in self.__data:\n            diffsize = size - self.__size[key]\n        else:\n            diffsize = size\n        self.__data[key] = value\n        self.__size[key] = size\n        self.__currsize += diffsize",
+      "source_snippet": "File: src/cachetools/__init__.py\n    def __setitem__(self, key, value):\n        maxsize = self.__maxsize\n        size = self.getsizeof(value)\n        if size < 0:\n            raise ValueError(\"value size must be non-negative\")\n        if size > maxsize:\n            raise ValueError(\"value too large\")\n        if key not in self.__data or self.__size[key] < size:\n            while self.__currsize + size > maxsize:\n                self.popitem()\n        if key in self.__data:\n            diffsize = size - self.__size[key]\n        else:\n            diffsize = size\n        self.__data[key] = value\n        self.__size[key] = size\n        self.__currsize += diffsize",
+      "localization": "Removed-line coordinates identify buggy functions. No added patch lines or test source supplied."
+    },
+    {
+      "id": "cachetools-stale",
+      "prompt": "Fix a Python bug. Return only JSON with string fields old and new for an exact source block and its replacement. Make the smallest edit, preserve unrelated behavior, and do not run commands.\nTask description (public commit message):\nFix TLRUCache silently keeping stale value on expired overwrite\n\nAssigning an already-expired value (ttu yields a time that is not in the\nfuture) to an existing key returned early before storing it, but left the\nprevious entry untouched.  As a result the assignment was silently ignored\nand the cache kept returning the old value, violating the mapping contract\nthat `cache[key] = value` either stores `value` or removes the key.\n\nDrop the existing entry in that case so the key is evicted instead of\nretaining a stale value.\nBuggy source:\nFile: src/cachetools/__init__.py\n    def __setitem__(self, key, value, cache_setitem=Cache.__setitem__):\n        with self.timer as time:\n            expires = self.__ttu(key, value, time)\n            if not (time < expires):\n                return  # skip expired items\n            self.expire(time)\n            cache_setitem(self, key, value)\n        # removing an existing item would break the heap structure, so\n        # only mark it as removed for now\n        try:\n            self.__getitem(key).removed = True\n        except KeyError:\n            pass\n        self.__items[key] = item = TLRUCache._Item(key, expires)\n        heapq.heappush(self.__order, item)",
+      "source_snippet": "File: src/cachetools/__init__.py\n    def __setitem__(self, key, value, cache_setitem=Cache.__setitem__):\n        with self.timer as time:\n            expires = self.__ttu(key, value, time)\n            if not (time < expires):\n                return  # skip expired items\n            self.expire(time)\n            cache_setitem(self, key, value)\n        # removing an existing item would break the heap structure, so\n        # only mark it as removed for now\n        try:\n            self.__getitem(key).removed = True\n        except KeyError:\n            pass\n        self.__items[key] = item = TLRUCache._Item(key, expires)\n        heapq.heappush(self.__order, item)",
+      "localization": "Removed-line coordinates identify buggy functions. No added patch lines or test source supplied."
+    }
+  ],
+  "excluded": [
+    {
+      "jmespath-float": "reference_failed"
+    },
+    {
+      "jmespath-functions": "not_reproduced"
+    }
+  ],
+  "context_tokens": 2048,
+  "max_generated_tokens": 192,
+  "temperature": 0,
+  "seed": 20261014,
+  "threads": 2,
+  "attempts_per_case": 1,
+  "reasoning": "off",
+  "timeout_seconds": 90,
+  "automatic_execution": false,
+  "gold_diff_supplied": false,
+  "limitations": "Oracle localization and commit-message guidance. Public descriptions may explain the fix; not autonomous issue solving or contamination-free tasks."
+}

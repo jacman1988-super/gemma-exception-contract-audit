@@ -1,0 +1,29 @@
+{
+  "tasks": [
+    {
+      "id": "tenacity-new-v2",
+      "snippets": "FILE: tenacity/__init__.py\n    def _run_wait(self, retry_state: \"RetryCallState\") -> None:\n        # `wait` is annotated as always set, so a type checker sees this guard\n        # as always true -- but untyped callers legitimately pass `None` or `0`\n        # to mean \"no wait\", and `sum([])` over an empty list of strategies\n        # yields the int 0. Keep honouring those.\n        if not self.wait:  # type: ignore[truthy-bool]\n            retry_state.upcoming_sleep = 0.0\n        else:\n            retry_state.upcoming_sleep = self.wait(retry_state)\n\nFILE: tenacity/asyncio/__init__.py\n    async def _run_wait(self, retry_state: \"RetryCallState\") -> None:  # type: ignore[override]\n        # See BaseRetrying._run_wait: falsy `wait` values mean \"no wait\" and\n        # reach us from untyped callers.\n        if not self.wait:  # type: ignore[truthy-bool]\n            retry_state.upcoming_sleep = 0.0\n        else:\n            retry_state.upcoming_sleep = await _utils.wrap_to_async_func(self.wait)(\n                retry_state\n            )",
+      "examples": "Case | expected upcoming_sleep\nwait=None | 0\nwait=0 | 0\nfalsey callable returning 1.25 | 1.25\nempty list subclass callable returning .75 | .75\nBoth synchronous and asynchronous paths must honor these examples."
+    },
+    {
+      "id": "packaging-new-v2",
+      "snippets": "FILE: src/packaging/pylock.py\n_PYLOCK_FILE_NAME_RE = re.compile(r\"^pylock\\.([^.]+)\\.toml$\")\n\ndef is_valid_pylock_path(path: Path) -> bool:\n    \"\"\"Check if the given path is a valid pylock file path.\"\"\"\n    return path.name == \"pylock.toml\" or bool(_PYLOCK_FILE_NAME_RE.match(path.name))",
+      "examples": "filename represented with Python repr | expected\n\"pylock.toml\" | True\n\"pylock.spam.toml\" | True\n\"pylock.prod.toml\" | True\n\"pylock.spam.toml\\n\" (final character U+000A) | False\n\"pylock.prod.toml.backup\" | False\nMatch the entire unmodified filename; do not normalize away invalid suffixes."
+    }
+  ],
+  "stages": [
+    "diagnose without code",
+    "repair using literal Python functions"
+  ],
+  "diagnosis_tokens": 256,
+  "repair_tokens": 768,
+  "attempts_per_stage": 1,
+  "seed": 20261016,
+  "temperature": 0,
+  "context": 4096,
+  "model_sha256": "fa401b55b07ee70a54c6dae3903c783a6e65064312529ea57175cb5f8dec6634",
+  "source_sha256": "56ac75d70e1e6457fe2f62af2aac03414e0d2031f8dcdcda8345771d394a13d8",
+  "change": "Start from pinned clean buggy parent, include relevant regex definition, use case table and separate diagnosis; literal Python output avoids JSON escapes. Not directly comparable to previous failed-patch feedback rounds.",
+  "gold_source_supplied": false,
+  "withheld_tests_shared": false
+}

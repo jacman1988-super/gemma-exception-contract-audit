@@ -1,0 +1,57 @@
+{
+  "cases": [
+    {
+      "variant": "fixed",
+      "primary": {
+        "returncode": 0,
+        "modules": 1,
+        "stdout": "........................................................................ [ 71%]\n.............................                                            [100%]\n101 passed in 1.07s\n",
+        "stderr": "",
+        "seconds": 1.7918133999919519
+      },
+      "full_suite": {
+        "returncode": 0,
+        "modules": 1,
+        "stdout": "........................................................................ [ 24%]\n........................................................................ [ 48%]\n........................................................................ [ 72%]\n........................................................................ [ 96%]\n.........                                                                [100%]\n297 passed in 0.85s\n",
+        "stderr": "",
+        "seconds": 1.3772106999967946
+      }
+    },
+    {
+      "variant": "parent",
+      "primary": {
+        "returncode": 1,
+        "modules": 1,
+        "stdout": "........................................................................ [ 71%]\n....F........................                                            [100%]\n================================== FAILURES ===================================\n_____________ TestTimestampSigner.test_malformed_future_timestamp _____________\ntests\\test_itsdangerous\\test_timed.py:73: in test_malformed_future_timestamp\n    signer.unsign(signed)\nsrc\\itsdangerous\\timed.py:129: in unsign\n    ts_dt = self.timestamp_to_datetime(ts_int)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc\\itsdangerous\\timed.py:48: in timestamp_to_datetime\n    return datetime.fromtimestamp(ts, tz=timezone.utc)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n..\\python-packages\\freezegun\\api.py:392: in fromtimestamp\n    result = real_datetime.fromtimestamp(t, tz)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   OSError: [Errno 22] Invalid argument\n=========================== short test summary info ===========================\nFAILED tests/test_itsdangerous/test_timed.py::TestTimestampSigner::test_malformed_future_timestamp\n1 failed, 100 passed in 0.68s\n",
+        "stderr": "",
+        "seconds": 1.22401850001188
+      },
+      "full_suite": {
+        "returncode": 1,
+        "modules": 1,
+        "stdout": "........................................................................ [ 24%]\n......................................................................F. [ 48%]\n........................................................................ [ 72%]\n........................................................................ [ 96%]\n.........                                                                [100%]\n================================== FAILURES ===================================\n_____________ TestTimestampSigner.test_malformed_future_timestamp _____________\ntests\\test_itsdangerous\\test_timed.py:73: in test_malformed_future_timestamp\n    signer.unsign(signed)\nsrc\\itsdangerous\\timed.py:129: in unsign\n    ts_dt = self.timestamp_to_datetime(ts_int)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc\\itsdangerous\\timed.py:48: in timestamp_to_datetime\n    return datetime.fromtimestamp(ts, tz=timezone.utc)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n..\\python-packages\\freezegun\\api.py:392: in fromtimestamp\n    result = real_datetime.fromtimestamp(t, tz)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   OSError: [Errno 22] Invalid argument\n=========================== short test summary info ===========================\nFAILED tests/test_itsdangerous/test_timed.py::TestTimestampSigner::test_malformed_future_timestamp\n1 failed, 296 passed in 0.98s\n",
+        "stderr": "",
+        "seconds": 1.5622049000085099
+      }
+    },
+    {
+      "variant": "generated",
+      "primary": {
+        "returncode": 0,
+        "modules": 1,
+        "stdout": "........................................................................ [ 71%]\n.............................                                            [100%]\n101 passed in 0.55s\n",
+        "stderr": "",
+        "seconds": 1.10855810000794
+      },
+      "full_suite": {
+        "returncode": 0,
+        "modules": 1,
+        "stdout": "........................................................................ [ 24%]\n........................................................................ [ 48%]\n........................................................................ [ 72%]\n........................................................................ [ 96%]\n.........                                                                [100%]\n297 passed in 0.82s\n",
+        "stderr": "",
+        "seconds": 1.4039707999909297
+      }
+    }
+  ],
+  "patch_manually_corrected": false,
+  "submitted": false
+}

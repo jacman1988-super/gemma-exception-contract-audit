@@ -1,0 +1,28 @@
+Fix only the remaining failing behavior in this Python function while preserving already passing cases. Return ONLY a fenced python block with the complete function and same signature. Do not change the regex constant, normalize filenames, or remove full-string matching.
+Context:
+_PYLOCK_FILE_NAME_RE = re.compile(r"^pylock\.([^.]+)\.toml$")
+def is_valid_pylock_path(path: Path) -> bool:
+    """Check if the given path is a valid pylock file path."""
+    return bool(_PYLOCK_FILE_NAME_RE.fullmatch(path.name))
+Remaining executed failure:
+F....................................................................... [ 97%]
+..                                                                       [100%]
+================================== FAILURES ===================================
+___________________ test_pylock_file_name[pylock.toml-True] ___________________
+tests\test_pylock.py:44: in test_pylock_file_name
+    assert is_valid_pylock_path(Path(file_name)) is valid
+E   AssertionError: assert False is True
+E    +  where False = is_valid_pylock_path(WindowsPath('pylock.toml'))
+E    +    where WindowsPath('pylock.toml') = Path('pylock.toml')
+- generated xml file: C:\Users\adame\Documents\Codex\2026-10-14\referenced-chatgpt-conversation-this-is-an\outputs\gemma-feedback-v4\api-feedback\packaging-new-v2-api-upstream.xml -
+=========================== short test summary info ===========================
+FAILED tests/test_pylock.py::test_pylock_file_name[pylock.toml-True] - Assert...
+1 failed, 73 passed in 0.30s
+
+Behavior ledger:
+pylock.toml -> True (currently False; fix this)
+pylock.spam.toml -> True (already passes)
+pylock.prod.toml -> True (already passes)
+pylock.spam.toml followed by U+000A -> False (already passes)
+pylock.prod.toml.backup -> False (already passes)
+Keep all these behaviors simultaneously.

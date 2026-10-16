@@ -1,0 +1,27 @@
+--- a/src/packaging/pylock.py
++++ b/src/packaging/pylock.py
+@@ -84,7 +84,23 @@
+ 
+ def is_valid_pylock_path(path: Path) -> bool:
+     """Check if the given path is a valid pylock file path."""
+-    return path.name == "pylock.toml" or bool(_PYLOCK_FILE_NAME_RE.match(path.name))
++    filename = path.name
++
++    # Family 1: the exact ordinary filename pylock.toml is valid
++    if filename == "pylock.toml":
++        return True
++
++    # Family 2: pylock.NAME.toml is valid when NAME is nonempty and contains no dot,
++    # and the entire unmodified filename matches.
++    # Pattern: pylock.<NAME>.toml where NAME is non-empty and contains no dot.
++    # This means the part between 'pylock.' and '.toml' must not contain a dot.
++    if filename.startswith("pylock.") and filename.endswith(".toml"):
++        name_part = filename[len("pylock."):-len(".toml")]
++        if name_part and "." not in name_part:
++            return True
++
++    # All other filenames are invalid.
++    return False
+ 
+ 
+ def _toml_key(key: str) -> str:

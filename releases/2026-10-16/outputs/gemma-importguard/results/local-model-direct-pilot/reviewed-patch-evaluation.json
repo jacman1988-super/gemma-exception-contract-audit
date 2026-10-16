@@ -1,0 +1,43 @@
+{
+  "cases": [
+    {
+      "id": "boltons-indexedset",
+      "reviewed_by": "Codex; not human approval",
+      "review": "Only the shown local assignment edit; no added imports, calls with external effects, or commands.",
+      "suggestion": {
+        "old": "        else:\n            other = chain(others)",
+        "new": "        else:\n            other = list(chain(others))"
+      },
+      "output_sha256": "45a3a6c1741586123efd271a7f193f4f56ae94858b2b75283f2b709ae05bb36e",
+      "single_line_format_followed": false,
+      "patched_file_sha256": "628c3d2f273fd80ad10f43ecce08c312c69071169f5f8ec37f3729a6a8aebd68",
+      "test_result": {
+        "returncode": 1,
+        "modules": 3,
+        "seconds": 1.5581588999993983,
+        "stdout": "..FFFF.................................................................. [ 97%]\n..                                                                       [100%]\n================================== FAILURES ===================================\n______________ test_indexed_set_update_multiple_iterables[list] _______________\ntests\\test_setutils.py:35: in test_indexed_set_update_multiple_iterables\n    result = items.update(iterable_type([2, 1, 3]), iterable_type([]),\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n______________ test_indexed_set_update_multiple_iterables[tuple] ______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, (2, 1, 3), (), (3, 4, 2)] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: (2, 1, 3) != 2\nE     Use -v to get more diff\n______________ test_indexed_set_update_multiple_iterables[iter] _______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, <list_ite...021E4F2F93C0>] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: <list_iterator object at 0x0000021E4F2F9E40> != 2\nE     Use -v to get more diff\n_________ test_indexed_set_update_multiple_iterables_with_tuple_items _________\ntests\\test_setutils.py:45: in test_indexed_set_update_multiple_iterables_with_tuple_items\n    items.update([(1, 2)], [(3, 4), (1, 2)])\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n=========================== short test summary info ===========================\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[list]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[tuple]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[iter]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables_with_tuple_items\n4 failed, 70 passed in 0.94s\n",
+        "stderr": ""
+      }
+    },
+    {
+      "id": "more-itertools-bucket",
+      "reviewed_by": "Codex; not human approval",
+      "review": "Only the shown local assignment edit; no added imports, calls with external effects, or commands.",
+      "suggestion": {
+        "old": "        self._validator = validator or (lambda x: True)",
+        "new": "        self._validator = validator if validator is not None else (lambda x: True)"
+      },
+      "output_sha256": "df1718cd9f83f478606ac8b378ddc4479d1024b8edb6e70a61e0930ea0ff68b7",
+      "single_line_format_followed": true,
+      "patched_file_sha256": "9f43bd0c3187d693ea837066a93348406049015b4d3dcc07204ee76d5aa6bb66",
+      "test_result": {
+        "returncode": 0,
+        "modules": 2,
+        "seconds": 20.553506899996137,
+        "stdout": "........................................................................ [  9%]\n........................................................................ [ 18%]\n........................................................................ [ 28%]\n........................................................................ [ 37%]\n........................................................................ [ 46%]\n........................................................................ [ 56%]\n........................................................................ [ 65%]\n........................................................................ [ 75%]\n........................................................................ [ 84%]\n........................................................................ [ 93%]\n................................................                         [100%]\n768 passed in 19.95s\n",
+        "stderr": ""
+      }
+    }
+  ],
+  "scope": "Reviewed snippets applied without repair to parent production code with fixed upstream tests. Same two convenience cases; no iterative agent or blind evaluation."
+}

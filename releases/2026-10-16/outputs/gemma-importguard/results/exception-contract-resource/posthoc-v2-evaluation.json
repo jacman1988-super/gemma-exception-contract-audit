@@ -1,0 +1,484 @@
+{
+  "scope": "Post-outcome strengthening; never relabeled as the prospectively frozen v1 gate.",
+  "cases": [
+    {
+      "id": "os_bytes",
+      "variant": "reference",
+      "passed": true,
+      "stdout": "......                                                                   [100%]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-os_bytes-reference-1792068459935918600\\results.xml -\n6 passed in 0.26s\n",
+      "stderr": "",
+      "failed_tests": []
+    },
+    {
+      "id": "os_bytes",
+      "variant": "model",
+      "passed": true,
+      "stdout": "......                                                                   [100%]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-os_bytes-model-1792068460800526300\\results.xml -\n6 passed in 0.26s\n",
+      "stderr": "",
+      "failed_tests": []
+    },
+    {
+      "id": "os_bytes",
+      "variant": "payload_string",
+      "passed": false,
+      "stdout": "F....F                                                                   [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=b'alpha'\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n>       assert caught.value.payload is payload\nE       assert \"b'alpha'\" is b'alpha'\nE        +  where \"b'alpha'\" = ContractError('bad').payload\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:7: AssertionError\n_______________ test_payload_identity_across_additional_domains _______________\n\n    def test_payload_identity_across_additional_domains():\n        for payload in [b\"bytes\", {\"item\":7}, bytearray(b\"abc\"), [1,2]]:\n            with pytest.raises(ContractError) as caught:repair(20,payload)\n>           assert caught.value.payload is payload\nE           assert \"b'bytes'\" is b'bytes'\nE            +  where \"b'bytes'\" = ContractError('bad').payload\nE            +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:27: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-os_bytes-payload_string-1792068461648779500\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - assert \"b'alpha'\" is b'alpha'\nFAILED test_contract.py::test_payload_identity_across_additional_domains - as...\n2 failed, 4 passed in 0.39s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_new_error_contract",
+        "test_payload_identity_across_additional_domains"
+      ]
+    },
+    {
+      "id": "os_bytes",
+      "variant": "lost_cause",
+      "passed": false,
+      "stdout": "F.....                                                                   [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=b'alpha'\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n        assert caught.value.payload is payload\n        assert caught.value.stamp is None\n>       assert isinstance(caught.value.__cause__,OSError)\nE       AssertionError: assert False\nE        +  where False = isinstance(None, OSError)\nE        +    where None = ContractError('bad').__cause__\nE        +      where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:9: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-os_bytes-lost_cause-1792068462620351900\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert False\n1 failed, 5 passed in 0.38s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_new_error_contract"
+      ]
+    },
+    {
+      "id": "os_bytes",
+      "variant": "changed_stamp",
+      "passed": false,
+      "stdout": "F.....                                                                   [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=b'alpha'\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n        assert caught.value.payload is payload\n>       assert caught.value.stamp is None\nE       AssertionError: assert 0 is None\nE        +  where 0 = ContractError('bad').stamp\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:8: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-os_bytes-changed_stamp-1792068463577445000\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert 0 i...\n1 failed, 5 passed in 0.37s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_new_error_contract"
+      ]
+    },
+    {
+      "id": "os_bytes",
+      "variant": "overbroad_catch",
+      "passed": false,
+      "stdout": "..F...                                                                   [100%]\n================================== FAILURES ===================================\n_______________________ test_unrelated_error_propagates _______________________\n\nvalue = 999, payload = b'x'\n\n    def repair(value, payload):\n        try:\n>           return low_level(value)\n                   ^^^^^^^^^^^^^^^^\n\nsubject.py:18: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 999\n\n    def low_level(value):\n        if value == 999:\n>           raise RuntimeError(\"unrelated\")\nE           RuntimeError: unrelated\n\nsubject.py:9: RuntimeError\n\nThe above exception was the direct cause of the following exception:\n\n    def test_unrelated_error_propagates():\n>       with pytest.raises(RuntimeError):repair(999,b\"x\")\n                                         ^^^^^^^^^^^^^^^^\n\ntest_contract.py:15: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 999, payload = b'x'\n\n    def repair(value, payload):\n        try:\n            return low_level(value)\n        except Exception as exc:\n>           raise ContractError(\"bad\", payload=payload, stamp=None) from exc\nE           subject.ContractError: bad\n\nsubject.py:20: ContractError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-os_bytes-overbroad_catch-1792068464527390200\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_unrelated_error_propagates - subject.ContractEr...\n1 failed, 5 passed in 0.38s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_unrelated_error_propagates"
+      ]
+    },
+    {
+      "id": "os_bytes",
+      "variant": "changed_helper",
+      "passed": false,
+      "stdout": "FF...F                                                                   [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=b'alpha'\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n>       assert caught.value.payload is payload\nE       AssertionError: assert None is b'alpha'\nE        +  where None = ContractError('bad').payload\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=3>.value\n\ntest_contract.py:7: AssertionError\n_________________________ test_direct_helper_contract _________________________\n\n    def test_direct_helper_contract():\n>       with pytest.raises(OSError):low_level(20)\n                                    ^^^^^^^^^^^^^\n\ntest_contract.py:12: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 20\n\n    def low_level(value):\n        if value == 999:\n            raise RuntimeError(\"unrelated\")\n        if value < 0:\n            raise ValueError(\"negative\")\n        if value > 10:\n>           raise ContractError(\"bad\")\nE           subject.ContractError: bad\n\nsubject.py:13: ContractError\n_______________ test_payload_identity_across_additional_domains _______________\n\n    def test_payload_identity_across_additional_domains():\n        for payload in [b\"bytes\", {\"item\":7}, bytearray(b\"abc\"), [1,2]]:\n            with pytest.raises(ContractError) as caught:repair(20,payload)\n>           assert caught.value.payload is payload\nE           AssertionError: assert None is b'bytes'\nE            +  where None = ContractError('bad').payload\nE            +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=3>.value\n\ntest_contract.py:27: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-os_bytes-changed_helper-1792068465481786400\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert Non...\nFAILED test_contract.py::test_direct_helper_contract - subject.ContractError:...\nFAILED test_contract.py::test_payload_identity_across_additional_domains - As...\n3 failed, 3 passed in 0.39s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_new_error_contract",
+        "test_direct_helper_contract",
+        "test_payload_identity_across_additional_domains"
+      ]
+    },
+    {
+      "id": "os_bytes",
+      "variant": "unseen_valid_regression",
+      "passed": false,
+      "stdout": "...F..                                                                   [100%]\n================================== FAILURES ===================================\n___________________________ test_other_valid_inputs ___________________________\n\n    def test_other_valid_inputs():\n>       for value in [0,1,3,10]:assert repair(value,b\"x\") == 2*value\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AssertionError: assert 1 == (2 * 0)\nE        +  where 1 = repair(0, b'x')\n\ntest_contract.py:18: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-os_bytes-unseen_valid_regression-1792068466447276500\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_other_valid_inputs - AssertionError: assert 1 =...\n1 failed, 5 passed in 0.38s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_other_valid_inputs"
+      ]
+    },
+    {
+      "id": "overflow_mapping",
+      "variant": "reference",
+      "passed": true,
+      "stdout": "......                                                                   [100%]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-overflow_mapping-reference-1792068467393449200\\results.xml -\n6 passed in 0.27s\n",
+      "stderr": "",
+      "failed_tests": []
+    },
+    {
+      "id": "overflow_mapping",
+      "variant": "model",
+      "passed": true,
+      "stdout": "......                                                                   [100%]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-overflow_mapping-model-1792068468260451200\\results.xml -\n6 passed in 0.27s\n",
+      "stderr": "",
+      "failed_tests": []
+    },
+    {
+      "id": "overflow_mapping",
+      "variant": "payload_string",
+      "passed": false,
+      "stdout": "F....F                                                                   [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload={'item': 7}\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n>       assert caught.value.payload is payload\nE       assert \"{'item': 7}\" is {'item': 7}\nE        +  where \"{'item': 7}\" = ContractError('bad').payload\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:7: AssertionError\n_______________ test_payload_identity_across_additional_domains _______________\n\n    def test_payload_identity_across_additional_domains():\n        for payload in [b\"bytes\", {\"item\":7}, bytearray(b\"abc\"), [1,2]]:\n            with pytest.raises(ContractError) as caught:repair(20,payload)\n>           assert caught.value.payload is payload\nE           assert \"b'bytes'\" is b'bytes'\nE            +  where \"b'bytes'\" = ContractError('bad').payload\nE            +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:27: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-overflow_mapping-payload_string-1792068469112035200\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - assert \"{'item': 7}\" is {'...\nFAILED test_contract.py::test_payload_identity_across_additional_domains - as...\n2 failed, 4 passed in 0.39s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_new_error_contract",
+        "test_payload_identity_across_additional_domains"
+      ]
+    },
+    {
+      "id": "overflow_mapping",
+      "variant": "lost_cause",
+      "passed": false,
+      "stdout": "F.....                                                                   [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload={'item': 7}\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n        assert caught.value.payload is payload\n        assert caught.value.stamp is None\n>       assert isinstance(caught.value.__cause__,OverflowError)\nE       AssertionError: assert False\nE        +  where False = isinstance(None, OverflowError)\nE        +    where None = ContractError('bad').__cause__\nE        +      where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:9: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-overflow_mapping-lost_cause-1792068470087290200\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert False\n1 failed, 5 passed in 0.39s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_new_error_contract"
+      ]
+    },
+    {
+      "id": "overflow_mapping",
+      "variant": "changed_stamp",
+      "passed": false,
+      "stdout": "F.....                                                                   [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload={'item': 7}\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n        assert caught.value.payload is payload\n>       assert caught.value.stamp is None\nE       AssertionError: assert 0 is None\nE        +  where 0 = ContractError('bad').stamp\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:8: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-overflow_mapping-changed_stamp-1792068471040798100\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert 0 i...\n1 failed, 5 passed in 0.38s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_new_error_contract"
+      ]
+    },
+    {
+      "id": "overflow_mapping",
+      "variant": "overbroad_catch",
+      "passed": false,
+      "stdout": "..F...                                                                   [100%]\n================================== FAILURES ===================================\n_______________________ test_unrelated_error_propagates _______________________\n\nvalue = 999, payload = b'x'\n\n    def repair(value, payload):\n        try:\n>           return low_level(value)\n                   ^^^^^^^^^^^^^^^^\n\nsubject.py:18: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 999\n\n    def low_level(value):\n        if value == 999:\n>           raise RuntimeError(\"unrelated\")\nE           RuntimeError: unrelated\n\nsubject.py:9: RuntimeError\n\nThe above exception was the direct cause of the following exception:\n\n    def test_unrelated_error_propagates():\n>       with pytest.raises(RuntimeError):repair(999,b\"x\")\n                                         ^^^^^^^^^^^^^^^^\n\ntest_contract.py:15: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 999, payload = b'x'\n\n    def repair(value, payload):\n        try:\n            return low_level(value)\n        except Exception as exc:\n>           raise ContractError(\"bad\", payload=payload, stamp=None) from exc\nE           subject.ContractError: bad\n\nsubject.py:20: ContractError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-overflow_mapping-overbroad_catch-1792068471981412600\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_unrelated_error_propagates - subject.ContractEr...\n1 failed, 5 passed in 0.40s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_unrelated_error_propagates"
+      ]
+    },
+    {
+      "id": "overflow_mapping",
+      "variant": "changed_helper",
+      "passed": false,
+      "stdout": "FF...F                                                                   [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload={'item': 7}\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n>       assert caught.value.payload is payload\nE       AssertionError: assert None is {'item': 7}\nE        +  where None = ContractError('bad').payload\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=3>.value\n\ntest_contract.py:7: AssertionError\n_________________________ test_direct_helper_contract _________________________\n\n    def test_direct_helper_contract():\n>       with pytest.raises(OverflowError):low_level(20)\n                                          ^^^^^^^^^^^^^\n\ntest_contract.py:12: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 20\n\n    def low_level(value):\n        if value == 999:\n            raise RuntimeError(\"unrelated\")\n        if value < 0:\n            raise ValueError(\"negative\")\n        if value > 10:\n>           raise ContractError(\"bad\")\nE           subject.ContractError: bad\n\nsubject.py:13: ContractError\n_______________ test_payload_identity_across_additional_domains _______________\n\n    def test_payload_identity_across_additional_domains():\n        for payload in [b\"bytes\", {\"item\":7}, bytearray(b\"abc\"), [1,2]]:\n            with pytest.raises(ContractError) as caught:repair(20,payload)\n>           assert caught.value.payload is payload\nE           AssertionError: assert None is b'bytes'\nE            +  where None = ContractError('bad').payload\nE            +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=3>.value\n\ntest_contract.py:27: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-overflow_mapping-changed_helper-1792068472978890400\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert Non...\nFAILED test_contract.py::test_direct_helper_contract - subject.ContractError:...\nFAILED test_contract.py::test_payload_identity_across_additional_domains - As...\n3 failed, 3 passed in 0.40s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_new_error_contract",
+        "test_direct_helper_contract",
+        "test_payload_identity_across_additional_domains"
+      ]
+    },
+    {
+      "id": "overflow_mapping",
+      "variant": "unseen_valid_regression",
+      "passed": false,
+      "stdout": "...F..                                                                   [100%]\n================================== FAILURES ===================================\n___________________________ test_other_valid_inputs ___________________________\n\n    def test_other_valid_inputs():\n>       for value in [0,1,3,10]:assert repair(value,b\"x\") == 2*value\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AssertionError: assert 1 == (2 * 0)\nE        +  where 1 = repair(0, b'x')\n\ntest_contract.py:18: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-overflow_mapping-unseen_valid_regression-1792068473954916100\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_other_valid_inputs - AssertionError: assert 1 =...\n1 failed, 5 passed in 0.40s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_other_valid_inputs"
+      ]
+    },
+    {
+      "id": "key_text",
+      "variant": "reference",
+      "passed": true,
+      "stdout": "......                                                                   [100%]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-key_text-reference-1792068474941118700\\results.xml -\n6 passed in 0.26s\n",
+      "stderr": "",
+      "failed_tests": []
+    },
+    {
+      "id": "key_text",
+      "variant": "model",
+      "passed": true,
+      "stdout": "......                                                                   [100%]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-key_text-model-1792068475764789700\\results.xml -\n6 passed in 0.26s\n",
+      "stderr": "",
+      "failed_tests": []
+    },
+    {
+      "id": "key_text",
+      "variant": "payload_string",
+      "passed": false,
+      "stdout": ".....F                                                                   [100%]\n================================== FAILURES ===================================\n_______________ test_payload_identity_across_additional_domains _______________\n\n    def test_payload_identity_across_additional_domains():\n        for payload in [b\"bytes\", {\"item\":7}, bytearray(b\"abc\"), [1,2]]:\n            with pytest.raises(ContractError) as caught:repair(20,payload)\n>           assert caught.value.payload is payload\nE           assert \"b'bytes'\" is b'bytes'\nE            +  where \"b'bytes'\" = ContractError('bad').payload\nE            +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:27: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-key_text-payload_string-1792068476621821400\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_payload_identity_across_additional_domains - as...\n1 failed, 5 passed in 0.38s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_payload_identity_across_additional_domains"
+      ]
+    },
+    {
+      "id": "key_text",
+      "variant": "lost_cause",
+      "passed": false,
+      "stdout": "F.....                                                                   [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload='source'\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n        assert caught.value.payload is payload\n        assert caught.value.stamp is None\n>       assert isinstance(caught.value.__cause__,KeyError)\nE       AssertionError: assert False\nE        +  where False = isinstance(None, KeyError)\nE        +    where None = ContractError('bad').__cause__\nE        +      where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:9: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-key_text-lost_cause-1792068477647097200\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert False\n1 failed, 5 passed in 0.38s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_new_error_contract"
+      ]
+    },
+    {
+      "id": "key_text",
+      "variant": "changed_stamp",
+      "passed": false,
+      "stdout": "F.....                                                                   [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload='source'\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n        assert caught.value.payload is payload\n>       assert caught.value.stamp is None\nE       AssertionError: assert 0 is None\nE        +  where 0 = ContractError('bad').stamp\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:8: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-key_text-changed_stamp-1792068478608118100\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert 0 i...\n1 failed, 5 passed in 0.37s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_new_error_contract"
+      ]
+    },
+    {
+      "id": "key_text",
+      "variant": "overbroad_catch",
+      "passed": false,
+      "stdout": "..F...                                                                   [100%]\n================================== FAILURES ===================================\n_______________________ test_unrelated_error_propagates _______________________\n\nvalue = 999, payload = b'x'\n\n    def repair(value, payload):\n        try:\n>           return low_level(value)\n                   ^^^^^^^^^^^^^^^^\n\nsubject.py:18: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 999\n\n    def low_level(value):\n        if value == 999:\n>           raise RuntimeError(\"unrelated\")\nE           RuntimeError: unrelated\n\nsubject.py:9: RuntimeError\n\nThe above exception was the direct cause of the following exception:\n\n    def test_unrelated_error_propagates():\n>       with pytest.raises(RuntimeError):repair(999,b\"x\")\n                                         ^^^^^^^^^^^^^^^^\n\ntest_contract.py:15: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 999, payload = b'x'\n\n    def repair(value, payload):\n        try:\n            return low_level(value)\n        except Exception as exc:\n>           raise ContractError(\"bad\", payload=payload, stamp=None) from exc\nE           subject.ContractError: bad\n\nsubject.py:20: ContractError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-key_text-overbroad_catch-1792068479555436200\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_unrelated_error_propagates - subject.ContractEr...\n1 failed, 5 passed in 0.38s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_unrelated_error_propagates"
+      ]
+    },
+    {
+      "id": "key_text",
+      "variant": "changed_helper",
+      "passed": false,
+      "stdout": "FF...F                                                                   [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload='source'\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n>       assert caught.value.payload is payload\nE       AssertionError: assert None is 'source'\nE        +  where None = ContractError('bad').payload\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=3>.value\n\ntest_contract.py:7: AssertionError\n_________________________ test_direct_helper_contract _________________________\n\n    def test_direct_helper_contract():\n>       with pytest.raises(KeyError):low_level(20)\n                                     ^^^^^^^^^^^^^\n\ntest_contract.py:12: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 20\n\n    def low_level(value):\n        if value == 999:\n            raise RuntimeError(\"unrelated\")\n        if value < 0:\n            raise ValueError(\"negative\")\n        if value > 10:\n>           raise ContractError(\"bad\")\nE           subject.ContractError: bad\n\nsubject.py:13: ContractError\n_______________ test_payload_identity_across_additional_domains _______________\n\n    def test_payload_identity_across_additional_domains():\n        for payload in [b\"bytes\", {\"item\":7}, bytearray(b\"abc\"), [1,2]]:\n            with pytest.raises(ContractError) as caught:repair(20,payload)\n>           assert caught.value.payload is payload\nE           AssertionError: assert None is b'bytes'\nE            +  where None = ContractError('bad').payload\nE            +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=3>.value\n\ntest_contract.py:27: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-key_text-changed_helper-1792068480515536500\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert Non...\nFAILED test_contract.py::test_direct_helper_contract - subject.ContractError:...\nFAILED test_contract.py::test_payload_identity_across_additional_domains - As...\n3 failed, 3 passed in 0.39s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_new_error_contract",
+        "test_direct_helper_contract",
+        "test_payload_identity_across_additional_domains"
+      ]
+    },
+    {
+      "id": "key_text",
+      "variant": "unseen_valid_regression",
+      "passed": false,
+      "stdout": "...F..                                                                   [100%]\n================================== FAILURES ===================================\n___________________________ test_other_valid_inputs ___________________________\n\n    def test_other_valid_inputs():\n>       for value in [0,1,3,10]:assert repair(value,b\"x\") == 2*value\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AssertionError: assert 1 == (2 * 0)\nE        +  where 1 = repair(0, b'x')\n\ntest_contract.py:18: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-key_text-unseen_valid_regression-1792068481481378900\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_other_valid_inputs - AssertionError: assert 1 =...\n1 failed, 5 passed in 0.37s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_other_valid_inputs"
+      ]
+    },
+    {
+      "id": "index_buffer",
+      "variant": "reference",
+      "passed": true,
+      "stdout": "......                                                                   [100%]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-index_buffer-reference-1792068482418821900\\results.xml -\n6 passed in 0.28s\n",
+      "stderr": "",
+      "failed_tests": []
+    },
+    {
+      "id": "index_buffer",
+      "variant": "model",
+      "passed": true,
+      "stdout": "......                                                                   [100%]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-index_buffer-model-1792068483261874400\\results.xml -\n6 passed in 0.27s\n",
+      "stderr": "",
+      "failed_tests": []
+    },
+    {
+      "id": "index_buffer",
+      "variant": "payload_string",
+      "passed": false,
+      "stdout": "F....F                                                                   [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=bytearray(b'abc')\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n>       assert caught.value.payload is payload\nE       assert \"bytearray(b'abc')\" is bytearray(b'abc')\nE        +  where \"bytearray(b'abc')\" = ContractError('bad').payload\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:7: AssertionError\n_______________ test_payload_identity_across_additional_domains _______________\n\n    def test_payload_identity_across_additional_domains():\n        for payload in [b\"bytes\", {\"item\":7}, bytearray(b\"abc\"), [1,2]]:\n            with pytest.raises(ContractError) as caught:repair(20,payload)\n>           assert caught.value.payload is payload\nE           assert \"b'bytes'\" is b'bytes'\nE            +  where \"b'bytes'\" = ContractError('bad').payload\nE            +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:27: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-index_buffer-payload_string-1792068484089340900\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - assert \"bytearray(b'abc')\"...\nFAILED test_contract.py::test_payload_identity_across_additional_domains - as...\n2 failed, 4 passed in 0.38s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_new_error_contract",
+        "test_payload_identity_across_additional_domains"
+      ]
+    },
+    {
+      "id": "index_buffer",
+      "variant": "lost_cause",
+      "passed": false,
+      "stdout": "F.....                                                                   [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=bytearray(b'abc')\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n        assert caught.value.payload is payload\n        assert caught.value.stamp is None\n>       assert isinstance(caught.value.__cause__,IndexError)\nE       AssertionError: assert False\nE        +  where False = isinstance(None, IndexError)\nE        +    where None = ContractError('bad').__cause__\nE        +      where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:9: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-index_buffer-lost_cause-1792068485054097600\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert False\n1 failed, 5 passed in 0.38s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_new_error_contract"
+      ]
+    },
+    {
+      "id": "index_buffer",
+      "variant": "changed_stamp",
+      "passed": false,
+      "stdout": "F.....                                                                   [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=bytearray(b'abc')\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n        assert caught.value.payload is payload\n>       assert caught.value.stamp is None\nE       AssertionError: assert 0 is None\nE        +  where 0 = ContractError('bad').stamp\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:8: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-index_buffer-changed_stamp-1792068485995483900\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert 0 i...\n1 failed, 5 passed in 0.38s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_new_error_contract"
+      ]
+    },
+    {
+      "id": "index_buffer",
+      "variant": "overbroad_catch",
+      "passed": false,
+      "stdout": "..F...                                                                   [100%]\n================================== FAILURES ===================================\n_______________________ test_unrelated_error_propagates _______________________\n\nvalue = 999, payload = b'x'\n\n    def repair(value, payload):\n        try:\n>           return low_level(value)\n                   ^^^^^^^^^^^^^^^^\n\nsubject.py:18: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 999\n\n    def low_level(value):\n        if value == 999:\n>           raise RuntimeError(\"unrelated\")\nE           RuntimeError: unrelated\n\nsubject.py:9: RuntimeError\n\nThe above exception was the direct cause of the following exception:\n\n    def test_unrelated_error_propagates():\n>       with pytest.raises(RuntimeError):repair(999,b\"x\")\n                                         ^^^^^^^^^^^^^^^^\n\ntest_contract.py:15: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 999, payload = b'x'\n\n    def repair(value, payload):\n        try:\n            return low_level(value)\n        except Exception as exc:\n>           raise ContractError(\"bad\", payload=payload, stamp=None) from exc\nE           subject.ContractError: bad\n\nsubject.py:20: ContractError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-index_buffer-overbroad_catch-1792068486936699900\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_unrelated_error_propagates - subject.ContractEr...\n1 failed, 5 passed in 0.39s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_unrelated_error_propagates"
+      ]
+    },
+    {
+      "id": "index_buffer",
+      "variant": "changed_helper",
+      "passed": false,
+      "stdout": "FF...F                                                                   [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=bytearray(b'abc')\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n>       assert caught.value.payload is payload\nE       AssertionError: assert None is bytearray(b'abc')\nE        +  where None = ContractError('bad').payload\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=3>.value\n\ntest_contract.py:7: AssertionError\n_________________________ test_direct_helper_contract _________________________\n\n    def test_direct_helper_contract():\n>       with pytest.raises(IndexError):low_level(20)\n                                       ^^^^^^^^^^^^^\n\ntest_contract.py:12: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 20\n\n    def low_level(value):\n        if value == 999:\n            raise RuntimeError(\"unrelated\")\n        if value < 0:\n            raise ValueError(\"negative\")\n        if value > 10:\n>           raise ContractError(\"bad\")\nE           subject.ContractError: bad\n\nsubject.py:13: ContractError\n_______________ test_payload_identity_across_additional_domains _______________\n\n    def test_payload_identity_across_additional_domains():\n        for payload in [b\"bytes\", {\"item\":7}, bytearray(b\"abc\"), [1,2]]:\n            with pytest.raises(ContractError) as caught:repair(20,payload)\n>           assert caught.value.payload is payload\nE           AssertionError: assert None is b'bytes'\nE            +  where None = ContractError('bad').payload\nE            +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=3>.value\n\ntest_contract.py:27: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-index_buffer-changed_helper-1792068487889474800\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert Non...\nFAILED test_contract.py::test_direct_helper_contract - subject.ContractError:...\nFAILED test_contract.py::test_payload_identity_across_additional_domains - As...\n3 failed, 3 passed in 0.40s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_new_error_contract",
+        "test_direct_helper_contract",
+        "test_payload_identity_across_additional_domains"
+      ]
+    },
+    {
+      "id": "index_buffer",
+      "variant": "unseen_valid_regression",
+      "passed": false,
+      "stdout": "...F..                                                                   [100%]\n================================== FAILURES ===================================\n___________________________ test_other_valid_inputs ___________________________\n\n    def test_other_valid_inputs():\n>       for value in [0,1,3,10]:assert repair(value,b\"x\") == 2*value\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AssertionError: assert 1 == (2 * 0)\nE        +  where 1 = repair(0, b'x')\n\ntest_contract.py:18: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-index_buffer-unseen_valid_regression-1792068488866345300\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_other_valid_inputs - AssertionError: assert 1 =...\n1 failed, 5 passed in 0.36s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_other_valid_inputs"
+      ]
+    },
+    {
+      "id": "type_tuple",
+      "variant": "reference",
+      "passed": true,
+      "stdout": "......                                                                   [100%]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-type_tuple-reference-1792068489832003000\\results.xml -\n6 passed in 0.27s\n",
+      "stderr": "",
+      "failed_tests": []
+    },
+    {
+      "id": "type_tuple",
+      "variant": "model",
+      "passed": false,
+      "stdout": "....F.                                                                   [100%]\n================================== FAILURES ===================================\n____________________ test_existing_negative_error_message _____________________\n\n    def test_existing_negative_error_message():\n        with pytest.raises(ContractError) as caught:repair(-1,b\"x\")\n>       assert str(caught.value) == \"bad\"\nE       AssertionError: assert 'out-of-range' == 'bad'\nE         \nE         - bad\nE         + out-of-range\n\ntest_contract.py:22: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-type_tuple-model-1792068490714005700\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_existing_negative_error_message - AssertionErro...\n1 failed, 5 passed in 0.39s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_existing_negative_error_message"
+      ]
+    },
+    {
+      "id": "type_tuple",
+      "variant": "payload_string",
+      "passed": false,
+      "stdout": "F....F                                                                   [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=('a', 3)\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n>       assert caught.value.payload is payload\nE       assert \"('a', 3)\" is ('a', 3)\nE        +  where \"('a', 3)\" = ContractError('bad').payload\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:7: AssertionError\n_______________ test_payload_identity_across_additional_domains _______________\n\n    def test_payload_identity_across_additional_domains():\n        for payload in [b\"bytes\", {\"item\":7}, bytearray(b\"abc\"), [1,2]]:\n            with pytest.raises(ContractError) as caught:repair(20,payload)\n>           assert caught.value.payload is payload\nE           assert \"b'bytes'\" is b'bytes'\nE            +  where \"b'bytes'\" = ContractError('bad').payload\nE            +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:27: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-type_tuple-payload_string-1792068491679078600\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - assert \"('a', 3)\" is ('a', 3)\nFAILED test_contract.py::test_payload_identity_across_additional_domains - as...\n2 failed, 4 passed in 0.38s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_new_error_contract",
+        "test_payload_identity_across_additional_domains"
+      ]
+    },
+    {
+      "id": "type_tuple",
+      "variant": "lost_cause",
+      "passed": false,
+      "stdout": "F.....                                                                   [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=('a', 3)\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n        assert caught.value.payload is payload\n        assert caught.value.stamp is None\n>       assert isinstance(caught.value.__cause__,TypeError)\nE       AssertionError: assert False\nE        +  where False = isinstance(None, TypeError)\nE        +    where None = ContractError('bad').__cause__\nE        +      where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:9: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-type_tuple-lost_cause-1792068492652784000\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert False\n1 failed, 5 passed in 0.39s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_new_error_contract"
+      ]
+    },
+    {
+      "id": "type_tuple",
+      "variant": "changed_stamp",
+      "passed": false,
+      "stdout": "F.....                                                                   [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=('a', 3)\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n        assert caught.value.payload is payload\n>       assert caught.value.stamp is None\nE       AssertionError: assert 0 is None\nE        +  where 0 = ContractError('bad').stamp\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:8: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-type_tuple-changed_stamp-1792068493623338900\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert 0 i...\n1 failed, 5 passed in 0.38s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_new_error_contract"
+      ]
+    },
+    {
+      "id": "type_tuple",
+      "variant": "overbroad_catch",
+      "passed": false,
+      "stdout": "..F...                                                                   [100%]\n================================== FAILURES ===================================\n_______________________ test_unrelated_error_propagates _______________________\n\nvalue = 999, payload = b'x'\n\n    def repair(value, payload):\n        try:\n>           return low_level(value)\n                   ^^^^^^^^^^^^^^^^\n\nsubject.py:18: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 999\n\n    def low_level(value):\n        if value == 999:\n>           raise RuntimeError(\"unrelated\")\nE           RuntimeError: unrelated\n\nsubject.py:9: RuntimeError\n\nThe above exception was the direct cause of the following exception:\n\n    def test_unrelated_error_propagates():\n>       with pytest.raises(RuntimeError):repair(999,b\"x\")\n                                         ^^^^^^^^^^^^^^^^\n\ntest_contract.py:15: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 999, payload = b'x'\n\n    def repair(value, payload):\n        try:\n            return low_level(value)\n        except Exception as exc:\n>           raise ContractError(\"bad\", payload=payload, stamp=None) from exc\nE           subject.ContractError: bad\n\nsubject.py:20: ContractError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-type_tuple-overbroad_catch-1792068494574942600\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_unrelated_error_propagates - subject.ContractEr...\n1 failed, 5 passed in 0.38s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_unrelated_error_propagates"
+      ]
+    },
+    {
+      "id": "type_tuple",
+      "variant": "changed_helper",
+      "passed": false,
+      "stdout": "FF...F                                                                   [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=('a', 3)\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n>       assert caught.value.payload is payload\nE       AssertionError: assert None is ('a', 3)\nE        +  where None = ContractError('bad').payload\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=3>.value\n\ntest_contract.py:7: AssertionError\n_________________________ test_direct_helper_contract _________________________\n\n    def test_direct_helper_contract():\n>       with pytest.raises(TypeError):low_level(20)\n                                      ^^^^^^^^^^^^^\n\ntest_contract.py:12: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 20\n\n    def low_level(value):\n        if value == 999:\n            raise RuntimeError(\"unrelated\")\n        if value < 0:\n            raise ValueError(\"negative\")\n        if value > 10:\n>           raise ContractError(\"bad\")\nE           subject.ContractError: bad\n\nsubject.py:13: ContractError\n_______________ test_payload_identity_across_additional_domains _______________\n\n    def test_payload_identity_across_additional_domains():\n        for payload in [b\"bytes\", {\"item\":7}, bytearray(b\"abc\"), [1,2]]:\n            with pytest.raises(ContractError) as caught:repair(20,payload)\n>           assert caught.value.payload is payload\nE           AssertionError: assert None is b'bytes'\nE            +  where None = ContractError('bad').payload\nE            +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=3>.value\n\ntest_contract.py:27: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-type_tuple-changed_helper-1792068495545318900\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert Non...\nFAILED test_contract.py::test_direct_helper_contract - subject.ContractError:...\nFAILED test_contract.py::test_payload_identity_across_additional_domains - As...\n3 failed, 3 passed in 0.38s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_new_error_contract",
+        "test_direct_helper_contract",
+        "test_payload_identity_across_additional_domains"
+      ]
+    },
+    {
+      "id": "type_tuple",
+      "variant": "unseen_valid_regression",
+      "passed": false,
+      "stdout": "...F..                                                                   [100%]\n================================== FAILURES ===================================\n___________________________ test_other_valid_inputs ___________________________\n\n    def test_other_valid_inputs():\n>       for value in [0,1,3,10]:assert repair(value,b\"x\") == 2*value\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AssertionError: assert 1 == (2 * 0)\nE        +  where 1 = repair(0, b'x')\n\ntest_contract.py:18: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-type_tuple-unseen_valid_regression-1792068496527370000\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_other_valid_inputs - AssertionError: assert 1 =...\n1 failed, 5 passed in 0.38s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_other_valid_inputs"
+      ]
+    },
+    {
+      "id": "division_list",
+      "variant": "reference",
+      "passed": true,
+      "stdout": "......                                                                   [100%]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-division_list-reference-1792068497488131100\\results.xml -\n6 passed in 0.28s\n",
+      "stderr": "",
+      "failed_tests": []
+    },
+    {
+      "id": "division_list",
+      "variant": "model",
+      "passed": true,
+      "stdout": "......                                                                   [100%]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-division_list-model-1792068498356636100\\results.xml -\n6 passed in 0.26s\n",
+      "stderr": "",
+      "failed_tests": []
+    },
+    {
+      "id": "division_list",
+      "variant": "payload_string",
+      "passed": false,
+      "stdout": "F....F                                                                   [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=[1, 2]\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n>       assert caught.value.payload is payload\nE       AssertionError: assert '[1, 2]' is [1, 2]\nE        +  where '[1, 2]' = ContractError('bad').payload\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:7: AssertionError\n_______________ test_payload_identity_across_additional_domains _______________\n\n    def test_payload_identity_across_additional_domains():\n        for payload in [b\"bytes\", {\"item\":7}, bytearray(b\"abc\"), [1,2]]:\n            with pytest.raises(ContractError) as caught:repair(20,payload)\n>           assert caught.value.payload is payload\nE           assert \"b'bytes'\" is b'bytes'\nE            +  where \"b'bytes'\" = ContractError('bad').payload\nE            +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:27: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-division_list-payload_string-1792068499204908600\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert '[1...\nFAILED test_contract.py::test_payload_identity_across_additional_domains - as...\n2 failed, 4 passed in 0.39s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_new_error_contract",
+        "test_payload_identity_across_additional_domains"
+      ]
+    },
+    {
+      "id": "division_list",
+      "variant": "lost_cause",
+      "passed": false,
+      "stdout": "F.....                                                                   [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=[1, 2]\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n        assert caught.value.payload is payload\n        assert caught.value.stamp is None\n>       assert isinstance(caught.value.__cause__,ZeroDivisionError)\nE       AssertionError: assert False\nE        +  where False = isinstance(None, ZeroDivisionError)\nE        +    where None = ContractError('bad').__cause__\nE        +      where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:9: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-division_list-lost_cause-1792068500181504800\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert False\n1 failed, 5 passed in 0.38s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_new_error_contract"
+      ]
+    },
+    {
+      "id": "division_list",
+      "variant": "changed_stamp",
+      "passed": false,
+      "stdout": "F.....                                                                   [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=[1, 2]\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n        assert caught.value.payload is payload\n>       assert caught.value.stamp is None\nE       AssertionError: assert 0 is None\nE        +  where 0 = ContractError('bad').stamp\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:8: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-division_list-changed_stamp-1792068501157088800\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert 0 i...\n1 failed, 5 passed in 0.37s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_new_error_contract"
+      ]
+    },
+    {
+      "id": "division_list",
+      "variant": "overbroad_catch",
+      "passed": false,
+      "stdout": "..F...                                                                   [100%]\n================================== FAILURES ===================================\n_______________________ test_unrelated_error_propagates _______________________\n\nvalue = 999, payload = b'x'\n\n    def repair(value, payload):\n        try:\n>           return low_level(value)\n                   ^^^^^^^^^^^^^^^^\n\nsubject.py:18: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 999\n\n    def low_level(value):\n        if value == 999:\n>           raise RuntimeError(\"unrelated\")\nE           RuntimeError: unrelated\n\nsubject.py:9: RuntimeError\n\nThe above exception was the direct cause of the following exception:\n\n    def test_unrelated_error_propagates():\n>       with pytest.raises(RuntimeError):repair(999,b\"x\")\n                                         ^^^^^^^^^^^^^^^^\n\ntest_contract.py:15: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 999, payload = b'x'\n\n    def repair(value, payload):\n        try:\n            return low_level(value)\n        except Exception as exc:\n>           raise ContractError(\"bad\", payload=payload, stamp=None) from exc\nE           subject.ContractError: bad\n\nsubject.py:20: ContractError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-division_list-overbroad_catch-1792068502090306600\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_unrelated_error_propagates - subject.ContractEr...\n1 failed, 5 passed in 0.38s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_unrelated_error_propagates"
+      ]
+    },
+    {
+      "id": "division_list",
+      "variant": "changed_helper",
+      "passed": false,
+      "stdout": "FF...F                                                                   [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=[1, 2]\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n>       assert caught.value.payload is payload\nE       AssertionError: assert None is [1, 2]\nE        +  where None = ContractError('bad').payload\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=3>.value\n\ntest_contract.py:7: AssertionError\n_________________________ test_direct_helper_contract _________________________\n\n    def test_direct_helper_contract():\n>       with pytest.raises(ZeroDivisionError):low_level(20)\n                                              ^^^^^^^^^^^^^\n\ntest_contract.py:12: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 20\n\n    def low_level(value):\n        if value == 999:\n            raise RuntimeError(\"unrelated\")\n        if value < 0:\n            raise ValueError(\"negative\")\n        if value > 10:\n>           raise ContractError(\"bad\")\nE           subject.ContractError: bad\n\nsubject.py:13: ContractError\n_______________ test_payload_identity_across_additional_domains _______________\n\n    def test_payload_identity_across_additional_domains():\n        for payload in [b\"bytes\", {\"item\":7}, bytearray(b\"abc\"), [1,2]]:\n            with pytest.raises(ContractError) as caught:repair(20,payload)\n>           assert caught.value.payload is payload\nE           AssertionError: assert None is b'bytes'\nE            +  where None = ContractError('bad').payload\nE            +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=3>.value\n\ntest_contract.py:27: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-division_list-changed_helper-1792068503067021900\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert Non...\nFAILED test_contract.py::test_direct_helper_contract - subject.ContractError:...\nFAILED test_contract.py::test_payload_identity_across_additional_domains - As...\n3 failed, 3 passed in 0.41s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_new_error_contract",
+        "test_direct_helper_contract",
+        "test_payload_identity_across_additional_domains"
+      ]
+    },
+    {
+      "id": "division_list",
+      "variant": "unseen_valid_regression",
+      "passed": false,
+      "stdout": "...F..                                                                   [100%]\n================================== FAILURES ===================================\n___________________________ test_other_valid_inputs ___________________________\n\n    def test_other_valid_inputs():\n>       for value in [0,1,3,10]:assert repair(value,b\"x\") == 2*value\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AssertionError: assert 1 == (2 * 0)\nE        +  where 1 = repair(0, b'x')\n\ntest_contract.py:18: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-v2-division_list-unseen_valid_regression-1792068504051208200\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_other_valid_inputs - AssertionError: assert 1 =...\n1 failed, 5 passed in 0.38s\n",
+      "stderr": "",
+      "failed_tests": [
+        "test_other_valid_inputs"
+      ]
+    }
+  ],
+  "model_passes": 5,
+  "reference_passes": 6,
+  "mutants_rejected": 36,
+  "model_rerun": false
+}

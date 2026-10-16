@@ -1,0 +1,9 @@
+{
+  "count": 1245,
+  "seed": 20261016,
+  "input_sha256": "0ccc84afa4efcd7a5b9d79f87e84f9f5e670b1cf5bb7042c992d5c0e1a95008f",
+  "post_hoc_after_model_output": true,
+  "reference": "Pinned upstream fixed function, not a hand-written oracle",
+  "model_source_hashes_match_tested": true,
+  "source_sha256": "b4e15be797a641441c43b4271ffcd110f19b15052ab66646039da09aa2cf465c"
+}

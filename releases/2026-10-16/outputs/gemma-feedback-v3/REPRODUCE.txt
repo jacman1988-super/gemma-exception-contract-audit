@@ -1,0 +1,33 @@
+Gemma feedback experiment — Jacek Adamek — 2026-10-16
+
+Original cases, pinned sources, license files and previous responses are in
+../gemma-new-repositories-v2 and work/new-upstream-v2. Do not change them.
+Use fresh sibling output directories for reproduction to preserve these runs.
+
+run.py: first feedback round; same local Gemma E2B Q4_0 hash, temperature zero,
+seed 20261016, 4096 context, 1536 output tokens. Feedback consists of the failed
+previous patch's upstream and local control output. No upstream gold fix.
+One generation per case. Execute local inference outside the sandbox, which
+was previously demonstrated to block this binary's inference.
+
+evaluate_feedback.py: strict JSON/schema parsing, duplicate key rejection,
+unique exact source blocks, declared source scope, AST validation. preflight
+and reviewed-edits.json preserve malformed Tenacity response and approved safe
+Packaging edit. Approval here concerns local execution, never correctness.
+Evaluate on fixed upstream module, previously seen controls and new withheld
+controls. New controls were written before reading either generated response.
+
+round2.py: one additional generation per case using shorter cumulative original
+failure + regression + malformed response feedback, 512 output tokens. No gold
+code supplied. evaluate_round2.py rejects no-op edits and tests the reviewed
+Packaging edit. All four responses and both failed rounds remain recorded.
+
+Evaluation must run outside the sandbox as local asyncio loops also block in
+this environment. Tests run only in isolated source copies, never submitted
+projects. Use workspace Python and existing local test dependencies. Disable
+pytest plugin autoload; all harnesses specify declared test modules explicitly.
+
+report.py validates summaries against checked JUnit evidence. Correct upstream
+references pass all 249 checks. Model repairs do not. Small public convenience
+cases with oracle localization and manual feedback; no broad capability claim.
+No publication, upload, acceptance of rules or contest submission is performed.

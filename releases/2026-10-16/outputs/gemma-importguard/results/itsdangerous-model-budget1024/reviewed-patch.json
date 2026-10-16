@@ -1,0 +1,11 @@
+{
+  "reviewed_by": "Codex, not participant publication approval",
+  "review": "Only datetime conversion function changed; catches OSError and creates BadTimeSignature with a string payload. No file/network/process effects. Exact generated code tested without correction.",
+  "patch": {
+    "old": "    def timestamp_to_datetime(self, ts: int) -> datetime:\n        \"\"\"Convert the timestamp from :meth:`get_timestamp` into an\n        aware :class`datetime.datetime` in UTC. Raises :exc:`.ValueError`\n        if the timestamp is too far in the past or future for Python.\n\n        .. versionchanged:: 2.0\n            The timestamp is returned as a timezone-aware ``datetime``\n            in UTC rather than a naive ``datetime`` assumed to be UTC.\n        \"\"\"\n        return datetime.fromtimestamp(ts, tz=timezone.utc)",
+    "new": "    def timestamp_to_datetime(self, ts: int) -> datetime:\n        \"\"\"Convert the timestamp from :meth:`get_timestamp` into an\n        aware :class`datetime.datetime` in UTC. Raises :exc:`.BadTimeSignature`\n        if the timestamp is malformed or out of range for Python.\n\n        .. versionchanged:: 2.0\n            The timestamp is returned as a timezone-aware ``datetime``\n            in UTC rather than a naive ``datetime`` assumed to be UTC.\n        \"\"\"\n        try:\n            return datetime.fromtimestamp(ts, tz=timezone.utc)\n        except OSError as e:\n            # On Windows, datetime.fromtimestamp raises OSError for invalid timestamps.\n            # We catch this and raise BadTimeSignature as per the requirement.\n            raise BadTimeSignature(\"Malformed timestamp\", payload=f\"Timestamp {ts} caused OSError: {e}\")"
+  },
+  "output_sha256": "f378b8f1f0038d47d78f5f9a071cf4d2fe76d07618a55d0f2cf5da9dc25ff2c3",
+  "patched_text_sha256": "656ceafe4aa3ca24e1e6ee3626576c57b4210e8a33565f63302874dfd2cdd343",
+  "pretest_rule": "Record primary declared timed-test module and full test directory for fixed, parent and generated versions. Retain all failures; no retry after test feedback."
+}

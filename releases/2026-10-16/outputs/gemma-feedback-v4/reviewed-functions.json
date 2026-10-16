@@ -1,0 +1,42 @@
+[
+  {
+    "id": "tenacity-new-v2",
+    "generation_sha256": "c414263cb2fe2a9bf36a16e60bf06f800985ca2587bc15def4c8aaabb3a73cca",
+    "parsed": true,
+    "edits": [
+      {
+        "file": "tenacity/__init__.py",
+        "function": "_run_wait",
+        "literal_function": "def _run_wait(self, retry_state: \"RetryCallState\") -> None:\n    if self.wait is None or self.wait == 0:\n        retry_state.upcoming_sleep = 0\n    else:\n        retry_state.upcoming_sleep = self.wait(retry_state)",
+        "ignored_module_context": []
+      },
+      {
+        "file": "tenacity/asyncio/__init__.py",
+        "function": "_run_wait",
+        "literal_function": "async def _run_wait(self, retry_state: \"RetryCallState\") -> None:  # type: ignore[override]\n    if self.wait is None or self.wait == 0:\n        retry_state.upcoming_sleep = 0\n    else:\n        retry_state.upcoming_sleep = await _utils.wrap_to_async_func(self.wait)(\n            retry_state\n        )",
+        "ignored_module_context": []
+      }
+    ],
+    "approved": true,
+    "manual_review": "Read literal generated functions. Tenacity only changes wait condition and assignment; Packaging only changes return expression. No new I/O/imports/commands in extracted functions. Extraneous Packaging module context ignored under function-only interface; functions not semantically edited. Original decorators retained."
+  },
+  {
+    "id": "packaging-new-v2",
+    "generation_sha256": "333983dff0d703f4e4fc23f9b82305b0bb3c7e41d256e5acf2cf3ad41db47fed",
+    "parsed": true,
+    "edits": [
+      {
+        "file": "src/packaging/pylock.py",
+        "function": "is_valid_pylock_path",
+        "literal_function": "def is_valid_pylock_path(path: Path) -> bool:\n    \"\"\"Check if the given path is a valid pylock file path.\"\"\"\n    return bool(_PYLOCK_FILE_NAME_RE.match(path.name))",
+        "ignored_module_context": [
+          "Import",
+          "ImportFrom",
+          "Assign"
+        ]
+      }
+    ],
+    "approved": true,
+    "manual_review": "Read literal generated functions. Tenacity only changes wait condition and assignment; Packaging only changes return expression. No new I/O/imports/commands in extracted functions. Extraneous Packaging module context ignored under function-only interface; functions not semantically edited. Original decorators retained."
+  }
+]

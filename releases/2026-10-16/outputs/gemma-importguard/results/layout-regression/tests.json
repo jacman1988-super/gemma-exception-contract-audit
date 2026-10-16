@@ -1,0 +1,7 @@
+{
+  "frozen_selector_tests": 9,
+  "layout_variant_tests": 7,
+  "total": 16,
+  "status": "passed",
+  "command": "python -m unittest -v"
+}

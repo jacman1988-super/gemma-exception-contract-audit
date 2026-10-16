@@ -1,0 +1,18 @@
+{
+  "generation_sha256": "5c38eee5d2b11d58089965ea3f115a19ef8d18fba18d6cc70a02144c4a76c821",
+  "parsed_functions": [
+    {
+      "file": "src/packaging/pylock.py",
+      "function": "is_valid_pylock_path",
+      "literal_function": "def is_valid_pylock_path(path: Path) -> bool:\n    \"\"\"Check if the given path is a valid pylock file path.\"\"\"\n    return bool(_PYLOCK_FILE_NAME_RE.fullmatch(path.name))",
+      "ignored_module_context": [
+        "Import",
+        "ImportFrom",
+        "Assign"
+      ]
+    }
+  ],
+  "rejected_as_noop": true,
+  "same_function_ast_as_tested_api_attempt": true,
+  "not_executed_again": true
+}

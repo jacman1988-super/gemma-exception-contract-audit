@@ -1,0 +1,41 @@
+Repair your previous unsuccessful edit. The source below already includes that edit. Preserve all valid behavior. Return only JSON {"edits":[{"file":"relative/path.py","old":"exact block","new":"replacement"}]}. Multiple files are allowed; every old block must match exactly once in its file. Do not run commands.
+Task description:
+fix: require the complete pylock filename to match (#1446)
+
+* Require the complete pylock filename to match
+
+* Remove redundant pylock filename comments
+Buggy source:
+File: src/packaging/pylock.py
+def is_valid_pylock_path(path: Path) -> bool:
+    """Check if the given path is a valid pylock file path."""
+    return path.name == "pylock.toml" or bool(_PYLOCK_FILE_NAME_RE.match(path.name) and path.name == "pylock.toml")
+Observed test failures from your previous patch:
+.F...................................................................... [ 97%]
+..                                                                       [100%]
+================================== FAILURES ===================================
+________________ test_pylock_file_name[pylock.spam.toml-True] _________________
+tests\test_pylock.py:44: in test_pylock_file_name
+    assert is_valid_pylock_path(Path(file_name)) is valid
+E   AssertionError: assert False is True
+E    +  where False = is_valid_pylock_path(WindowsPath('pylock.spam.toml'))
+E    +    where WindowsPath('pylock.spam.toml') = Path('pylock.spam.toml')
+- generated xml file: C:\Users\adame\Documents\Codex\2026-10-14\referenced-chatgpt-conversation-this-is-an\outputs\gemma-new-repositories-v2\packaging-new-v2-model-full-checked.xml -
+=========================== short test summary info ===========================
+FAILED tests/test_pylock.py::test_pylock_file_name[pylock.spam.toml-True] - A...
+1 failed, 73 passed in 0.24s
+
+.F.....                                                                  [100%]
+================================== FAILURES ===================================
+________________ test_complete_filename[pylock.prod.toml-True] ________________
+test_contract_packaging.py:11: in test_complete_filename
+    assert is_valid_pylock_path(Path(name)) is valid
+E   AssertionError: assert False is True
+E    +  where False = is_valid_pylock_path(WindowsPath('pylock.prod.toml'))
+E    +    where WindowsPath('pylock.prod.toml') = Path('pylock.prod.toml')
+- generated xml file: C:\Users\adame\Documents\Codex\2026-10-14\referenced-chatgpt-conversation-this-is-an\outputs\gemma-new-repositories-v2\packaging-new-v2-model-contract-checked.xml -
+=========================== short test summary info ===========================
+FAILED test_contract_packaging.py::test_complete_filename[pylock.prod.toml-True]
+1 failed, 6 passed in 0.16s
+
+Return only the JSON edits, relative to the CURRENT source above. Fix both synchronous and asynchronous behavior if applicable. Preserve legitimate named pylock files if applicable.

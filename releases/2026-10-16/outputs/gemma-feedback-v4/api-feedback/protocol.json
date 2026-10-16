@@ -1,0 +1,18 @@
+{
+  "case": "packaging-new-v2",
+  "method": "Execution counterexample table + local Python regex API reference",
+  "api_docs": {
+    "Pattern.match": "Matches zero or more characters at the beginning of the string.",
+    "Pattern.fullmatch": "Matches against all of the string.",
+    "Pattern.search": "Scan through string looking for a match, and return a corresponding match object instance.\n\nReturn None if no position in the string matches."
+  },
+  "source_prompt_sha256": "d7badb4912271e3573fb259e70718d19e6066c62d06e47075411399aa6316978",
+  "previous_generation_sha256": "333983dff0d703f4e4fc23f9b82305b0bb3c7e41d256e5acf2cf3ad41db47fed",
+  "attempts": 1,
+  "context": 4096,
+  "tokens": 512,
+  "seed": 20261016,
+  "temperature": 0,
+  "reference_assistance": "Explicit fullmatch API documentation supplied among match/search methods; stronger assistance, not comparable with unassisted stages. No upstream gold code.",
+  "source_sha256": "d469160f8804f7c65e8ab5ca458c8231b55cf9c0b6d4e8dcb0af326981a3d500"
+}

@@ -1,0 +1,17 @@
+{
+  "note": "Historical protocol hashed decoded source re-encoded as UTF-8 using Windows default text decoding. For more.py that is not the original file-byte hash. All actual prompt snippets are verified identical to correctly decoded UTF-8 source. Raw-file hashes supplied here; future harness uses raw bytes. Original protocol retained unchanged.",
+  "checks": [
+    {
+      "id": "boltons-indexedset",
+      "actual_buggy_file_bytes_sha256": "aa806bb553ca1114e95d730fd7195c02e946db4eba03fc44927180dbb7bbc5bb",
+      "recorded_hash": "aa806bb553ca1114e95d730fd7195c02e946db4eba03fc44927180dbb7bbc5bb",
+      "prompt_snippet_matches_utf8_source": true
+    },
+    {
+      "id": "more-itertools-bucket",
+      "actual_buggy_file_bytes_sha256": "bc51d6f1c05613084fb566a8310771ab946864f0bb4815d26d4c6bb8d44bf9ff",
+      "recorded_hash": "b24479fcf9ae3b171a20acdd7ad4fa9fae8f33ff0f403898c0d18bb6061a110b",
+      "prompt_snippet_matches_utf8_source": true
+    }
+  ]
+}

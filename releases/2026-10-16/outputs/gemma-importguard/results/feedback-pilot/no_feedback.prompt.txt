@@ -1,0 +1,14 @@
+You are reviewing a Python patch. You get one revision opportunity. Return only JSON with string fields old and new containing an exact source block and its replacement. Do not run commands.
+Task: IndexedSet.update accepts several iterables. Add their elements in order, not the iterables themselves. Preserve the zero-argument and one-argument behavior.
+Current source after your previous edit:
+    def update(self, *others):
+        "update(*others) -> add values from one or more iterables"
+        if not others:
+            return  # raise?
+        elif len(others) == 1:
+            other = others[0]
+        else:
+            other = list(chain(others))
+        for o in other:
+            self.add(o)
+Review your previous edit once more. No test feedback is provided.

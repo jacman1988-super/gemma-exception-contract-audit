@@ -1,0 +1,28 @@
+{
+  "cases": [
+    [
+      "flat",
+      "prefix"
+    ],
+    [
+      "flat",
+      "suffix"
+    ],
+    [
+      "src",
+      "prefix"
+    ],
+    [
+      "src",
+      "suffix"
+    ]
+  ],
+  "design": "Purpose-built post-review regression, not independent generalization or model evaluation",
+  "source_sha256": {
+    "importguard_layout.py": "df2f0490dd915f1ef90dad3b1842655a7649bb5e63712ab6572d57bf066a45e4",
+    "importguard_discovery.py": "ed07a65e3a0425aa8672f3e4570b7806ab2702a6c302698f8381df1157976d66",
+    "discovery_benchmark.py": "048b74a6bbd3d359c550542708f9cc30a25abc4b9302c483b2ca3e78e3d7fbe8"
+  },
+  "mutation": "fee(n): 2*n -> 3*n",
+  "expected_test_pool": 2
+}

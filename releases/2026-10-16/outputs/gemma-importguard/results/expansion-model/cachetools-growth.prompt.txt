@@ -1,0 +1,45 @@
+Fix a Python bug. Return only JSON with string fields old and new for an exact source block and its replacement. Make the smallest edit, preserve unrelated behavior, and do not run commands.
+Task description (public commit message):
+Fix #405: Fix Cache.__setitem__ over-evicting when growing an existing key
+
+* Fix Cache.__setitem__ over-evicting when growing an existing key
+
+When getsizeof is set and an existing key's value grows, __currsize
+already includes that key's old size, so reserving the full new size
+double-counts it and evicts an unrelated entry even though the updated
+cache would still fit within maxsize.
+
+Reserve only the size delta instead, and recompute the reservation as a
+full insert if popitem() happens to evict the key being updated.
+
+Adds a regression test covering all cache types.
+
+Closes #405
+
+* Address review: drop changelog entry, split setitem branches
+
+Use separate insert/replace branches in Cache.__setitem__ so the
+insert path does not re-check key presence on every eviction, and
+only the replace path re-derives diffsize after popitem.
+
+Keep test keys aligned with their values and add replace cases for
+same-size and smaller values.
+Buggy source:
+File: src/cachetools/__init__.py
+    def __setitem__(self, key, value):
+        maxsize = self.__maxsize
+        size = self.getsizeof(value)
+        if size < 0:
+            raise ValueError("value size must be non-negative")
+        if size > maxsize:
+            raise ValueError("value too large")
+        if key not in self.__data or self.__size[key] < size:
+            while self.__currsize + size > maxsize:
+                self.popitem()
+        if key in self.__data:
+            diffsize = size - self.__size[key]
+        else:
+            diffsize = size
+        self.__data[key] = value
+        self.__size[key] = size
+        self.__currsize += diffsize

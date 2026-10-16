@@ -1,0 +1,27 @@
+{
+  "packaging": {
+    "upstream": {
+      "passed": 74,
+      "total": 74,
+      "accepted": true
+    },
+    "examples": {
+      "passed": 7,
+      "total": 7,
+      "accepted": true
+    },
+    "withheld": {
+      "passed": 9,
+      "total": 9,
+      "accepted": true
+    }
+  },
+  "packaging_all_pass": true,
+  "packaging_passed": 90,
+  "packaging_total": 90,
+  "additional_differential_names": 1245,
+  "differential_differences": 0,
+  "previous_tenacity_passed": 159,
+  "human_structural_guidance": true,
+  "published_or_submitted": false
+}

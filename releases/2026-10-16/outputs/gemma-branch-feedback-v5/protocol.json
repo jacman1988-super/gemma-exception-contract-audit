@@ -1,0 +1,13 @@
+{
+  "case": "packaging-new-v2",
+  "feedback": "Explicit two-family behavioral decomposition and requested separate if branches; strong human structural guidance, not an autonomous discovery claim. No upstream gold source.",
+  "tokens": 512,
+  "context": 4096,
+  "seed": 20261016,
+  "temperature": 0,
+  "attempts": 1,
+  "model_sha256": "fa401b55b07ee70a54c6dae3903c783a6e65064312529ea57175cb5f8dec6634",
+  "source_sha256": "9c085c22962136cc43dc4ed1ccb370f955b1b793880bdefe7e42120a13fc81d3",
+  "previous_function": "def is_valid_pylock_path(path: Path) -> bool:\n    \"\"\"Check if the given path is a valid pylock file path.\"\"\"\n    return bool(_PYLOCK_FILE_NAME_RE.fullmatch(path.name))",
+  "withheld_tests_shared": false
+}

@@ -1,0 +1,68 @@
+Fix a Python bug. Return only JSON with string fields old and new for an exact source block and its replacement. Make the smallest edit, preserve unrelated behavior, and do not run commands.
+Task description (public commit message):
+fix: only treat None and 0 as "no wait" (#741)
+
+BaseRetrying skipped the wait strategy whenever it was falsy, so a
+callable strategy that is an empty container or defines __bool__ was
+never called. Match the "no wait" values (None, 0, and sum([]) over no
+strategies) explicitly, and replace them with wait_none() at construction
+so both the sync and async loops just call the strategy. This drops the
+truthy-bool type: ignore in both _run_wait.
+
+Supersedes #731.
+
+
+Change-Id: Ic5b013f36c168a6c387ad912840c4ab944c72f4b
+
+Co-authored-by: Claude Opus 5.5 <noreply@anthropic.com>
+Buggy source:
+File: tenacity/__init__.py
+    def __init__(
+        self,
+        sleep: t.Callable[[int | float], None] = sleep,
+        stop: "StopBaseT" = stop_never,
+        wait: "WaitBaseT" = wait_none(),
+        retry: "RetryBaseT" = retry_if_exception_type(),
+        before: t.Callable[["RetryCallState"], None] = before_nothing,
+        after: t.Callable[["RetryCallState"], None] = after_nothing,
+        before_sleep: t.Callable[["RetryCallState"], None] | None = None,
+        reraise: bool = False,
+        retry_error_cls: type[RetryError] = RetryError,
+        retry_error_callback: t.Callable[["RetryCallState"], t.Any] | None = None,
+        name: str | None = None,
+        enabled: bool = True,
+    ) -> None:
+        self.sleep = sleep
+        self.stop = stop
+        self.wait = wait
+        self.retry = retry
+        self.before = before
+        self.after = after
+        self.before_sleep = before_sleep
+        self.reraise = reraise
+        self._local = threading.local()
+        self.retry_error_cls = retry_error_cls
+        self.retry_error_callback = retry_error_callback
+        self._name = name
+        self.enabled = enabled
+
+    def _run_wait(self, retry_state: "RetryCallState") -> None:
+        # `wait` is annotated as always set, so a type checker sees this guard
+        # as always true -- but untyped callers legitimately pass `None` or `0`
+        # to mean "no wait", and `sum([])` over an empty list of strategies
+        # yields the int 0. Keep honouring those.
+        if not self.wait:  # type: ignore[truthy-bool]
+            retry_state.upcoming_sleep = 0.0
+        else:
+            retry_state.upcoming_sleep = self.wait(retry_state)
+
+File: tenacity/asyncio/__init__.py
+    async def _run_wait(self, retry_state: "RetryCallState") -> None:  # type: ignore[override]
+        # See BaseRetrying._run_wait: falsy `wait` values mean "no wait" and
+        # reach us from untyped callers.
+        if not self.wait:  # type: ignore[truthy-bool]
+            retry_state.upcoming_sleep = 0.0
+        else:
+            retry_state.upcoming_sleep = await _utils.wrap_to_async_func(self.wait)(
+                retry_state
+            )

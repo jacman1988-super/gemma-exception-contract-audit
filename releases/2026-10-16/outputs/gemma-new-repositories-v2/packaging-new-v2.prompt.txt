@@ -1,0 +1,12 @@
+Fix a Python bug. Return only JSON with string fields old and new for an exact source block and its replacement. Make the smallest edit, preserve unrelated behavior, and do not run commands.
+Task description (public commit message):
+fix: require the complete pylock filename to match (#1446)
+
+* Require the complete pylock filename to match
+
+* Remove redundant pylock filename comments
+Buggy source:
+File: src/packaging/pylock.py
+def is_valid_pylock_path(path: Path) -> bool:
+    """Check if the given path is a valid pylock file path."""
+    return path.name == "pylock.toml" or bool(_PYLOCK_FILE_NAME_RE.match(path.name))

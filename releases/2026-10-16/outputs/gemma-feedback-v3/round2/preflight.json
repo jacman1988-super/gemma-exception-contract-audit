@@ -1,0 +1,20 @@
+[
+  {
+    "id": "tenacity-new-v2",
+    "generation_sha256": "af97b00fccc9dedee617fe597dc510544a72e57641d9d907af43745c465a30d4",
+    "parse_valid": false,
+    "rejection": "No-op edit is not a repair"
+  },
+  {
+    "id": "packaging-new-v2",
+    "generation_sha256": "d012d92e3840a449701456956d6e76b7638480c106c7090fc4497a39ce5f709e",
+    "parse_valid": true,
+    "edits": [
+      {
+        "file": "src/packaging/pylock.py",
+        "old": "def is_valid_pylock_path(path: Path) -> bool:\n    \"\"\"Check if the given path is a valid pylock file path.\"\"\"\n    return path.name == \"pylock.toml\" or bool(_PYLOCK_FILE_NAME_RE.match(path.name))",
+        "new": "def is_valid_pylock_path(path: Path) -> bool:\n    \"\"\"Check if the given path is a valid pylock file path.\"\"\"\n    return path.name == \"pylock.toml\" or bool(_PYLOCK_FILE_NAME_RE.match(path.name.rstrip('\\n')))"
+      }
+    ]
+  }
+]

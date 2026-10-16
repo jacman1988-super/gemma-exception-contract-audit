@@ -1,0 +1,14 @@
+{
+  "scope": "Post-outcome verification on five existing upstream cases, not new holdouts.",
+  "cases": [
+    "cachetools-empty",
+    "cachetools-growth",
+    "cachetools-stale",
+    "jmespath-float",
+    "jmespath-functions"
+  ],
+  "encoding": "UTF-8 explicitly enabled for all subprocesses",
+  "selector_sha256": "ed07a65e3a0425aa8672f3e4570b7806ab2702a6c302698f8381df1157976d66",
+  "harness_sha256": "9558bf5ee775bdb10464d34dbaca180992a74beac93417f66f0518b73a7e93f8",
+  "pool": "Previously declared modules; no additions or case replacements"
+}

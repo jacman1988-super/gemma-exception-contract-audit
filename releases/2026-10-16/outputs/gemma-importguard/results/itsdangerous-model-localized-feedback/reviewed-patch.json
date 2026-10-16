@@ -1,0 +1,12 @@
+{
+  "reviewed_by": "Codex, not participant publication approval",
+  "review": "Only decoder handler changed to catch OSError. Failing datetime conversion remains outside this handler; no new external effects. No file/network/process effects. Exact generated code tested without correction.",
+  "patch": {
+    "old": "        try:\n            ts_int = bytes_to_int(base64_decode(ts_bytes))\n        except Exception:\n            pass",
+    "new": "        try:\n            ts_int = bytes_to_int(base64_decode(ts_bytes))\n        except OSError:\n            pass"
+  },
+  "output_sha256": "dbbf3964942fe3bfbe56f52dc7c9dc6d3de75d571162408613511d4e0b0c1912",
+  "patched_text_sha256": "699cb21846d20110345602dd9a35ddf56b672c5bd96a0afed06e72b75df647e7",
+  "additional_test_scope": "Three post-outcome diagnostic tests: original bytes payload, valid roundtrip, direct conversion exceptions; not frozen upstream tests.",
+  "pretest_rule": "Record primary declared timed-test module and full test directory for fixed, parent and generated versions. Retain all failures; no retry after test feedback."
+}

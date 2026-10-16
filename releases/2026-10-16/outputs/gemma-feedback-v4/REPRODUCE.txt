@@ -1,0 +1,45 @@
+Staged literal-function repair — Jacek Adamek — 2026-10-16
+
+Use a fresh sibling output directory to preserve recorded generations.
+Pinned public parent sources and licenses are in work/new-upstream-v2 and
+outputs/gemma-new-repositories-v2. This experiment starts from clean parent
+functions, not the earlier failed model patches.
+
+run_staged.py records the full protocol before any model output. Each case
+receives an input/expected table and localized source, including the relevant
+regex constant for Packaging. One 256-token diagnosis is followed by one
+768-token repair generation. Same local Gemma E2B model/hash/seed, no gold fix
+and no withheld tests supplied. Run inference outside the sandbox as before.
+
+function_evaluation.py preflight extracts complete literal functions. It accepts
+bare FILE headers or code fences, and an omitted header only for one declared
+file. Extra module context is audited but not applied under the function-only
+interface. Signatures, source scope and function type are checked. Original
+decorators remain outside the replaced source span. The initial overly strict
+decorator check and its corrected result are both retained.
+
+Read generated functions before local execution; reviewed-functions.json
+records this review. No generated function body was manually corrected.
+Run function_evaluation.py evaluate outside sandbox in isolated source copies.
+It uses fixed upstream regression modules, old example controls, and the same
+withheld controls from gemma-feedback-v3. Report completeness/counts/outcomes
+are checked by the existing fail-closed validation_report module.
+
+report.py creates summary.json and Wyniki-Gemma.txt. tenacity-tested.patch was
+constructed from the literal model functions and its Windows source hashes
+verified against the tested files. This patch is local and unsubmitted.
+
+The procedure changes diagnosis, feedback format, relevant context and restart
+state simultaneously. A 1/2 result cannot isolate the effect of a single change
+or estimate general agent effectiveness. No publication or submission occurs.
+
+Further Packaging follow-ups are preserved separately. api_feedback.py supplies
+the actual execution counterexamples and local Python match/fullmatch/search
+docstrings. This is explicitly stronger API guidance, not a gold source patch.
+The saved generation completed before a console Unicode-print error; it was
+not regenerated. evaluate_api.py applies only the reviewed generated function
+and validates the same 90 declared checks. Result: 88/90, base filename still
+incorrectly rejected. last_case_feedback.py then supplies the single remaining
+failure and a ledger of passing behavior. Its response repeats the same
+function; final_report.py verifies AST identity and rejects it as a no-op,
+without another execution. All six model generations in this turn are kept.

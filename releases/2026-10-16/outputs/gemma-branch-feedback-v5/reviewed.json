@@ -1,0 +1,14 @@
+{
+  "edits": [
+    {
+      "file": "src/packaging/pylock.py",
+      "function": "is_valid_pylock_path",
+      "literal_function": "def is_valid_pylock_path(path: Path) -> bool:\n    \"\"\"Check if the given path is a valid pylock file path.\"\"\"\n    filename = path.name\n\n    # Family 1: the exact ordinary filename pylock.toml is valid\n    if filename == \"pylock.toml\":\n        return True\n\n    # Family 2: pylock.NAME.toml is valid when NAME is nonempty and contains no dot,\n    # and the entire unmodified filename matches.\n    # Pattern: pylock.<NAME>.toml where NAME is non-empty and contains no dot.\n    # This means the part between 'pylock.' and '.toml' must not contain a dot.\n    if filename.startswith(\"pylock.\") and filename.endswith(\".toml\"):\n        name_part = filename[len(\"pylock.\"):-len(\".toml\")]\n        if name_part and \".\" not in name_part:\n            return True\n\n    # All other filenames are invalid.\n    return False",
+      "ignored_module_context": []
+    }
+  ],
+  "generation_sha256": "369afa78862d1fd61e40944aee23fb27c55742bcbbd1e919d167bf72df0ed300",
+  "function_only_context_policy": "bd40bd06da27ede206a0b5b088b501033cb568f877df640af88786bc27a86bef",
+  "approved": true,
+  "manual_review": "Read entire literal function. Only name extraction, prefix/suffix checks, substring and boolean returns. No commands, I/O, imports or helpers. Preserve generated body exactly; correctness determined by tests."
+}

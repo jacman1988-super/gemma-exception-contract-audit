@@ -1,0 +1,8 @@
+Repair the current Python source using this cumulative test feedback. Return ONLY complete JSON {"edits":[{"file":"relative/path.py","old":"exact block","new":"replacement"}]}. Keep edits concise; do not repeat keys. No commands.
+Feedback:
+Previous feedback merely restored the original buggy function. Current code wrongly accepts filename "pylock.spam.toml\n"; expected False. It must reject trailing newlines and suffix garbage while still accepting "pylock.toml", "pylock.spam.toml", and "pylock.prod.toml". Do not solve the newline case by rejecting legitimate named lockfiles.
+Current source:
+File: src/packaging/pylock.py
+def is_valid_pylock_path(path: Path) -> bool:
+    """Check if the given path is a valid pylock file path."""
+    return path.name == "pylock.toml" or bool(_PYLOCK_FILE_NAME_RE.match(path.name))

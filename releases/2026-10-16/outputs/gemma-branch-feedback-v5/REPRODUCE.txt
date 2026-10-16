@@ -1,0 +1,23 @@
+Packaging branch feedback — Jacek Adamek — 2026-10-16
+
+Use a fresh sibling folder to preserve recorded artifacts. run.py freezes a
+single 512-token generation with the same local Gemma E2B Q4_0 model and seed.
+Feedback explicitly decomposes the two valid filename families and requests
+separate if branches. This is strong human structural guidance, not a gold
+source patch and not an autonomous repair claim.
+
+evaluate.py delegates to the existing literal-function parser and isolated
+Packaging test harness. No generated body is edited. reviewed.json records
+safe local execution review; actual correctness is checked by the full changed
+upstream module, previous controls and nine previously withheld cases.
+
+robustness.py reconstructs the exact tested source and checks the SHA256 before
+post-hoc differential testing against the actual pinned fixed upstream module.
+1245 deterministic unique filename strings include Unicode, control characters,
+path separators, empty names, repeated dots and suffixes. Preserve its input
+list, reference/model outputs and source-path evidence. No discrepancies.
+
+report.py creates the local patch and verifies its source hashes match tested
+files. The earlier Tenacity patch/test result is unchanged and referenced, not
+rerun. New results do not change the published paper or contest submission.
+No publication, sending, paid services or new rule acceptance occurs.

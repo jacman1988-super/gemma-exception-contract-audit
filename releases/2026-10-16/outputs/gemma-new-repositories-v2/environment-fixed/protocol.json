@@ -1,0 +1,25 @@
+{
+  "reason": "Sandboxed inference produced no output before timeout. Neutral prompt timed out at 90s with DEVNULL, but succeeded outside sandbox in ~4s. Same case prompts and budgets repeated outside sandbox; no model feedback or edits supplied.",
+  "initial_attempts_preserved": true,
+  "case_attempts_in_this_environment": 1,
+  "stdin": "DEVNULL",
+  "context": 4096,
+  "max_tokens": 512,
+  "seed": 20261016,
+  "temperature": 0,
+  "timeout_seconds": 180,
+  "tasks": [
+    {
+      "id": "tenacity-new-v2",
+      "prompt_sha256": "576f88184ff6a3b07b117e43c928c435c6db6f9297cc1ad2fb507ffd2ffb4933",
+      "prompt": "Fix a Python bug. Return only JSON with string fields old and new for an exact source block and its replacement. Make the smallest edit, preserve unrelated behavior, and do not run commands.\nTask description (public commit message):\nfix: only treat None and 0 as \"no wait\" (#741)\n\nBaseRetrying skipped the wait strategy whenever it was falsy, so a\ncallable strategy that is an empty container or defines __bool__ was\nnever called. Match the \"no wait\" values (None, 0, and sum([]) over no\nstrategies) explicitly, and replace them with wait_none() at construction\nso both the sync and async loops just call the strategy. This drops the\ntruthy-bool type: ignore in both _run_wait.\n\nSupersedes #731.\n\n\nChange-Id: Ic5b013f36c168a6c387ad912840c4ab944c72f4b\n\nCo-authored-by: Claude Opus 5.5 <noreply@anthropic.com>\nBuggy source:\nFile: tenacity/__init__.py\n    def __init__(\n        self,\n        sleep: t.Callable[[int | float], None] = sleep,\n        stop: \"StopBaseT\" = stop_never,\n        wait: \"WaitBaseT\" = wait_none(),\n        retry: \"RetryBaseT\" = retry_if_exception_type(),\n        before: t.Callable[[\"RetryCallState\"], None] = before_nothing,\n        after: t.Callable[[\"RetryCallState\"], None] = after_nothing,\n        before_sleep: t.Callable[[\"RetryCallState\"], None] | None = None,\n        reraise: bool = False,\n        retry_error_cls: type[RetryError] = RetryError,\n        retry_error_callback: t.Callable[[\"RetryCallState\"], t.Any] | None = None,\n        name: str | None = None,\n        enabled: bool = True,\n    ) -> None:\n        self.sleep = sleep\n        self.stop = stop\n        self.wait = wait\n        self.retry = retry\n        self.before = before\n        self.after = after\n        self.before_sleep = before_sleep\n        self.reraise = reraise\n        self._local = threading.local()\n        self.retry_error_cls = retry_error_cls\n        self.retry_error_callback = retry_error_callback\n        self._name = name\n        self.enabled = enabled\n\n    def _run_wait(self, retry_state: \"RetryCallState\") -> None:\n        # `wait` is annotated as always set, so a type checker sees this guard\n        # as always true -- but untyped callers legitimately pass `None` or `0`\n        # to mean \"no wait\", and `sum([])` over an empty list of strategies\n        # yields the int 0. Keep honouring those.\n        if not self.wait:  # type: ignore[truthy-bool]\n            retry_state.upcoming_sleep = 0.0\n        else:\n            retry_state.upcoming_sleep = self.wait(retry_state)\n\nFile: tenacity/asyncio/__init__.py\n    async def _run_wait(self, retry_state: \"RetryCallState\") -> None:  # type: ignore[override]\n        # See BaseRetrying._run_wait: falsy `wait` values mean \"no wait\" and\n        # reach us from untyped callers.\n        if not self.wait:  # type: ignore[truthy-bool]\n            retry_state.upcoming_sleep = 0.0\n        else:\n            retry_state.upcoming_sleep = await _utils.wrap_to_async_func(self.wait)(\n                retry_state\n            )"
+    },
+    {
+      "id": "packaging-new-v2",
+      "prompt_sha256": "73d995800a51edcfc81cc0915bcf128cd33a057fd54cb6e7925d6e755773e8f6",
+      "prompt": "Fix a Python bug. Return only JSON with string fields old and new for an exact source block and its replacement. Make the smallest edit, preserve unrelated behavior, and do not run commands.\nTask description (public commit message):\nfix: require the complete pylock filename to match (#1446)\n\n* Require the complete pylock filename to match\n\n* Remove redundant pylock filename comments\nBuggy source:\nFile: src/packaging/pylock.py\ndef is_valid_pylock_path(path: Path) -> bool:\n    \"\"\"Check if the given path is a valid pylock file path.\"\"\"\n    return path.name == \"pylock.toml\" or bool(_PYLOCK_FILE_NAME_RE.match(path.name))"
+    }
+  ],
+  "original_protocol_sha256": "f34051e1182f46126323fec1460673743fc4e914253c7f95570922d571ab91b1",
+  "source_sha256": "6108c1c4fac9ea9806b9960adf3278b73855aad78f56d623fa58b4365a34157b"
+}

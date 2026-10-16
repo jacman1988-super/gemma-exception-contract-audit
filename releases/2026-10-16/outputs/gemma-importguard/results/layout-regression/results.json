@@ -1,0 +1,279 @@
+{
+  "cases": [
+    {
+      "id": "cachetools-empty",
+      "choice": {
+        "selected": [
+          "tests/test_cache.py",
+          "tests/test_cached.py",
+          "tests/test_cachedmethod.py",
+          "tests/test_classmethod.py",
+          "tests/test_fifo.py",
+          "tests/test_func.py",
+          "tests/test_keys.py",
+          "tests/test_lfu.py",
+          "tests/test_lru.py",
+          "tests/test_rr.py",
+          "tests/test_threading.py",
+          "tests/test_tlru.py",
+          "tests/test_ttl.py"
+        ],
+        "static_selected": [
+          "tests/test_cache.py",
+          "tests/test_cached.py",
+          "tests/test_cachedmethod.py",
+          "tests/test_classmethod.py",
+          "tests/test_fifo.py",
+          "tests/test_func.py",
+          "tests/test_keys.py",
+          "tests/test_lfu.py",
+          "tests/test_lru.py",
+          "tests/test_rr.py",
+          "tests/test_threading.py",
+          "tests/test_tlru.py",
+          "tests/test_ttl.py"
+        ],
+        "total_tests": 13,
+        "fallback": true,
+        "reasons": [
+          "package initialization or test configuration changed"
+        ],
+        "changed": [
+          "src/cachetools/__init__.py"
+        ],
+        "declared_source_roots": [
+          "src"
+        ],
+        "source_sha256": {
+          "docs/conf.py": "f68affa8dfcf4a20d5fe872cfb0e19f9b284f8feda563dd8e8e23eafe75cd4eb",
+          "src/cachetools/__init__.py": "525ba807fed4af10744f068b5f9b81710903b6f73ee897469d3bf615847e2bd0",
+          "src/cachetools/_cached.py": "e4a75ee34a6d1b582ec8567080ca90eca9c330f0c8f878b7372a861dbc1e18f4",
+          "src/cachetools/_cachedmethod.py": "ad2e75ebb6d3131225f36ce63c6f281700e675aff79ce2d447f8e97132b4ecb4",
+          "src/cachetools/func.py": "87724e4fc82303fd5172cc9fd03c7aaf6a767c6c477f3cb74a245fc45ebf7816",
+          "src/cachetools/keys.py": "9550bd6914744c2fc6fd211dfb83cdae2d6206b1a1bfcf052d017cb23b39b49e",
+          "tests/__init__.py": "72d99005a5d409aa14990b42b54646b726a4f3ca7a091a6f4831ff7701293eb8",
+          "tests/test_cache.py": "dbdf81b02f344a0e62a5dcf2364be7e135e2511e765e93b43864aeb7aa3b115c",
+          "tests/test_cached.py": "27097d0df26efd2e6f72d03e5a8c9cdd7c4b5545ecee38aa439a78538c72fb0a",
+          "tests/test_cachedmethod.py": "d5b131d062ef613bbbcaaf107b4ab0a2f28f4bf505dd00964d2c46cf5ac757bf",
+          "tests/test_classmethod.py": "465e882cf15481277cef959eb5d4ec0072d61c342079cac05684da55fe543851",
+          "tests/test_fifo.py": "c6134627b4d9daab20e67b27fe2ff8d7e225116ae46d6a0e79b2c9b620d25941",
+          "tests/test_func.py": "668e212d3a49b5442578e1a77579bacd20bbd466a8ea4a18ac04969fa4e75827",
+          "tests/test_keys.py": "c6e39d6e781cb737159b43d725c4a0f00ce6f2885376fb6efd01c5d59e196064",
+          "tests/test_lfu.py": "11981704035d965ae733140734efb7cd30615ef492cfeeb464f63992db59b404",
+          "tests/test_lru.py": "dbfd53eb372f24571f70d739faeb6c4963f79c80ef18228f44b38b1112bf1a6c",
+          "tests/test_rr.py": "995ee7555ebe96c8b4f988c23a8923de980b5f0c42ca073906988e28dd773ec2",
+          "tests/test_threading.py": "fd6bfb6b3d0b4c650a1786381ab4c33d04ff348cd5d1e91d8014239df111c165",
+          "tests/test_tlru.py": "461fd80337d3e4a7fba830b30765cce19666611f797568f18740e4f6eea98199",
+          "tests/test_ttl.py": "dad8f3e725176a39a487d23bd4a25930db05380ce0b452f73485506dbe5284d1"
+        },
+        "limitations": "Static imports only; plugins, reflection and runtime monkeypatching may escape detection."
+      },
+      "static_pool": [
+        "tests/test_cache.py",
+        "tests/test_lru.py",
+        "tests/test_rr.py",
+        "tests/test_tlru.py"
+      ],
+      "fallback_pool": [
+        "tests/test_cache.py",
+        "tests/test_lru.py",
+        "tests/test_rr.py",
+        "tests/test_tlru.py"
+      ],
+      "test_result": {
+        "returncode": 1,
+        "modules": 4,
+        "stdout": "........................................................................ [ 63%]\n....F....................................                                [100%]\n================================== FAILURES ===================================\n_______________ RRCacheTest.test_rr_popitem_empty_custom_choice _______________\ntests\\test_rr.py:97: in test_rr_popitem_empty_custom_choice\n    cache.popitem()\nsrc\\cachetools\\__init__.py:361: in popitem\n    key = self.__choice(self.__keys)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   ValueError: min() iterable argument is empty\n=========================== short test summary info ===========================\nFAILED tests/test_rr.py::RRCacheTest::test_rr_popitem_empty_custom_choice - V...\n1 failed, 112 passed in 0.33s\n",
+        "stderr": "",
+        "seconds": 1.0020922000039718
+      },
+      "identical_selection_shares_one_test_run": true,
+      "previous_static_modules": 0,
+      "corrected_static_modules": 4
+    },
+    {
+      "id": "cachetools-growth",
+      "choice": {
+        "selected": [
+          "tests/test_cache.py",
+          "tests/test_cached.py",
+          "tests/test_cachedmethod.py",
+          "tests/test_classmethod.py",
+          "tests/test_fifo.py",
+          "tests/test_func.py",
+          "tests/test_keys.py",
+          "tests/test_lfu.py",
+          "tests/test_lru.py",
+          "tests/test_rr.py",
+          "tests/test_threading.py",
+          "tests/test_tlru.py",
+          "tests/test_ttl.py"
+        ],
+        "static_selected": [
+          "tests/test_cache.py",
+          "tests/test_cached.py",
+          "tests/test_cachedmethod.py",
+          "tests/test_classmethod.py",
+          "tests/test_fifo.py",
+          "tests/test_func.py",
+          "tests/test_keys.py",
+          "tests/test_lfu.py",
+          "tests/test_lru.py",
+          "tests/test_rr.py",
+          "tests/test_threading.py",
+          "tests/test_tlru.py",
+          "tests/test_ttl.py"
+        ],
+        "total_tests": 13,
+        "fallback": true,
+        "reasons": [
+          "package initialization or test configuration changed"
+        ],
+        "changed": [
+          "src/cachetools/__init__.py"
+        ],
+        "declared_source_roots": [
+          "src"
+        ],
+        "source_sha256": {
+          "docs/conf.py": "f68affa8dfcf4a20d5fe872cfb0e19f9b284f8feda563dd8e8e23eafe75cd4eb",
+          "src/cachetools/__init__.py": "f2aac531b8c967e049645544af0a6d38130d9bec98d104afa323280a8f526d75",
+          "src/cachetools/_cached.py": "3f301c0cfbf6a108ca2ffca574568198164f9599439b595c859f6450a4da795b",
+          "src/cachetools/_cachedmethod.py": "ad2e75ebb6d3131225f36ce63c6f281700e675aff79ce2d447f8e97132b4ecb4",
+          "src/cachetools/func.py": "87724e4fc82303fd5172cc9fd03c7aaf6a767c6c477f3cb74a245fc45ebf7816",
+          "src/cachetools/keys.py": "9550bd6914744c2fc6fd211dfb83cdae2d6206b1a1bfcf052d017cb23b39b49e",
+          "tests/__init__.py": "b413cb537390d58740ce2aefa13ee18369f8427bf884d8a1c44bfeb645aa98a1",
+          "tests/test_cache.py": "dbdf81b02f344a0e62a5dcf2364be7e135e2511e765e93b43864aeb7aa3b115c",
+          "tests/test_cached.py": "7da1974ad17095adb15b7d231c23ee20b730f7e70ac175b23ee018c60cc8dae6",
+          "tests/test_cachedmethod.py": "d5b131d062ef613bbbcaaf107b4ab0a2f28f4bf505dd00964d2c46cf5ac757bf",
+          "tests/test_classmethod.py": "465e882cf15481277cef959eb5d4ec0072d61c342079cac05684da55fe543851",
+          "tests/test_fifo.py": "c6134627b4d9daab20e67b27fe2ff8d7e225116ae46d6a0e79b2c9b620d25941",
+          "tests/test_func.py": "668e212d3a49b5442578e1a77579bacd20bbd466a8ea4a18ac04969fa4e75827",
+          "tests/test_keys.py": "c6e39d6e781cb737159b43d725c4a0f00ce6f2885376fb6efd01c5d59e196064",
+          "tests/test_lfu.py": "bd5dc75432800065aec629d650886eacd71bad3c0512400d6030093ed1f4965b",
+          "tests/test_lru.py": "dbfd53eb372f24571f70d739faeb6c4963f79c80ef18228f44b38b1112bf1a6c",
+          "tests/test_rr.py": "7f56f910027e0f38f10757a0b7feb3493ddea6a71ae0ffd3c24d85485803c373",
+          "tests/test_threading.py": "fd6bfb6b3d0b4c650a1786381ab4c33d04ff348cd5d1e91d8014239df111c165",
+          "tests/test_tlru.py": "461fd80337d3e4a7fba830b30765cce19666611f797568f18740e4f6eea98199",
+          "tests/test_ttl.py": "dad8f3e725176a39a487d23bd4a25930db05380ce0b452f73485506dbe5284d1"
+        },
+        "limitations": "Static imports only; plugins, reflection and runtime monkeypatching may escape detection."
+      },
+      "static_pool": [
+        "tests/test_cache.py",
+        "tests/test_lru.py",
+        "tests/test_rr.py",
+        "tests/test_tlru.py"
+      ],
+      "fallback_pool": [
+        "tests/test_cache.py",
+        "tests/test_lru.py",
+        "tests/test_rr.py",
+        "tests/test_tlru.py"
+      ],
+      "test_result": {
+        "returncode": 1,
+        "modules": 4,
+        "stdout": ".......F...................F............................................ [ 72%]\n....F.......................                                             [100%]\n================================== FAILURES ===================================\n____________________ CacheTest.test_getsizeof_replace_grow ____________________\ntests\\__init__.py:297: in test_getsizeof_replace_grow\n    self.assertEqual(2, len(cache))\nE   AssertionError: 2 != 1\n__________________ LRUCacheTest.test_getsizeof_replace_grow ___________________\ntests\\__init__.py:297: in test_getsizeof_replace_grow\n    self.assertEqual(2, len(cache))\nE   AssertionError: 2 != 1\n__________________ TLRUCacheTest.test_getsizeof_replace_grow __________________\ntests\\__init__.py:297: in test_getsizeof_replace_grow\n    self.assertEqual(2, len(cache))\nE   AssertionError: 2 != 1\n=========================== short test summary info ===========================\nFAILED tests/test_cache.py::CacheTest::test_getsizeof_replace_grow - Assertio...\nFAILED tests/test_lru.py::LRUCacheTest::test_getsizeof_replace_grow - Asserti...\nFAILED tests/test_tlru.py::TLRUCacheTest::test_getsizeof_replace_grow - Asser...\n3 failed, 97 passed in 0.36s\n",
+        "stderr": "",
+        "seconds": 0.9849105999965104
+      },
+      "identical_selection_shares_one_test_run": true,
+      "previous_static_modules": 0,
+      "corrected_static_modules": 4
+    },
+    {
+      "id": "cachetools-stale",
+      "choice": {
+        "selected": [
+          "tests/test_cache.py",
+          "tests/test_cached.py",
+          "tests/test_cachedmethod.py",
+          "tests/test_classmethod.py",
+          "tests/test_fifo.py",
+          "tests/test_func.py",
+          "tests/test_keys.py",
+          "tests/test_lfu.py",
+          "tests/test_lru.py",
+          "tests/test_rr.py",
+          "tests/test_threading.py",
+          "tests/test_tlru.py",
+          "tests/test_ttl.py"
+        ],
+        "static_selected": [
+          "tests/test_cache.py",
+          "tests/test_cached.py",
+          "tests/test_cachedmethod.py",
+          "tests/test_classmethod.py",
+          "tests/test_fifo.py",
+          "tests/test_func.py",
+          "tests/test_keys.py",
+          "tests/test_lfu.py",
+          "tests/test_lru.py",
+          "tests/test_rr.py",
+          "tests/test_threading.py",
+          "tests/test_tlru.py",
+          "tests/test_ttl.py"
+        ],
+        "total_tests": 13,
+        "fallback": true,
+        "reasons": [
+          "package initialization or test configuration changed"
+        ],
+        "changed": [
+          "src/cachetools/__init__.py"
+        ],
+        "declared_source_roots": [
+          "src"
+        ],
+        "source_sha256": {
+          "docs/conf.py": "4053634e1fe425ca09907f209c60a099e37b78e2b1623431f4591163a4901ad3",
+          "src/cachetools/__init__.py": "a4869ebbdf7be86c5b4f699dba1555d0e2783cf608cf83f7baa2e7e99c7ddc19",
+          "src/cachetools/_cached.py": "3f301c0cfbf6a108ca2ffca574568198164f9599439b595c859f6450a4da795b",
+          "src/cachetools/_cachedmethod.py": "ad2e75ebb6d3131225f36ce63c6f281700e675aff79ce2d447f8e97132b4ecb4",
+          "src/cachetools/func.py": "750ef718eb11fd64193bd0d020e3de575e670194682196560665369fa7bca628",
+          "src/cachetools/keys.py": "9550bd6914744c2fc6fd211dfb83cdae2d6206b1a1bfcf052d017cb23b39b49e",
+          "tests/__init__.py": "0a4ae82698f947ad38838012e88d1a301e0db598d5fb18e2c37085dc298a4ebc",
+          "tests/test_cache.py": "dbdf81b02f344a0e62a5dcf2364be7e135e2511e765e93b43864aeb7aa3b115c",
+          "tests/test_cached.py": "c939240cd396e60f5cfb359728ab3606831607a9a316fe7188391dc7d93168f5",
+          "tests/test_cachedmethod.py": "7b1ddf92d444769a7f6d9248c0ee288505151b2f00cc00d9673306a01428800f",
+          "tests/test_classmethod.py": "465e882cf15481277cef959eb5d4ec0072d61c342079cac05684da55fe543851",
+          "tests/test_fifo.py": "c6134627b4d9daab20e67b27fe2ff8d7e225116ae46d6a0e79b2c9b620d25941",
+          "tests/test_func.py": "44b1a09440a17f9db0b37fe1c79955b9cf9d86b822d3d60642a92422c71f0c3e",
+          "tests/test_keys.py": "c6e39d6e781cb737159b43d725c4a0f00ce6f2885376fb6efd01c5d59e196064",
+          "tests/test_lfu.py": "bd5dc75432800065aec629d650886eacd71bad3c0512400d6030093ed1f4965b",
+          "tests/test_lru.py": "dbfd53eb372f24571f70d739faeb6c4963f79c80ef18228f44b38b1112bf1a6c",
+          "tests/test_rr.py": "7f56f910027e0f38f10757a0b7feb3493ddea6a71ae0ffd3c24d85485803c373",
+          "tests/test_threading.py": "f1e7f114a3b716d0353f3e1769e54f7cfc15e8e2fe9078e9554cd1915d2c806b",
+          "tests/test_tlru.py": "461fd80337d3e4a7fba830b30765cce19666611f797568f18740e4f6eea98199",
+          "tests/test_ttl.py": "dad8f3e725176a39a487d23bd4a25930db05380ce0b452f73485506dbe5284d1"
+        },
+        "limitations": "Static imports only; plugins, reflection and runtime monkeypatching may escape detection."
+      },
+      "static_pool": [
+        "tests/test_cache.py",
+        "tests/test_lru.py",
+        "tests/test_rr.py",
+        "tests/test_tlru.py"
+      ],
+      "fallback_pool": [
+        "tests/test_cache.py",
+        "tests/test_lru.py",
+        "tests/test_rr.py",
+        "tests/test_tlru.py"
+      ],
+      "test_result": {
+        "returncode": 1,
+        "modules": 4,
+        "stdout": ".......................................................................F [ 81%]\n................                                                         [100%]\n================================== FAILURES ===================================\n_____________ TLRUCacheTest.test_overwrite_existing_with_expired ______________\ntests\\test_tlru.py:161: in test_overwrite_existing_with_expired\n    self.assertNotIn(1, cache)\nE   AssertionError: 1 unexpectedly found in TLRUCache({1: 5}, maxsize=2, currsize=1)\n=========================== short test summary info ===========================\nFAILED tests/test_tlru.py::TLRUCacheTest::test_overwrite_existing_with_expired\n1 failed, 87 passed in 0.33s\n",
+        "stderr": "",
+        "seconds": 1.0092395000028773
+      },
+      "identical_selection_shares_one_test_run": true,
+      "previous_static_modules": 0,
+      "corrected_static_modules": 4
+    }
+  ],
+  "generalization_claim": false,
+  "module_saving_claim": false
+}

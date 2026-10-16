@@ -1,0 +1,58 @@
+{
+  "cases": [
+    {
+      "id": "jmespath-float",
+      "repo": "jmespath/jmespath.py",
+      "package": "jmespath",
+      "source_root": ".",
+      "pool": [
+        "tests/test_compliance.py",
+        "tests/test_parser.py",
+        "tests/test_search.py"
+      ],
+      "fixed": "9eb120d75cab800117c2e6649f27e3a37a9b7748",
+      "parent": "0cb65901fa987684764190d7146a398a7d5c584c",
+      "changed": [
+        "jmespath/visitor.py"
+      ],
+      "url": "https://github.com/jmespath/jmespath.py/commit/9eb120d75cab800117c2e6649f27e3a37a9b7748",
+      "description": "Merge branch 'float_fix' into develop\n\nPR #281\n\n* float_fix:\n  Add additional compliance tests for verifying float/boolean correctness\n  Add support for proper bool/float comparison",
+      "archives_sha256": {
+        "fixed": "59cf0babb29eb1bf9dfec76ff2d552b8f2143480a53bbdf3e49e4aafe9c21a8a",
+        "buggy": "9cfe3d7738e5c6b5d3d6b4094430a80308c5cf9f1ccf161481b661da6f8d75a5"
+      },
+      "fixed_source_sha256": {
+        "jmespath/visitor.py": "c38a44cfad82ee5f50b37d003f736638c12be799ee256555fa46fe4211182912"
+      },
+      "parent_source_sha256": {
+        "jmespath/visitor.py": "ce71a39e9a35ab9142959e0a71f45d2041ebb379f70c94e76853928d3ecd58b7"
+      },
+      "tests_sha256": {
+        "tests/test_compliance.py": "dbaa1c9194d5e482e130f570ada6ef03e52a68864dc780ff14dd9c2ad43143d0",
+        "tests/test_parser.py": "244ad8a4c55de24cfb12fa6946a3d38a1ed21d5e6fba36b2e39dc2b210cb86fa",
+        "tests/test_search.py": "0d9b48a7b7e8ec94a1975c2acc478445b7493533ec9bdac3c4878b2b4e68c917"
+      },
+      "license_sha256": "66b313cce80ed0623fc7db3f24863a0c80fd83eb341a46b57864158ae74faa56"
+    }
+  ],
+  "selector_sha256": "057da4d3ef13be32dcda6dc7865965992b589aaacf69401bd5faea0619c49c60",
+  "harness_sha256": "2bd16b62e0341f03e149cf4933d5dc85e684bcb6b0422ba9deee9ec0e5a2026e",
+  "created_before_test_execution": true,
+  "selection": "Convenience sample from two previously unused repositories; source and dependency review before freezing, no outcomes used. Not random or population representative.",
+  "exclusions_before_execution": [
+    "documentation-only changes",
+    "no included test change: cachetools-falsey, jmespath-sample",
+    "concurrency/race changes",
+    "legacy nose-generator compliance suite for jmespath-functions (not in declared pool)"
+  ],
+  "reference_rule": "Fixed declared pool must pass, reverted source must yield pytest exit 1 without collection errors. Retain all failed references in denominator and logs; no replacement cases.",
+  "model_rule": "Only reproduced cases eligible. Same E2B revision, 2048 context, 192 generated tokens, temperature zero, seed 20261014, one attempt and no retry. No edits to frozen selector after outcomes.",
+  "localization": "Buggy function snippets selected from old hunk positions, at most 6000 characters; commit message supplied, gold added/deleted patch text and regression tests withheld.",
+  "scope": "Prospective evaluation relative to frozen selector, not independent task authorship or contamination-free model assessment.",
+  "secondary_after_primary_reference_failure": true,
+  "primary_protocol_sha256": "b37fe19f4997d83144cf14754c58a7e72263bfe0700acf9f958a249d958f5072",
+  "execution_environment": {
+    "PYTHONUTF8": "1"
+  },
+  "interpretation": "Compatibility follow-up after observed Windows encoding failure; does not replace primary results."
+}

@@ -1,0 +1,3815 @@
+{
+  "kind": "controlled_adversarial_fixture_experiment",
+  "model_used": null,
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "summary": {
+    "full": {
+      "faults_detected": 8,
+      "test_modules_run": 48
+    },
+    "imports_fallback": {
+      "faults_detected": 6,
+      "test_modules_run": 23
+    },
+    "imports_no_fallback": {
+      "faults_detected": 4,
+      "test_modules_run": 6
+    },
+    "clean_line_coverage": {
+      "faults_detected": 7,
+      "test_modules_run": 7
+    },
+    "random_equal_budget": {
+      "mean_faults_detected": 3.25,
+      "test_modules_per_replicate": 23,
+      "seeds": 20
+    }
+  },
+  "cases": [
+    {
+      "fixture": "direct",
+      "changed": "core.py",
+      "clean_sources_sha256": {
+        "core.py": "d925bf2f85078dec53b1d99e333f17837ea03491624c213cc97c407657d30fad",
+        "unrelated.py": "5d277423da15330aa1f23c4e56acb19ebb00cd21efb2d8d40b525637bbc1104f",
+        "test_0_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_1_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_2_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_3_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_4_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_9_fee.py": "e492571f3ce69f6ad58d3133987a6db35d9c67f3fc34bba781d73fa35151cdff"
+      },
+      "mutated_sha256": "efeed9e7cef54b1684ea15f46a98b9bdf7d5e86ba325295229319f2416aecf5b",
+      "clean": {
+        "returncode": 0,
+        "tests_selected": 6,
+        "seconds": 0.1504032000011648,
+        "stdout": "",
+        "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK\n",
+        "executed_files": []
+      },
+      "clean_coverage": {
+        "test_0_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.16302059999725316,
+          "stdout": "COVERAGE_JSON:[\"test_0_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_0_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_1_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.16064619999815477,
+          "stdout": "COVERAGE_JSON:[\"test_1_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_1_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_2_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.1542122999962885,
+          "stdout": "COVERAGE_JSON:[\"test_2_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_2_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_3_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.15589570000156527,
+          "stdout": "COVERAGE_JSON:[\"test_3_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_3_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_4_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.15548739999940153,
+          "stdout": "COVERAGE_JSON:[\"test_4_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_4_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_9_fee.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.15325210000446532,
+          "stdout": "COVERAGE_JSON:[\"core.py\", \"test_9_fee.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "core.py",
+            "test_9_fee.py"
+          ]
+        }
+      },
+      "selection": {
+        "selected": [
+          "test_9_fee.py"
+        ],
+        "static_selected": [
+          "test_9_fee.py"
+        ],
+        "total_tests": 6,
+        "fallback": false,
+        "reasons": [],
+        "changed": [
+          "core.py"
+        ],
+        "source_sha256": {
+          "core.py": "efeed9e7cef54b1684ea15f46a98b9bdf7d5e86ba325295229319f2416aecf5b",
+          "test_0_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_1_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_2_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_3_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_4_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_9_fee.py": "e492571f3ce69f6ad58d3133987a6db35d9c67f3fc34bba781d73fa35151cdff",
+          "unrelated.py": "5d277423da15330aa1f23c4e56acb19ebb00cd21efb2d8d40b525637bbc1104f"
+        },
+        "limitations": "Static imports only; plugins, reflection and runtime monkeypatching may escape detection."
+      },
+      "runs": {
+        "full": {
+          "returncode": 1,
+          "tests_selected": 6,
+          "seconds": 0.14254390000132844,
+          "stdout": "",
+          "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpneoiq98o\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+          "executed_files": []
+        },
+        "imports_fallback": {
+          "returncode": 1,
+          "tests_selected": 1,
+          "seconds": 0.1405464999988908,
+          "stdout": "",
+          "stderr": "F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpneoiq98o\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n",
+          "executed_files": []
+        },
+        "imports_no_fallback": {
+          "returncode": 1,
+          "tests_selected": 1,
+          "seconds": 0.13585170000442304,
+          "stdout": "",
+          "stderr": "F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpneoiq98o\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n",
+          "executed_files": []
+        },
+        "clean_line_coverage": {
+          "returncode": 1,
+          "tests_selected": 1,
+          "seconds": 0.13854710000305204,
+          "stdout": "",
+          "stderr": "F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpneoiq98o\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n",
+          "executed_files": []
+        }
+      },
+      "random_equal_budget": [
+        {
+          "seed": 0,
+          "selected": [
+            "test_3_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.14069839999865508,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 1,
+          "selected": [
+            "test_1_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13990510000439826,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 2,
+          "selected": [
+            "test_0_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13871540000400273,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 3,
+          "selected": [
+            "test_1_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13990510000439826,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 4,
+          "selected": [
+            "test_1_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13990510000439826,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 5,
+          "selected": [
+            "test_4_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13626469999871915,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 6,
+          "selected": [
+            "test_4_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13626469999871915,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 7,
+          "selected": [
+            "test_2_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.138686799997231,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 8,
+          "selected": [
+            "test_1_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13990510000439826,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 9,
+          "selected": [
+            "test_3_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.14069839999865508,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 10,
+          "selected": [
+            "test_4_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13626469999871915,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 11,
+          "selected": [
+            "test_3_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.14069839999865508,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 12,
+          "selected": [
+            "test_3_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.14069839999865508,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 13,
+          "selected": [
+            "test_2_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.138686799997231,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 14,
+          "selected": [
+            "test_0_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13871540000400273,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 15,
+          "selected": [
+            "test_1_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13990510000439826,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 16,
+          "selected": [
+            "test_2_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.138686799997231,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 17,
+          "selected": [
+            "test_4_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13626469999871915,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 18,
+          "selected": [
+            "test_1_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13990510000439826,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 19,
+          "selected": [
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 1,
+            "seconds": 0.1412551000030362,
+            "stdout": "",
+            "stderr": "F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpneoiq98o\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        }
+      ]
+    },
+    {
+      "fixture": "transitive",
+      "changed": "core.py",
+      "clean_sources_sha256": {
+        "core.py": "d925bf2f85078dec53b1d99e333f17837ea03491624c213cc97c407657d30fad",
+        "unrelated.py": "5d277423da15330aa1f23c4e56acb19ebb00cd21efb2d8d40b525637bbc1104f",
+        "bridge.py": "7731718e2642c6dae76653fee2cfc9bfc3aa077174c9bb8a6467bc88c65882b8",
+        "test_0_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_1_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_2_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_3_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_4_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_9_fee.py": "bd468f4f935a4b3a1fc3505b398737559b4f663ecc68b59487c257cd1f6bd396"
+      },
+      "mutated_sha256": "efeed9e7cef54b1684ea15f46a98b9bdf7d5e86ba325295229319f2416aecf5b",
+      "clean": {
+        "returncode": 0,
+        "tests_selected": 6,
+        "seconds": 0.15120909999677679,
+        "stdout": "",
+        "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK\n",
+        "executed_files": []
+      },
+      "clean_coverage": {
+        "test_0_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.14915230000042357,
+          "stdout": "COVERAGE_JSON:[\"test_0_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_0_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_1_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.15410429999610642,
+          "stdout": "COVERAGE_JSON:[\"test_1_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_1_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_2_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.14715109999815468,
+          "stdout": "COVERAGE_JSON:[\"test_2_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_2_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_3_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.1483081000042148,
+          "stdout": "COVERAGE_JSON:[\"test_3_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_3_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_4_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.14963020000141114,
+          "stdout": "COVERAGE_JSON:[\"test_4_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_4_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_9_fee.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.14865740000095684,
+          "stdout": "COVERAGE_JSON:[\"core.py\", \"test_9_fee.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "core.py",
+            "test_9_fee.py"
+          ]
+        }
+      },
+      "selection": {
+        "selected": [
+          "test_9_fee.py"
+        ],
+        "static_selected": [
+          "test_9_fee.py"
+        ],
+        "total_tests": 6,
+        "fallback": false,
+        "reasons": [],
+        "changed": [
+          "core.py"
+        ],
+        "source_sha256": {
+          "bridge.py": "7731718e2642c6dae76653fee2cfc9bfc3aa077174c9bb8a6467bc88c65882b8",
+          "core.py": "efeed9e7cef54b1684ea15f46a98b9bdf7d5e86ba325295229319f2416aecf5b",
+          "test_0_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_1_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_2_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_3_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_4_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_9_fee.py": "bd468f4f935a4b3a1fc3505b398737559b4f663ecc68b59487c257cd1f6bd396",
+          "unrelated.py": "5d277423da15330aa1f23c4e56acb19ebb00cd21efb2d8d40b525637bbc1104f"
+        },
+        "limitations": "Static imports only; plugins, reflection and runtime monkeypatching may escape detection."
+      },
+      "runs": {
+        "full": {
+          "returncode": 1,
+          "tests_selected": 6,
+          "seconds": 0.14237380000122357,
+          "stdout": "",
+          "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpknb4w6ur\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+          "executed_files": []
+        },
+        "imports_fallback": {
+          "returncode": 1,
+          "tests_selected": 1,
+          "seconds": 0.138738600006036,
+          "stdout": "",
+          "stderr": "F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpknb4w6ur\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n",
+          "executed_files": []
+        },
+        "imports_no_fallback": {
+          "returncode": 1,
+          "tests_selected": 1,
+          "seconds": 0.13880049999715993,
+          "stdout": "",
+          "stderr": "F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpknb4w6ur\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n",
+          "executed_files": []
+        },
+        "clean_line_coverage": {
+          "returncode": 1,
+          "tests_selected": 1,
+          "seconds": 0.13924759999645175,
+          "stdout": "",
+          "stderr": "F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpknb4w6ur\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n",
+          "executed_files": []
+        }
+      },
+      "random_equal_budget": [
+        {
+          "seed": 0,
+          "selected": [
+            "test_3_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.14030859999911627,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 1,
+          "selected": [
+            "test_1_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.1372110000011162,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 2,
+          "selected": [
+            "test_0_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13490770000498742,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 3,
+          "selected": [
+            "test_1_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.1372110000011162,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 4,
+          "selected": [
+            "test_1_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.1372110000011162,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 5,
+          "selected": [
+            "test_4_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13698940000176663,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 6,
+          "selected": [
+            "test_4_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13698940000176663,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 7,
+          "selected": [
+            "test_2_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13650480000069365,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 8,
+          "selected": [
+            "test_1_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.1372110000011162,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 9,
+          "selected": [
+            "test_3_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.14030859999911627,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 10,
+          "selected": [
+            "test_4_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13698940000176663,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 11,
+          "selected": [
+            "test_3_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.14030859999911627,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 12,
+          "selected": [
+            "test_3_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.14030859999911627,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 13,
+          "selected": [
+            "test_2_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13650480000069365,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 14,
+          "selected": [
+            "test_0_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13490770000498742,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 15,
+          "selected": [
+            "test_1_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.1372110000011162,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 16,
+          "selected": [
+            "test_2_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13650480000069365,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 17,
+          "selected": [
+            "test_4_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13698940000176663,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 18,
+          "selected": [
+            "test_1_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.1372110000011162,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 19,
+          "selected": [
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 1,
+            "seconds": 0.13792810000450118,
+            "stdout": "",
+            "stderr": "F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpknb4w6ur\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        }
+      ]
+    },
+    {
+      "fixture": "relative",
+      "changed": "pkg/core.py",
+      "clean_sources_sha256": {
+        "unrelated.py": "5d277423da15330aa1f23c4e56acb19ebb00cd21efb2d8d40b525637bbc1104f",
+        "pkg/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "pkg/core.py": "d925bf2f85078dec53b1d99e333f17837ea03491624c213cc97c407657d30fad",
+        "pkg/bridge.py": "b0918acb5626e9e81b612530a45c95a979ae7c03cd555a5451100017ba8fc5e7",
+        "test_0_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_1_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_2_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_3_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_4_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_9_fee.py": "8c841872daaa56353c4927c359f0e48f27d316b5e1daad0cf36557e0a1ebd16b"
+      },
+      "mutated_sha256": "efeed9e7cef54b1684ea15f46a98b9bdf7d5e86ba325295229319f2416aecf5b",
+      "clean": {
+        "returncode": 0,
+        "tests_selected": 6,
+        "seconds": 0.1481361000041943,
+        "stdout": "",
+        "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK\n",
+        "executed_files": []
+      },
+      "clean_coverage": {
+        "test_0_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.15051320000202395,
+          "stdout": "COVERAGE_JSON:[\"test_0_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_0_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_1_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.1498589000038919,
+          "stdout": "COVERAGE_JSON:[\"test_1_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_1_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_2_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.15735319999657804,
+          "stdout": "COVERAGE_JSON:[\"test_2_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_2_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_3_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.1532119000039529,
+          "stdout": "COVERAGE_JSON:[\"test_3_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_3_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_4_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.15083969999977853,
+          "stdout": "COVERAGE_JSON:[\"test_4_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_4_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_9_fee.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.15586220000113826,
+          "stdout": "COVERAGE_JSON:[\"pkg/core.py\", \"test_9_fee.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "pkg/core.py",
+            "test_9_fee.py"
+          ]
+        }
+      },
+      "selection": {
+        "selected": [
+          "test_9_fee.py"
+        ],
+        "static_selected": [
+          "test_9_fee.py"
+        ],
+        "total_tests": 6,
+        "fallback": false,
+        "reasons": [],
+        "changed": [
+          "pkg/core.py"
+        ],
+        "source_sha256": {
+          "pkg/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "pkg/bridge.py": "b0918acb5626e9e81b612530a45c95a979ae7c03cd555a5451100017ba8fc5e7",
+          "pkg/core.py": "efeed9e7cef54b1684ea15f46a98b9bdf7d5e86ba325295229319f2416aecf5b",
+          "test_0_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_1_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_2_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_3_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_4_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_9_fee.py": "8c841872daaa56353c4927c359f0e48f27d316b5e1daad0cf36557e0a1ebd16b",
+          "unrelated.py": "5d277423da15330aa1f23c4e56acb19ebb00cd21efb2d8d40b525637bbc1104f"
+        },
+        "limitations": "Static imports only; plugins, reflection and runtime monkeypatching may escape detection."
+      },
+      "runs": {
+        "full": {
+          "returncode": 1,
+          "tests_selected": 6,
+          "seconds": 0.1461459999991348,
+          "stdout": "",
+          "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp577ijfdm\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+          "executed_files": []
+        },
+        "imports_fallback": {
+          "returncode": 1,
+          "tests_selected": 1,
+          "seconds": 0.13992490000237012,
+          "stdout": "",
+          "stderr": "F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp577ijfdm\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n",
+          "executed_files": []
+        },
+        "imports_no_fallback": {
+          "returncode": 1,
+          "tests_selected": 1,
+          "seconds": 0.16982999999891035,
+          "stdout": "",
+          "stderr": "F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp577ijfdm\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n",
+          "executed_files": []
+        },
+        "clean_line_coverage": {
+          "returncode": 1,
+          "tests_selected": 1,
+          "seconds": 0.14499599999544444,
+          "stdout": "",
+          "stderr": "F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp577ijfdm\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n",
+          "executed_files": []
+        }
+      },
+      "random_equal_budget": [
+        {
+          "seed": 0,
+          "selected": [
+            "test_3_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.1369607999949949,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 1,
+          "selected": [
+            "test_1_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13808699999935925,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 2,
+          "selected": [
+            "test_0_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13837659999990137,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 3,
+          "selected": [
+            "test_1_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13808699999935925,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 4,
+          "selected": [
+            "test_1_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13808699999935925,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 5,
+          "selected": [
+            "test_4_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13717259999975795,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 6,
+          "selected": [
+            "test_4_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13717259999975795,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 7,
+          "selected": [
+            "test_2_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.14067010000144364,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 8,
+          "selected": [
+            "test_1_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13808699999935925,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 9,
+          "selected": [
+            "test_3_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.1369607999949949,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 10,
+          "selected": [
+            "test_4_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13717259999975795,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 11,
+          "selected": [
+            "test_3_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.1369607999949949,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 12,
+          "selected": [
+            "test_3_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.1369607999949949,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 13,
+          "selected": [
+            "test_2_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.14067010000144364,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 14,
+          "selected": [
+            "test_0_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13837659999990137,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 15,
+          "selected": [
+            "test_1_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13808699999935925,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 16,
+          "selected": [
+            "test_2_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.14067010000144364,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 17,
+          "selected": [
+            "test_4_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13717259999975795,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 18,
+          "selected": [
+            "test_1_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13808699999935925,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 19,
+          "selected": [
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 1,
+            "seconds": 0.13907889999973122,
+            "stdout": "",
+            "stderr": "F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp577ijfdm\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        }
+      ]
+    },
+    {
+      "fixture": "dynamic",
+      "changed": "core.py",
+      "clean_sources_sha256": {
+        "core.py": "d925bf2f85078dec53b1d99e333f17837ea03491624c213cc97c407657d30fad",
+        "unrelated.py": "5d277423da15330aa1f23c4e56acb19ebb00cd21efb2d8d40b525637bbc1104f",
+        "test_0_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_1_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_2_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_3_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_4_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_9_fee.py": "3548aa2699af6ba4b4d9255c324c210e9e43e8b1d2d7db66e857c528151b614a"
+      },
+      "mutated_sha256": "efeed9e7cef54b1684ea15f46a98b9bdf7d5e86ba325295229319f2416aecf5b",
+      "clean": {
+        "returncode": 0,
+        "tests_selected": 6,
+        "seconds": 0.14798370000062278,
+        "stdout": "",
+        "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK\n",
+        "executed_files": []
+      },
+      "clean_coverage": {
+        "test_0_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.15132589999848278,
+          "stdout": "COVERAGE_JSON:[\"test_0_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_0_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_1_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.15888819999963744,
+          "stdout": "COVERAGE_JSON:[\"test_1_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_1_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_2_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.15487940000457456,
+          "stdout": "COVERAGE_JSON:[\"test_2_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_2_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_3_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.1504339000020991,
+          "stdout": "COVERAGE_JSON:[\"test_3_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_3_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_4_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.1503004000041983,
+          "stdout": "COVERAGE_JSON:[\"test_4_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_4_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_9_fee.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.15493440000136616,
+          "stdout": "COVERAGE_JSON:[\"core.py\", \"test_9_fee.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "core.py",
+            "test_9_fee.py"
+          ]
+        }
+      },
+      "selection": {
+        "selected": [
+          "test_0_unrelated.py",
+          "test_1_unrelated.py",
+          "test_2_unrelated.py",
+          "test_3_unrelated.py",
+          "test_4_unrelated.py",
+          "test_9_fee.py"
+        ],
+        "static_selected": [],
+        "total_tests": 6,
+        "fallback": true,
+        "reasons": [
+          "dynamic execution/import: test_9_fee.py"
+        ],
+        "changed": [
+          "core.py"
+        ],
+        "source_sha256": {
+          "core.py": "efeed9e7cef54b1684ea15f46a98b9bdf7d5e86ba325295229319f2416aecf5b",
+          "test_0_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_1_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_2_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_3_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_4_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_9_fee.py": "3548aa2699af6ba4b4d9255c324c210e9e43e8b1d2d7db66e857c528151b614a",
+          "unrelated.py": "5d277423da15330aa1f23c4e56acb19ebb00cd21efb2d8d40b525637bbc1104f"
+        },
+        "limitations": "Static imports only; plugins, reflection and runtime monkeypatching may escape detection."
+      },
+      "runs": {
+        "full": {
+          "returncode": 1,
+          "tests_selected": 6,
+          "seconds": 0.14652270000078715,
+          "stdout": "",
+          "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp63cc_gy7\\test_9_fee.py\", line 5, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+          "executed_files": []
+        },
+        "imports_fallback": {
+          "returncode": 1,
+          "tests_selected": 6,
+          "seconds": 0.14528200000495417,
+          "stdout": "",
+          "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp63cc_gy7\\test_9_fee.py\", line 5, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+          "executed_files": []
+        },
+        "imports_no_fallback": {
+          "returncode": 0,
+          "tests_selected": 0,
+          "seconds": 0,
+          "stdout": "",
+          "stderr": "No tests selected; not executed.",
+          "executed_files": []
+        },
+        "clean_line_coverage": {
+          "returncode": 1,
+          "tests_selected": 1,
+          "seconds": 0.13860509999358328,
+          "stdout": "",
+          "stderr": "F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp63cc_gy7\\test_9_fee.py\", line 5, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n",
+          "executed_files": []
+        }
+      },
+      "random_equal_budget": [
+        {
+          "seed": 0,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1426978000017698,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp63cc_gy7\\test_9_fee.py\", line 5, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 1,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1426978000017698,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp63cc_gy7\\test_9_fee.py\", line 5, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 2,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1426978000017698,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp63cc_gy7\\test_9_fee.py\", line 5, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 3,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1426978000017698,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp63cc_gy7\\test_9_fee.py\", line 5, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 4,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1426978000017698,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp63cc_gy7\\test_9_fee.py\", line 5, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 5,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1426978000017698,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp63cc_gy7\\test_9_fee.py\", line 5, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 6,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1426978000017698,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp63cc_gy7\\test_9_fee.py\", line 5, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 7,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1426978000017698,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp63cc_gy7\\test_9_fee.py\", line 5, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 8,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1426978000017698,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp63cc_gy7\\test_9_fee.py\", line 5, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 9,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1426978000017698,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp63cc_gy7\\test_9_fee.py\", line 5, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 10,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1426978000017698,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp63cc_gy7\\test_9_fee.py\", line 5, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 11,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1426978000017698,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp63cc_gy7\\test_9_fee.py\", line 5, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 12,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1426978000017698,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp63cc_gy7\\test_9_fee.py\", line 5, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 13,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1426978000017698,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp63cc_gy7\\test_9_fee.py\", line 5, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 14,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1426978000017698,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp63cc_gy7\\test_9_fee.py\", line 5, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 15,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1426978000017698,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp63cc_gy7\\test_9_fee.py\", line 5, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 16,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1426978000017698,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp63cc_gy7\\test_9_fee.py\", line 5, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 17,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1426978000017698,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp63cc_gy7\\test_9_fee.py\", line 5, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 18,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1426978000017698,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp63cc_gy7\\test_9_fee.py\", line 5, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 19,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1426978000017698,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp63cc_gy7\\test_9_fee.py\", line 5, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        }
+      ]
+    },
+    {
+      "fixture": "aliased_dynamic",
+      "changed": "core.py",
+      "clean_sources_sha256": {
+        "core.py": "d925bf2f85078dec53b1d99e333f17837ea03491624c213cc97c407657d30fad",
+        "unrelated.py": "5d277423da15330aa1f23c4e56acb19ebb00cd21efb2d8d40b525637bbc1104f",
+        "test_0_unrelated.py": "1fa94728071bca22882269394fb7dd44825693d08f5d5036d67abbd2f9edd79f",
+        "test_1_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_2_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_3_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_4_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_9_fee.py": "85094a3b6a75da972b51dc8524aa9565d48ee930a349c7d837f48fd39a83364a"
+      },
+      "mutated_sha256": "efeed9e7cef54b1684ea15f46a98b9bdf7d5e86ba325295229319f2416aecf5b",
+      "clean": {
+        "returncode": 0,
+        "tests_selected": 6,
+        "seconds": 0.14762200000404846,
+        "stdout": "",
+        "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK\n",
+        "executed_files": []
+      },
+      "clean_coverage": {
+        "test_0_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.1653978999966057,
+          "stdout": "COVERAGE_JSON:[\"test_0_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_0_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_1_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.15607780000573257,
+          "stdout": "COVERAGE_JSON:[\"test_1_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_1_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_2_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.16266239999822574,
+          "stdout": "COVERAGE_JSON:[\"test_2_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_2_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_3_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.15145900000061374,
+          "stdout": "COVERAGE_JSON:[\"test_3_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_3_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_4_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.15041229999769712,
+          "stdout": "COVERAGE_JSON:[\"test_4_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_4_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_9_fee.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.1483695999995689,
+          "stdout": "COVERAGE_JSON:[\"core.py\", \"test_9_fee.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "core.py",
+            "test_9_fee.py"
+          ]
+        }
+      },
+      "selection": {
+        "selected": [
+          "test_0_unrelated.py"
+        ],
+        "static_selected": [
+          "test_0_unrelated.py"
+        ],
+        "total_tests": 6,
+        "fallback": false,
+        "reasons": [],
+        "changed": [
+          "core.py"
+        ],
+        "source_sha256": {
+          "core.py": "efeed9e7cef54b1684ea15f46a98b9bdf7d5e86ba325295229319f2416aecf5b",
+          "test_0_unrelated.py": "1fa94728071bca22882269394fb7dd44825693d08f5d5036d67abbd2f9edd79f",
+          "test_1_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_2_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_3_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_4_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_9_fee.py": "85094a3b6a75da972b51dc8524aa9565d48ee930a349c7d837f48fd39a83364a",
+          "unrelated.py": "5d277423da15330aa1f23c4e56acb19ebb00cd21efb2d8d40b525637bbc1104f"
+        },
+        "limitations": "Static imports only; plugins, reflection and runtime monkeypatching may escape detection."
+      },
+      "runs": {
+        "full": {
+          "returncode": 1,
+          "tests_selected": 6,
+          "seconds": 0.1427112000019406,
+          "stdout": "",
+          "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpsiqolwk_\\test_9_fee.py\", line 5, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+          "executed_files": []
+        },
+        "imports_fallback": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.13953820000460837,
+          "stdout": "",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+          "executed_files": []
+        },
+        "imports_no_fallback": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.13893699999607634,
+          "stdout": "",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+          "executed_files": []
+        },
+        "clean_line_coverage": {
+          "returncode": 1,
+          "tests_selected": 1,
+          "seconds": 0.13901389999955427,
+          "stdout": "",
+          "stderr": "F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpsiqolwk_\\test_9_fee.py\", line 5, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n",
+          "executed_files": []
+        }
+      },
+      "random_equal_budget": [
+        {
+          "seed": 0,
+          "selected": [
+            "test_3_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.14016840000113007,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 1,
+          "selected": [
+            "test_1_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13789949999772944,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 2,
+          "selected": [
+            "test_0_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.14139869999780785,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 3,
+          "selected": [
+            "test_1_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13789949999772944,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 4,
+          "selected": [
+            "test_1_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13789949999772944,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 5,
+          "selected": [
+            "test_4_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13560429999779444,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 6,
+          "selected": [
+            "test_4_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13560429999779444,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 7,
+          "selected": [
+            "test_2_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.1409364999999525,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 8,
+          "selected": [
+            "test_1_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13789949999772944,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 9,
+          "selected": [
+            "test_3_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.14016840000113007,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 10,
+          "selected": [
+            "test_4_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13560429999779444,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 11,
+          "selected": [
+            "test_3_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.14016840000113007,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 12,
+          "selected": [
+            "test_3_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.14016840000113007,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 13,
+          "selected": [
+            "test_2_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.1409364999999525,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 14,
+          "selected": [
+            "test_0_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.14139869999780785,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 15,
+          "selected": [
+            "test_1_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13789949999772944,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 16,
+          "selected": [
+            "test_2_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.1409364999999525,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 17,
+          "selected": [
+            "test_4_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13560429999779444,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 18,
+          "selected": [
+            "test_1_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13789949999772944,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 19,
+          "selected": [
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 1,
+            "seconds": 0.13905399999930523,
+            "stdout": "",
+            "stderr": "F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpsiqolwk_\\test_9_fee.py\", line 5, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        }
+      ]
+    },
+    {
+      "fixture": "aliased_builtin",
+      "changed": "core.py",
+      "clean_sources_sha256": {
+        "core.py": "d925bf2f85078dec53b1d99e333f17837ea03491624c213cc97c407657d30fad",
+        "unrelated.py": "5d277423da15330aa1f23c4e56acb19ebb00cd21efb2d8d40b525637bbc1104f",
+        "test_0_unrelated.py": "1fa94728071bca22882269394fb7dd44825693d08f5d5036d67abbd2f9edd79f",
+        "test_1_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_2_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_3_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_4_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_9_fee.py": "3b07ad7d0a634c39f994427c1758f4ebb9fa0cc0b941b32974209faa31e84ef8"
+      },
+      "mutated_sha256": "efeed9e7cef54b1684ea15f46a98b9bdf7d5e86ba325295229319f2416aecf5b",
+      "clean": {
+        "returncode": 0,
+        "tests_selected": 6,
+        "seconds": 0.14829160000226693,
+        "stdout": "",
+        "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK\n",
+        "executed_files": []
+      },
+      "clean_coverage": {
+        "test_0_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.15018219999910798,
+          "stdout": "COVERAGE_JSON:[\"test_0_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_0_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_1_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.1524269000001368,
+          "stdout": "COVERAGE_JSON:[\"test_1_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_1_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_2_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.15099449999979697,
+          "stdout": "COVERAGE_JSON:[\"test_2_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_2_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_3_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.15179380000336096,
+          "stdout": "COVERAGE_JSON:[\"test_3_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_3_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_4_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.14858490000187885,
+          "stdout": "COVERAGE_JSON:[\"test_4_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_4_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_9_fee.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.15962510000099428,
+          "stdout": "COVERAGE_JSON:[\"core.py\", \"test_9_fee.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "core.py",
+            "test_9_fee.py"
+          ]
+        }
+      },
+      "selection": {
+        "selected": [
+          "test_0_unrelated.py"
+        ],
+        "static_selected": [
+          "test_0_unrelated.py"
+        ],
+        "total_tests": 6,
+        "fallback": false,
+        "reasons": [],
+        "changed": [
+          "core.py"
+        ],
+        "source_sha256": {
+          "core.py": "efeed9e7cef54b1684ea15f46a98b9bdf7d5e86ba325295229319f2416aecf5b",
+          "test_0_unrelated.py": "1fa94728071bca22882269394fb7dd44825693d08f5d5036d67abbd2f9edd79f",
+          "test_1_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_2_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_3_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_4_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_9_fee.py": "3b07ad7d0a634c39f994427c1758f4ebb9fa0cc0b941b32974209faa31e84ef8",
+          "unrelated.py": "5d277423da15330aa1f23c4e56acb19ebb00cd21efb2d8d40b525637bbc1104f"
+        },
+        "limitations": "Static imports only; plugins, reflection and runtime monkeypatching may escape detection."
+      },
+      "runs": {
+        "full": {
+          "returncode": 1,
+          "tests_selected": 6,
+          "seconds": 0.15246870000555646,
+          "stdout": "",
+          "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpxfnucixg\\test_9_fee.py\", line 5, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+          "executed_files": []
+        },
+        "imports_fallback": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.15066650000517257,
+          "stdout": "",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+          "executed_files": []
+        },
+        "imports_no_fallback": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.14418229999864707,
+          "stdout": "",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+          "executed_files": []
+        },
+        "clean_line_coverage": {
+          "returncode": 1,
+          "tests_selected": 1,
+          "seconds": 0.137637599997106,
+          "stdout": "",
+          "stderr": "F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpxfnucixg\\test_9_fee.py\", line 5, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n",
+          "executed_files": []
+        }
+      },
+      "random_equal_budget": [
+        {
+          "seed": 0,
+          "selected": [
+            "test_3_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.1375426999948104,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 1,
+          "selected": [
+            "test_1_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13776940000389004,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 2,
+          "selected": [
+            "test_0_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.14188840000133496,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 3,
+          "selected": [
+            "test_1_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13776940000389004,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 4,
+          "selected": [
+            "test_1_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13776940000389004,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 5,
+          "selected": [
+            "test_4_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.1355242999998154,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 6,
+          "selected": [
+            "test_4_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.1355242999998154,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 7,
+          "selected": [
+            "test_2_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13952710000012303,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 8,
+          "selected": [
+            "test_1_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13776940000389004,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 9,
+          "selected": [
+            "test_3_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.1375426999948104,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 10,
+          "selected": [
+            "test_4_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.1355242999998154,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 11,
+          "selected": [
+            "test_3_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.1375426999948104,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 12,
+          "selected": [
+            "test_3_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.1375426999948104,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 13,
+          "selected": [
+            "test_2_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13952710000012303,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 14,
+          "selected": [
+            "test_0_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.14188840000133496,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 15,
+          "selected": [
+            "test_1_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13776940000389004,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 16,
+          "selected": [
+            "test_2_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13952710000012303,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 17,
+          "selected": [
+            "test_4_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.1355242999998154,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 18,
+          "selected": [
+            "test_1_unrelated.py"
+          ],
+          "run": {
+            "returncode": 0,
+            "tests_selected": 1,
+            "seconds": 0.13776940000389004,
+            "stdout": "",
+            "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nOK\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 19,
+          "selected": [
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 1,
+            "seconds": 0.13907579999795416,
+            "stdout": "",
+            "stderr": "F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpxfnucixg\\test_9_fee.py\", line 5, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        }
+      ]
+    },
+    {
+      "fixture": "resource",
+      "changed": "factor.txt",
+      "clean_sources_sha256": {
+        "core.py": "ea751b33985ea655e2f44439e1c88a4230ad29149c086192dc6525321952d514",
+        "unrelated.py": "5d277423da15330aa1f23c4e56acb19ebb00cd21efb2d8d40b525637bbc1104f",
+        "factor.txt": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35",
+        "test_0_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_1_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_2_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_3_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_4_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_9_fee.py": "e492571f3ce69f6ad58d3133987a6db35d9c67f3fc34bba781d73fa35151cdff"
+      },
+      "mutated_sha256": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce",
+      "clean": {
+        "returncode": 0,
+        "tests_selected": 6,
+        "seconds": 0.1527730999951018,
+        "stdout": "",
+        "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nOK\n",
+        "executed_files": []
+      },
+      "clean_coverage": {
+        "test_0_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.14771900000050664,
+          "stdout": "COVERAGE_JSON:[\"test_0_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_0_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_1_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.15275539999856846,
+          "stdout": "COVERAGE_JSON:[\"test_1_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_1_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_2_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.14730200000485638,
+          "stdout": "COVERAGE_JSON:[\"test_2_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_2_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_3_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.14775749999535037,
+          "stdout": "COVERAGE_JSON:[\"test_3_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_3_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_4_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.15029240000149002,
+          "stdout": "COVERAGE_JSON:[\"test_4_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_4_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_9_fee.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.14897840000048745,
+          "stdout": "COVERAGE_JSON:[\"core.py\", \"test_9_fee.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "core.py",
+            "test_9_fee.py"
+          ]
+        }
+      },
+      "selection": {
+        "selected": [
+          "test_0_unrelated.py",
+          "test_1_unrelated.py",
+          "test_2_unrelated.py",
+          "test_3_unrelated.py",
+          "test_4_unrelated.py",
+          "test_9_fee.py"
+        ],
+        "static_selected": [],
+        "total_tests": 6,
+        "fallback": true,
+        "reasons": [
+          "unknown, deleted, non-Python, or empty change set"
+        ],
+        "changed": [
+          "factor.txt"
+        ],
+        "source_sha256": {
+          "core.py": "ea751b33985ea655e2f44439e1c88a4230ad29149c086192dc6525321952d514",
+          "test_0_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_1_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_2_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_3_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_4_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_9_fee.py": "e492571f3ce69f6ad58d3133987a6db35d9c67f3fc34bba781d73fa35151cdff",
+          "unrelated.py": "5d277423da15330aa1f23c4e56acb19ebb00cd21efb2d8d40b525637bbc1104f"
+        },
+        "limitations": "Static imports only; plugins, reflection and runtime monkeypatching may escape detection."
+      },
+      "runs": {
+        "full": {
+          "returncode": 1,
+          "tests_selected": 6,
+          "seconds": 0.15133749999949941,
+          "stdout": "",
+          "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp5nntlbod\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+          "executed_files": []
+        },
+        "imports_fallback": {
+          "returncode": 1,
+          "tests_selected": 6,
+          "seconds": 0.15232639999885578,
+          "stdout": "",
+          "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp5nntlbod\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+          "executed_files": []
+        },
+        "imports_no_fallback": {
+          "returncode": 0,
+          "tests_selected": 0,
+          "seconds": 0,
+          "stdout": "",
+          "stderr": "No tests selected; not executed.",
+          "executed_files": []
+        },
+        "clean_line_coverage": {
+          "returncode": 0,
+          "tests_selected": 0,
+          "seconds": 0,
+          "stdout": "",
+          "stderr": "No tests selected; not executed.",
+          "executed_files": []
+        }
+      },
+      "random_equal_budget": [
+        {
+          "seed": 0,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1496633999995538,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp5nntlbod\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 1,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1496633999995538,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp5nntlbod\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 2,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1496633999995538,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp5nntlbod\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 3,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1496633999995538,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp5nntlbod\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 4,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1496633999995538,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp5nntlbod\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 5,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1496633999995538,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp5nntlbod\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 6,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1496633999995538,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp5nntlbod\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 7,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1496633999995538,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp5nntlbod\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 8,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1496633999995538,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp5nntlbod\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 9,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1496633999995538,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp5nntlbod\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 10,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1496633999995538,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp5nntlbod\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 11,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1496633999995538,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp5nntlbod\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 12,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1496633999995538,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp5nntlbod\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 13,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1496633999995538,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp5nntlbod\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 14,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1496633999995538,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp5nntlbod\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 15,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1496633999995538,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp5nntlbod\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 16,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1496633999995538,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp5nntlbod\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 17,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1496633999995538,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp5nntlbod\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 18,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1496633999995538,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp5nntlbod\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 19,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1496633999995538,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmp5nntlbod\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        }
+      ]
+    },
+    {
+      "fixture": "package_init",
+      "changed": "pkg/__init__.py",
+      "clean_sources_sha256": {
+        "unrelated.py": "5d277423da15330aa1f23c4e56acb19ebb00cd21efb2d8d40b525637bbc1104f",
+        "pkg/__init__.py": "d925bf2f85078dec53b1d99e333f17837ea03491624c213cc97c407657d30fad",
+        "test_0_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_1_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_2_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_3_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_4_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+        "test_9_fee.py": "c321e21e68adc68f9c4991839cbbb3197be402c9e82fad127c27ea22ba556622"
+      },
+      "mutated_sha256": "efeed9e7cef54b1684ea15f46a98b9bdf7d5e86ba325295229319f2416aecf5b",
+      "clean": {
+        "returncode": 0,
+        "tests_selected": 6,
+        "seconds": 0.14926540000305977,
+        "stdout": "",
+        "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK\n",
+        "executed_files": []
+      },
+      "clean_coverage": {
+        "test_0_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.15082799999800045,
+          "stdout": "COVERAGE_JSON:[\"test_0_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_0_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_1_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.14943789999961155,
+          "stdout": "COVERAGE_JSON:[\"test_1_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_1_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_2_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.15128469999763183,
+          "stdout": "COVERAGE_JSON:[\"test_2_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_2_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_3_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.15760649999720044,
+          "stdout": "COVERAGE_JSON:[\"test_3_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_3_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_4_unrelated.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.14896340000268538,
+          "stdout": "COVERAGE_JSON:[\"test_4_unrelated.py\", \"unrelated.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "test_4_unrelated.py",
+            "unrelated.py"
+          ]
+        },
+        "test_9_fee.py": {
+          "returncode": 0,
+          "tests_selected": 1,
+          "seconds": 0.15059679999831133,
+          "stdout": "COVERAGE_JSON:[\"pkg/__init__.py\", \"test_9_fee.py\"]\n",
+          "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nOK\n",
+          "executed_files": [
+            "pkg/__init__.py",
+            "test_9_fee.py"
+          ]
+        }
+      },
+      "selection": {
+        "selected": [
+          "test_0_unrelated.py",
+          "test_1_unrelated.py",
+          "test_2_unrelated.py",
+          "test_3_unrelated.py",
+          "test_4_unrelated.py",
+          "test_9_fee.py"
+        ],
+        "static_selected": [
+          "test_9_fee.py"
+        ],
+        "total_tests": 6,
+        "fallback": true,
+        "reasons": [
+          "package initialization or test configuration changed"
+        ],
+        "changed": [
+          "pkg/__init__.py"
+        ],
+        "source_sha256": {
+          "pkg/__init__.py": "efeed9e7cef54b1684ea15f46a98b9bdf7d5e86ba325295229319f2416aecf5b",
+          "test_0_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_1_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_2_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_3_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_4_unrelated.py": "1fb46fa2c69afd2a5b2bb2952d493a40e45d07b6bfc5a7be58f9f4c763b47820",
+          "test_9_fee.py": "c321e21e68adc68f9c4991839cbbb3197be402c9e82fad127c27ea22ba556622",
+          "unrelated.py": "5d277423da15330aa1f23c4e56acb19ebb00cd21efb2d8d40b525637bbc1104f"
+        },
+        "limitations": "Static imports only; plugins, reflection and runtime monkeypatching may escape detection."
+      },
+      "runs": {
+        "full": {
+          "returncode": 1,
+          "tests_selected": 6,
+          "seconds": 0.14115319999837084,
+          "stdout": "",
+          "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpurs8rc01\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+          "executed_files": []
+        },
+        "imports_fallback": {
+          "returncode": 1,
+          "tests_selected": 6,
+          "seconds": 0.143579999996291,
+          "stdout": "",
+          "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpurs8rc01\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+          "executed_files": []
+        },
+        "imports_no_fallback": {
+          "returncode": 1,
+          "tests_selected": 1,
+          "seconds": 0.13643719999527093,
+          "stdout": "",
+          "stderr": "F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpurs8rc01\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n",
+          "executed_files": []
+        },
+        "clean_line_coverage": {
+          "returncode": 1,
+          "tests_selected": 1,
+          "seconds": 0.13676540000597015,
+          "stdout": "",
+          "stderr": "F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpurs8rc01\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 1 test in 0.001s\n\nFAILED (failures=1)\n",
+          "executed_files": []
+        }
+      },
+      "random_equal_budget": [
+        {
+          "seed": 0,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1436593999969773,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpurs8rc01\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 1,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1436593999969773,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpurs8rc01\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 2,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1436593999969773,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpurs8rc01\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 3,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1436593999969773,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpurs8rc01\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 4,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1436593999969773,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpurs8rc01\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 5,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1436593999969773,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpurs8rc01\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 6,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1436593999969773,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpurs8rc01\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 7,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1436593999969773,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpurs8rc01\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 8,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1436593999969773,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpurs8rc01\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 9,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1436593999969773,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpurs8rc01\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 10,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1436593999969773,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpurs8rc01\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 11,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1436593999969773,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpurs8rc01\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 12,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1436593999969773,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpurs8rc01\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 13,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1436593999969773,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpurs8rc01\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 14,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1436593999969773,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpurs8rc01\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 15,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1436593999969773,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpurs8rc01\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 16,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1436593999969773,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpurs8rc01\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 17,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1436593999969773,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpurs8rc01\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 18,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1436593999969773,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpurs8rc01\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        },
+        {
+          "seed": 19,
+          "selected": [
+            "test_0_unrelated.py",
+            "test_1_unrelated.py",
+            "test_2_unrelated.py",
+            "test_3_unrelated.py",
+            "test_4_unrelated.py",
+            "test_9_fee.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "tests_selected": 6,
+            "seconds": 0.1436593999969773,
+            "stdout": "",
+            "stderr": ".....F\n======================================================================\nFAIL: test_fee (test_9_fee.Test.test_fee)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tmp\\tmpurs8rc01\\test_9_fee.py\", line 4, in test_fee\n    def test_fee(self): self.assertEqual(fee(3),6)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9 != 6\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nFAILED (failures=1)\n",
+            "executed_files": []
+          }
+        }
+      ]
+    }
+  ],
+  "benchmark_sha256": "ca2db55c7cc8a2fb265d642c5c44eb148d90eb22f270a329969895b4f1448c50",
+  "selector_file": "importguard_v1_snapshot.py",
+  "selector_sha256": "1900b0ba8af0eb1f4898b765c61590b0fb5ff28ff723eecb4f61ec68a2859b56",
+  "limitations": "Eight purpose-built cases, not real bug pairs or independent samples. Random arms match fallback test-count budget, not runtime. Coverage requires clean execution overhead. No Gemma model executed. No statistical generalization claimed."
+}

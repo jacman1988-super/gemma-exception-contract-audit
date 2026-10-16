@@ -1,0 +1,150 @@
+{
+  "prepared_on": "2026-10-16",
+  "published": false,
+  "submitted": false,
+  "unit_and_integrity_tests_passed": 25,
+  "pdf_pages_rendered_and_visually_checked": 2,
+  "original_research_artifacts_unchanged": true,
+  "complete_training_or_fresh_model_generation_repeated": false,
+  "eca_102_variant_replay": {
+    "all_checks_passed": true,
+    "every_case_and_assertion_compared": true,
+    "model_rerun": false,
+    "results": {
+      "calibration-evaluation.json": {
+        "weak_pass_count": 42,
+        "contract_pass_count": 7,
+        "weak_only_count": 35
+      },
+      "model-evaluation.json": {
+        "weak_pass_count": 6,
+        "contract_pass_count": 6,
+        "weak_only_count": 0
+      },
+      "posthoc-v2-evaluation.json": {
+        "model_passes": 5,
+        "reference_passes": 6,
+        "mutants_rejected": 36
+      }
+    }
+  },
+  "reviewed_repairs_replay": {
+    "cases": [
+      {
+        "id": "tenacity-new-v2",
+        "runs": {
+          "fixed": {
+            "upstream": {
+              "accepted": true,
+              "returncode": 0,
+              "tests": 142
+            },
+            "examples": {
+              "accepted": true,
+              "returncode": 0,
+              "tests": 8
+            },
+            "withheld": {
+              "accepted": true,
+              "returncode": 0,
+              "tests": 9
+            }
+          },
+          "parent": {
+            "upstream": {
+              "accepted": false,
+              "returncode": 1,
+              "tests": 142
+            },
+            "examples": {
+              "accepted": false,
+              "returncode": 1,
+              "tests": 8
+            },
+            "withheld": {
+              "accepted": false,
+              "returncode": 1,
+              "tests": 9
+            }
+          },
+          "model": {
+            "upstream": {
+              "accepted": true,
+              "returncode": 0,
+              "tests": 142
+            },
+            "examples": {
+              "accepted": true,
+              "returncode": 0,
+              "tests": 8
+            },
+            "withheld": {
+              "accepted": true,
+              "returncode": 0,
+              "tests": 9
+            }
+          }
+        }
+      },
+      {
+        "id": "packaging-new-v2",
+        "runs": {
+          "fixed": {
+            "upstream": {
+              "accepted": true,
+              "returncode": 0,
+              "tests": 74
+            },
+            "examples": {
+              "accepted": true,
+              "returncode": 0,
+              "tests": 7
+            },
+            "withheld": {
+              "accepted": true,
+              "returncode": 0,
+              "tests": 9
+            }
+          },
+          "parent": {
+            "upstream": {
+              "accepted": false,
+              "returncode": 1,
+              "tests": 74
+            },
+            "examples": {
+              "accepted": false,
+              "returncode": 1,
+              "tests": 7
+            },
+            "withheld": {
+              "accepted": true,
+              "returncode": 0,
+              "tests": 9
+            }
+          },
+          "model": {
+            "upstream": {
+              "accepted": true,
+              "returncode": 0,
+              "tests": 74
+            },
+            "examples": {
+              "accepted": true,
+              "returncode": 0,
+              "tests": 7
+            },
+            "withheld": {
+              "accepted": true,
+              "returncode": 0,
+              "tests": 9
+            }
+          }
+        }
+      }
+    ],
+    "all_checks_passed": true
+  },
+  "model_patch_checks_passed": 249,
+  "limitations": "Adaptive guided repairs; original ItsDangerous failure remains; two additional cases are not a first-attempt benchmark."
+}

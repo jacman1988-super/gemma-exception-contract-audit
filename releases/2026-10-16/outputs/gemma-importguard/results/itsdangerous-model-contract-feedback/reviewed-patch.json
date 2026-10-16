@@ -1,0 +1,11 @@
+{
+  "reviewed_by": "Codex, not participant publication approval",
+  "review": "Only integer timestamp decoding handler changed, narrowing Exception to OSError, TypeError, ValueError. This does not guard the later datetime conversion. Expected to retain original failure; actual tests recorded. No file/network/process effects. Exact generated code tested without correction.",
+  "patch": {
+    "old": "        try:\n            ts_int = bytes_to_int(base64_decode(ts_bytes))\n        except Exception:\n            pass",
+    "new": "        try:\n            ts_int = bytes_to_int(base64_decode(ts_bytes))\n        except (OSError, TypeError, ValueError):\n            pass"
+  },
+  "output_sha256": "57c97c7c26f03c2bb4986a87ae6fa3e7b531a3992b26196f1c6065e742e50bf4",
+  "patched_text_sha256": "f8c42ff9930a2e357948d71e0dba135efb69156e81dba833c3cf10e8825019b9",
+  "pretest_rule": "Record primary declared timed-test module and full test directory for fixed, parent and generated versions. Retain all failures; no retry after test feedback."
+}

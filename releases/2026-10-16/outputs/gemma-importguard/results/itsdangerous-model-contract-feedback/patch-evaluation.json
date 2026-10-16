@@ -1,0 +1,57 @@
+{
+  "cases": [
+    {
+      "variant": "fixed",
+      "primary": {
+        "returncode": 0,
+        "modules": 1,
+        "stdout": "........................................................................ [ 71%]\n.............................                                            [100%]\n101 passed in 0.51s\n",
+        "stderr": "",
+        "seconds": 1.11032220000925
+      },
+      "full_suite": {
+        "returncode": 0,
+        "modules": 1,
+        "stdout": "........................................................................ [ 24%]\n........................................................................ [ 48%]\n........................................................................ [ 72%]\n........................................................................ [ 96%]\n.........                                                                [100%]\n297 passed in 0.84s\n",
+        "stderr": "",
+        "seconds": 1.4189148000004934
+      }
+    },
+    {
+      "variant": "parent",
+      "primary": {
+        "returncode": 1,
+        "modules": 1,
+        "stdout": "........................................................................ [ 71%]\n....F........................                                            [100%]\n================================== FAILURES ===================================\n_____________ TestTimestampSigner.test_malformed_future_timestamp _____________\ntests\\test_itsdangerous\\test_timed.py:73: in test_malformed_future_timestamp\n    signer.unsign(signed)\nsrc\\itsdangerous\\timed.py:129: in unsign\n    ts_dt = self.timestamp_to_datetime(ts_int)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc\\itsdangerous\\timed.py:48: in timestamp_to_datetime\n    return datetime.fromtimestamp(ts, tz=timezone.utc)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n..\\python-packages\\freezegun\\api.py:392: in fromtimestamp\n    result = real_datetime.fromtimestamp(t, tz)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   OSError: [Errno 22] Invalid argument\n=========================== short test summary info ===========================\nFAILED tests/test_itsdangerous/test_timed.py::TestTimestampSigner::test_malformed_future_timestamp\n1 failed, 100 passed in 0.68s\n",
+        "stderr": "",
+        "seconds": 1.2572765999939293
+      },
+      "full_suite": {
+        "returncode": 1,
+        "modules": 1,
+        "stdout": "........................................................................ [ 24%]\n......................................................................F. [ 48%]\n........................................................................ [ 72%]\n........................................................................ [ 96%]\n.........                                                                [100%]\n================================== FAILURES ===================================\n_____________ TestTimestampSigner.test_malformed_future_timestamp _____________\ntests\\test_itsdangerous\\test_timed.py:73: in test_malformed_future_timestamp\n    signer.unsign(signed)\nsrc\\itsdangerous\\timed.py:129: in unsign\n    ts_dt = self.timestamp_to_datetime(ts_int)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc\\itsdangerous\\timed.py:48: in timestamp_to_datetime\n    return datetime.fromtimestamp(ts, tz=timezone.utc)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n..\\python-packages\\freezegun\\api.py:392: in fromtimestamp\n    result = real_datetime.fromtimestamp(t, tz)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   OSError: [Errno 22] Invalid argument\n=========================== short test summary info ===========================\nFAILED tests/test_itsdangerous/test_timed.py::TestTimestampSigner::test_malformed_future_timestamp\n1 failed, 296 passed in 0.99s\n",
+        "stderr": "",
+        "seconds": 1.5917722000012873
+      }
+    },
+    {
+      "variant": "generated",
+      "primary": {
+        "returncode": 1,
+        "modules": 1,
+        "stdout": "........................................................................ [ 71%]\n...FF........................                                            [100%]\n================================== FAILURES ===================================\n________________ TestTimestampSigner.test_malformed_timestamp _________________\ntests\\test_itsdangerous\\test_timed.py:64: in test_malformed_timestamp\n    signer.unsign(signed)\nsrc\\itsdangerous\\timed.py:120: in unsign\n    ts_int = bytes_to_int(base64_decode(ts_bytes))\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc\\itsdangerous\\encoding.py:54: in bytes_to_int\n    return _bytes_to_int(bytestr.rjust(8, b\"\\x00\"))[0]\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   struct.error: unpack requires a buffer of 8 bytes\n_____________ TestTimestampSigner.test_malformed_future_timestamp _____________\ntests\\test_itsdangerous\\test_timed.py:73: in test_malformed_future_timestamp\n    signer.unsign(signed)\nsrc\\itsdangerous\\timed.py:129: in unsign\n    ts_dt = self.timestamp_to_datetime(ts_int)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc\\itsdangerous\\timed.py:48: in timestamp_to_datetime\n    return datetime.fromtimestamp(ts, tz=timezone.utc)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n..\\python-packages\\freezegun\\api.py:392: in fromtimestamp\n    result = real_datetime.fromtimestamp(t, tz)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   OSError: [Errno 22] Invalid argument\n=========================== short test summary info ===========================\nFAILED tests/test_itsdangerous/test_timed.py::TestTimestampSigner::test_malformed_timestamp\nFAILED tests/test_itsdangerous/test_timed.py::TestTimestampSigner::test_malformed_future_timestamp\n2 failed, 99 passed in 0.69s\n",
+        "stderr": "",
+        "seconds": 1.2882575999974506
+      },
+      "full_suite": {
+        "returncode": 1,
+        "modules": 1,
+        "stdout": "........................................................................ [ 24%]\n.....................................................................FF. [ 48%]\n........................................................................ [ 72%]\n........................................................................ [ 96%]\n.........                                                                [100%]\n================================== FAILURES ===================================\n________________ TestTimestampSigner.test_malformed_timestamp _________________\ntests\\test_itsdangerous\\test_timed.py:64: in test_malformed_timestamp\n    signer.unsign(signed)\nsrc\\itsdangerous\\timed.py:120: in unsign\n    ts_int = bytes_to_int(base64_decode(ts_bytes))\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc\\itsdangerous\\encoding.py:54: in bytes_to_int\n    return _bytes_to_int(bytestr.rjust(8, b\"\\x00\"))[0]\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   struct.error: unpack requires a buffer of 8 bytes\n_____________ TestTimestampSigner.test_malformed_future_timestamp _____________\ntests\\test_itsdangerous\\test_timed.py:73: in test_malformed_future_timestamp\n    signer.unsign(signed)\nsrc\\itsdangerous\\timed.py:129: in unsign\n    ts_dt = self.timestamp_to_datetime(ts_int)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc\\itsdangerous\\timed.py:48: in timestamp_to_datetime\n    return datetime.fromtimestamp(ts, tz=timezone.utc)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n..\\python-packages\\freezegun\\api.py:392: in fromtimestamp\n    result = real_datetime.fromtimestamp(t, tz)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   OSError: [Errno 22] Invalid argument\n=========================== short test summary info ===========================\nFAILED tests/test_itsdangerous/test_timed.py::TestTimestampSigner::test_malformed_timestamp\nFAILED tests/test_itsdangerous/test_timed.py::TestTimestampSigner::test_malformed_future_timestamp\n2 failed, 295 passed in 1.02s\n",
+        "stderr": "",
+        "seconds": 1.6038839999964694
+      }
+    }
+  ],
+  "patch_manually_corrected": false,
+  "submitted": false
+}

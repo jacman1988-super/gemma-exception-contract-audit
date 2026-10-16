@@ -1,0 +1,9 @@
+{
+  "recorded_after_execution": true,
+  "paper_words_whitespace": 1825,
+  "files_sha256": {
+    "feedback_pilot.py": "498d7df35e68107645d5004d57ad445249f87be063b67518d6bdac11867adeba",
+    "evaluate_feedback_pilot.py": "82581ed955a12a5ab1f11e3a4bbcac0b29cf69cdd58d37e2c2e9aca956eaf181",
+    "paper-draft.txt": "34ef61631d76caf5edd8f0e0beda26908f859d433db2a2cbd003830257aabe58"
+  }
+}

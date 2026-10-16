@@ -1,0 +1,192 @@
+{
+  "cases": [
+    {
+      "id": "cachetools-empty",
+      "repo": "tkem/cachetools",
+      "package": "cachetools",
+      "source_root": "src",
+      "pool": [
+        "tests/test_cache.py",
+        "tests/test_lru.py",
+        "tests/test_rr.py",
+        "tests/test_tlru.py"
+      ],
+      "fixed": "bcf9e8176ebe16da58751fce971c98ffe045ede1",
+      "parent": "eadb91cc9d54a57d6738386bc5c575ff3c7d22ec",
+      "changed": [
+        "src/cachetools/__init__.py"
+      ],
+      "url": "https://github.com/tkem/cachetools/commit/bcf9e8176ebe16da58751fce971c98ffe045ede1",
+      "description": "Fix #423: Detect an empty RRCache before calling choice.\n\nRRCache.popitem() relied on the choice function raising IndexError on an\nempty sequence, which is what the default random.choice does. Any other\nvalid choice function raised its own exception instead of KeyError, even\nthough the documented contract only requires choice to handle non-empty\nsequences. The other cache classes each detect emptiness on their own\nstructure first.",
+      "archives_sha256": {
+        "fixed": "d8bef07b3a429ec1a3442517f94a94a0ea06c466e33142915f26dcbecfa09f42",
+        "buggy": "5f4852faf44d676317e2d61c9dc2e64efee295cd81e58314260d07aa250d8e9e"
+      },
+      "fixed_source_sha256": {
+        "src/cachetools/__init__.py": "2ea1726e82d41a54dd039417a974217978e4875387607a581b5e4897f0c30672"
+      },
+      "parent_source_sha256": {
+        "src/cachetools/__init__.py": "525ba807fed4af10744f068b5f9b81710903b6f73ee897469d3bf615847e2bd0"
+      },
+      "tests_sha256": {
+        "tests/test_cache.py": "dbdf81b02f344a0e62a5dcf2364be7e135e2511e765e93b43864aeb7aa3b115c",
+        "tests/test_lru.py": "dbfd53eb372f24571f70d739faeb6c4963f79c80ef18228f44b38b1112bf1a6c",
+        "tests/test_rr.py": "995ee7555ebe96c8b4f988c23a8923de980b5f0c42ca073906988e28dd773ec2",
+        "tests/test_tlru.py": "461fd80337d3e4a7fba830b30765cce19666611f797568f18740e4f6eea98199"
+      },
+      "license_sha256": "28c000b52b0ee27138a68ef778227e4057046e86b65f62f1cacb99b0cc49e0d2"
+    },
+    {
+      "id": "cachetools-growth",
+      "repo": "tkem/cachetools",
+      "package": "cachetools",
+      "source_root": "src",
+      "pool": [
+        "tests/test_cache.py",
+        "tests/test_lru.py",
+        "tests/test_rr.py",
+        "tests/test_tlru.py"
+      ],
+      "fixed": "39b31bc9b63abe98497409945e9d382d8918c8fb",
+      "parent": "16e88894ef7d79b25a68f5a3b5411ed881342725",
+      "changed": [
+        "src/cachetools/__init__.py"
+      ],
+      "url": "https://github.com/tkem/cachetools/commit/39b31bc9b63abe98497409945e9d382d8918c8fb",
+      "description": "Fix #405: Fix Cache.__setitem__ over-evicting when growing an existing key\n\n* Fix Cache.__setitem__ over-evicting when growing an existing key\n\nWhen getsizeof is set and an existing key's value grows, __currsize\nalready includes that key's old size, so reserving the full new size\ndouble-counts it and evicts an unrelated entry even though the updated\ncache would still fit within maxsize.\n\nReserve only the size delta instead, and recompute the reservation as a\nfull insert if popitem() happens to evict the key being updated.\n\nAdds a regression test covering all cache types.\n\nCloses #405\n\n* Address review: drop changelog entry, split setitem branches\n\nUse separate insert/replace branches in Cache.__setitem__ so the\ninsert path does not re-check key presence on every eviction, and\nonly the replace path re-derives diffsize after popitem.\n\nKeep test keys aligned with their values and add replace cases for\nsame-size and smaller values.",
+      "archives_sha256": {
+        "fixed": "5e2d153718457882a8330a2cfecc3d2dbe7ddba35c4a62040c2ccd6c9a3ee9ed",
+        "buggy": "d2597fd4d254f5c80629859305d07120c2b6e173070a791d7ee7cb4abd587e6b"
+      },
+      "fixed_source_sha256": {
+        "src/cachetools/__init__.py": "dadbdcfdecb4c3b4c72999e0836ff1530acc892da3c6c869532545d39e5a8268"
+      },
+      "parent_source_sha256": {
+        "src/cachetools/__init__.py": "f2aac531b8c967e049645544af0a6d38130d9bec98d104afa323280a8f526d75"
+      },
+      "tests_sha256": {
+        "tests/test_cache.py": "dbdf81b02f344a0e62a5dcf2364be7e135e2511e765e93b43864aeb7aa3b115c",
+        "tests/test_lru.py": "dbfd53eb372f24571f70d739faeb6c4963f79c80ef18228f44b38b1112bf1a6c",
+        "tests/test_rr.py": "7f56f910027e0f38f10757a0b7feb3493ddea6a71ae0ffd3c24d85485803c373",
+        "tests/test_tlru.py": "461fd80337d3e4a7fba830b30765cce19666611f797568f18740e4f6eea98199"
+      },
+      "license_sha256": "28c000b52b0ee27138a68ef778227e4057046e86b65f62f1cacb99b0cc49e0d2"
+    },
+    {
+      "id": "cachetools-stale",
+      "repo": "tkem/cachetools",
+      "package": "cachetools",
+      "source_root": "src",
+      "pool": [
+        "tests/test_cache.py",
+        "tests/test_lru.py",
+        "tests/test_rr.py",
+        "tests/test_tlru.py"
+      ],
+      "fixed": "c0fdf6abab38040947d6fe2e38c507401d5e2350",
+      "parent": "978d34d40cdbf3b4cbfce104f3166032cc4ea028",
+      "changed": [
+        "src/cachetools/__init__.py"
+      ],
+      "url": "https://github.com/tkem/cachetools/commit/c0fdf6abab38040947d6fe2e38c507401d5e2350",
+      "description": "Fix TLRUCache silently keeping stale value on expired overwrite\n\nAssigning an already-expired value (ttu yields a time that is not in the\nfuture) to an existing key returned early before storing it, but left the\nprevious entry untouched.  As a result the assignment was silently ignored\nand the cache kept returning the old value, violating the mapping contract\nthat `cache[key] = value` either stores `value` or removes the key.\n\nDrop the existing entry in that case so the key is evicted instead of\nretaining a stale value.",
+      "archives_sha256": {
+        "fixed": "57331a701cb51b696cd81ff7bd11ffa8b4352d93538931a5f4d3f78ed4a24918",
+        "buggy": "63df71d8dc75a52409fe5224d597d360eac4dcecb5094bccabbf3c6288b56596"
+      },
+      "fixed_source_sha256": {
+        "src/cachetools/__init__.py": "6254b5c84ae6eb13f36790d5d7d0f3a4d13377663cb2c3df81aafd1b3d97b09a"
+      },
+      "parent_source_sha256": {
+        "src/cachetools/__init__.py": "a4869ebbdf7be86c5b4f699dba1555d0e2783cf608cf83f7baa2e7e99c7ddc19"
+      },
+      "tests_sha256": {
+        "tests/test_cache.py": "dbdf81b02f344a0e62a5dcf2364be7e135e2511e765e93b43864aeb7aa3b115c",
+        "tests/test_lru.py": "dbfd53eb372f24571f70d739faeb6c4963f79c80ef18228f44b38b1112bf1a6c",
+        "tests/test_rr.py": "7f56f910027e0f38f10757a0b7feb3493ddea6a71ae0ffd3c24d85485803c373",
+        "tests/test_tlru.py": "461fd80337d3e4a7fba830b30765cce19666611f797568f18740e4f6eea98199"
+      },
+      "license_sha256": "28c000b52b0ee27138a68ef778227e4057046e86b65f62f1cacb99b0cc49e0d2"
+    },
+    {
+      "id": "jmespath-float",
+      "repo": "jmespath/jmespath.py",
+      "package": "jmespath",
+      "source_root": ".",
+      "pool": [
+        "tests/test_compliance.py",
+        "tests/test_parser.py",
+        "tests/test_search.py"
+      ],
+      "fixed": "9eb120d75cab800117c2e6649f27e3a37a9b7748",
+      "parent": "0cb65901fa987684764190d7146a398a7d5c584c",
+      "changed": [
+        "jmespath/visitor.py"
+      ],
+      "url": "https://github.com/jmespath/jmespath.py/commit/9eb120d75cab800117c2e6649f27e3a37a9b7748",
+      "description": "Merge branch 'float_fix' into develop\n\nPR #281\n\n* float_fix:\n  Add additional compliance tests for verifying float/boolean correctness\n  Add support for proper bool/float comparison",
+      "archives_sha256": {
+        "fixed": "59cf0babb29eb1bf9dfec76ff2d552b8f2143480a53bbdf3e49e4aafe9c21a8a",
+        "buggy": "9cfe3d7738e5c6b5d3d6b4094430a80308c5cf9f1ccf161481b661da6f8d75a5"
+      },
+      "fixed_source_sha256": {
+        "jmespath/visitor.py": "c38a44cfad82ee5f50b37d003f736638c12be799ee256555fa46fe4211182912"
+      },
+      "parent_source_sha256": {
+        "jmespath/visitor.py": "ce71a39e9a35ab9142959e0a71f45d2041ebb379f70c94e76853928d3ecd58b7"
+      },
+      "tests_sha256": {
+        "tests/test_compliance.py": "dbaa1c9194d5e482e130f570ada6ef03e52a68864dc780ff14dd9c2ad43143d0",
+        "tests/test_parser.py": "244ad8a4c55de24cfb12fa6946a3d38a1ed21d5e6fba36b2e39dc2b210cb86fa",
+        "tests/test_search.py": "0d9b48a7b7e8ec94a1975c2acc478445b7493533ec9bdac3c4878b2b4e68c917"
+      },
+      "license_sha256": "66b313cce80ed0623fc7db3f24863a0c80fd83eb341a46b57864158ae74faa56"
+    },
+    {
+      "id": "jmespath-functions",
+      "repo": "jmespath/jmespath.py",
+      "package": "jmespath",
+      "source_root": ".",
+      "pool": [
+        "tests/test_functions.py",
+        "tests/test_search.py"
+      ],
+      "fixed": "a908dd0a443690abebd270f81815666d7b2b4c43",
+      "parent": "71f44854a35c5abcdb8fbd84e25d185d0ca53f92",
+      "changed": [
+        "jmespath/functions.py"
+      ],
+      "url": "https://github.com/jmespath/jmespath.py/commit/a908dd0a443690abebd270f81815666d7b2b4c43",
+      "description": "Merge branch 'fix-custom-functions' into develop\n\n* fix-custom-functions:\n  Always create a new copy of the function table",
+      "archives_sha256": {
+        "fixed": "860ae64432f5107ae65dc76a90c58a441ec50c74232974f531eb253019a483ed",
+        "buggy": "af88a0ba35eec15dca64b1116141580ed57621090b2d2ce19320c267ea7e2499"
+      },
+      "fixed_source_sha256": {
+        "jmespath/functions.py": "c87bdcc2578e8b3e32992837a4447c626b4ddb75a29c7798fcf5771f832b534c"
+      },
+      "parent_source_sha256": {
+        "jmespath/functions.py": "02c7aa53a94f2fc1278c62b7f361334c9dde1a8f30b357ac3e457f55260e4fa3"
+      },
+      "tests_sha256": {
+        "tests/test_functions.py": "c601c18b3e53c15c923884ad3999c3289a29c1ac5aeaa2ac4f05ac951350344b",
+        "tests/test_search.py": "0d9b48a7b7e8ec94a1975c2acc478445b7493533ec9bdac3c4878b2b4e68c917"
+      },
+      "license_sha256": "66b313cce80ed0623fc7db3f24863a0c80fd83eb341a46b57864158ae74faa56"
+    }
+  ],
+  "selector_sha256": "057da4d3ef13be32dcda6dc7865965992b589aaacf69401bd5faea0619c49c60",
+  "harness_sha256": "2bd16b62e0341f03e149cf4933d5dc85e684bcb6b0422ba9deee9ec0e5a2026e",
+  "created_before_test_execution": true,
+  "selection": "Convenience sample from two previously unused repositories; source and dependency review before freezing, no outcomes used. Not random or population representative.",
+  "exclusions_before_execution": [
+    "documentation-only changes",
+    "no included test change: cachetools-falsey, jmespath-sample",
+    "concurrency/race changes",
+    "legacy nose-generator compliance suite for jmespath-functions (not in declared pool)"
+  ],
+  "reference_rule": "Fixed declared pool must pass, reverted source must yield pytest exit 1 without collection errors. Retain all failed references in denominator and logs; no replacement cases.",
+  "model_rule": "Only reproduced cases eligible. Same E2B revision, 2048 context, 192 generated tokens, temperature zero, seed 20261014, one attempt and no retry. No edits to frozen selector after outcomes.",
+  "localization": "Buggy function snippets selected from old hunk positions, at most 6000 characters; commit message supplied, gold added/deleted patch text and regression tests withheld.",
+  "scope": "Prospective evaluation relative to frozen selector, not independent task authorship or contamination-free model assessment."
+}

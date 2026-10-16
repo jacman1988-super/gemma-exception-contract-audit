@@ -1,0 +1,29 @@
+Fix a Python bug. Return only JSON with string fields old and new for an exact source block and its replacement. Make the smallest edit, preserve unrelated behavior, and do not run commands.
+Task description (public commit message):
+Fix TLRUCache silently keeping stale value on expired overwrite
+
+Assigning an already-expired value (ttu yields a time that is not in the
+future) to an existing key returned early before storing it, but left the
+previous entry untouched.  As a result the assignment was silently ignored
+and the cache kept returning the old value, violating the mapping contract
+that `cache[key] = value` either stores `value` or removes the key.
+
+Drop the existing entry in that case so the key is evicted instead of
+retaining a stale value.
+Buggy source:
+File: src/cachetools/__init__.py
+    def __setitem__(self, key, value, cache_setitem=Cache.__setitem__):
+        with self.timer as time:
+            expires = self.__ttu(key, value, time)
+            if not (time < expires):
+                return  # skip expired items
+            self.expire(time)
+            cache_setitem(self, key, value)
+        # removing an existing item would break the heap structure, so
+        # only mark it as removed for now
+        try:
+            self.__getitem(key).removed = True
+        except KeyError:
+            pass
+        self.__items[key] = item = TLRUCache._Item(key, expires)
+        heapq.heappush(self.__order, item)

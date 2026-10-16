@@ -1,0 +1,4 @@
+{
+  "interface": "Function replacement only, as requested before generation. Preserve generated function bodies exactly; reindent to original method scope. Accept bare code with FILE header or fenced code. Missing header accepted only for single declared file. Extra module imports/constants never applied; retained in audit. No semantic repair.",
+  "policy_recorded_before_test_execution": true
+}

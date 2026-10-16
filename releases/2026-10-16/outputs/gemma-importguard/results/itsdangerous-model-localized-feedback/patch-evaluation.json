@@ -1,0 +1,78 @@
+{
+  "cases": [
+    {
+      "variant": "fixed",
+      "primary": {
+        "returncode": 0,
+        "modules": 1,
+        "stdout": "........................................................................ [ 71%]\n.............................                                            [100%]\n101 passed in 0.55s\n",
+        "stderr": "",
+        "seconds": 1.176655600007507
+      },
+      "full_suite": {
+        "returncode": 0,
+        "modules": 1,
+        "stdout": "........................................................................ [ 24%]\n........................................................................ [ 48%]\n........................................................................ [ 72%]\n........................................................................ [ 96%]\n.........                                                                [100%]\n297 passed in 0.87s\n",
+        "stderr": "",
+        "seconds": 1.4556283000129042
+      },
+      "additional_contract_tests": {
+        "returncode": 0,
+        "modules": 1,
+        "stdout": "...                                                                      [100%]\n3 passed in 0.05s\n",
+        "stderr": "",
+        "seconds": 0.610407900006976
+      }
+    },
+    {
+      "variant": "parent",
+      "primary": {
+        "returncode": 1,
+        "modules": 1,
+        "stdout": "........................................................................ [ 71%]\n....F........................                                            [100%]\n================================== FAILURES ===================================\n_____________ TestTimestampSigner.test_malformed_future_timestamp _____________\ntests\\test_itsdangerous\\test_timed.py:73: in test_malformed_future_timestamp\n    signer.unsign(signed)\nsrc\\itsdangerous\\timed.py:129: in unsign\n    ts_dt = self.timestamp_to_datetime(ts_int)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc\\itsdangerous\\timed.py:48: in timestamp_to_datetime\n    return datetime.fromtimestamp(ts, tz=timezone.utc)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n..\\python-packages\\freezegun\\api.py:392: in fromtimestamp\n    result = real_datetime.fromtimestamp(t, tz)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   OSError: [Errno 22] Invalid argument\n=========================== short test summary info ===========================\nFAILED tests/test_itsdangerous/test_timed.py::TestTimestampSigner::test_malformed_future_timestamp\n1 failed, 100 passed in 0.72s\n",
+        "stderr": "",
+        "seconds": 1.3315719999955036
+      },
+      "full_suite": {
+        "returncode": 1,
+        "modules": 1,
+        "stdout": "........................................................................ [ 24%]\n......................................................................F. [ 48%]\n........................................................................ [ 72%]\n........................................................................ [ 96%]\n.........                                                                [100%]\n================================== FAILURES ===================================\n_____________ TestTimestampSigner.test_malformed_future_timestamp _____________\ntests\\test_itsdangerous\\test_timed.py:73: in test_malformed_future_timestamp\n    signer.unsign(signed)\nsrc\\itsdangerous\\timed.py:129: in unsign\n    ts_dt = self.timestamp_to_datetime(ts_int)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc\\itsdangerous\\timed.py:48: in timestamp_to_datetime\n    return datetime.fromtimestamp(ts, tz=timezone.utc)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n..\\python-packages\\freezegun\\api.py:392: in fromtimestamp\n    result = real_datetime.fromtimestamp(t, tz)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   OSError: [Errno 22] Invalid argument\n=========================== short test summary info ===========================\nFAILED tests/test_itsdangerous/test_timed.py::TestTimestampSigner::test_malformed_future_timestamp\n1 failed, 296 passed in 1.01s\n",
+        "stderr": "",
+        "seconds": 1.6177504000079352
+      },
+      "additional_contract_tests": {
+        "returncode": 1,
+        "modules": 1,
+        "stdout": "F..                                                                      [100%]\n================================== FAILURES ===================================\n_______________ test_malformed_exception_keeps_original_payload _______________\ntest_contract_review.py:7: in test_malformed_exception_keeps_original_payload\n    TimestampSigner(\"secret-key\").unsign(b\"value.TgPVoaGhoQ.AGBfQ6G6cr07byTRt0zAdPljHOY\")\nsrc\\itsdangerous\\timed.py:129: in unsign\n    ts_dt = self.timestamp_to_datetime(ts_int)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc\\itsdangerous\\timed.py:48: in timestamp_to_datetime\n    return datetime.fromtimestamp(ts, tz=timezone.utc)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   OSError: [Errno 22] Invalid argument\n=========================== short test summary info ===========================\nFAILED test_contract_review.py::test_malformed_exception_keeps_original_payload\n1 failed, 2 passed in 0.16s\n",
+        "stderr": "",
+        "seconds": 0.727562800006126
+      }
+    },
+    {
+      "variant": "generated",
+      "primary": {
+        "returncode": 1,
+        "modules": 1,
+        "stdout": "........................................................................ [ 71%]\n...FF........................                                            [100%]\n================================== FAILURES ===================================\n________________ TestTimestampSigner.test_malformed_timestamp _________________\ntests\\test_itsdangerous\\test_timed.py:64: in test_malformed_timestamp\n    signer.unsign(signed)\nsrc\\itsdangerous\\timed.py:120: in unsign\n    ts_int = bytes_to_int(base64_decode(ts_bytes))\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc\\itsdangerous\\encoding.py:54: in bytes_to_int\n    return _bytes_to_int(bytestr.rjust(8, b\"\\x00\"))[0]\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   struct.error: unpack requires a buffer of 8 bytes\n_____________ TestTimestampSigner.test_malformed_future_timestamp _____________\ntests\\test_itsdangerous\\test_timed.py:73: in test_malformed_future_timestamp\n    signer.unsign(signed)\nsrc\\itsdangerous\\timed.py:129: in unsign\n    ts_dt = self.timestamp_to_datetime(ts_int)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc\\itsdangerous\\timed.py:48: in timestamp_to_datetime\n    return datetime.fromtimestamp(ts, tz=timezone.utc)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n..\\python-packages\\freezegun\\api.py:392: in fromtimestamp\n    result = real_datetime.fromtimestamp(t, tz)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   OSError: [Errno 22] Invalid argument\n=========================== short test summary info ===========================\nFAILED tests/test_itsdangerous/test_timed.py::TestTimestampSigner::test_malformed_timestamp\nFAILED tests/test_itsdangerous/test_timed.py::TestTimestampSigner::test_malformed_future_timestamp\n2 failed, 99 passed in 0.75s\n",
+        "stderr": "",
+        "seconds": 1.3701559999899473
+      },
+      "full_suite": {
+        "returncode": 1,
+        "modules": 1,
+        "stdout": "........................................................................ [ 24%]\n.....................................................................FF. [ 48%]\n........................................................................ [ 72%]\n........................................................................ [ 96%]\n.........                                                                [100%]\n================================== FAILURES ===================================\n________________ TestTimestampSigner.test_malformed_timestamp _________________\ntests\\test_itsdangerous\\test_timed.py:64: in test_malformed_timestamp\n    signer.unsign(signed)\nsrc\\itsdangerous\\timed.py:120: in unsign\n    ts_int = bytes_to_int(base64_decode(ts_bytes))\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc\\itsdangerous\\encoding.py:54: in bytes_to_int\n    return _bytes_to_int(bytestr.rjust(8, b\"\\x00\"))[0]\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   struct.error: unpack requires a buffer of 8 bytes\n_____________ TestTimestampSigner.test_malformed_future_timestamp _____________\ntests\\test_itsdangerous\\test_timed.py:73: in test_malformed_future_timestamp\n    signer.unsign(signed)\nsrc\\itsdangerous\\timed.py:129: in unsign\n    ts_dt = self.timestamp_to_datetime(ts_int)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc\\itsdangerous\\timed.py:48: in timestamp_to_datetime\n    return datetime.fromtimestamp(ts, tz=timezone.utc)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n..\\python-packages\\freezegun\\api.py:392: in fromtimestamp\n    result = real_datetime.fromtimestamp(t, tz)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   OSError: [Errno 22] Invalid argument\n=========================== short test summary info ===========================\nFAILED tests/test_itsdangerous/test_timed.py::TestTimestampSigner::test_malformed_timestamp\nFAILED tests/test_itsdangerous/test_timed.py::TestTimestampSigner::test_malformed_future_timestamp\n2 failed, 295 passed in 1.04s\n",
+        "stderr": "",
+        "seconds": 1.638783999995212
+      },
+      "additional_contract_tests": {
+        "returncode": 1,
+        "modules": 1,
+        "stdout": "F..                                                                      [100%]\n================================== FAILURES ===================================\n_______________ test_malformed_exception_keeps_original_payload _______________\ntest_contract_review.py:7: in test_malformed_exception_keeps_original_payload\n    TimestampSigner(\"secret-key\").unsign(b\"value.TgPVoaGhoQ.AGBfQ6G6cr07byTRt0zAdPljHOY\")\nsrc\\itsdangerous\\timed.py:129: in unsign\n    ts_dt = self.timestamp_to_datetime(ts_int)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc\\itsdangerous\\timed.py:48: in timestamp_to_datetime\n    return datetime.fromtimestamp(ts, tz=timezone.utc)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   OSError: [Errno 22] Invalid argument\n=========================== short test summary info ===========================\nFAILED test_contract_review.py::test_malformed_exception_keeps_original_payload\n1 failed, 2 passed in 0.16s\n",
+        "stderr": "",
+        "seconds": 0.7375672000052873
+      }
+    }
+  ],
+  "patch_manually_corrected": false,
+  "submitted": false
+}

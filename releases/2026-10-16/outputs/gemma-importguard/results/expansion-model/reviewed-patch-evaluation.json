@@ -1,0 +1,48 @@
+{
+  "cases": [
+    {
+      "id": "cachetools-empty",
+      "status": "failed_declared_pool",
+      "test_result": {
+        "returncode": 1,
+        "modules": 4,
+        "stdout": "........................................................................ [ 63%]\n....F....................................                                [100%]\n================================== FAILURES ===================================\n_______________ RRCacheTest.test_rr_popitem_empty_custom_choice _______________\ntests\\test_rr.py:97: in test_rr_popitem_empty_custom_choice\n    cache.popitem()\nsrc\\cachetools\\__init__.py:361: in popitem\n    key = self.__choice(self.__keys)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   ValueError: min() iterable argument is empty\n=========================== short test summary info ===========================\nFAILED tests/test_rr.py::RRCacheTest::test_rr_popitem_empty_custom_choice - V...\n1 failed, 112 passed in 0.37s\n",
+        "stderr": "",
+        "seconds": 0.9596042999983183
+      },
+      "patched_source_text_sha256": "9328cc4392c544a8ba0f0b439602b50fe553d776636fc05d204085d5820e940c",
+      "utf8_environment": false,
+      "edit_repaired_by_reviewer": false
+    },
+    {
+      "id": "cachetools-growth",
+      "status": "failed_declared_pool",
+      "test_result": {
+        "returncode": 1,
+        "modules": 4,
+        "stdout": ".......F...........F.......F.......F.......F.......................FF... [ 72%]\n....F..................F...F                                             [100%]\n================================== FAILURES ===================================\n____________________ CacheTest.test_getsizeof_replace_grow ____________________\ntests\\__init__.py:297: in test_getsizeof_replace_grow\n    self.assertEqual(2, len(cache))\nE   AssertionError: 2 != 1\n____________________________ CacheTest.test_update ____________________________\ntests\\__init__.py:70: in test_update\n    cache.update({1: 1, 2: 2})\n<frozen _collections_abc>:982: in update\n    ???\nsrc\\cachetools\\__init__.py:82: in __setitem__\n    if key not in self.__data or self.__size.get(key, 0) < size:\n                                 ^^^^^^^^^^^^^^^\nE   AttributeError: '_DefaultSize' object has no attribute 'get'\n__________________ LRUCacheTest.test_getsizeof_replace_grow ___________________\ntests\\__init__.py:297: in test_getsizeof_replace_grow\n    self.assertEqual(2, len(cache))\nE   AssertionError: 2 != 1\n____________________ LRUCacheTest.test_lru_update_existing ____________________\ntests\\test_lru.py:63: in test_lru_update_existing\n    cache[1] = \"updated\"\n    ^^^^^^^^\nsrc\\cachetools\\__init__.py:296: in __setitem__\n    cache_setitem(self, key, value)\nsrc\\cachetools\\__init__.py:82: in __setitem__\n    if key not in self.__data or self.__size.get(key, 0) < size:\n                                 ^^^^^^^^^^^^^^^\nE   AttributeError: '_DefaultSize' object has no attribute 'get'\n__________________________ LRUCacheTest.test_update ___________________________\ntests\\__init__.py:70: in test_update\n    cache.update({1: 1, 2: 2})\n<frozen _collections_abc>:982: in update\n    ???\nsrc\\cachetools\\__init__.py:296: in __setitem__\n    cache_setitem(self, key, value)\nsrc\\cachetools\\__init__.py:82: in __setitem__\n    if key not in self.__data or self.__size.get(key, 0) < size:\n                                 ^^^^^^^^^^^^^^^\nE   AttributeError: '_DefaultSize' object has no attribute 'get'\n_____________________ RRCacheTest.test_rr_update_existing _____________________\ntests\\test_rr.py:64: in test_rr_update_existing\n    cache[1] = \"updated\"\n    ^^^^^^^^\nsrc\\cachetools\\__init__.py:339: in __setitem__\n    cache_setitem(self, key, value)\nsrc\\cachetools\\__init__.py:82: in __setitem__\n    if key not in self.__data or self.__size.get(key, 0) < size:\n                                 ^^^^^^^^^^^^^^^\nE   AttributeError: '_DefaultSize' object has no attribute 'get'\n___________________________ RRCacheTest.test_update ___________________________\ntests\\__init__.py:70: in test_update\n    cache.update({1: 1, 2: 2})\n<frozen _collections_abc>:982: in update\n    ???\nsrc\\cachetools\\__init__.py:339: in __setitem__\n    cache_setitem(self, key, value)\nsrc\\cachetools\\__init__.py:82: in __setitem__\n    if key not in self.__data or self.__size.get(key, 0) < size:\n                                 ^^^^^^^^^^^^^^^\nE   AttributeError: '_DefaultSize' object has no attribute 'get'\n__________________ TLRUCacheTest.test_getsizeof_replace_grow __________________\ntests\\__init__.py:297: in test_getsizeof_replace_grow\n    self.assertEqual(2, len(cache))\nE   AssertionError: 2 != 1\n_____________________ TLRUCacheTest.test_ttu_heap_cleanup _____________________\ntests\\test_tlru.py:323: in test_ttu_heap_cleanup\n    cache[1] = 10 + i\n    ^^^^^^^^\nsrc\\cachetools\\__init__.py:652: in __setitem__\n    cache_setitem(self, key, value)\nsrc\\cachetools\\__init__.py:82: in __setitem__\n    if key not in self.__data or self.__size.get(key, 0) < size:\n                                 ^^^^^^^^^^^^^^^\nE   AttributeError: '_DefaultSize' object has no attribute 'get'\n__________________________ TLRUCacheTest.test_update __________________________\ntests\\__init__.py:70: in test_update\n    cache.update({1: 1, 2: 2})\n<frozen _collections_abc>:982: in update\n    ???\nsrc\\cachetools\\__init__.py:652: in __setitem__\n    cache_setitem(self, key, value)\nsrc\\cachetools\\__init__.py:82: in __setitem__\n    if key not in self.__data or self.__size.get(key, 0) < size:\n                                 ^^^^^^^^^^^^^^^\nE   AttributeError: '_DefaultSize' object has no attribute 'get'\n=========================== short test summary info ===========================\nFAILED tests/test_cache.py::CacheTest::test_getsizeof_replace_grow - Assertio...\nFAILED tests/test_cache.py::CacheTest::test_update - AttributeError: '_Defaul...\nFAILED tests/test_lru.py::LRUCacheTest::test_getsizeof_replace_grow - Asserti...\nFAILED tests/test_lru.py::LRUCacheTest::test_lru_update_existing - AttributeE...\nFAILED tests/test_lru.py::LRUCacheTest::test_update - AttributeError: '_Defau...\nFAILED tests/test_rr.py::RRCacheTest::test_rr_update_existing - AttributeErro...\nFAILED tests/test_rr.py::RRCacheTest::test_update - AttributeError: '_Default...\nFAILED tests/test_tlru.py::TLRUCacheTest::test_getsizeof_replace_grow - Asser...\nFAILED tests/test_tlru.py::TLRUCacheTest::test_ttu_heap_cleanup - AttributeEr...\nFAILED tests/test_tlru.py::TLRUCacheTest::test_update - AttributeError: '_Def...\n10 failed, 90 passed in 0.50s\n",
+        "stderr": "",
+        "seconds": 1.0272560000012163
+      },
+      "patched_source_text_sha256": "ec400025d5c9fcdffd0517fb35de2bc6feb956c4ff4a83adf31c799191f9aa5b",
+      "utf8_environment": false,
+      "edit_repaired_by_reviewer": false
+    },
+    {
+      "id": "cachetools-stale",
+      "status": "failed_declared_pool",
+      "test_result": {
+        "returncode": 1,
+        "modules": 4,
+        "stdout": ".......................................................................F [ 81%]\n................                                                         [100%]\n================================== FAILURES ===================================\n_____________ TLRUCacheTest.test_overwrite_existing_with_expired ______________\ntests\\test_tlru.py:161: in test_overwrite_existing_with_expired\n    self.assertNotIn(1, cache)\nE   AssertionError: 1 unexpectedly found in TLRUCache({1: 5}, maxsize=2, currsize=1)\n=========================== short test summary info ===========================\nFAILED tests/test_tlru.py::TLRUCacheTest::test_overwrite_existing_with_expired\n1 failed, 87 passed in 0.32s\n",
+        "stderr": "",
+        "seconds": 0.8420353999972576
+      },
+      "patched_source_text_sha256": "a3ddbf50bb851bf5caecb9a8b5f551035927c1922374510b04d8498a54b8f1ac",
+      "utf8_environment": false,
+      "edit_repaired_by_reviewer": false
+    }
+  ],
+  "review_sha256": "6b13045204b62d32cd4a628ab7f19ed9b5912ce5b176233344a9002039758dfd",
+  "scope": "Inspected exact model edits only. Passing a declared subset is not complete upstream correctness."
+}

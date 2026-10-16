@@ -1,0 +1,16 @@
+Explain the cause of these failing Python cases in at most 100 words. State the behavioral rule needed. Do not provide replacement code.
+Observed behavior requirements:
+filename represented with Python repr | expected
+"pylock.toml" | True
+"pylock.spam.toml" | True
+"pylock.prod.toml" | True
+"pylock.spam.toml\n" (final character U+000A) | False
+"pylock.prod.toml.backup" | False
+Match the entire unmodified filename; do not normalize away invalid suffixes.
+Current buggy source:
+FILE: src/packaging/pylock.py
+_PYLOCK_FILE_NAME_RE = re.compile(r"^pylock\.([^.]+)\.toml$")
+
+def is_valid_pylock_path(path: Path) -> bool:
+    """Check if the given path is a valid pylock file path."""
+    return path.name == "pylock.toml" or bool(_PYLOCK_FILE_NAME_RE.match(path.name))

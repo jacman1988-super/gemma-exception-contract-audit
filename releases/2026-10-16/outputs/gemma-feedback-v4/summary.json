@@ -1,0 +1,55 @@
+{
+  "cases": [
+    {
+      "id": "tenacity-new-v2",
+      "groups": {
+        "upstream": {
+          "passed": 142,
+          "total": 142,
+          "accepted": true
+        },
+        "examples": {
+          "passed": 8,
+          "total": 8,
+          "accepted": true
+        },
+        "withheld": {
+          "passed": 9,
+          "total": 9,
+          "accepted": true
+        }
+      },
+      "all_pass": true,
+      "passed": 159,
+      "total": 159
+    },
+    {
+      "id": "packaging-new-v2",
+      "groups": {
+        "upstream": {
+          "passed": 72,
+          "total": 74,
+          "accepted": false
+        },
+        "examples": {
+          "passed": 5,
+          "total": 7,
+          "accepted": false
+        },
+        "withheld": {
+          "passed": 9,
+          "total": 9,
+          "accepted": true
+        }
+      },
+      "all_pass": false,
+      "passed": 86,
+      "total": 90
+    }
+  ],
+  "fully_passing_cases": 1,
+  "case_count": 2,
+  "generations": 4,
+  "method": "one diagnosis + one literal-function repair per clean-parent case",
+  "external_publication_or_submission": false
+}

@@ -1,0 +1,32 @@
+--- a/tenacity/__init__.py
++++ b/tenacity/__init__.py
+@@ -418,12 +418,8 @@
+         self.iter_state.retry_run_result = self.retry(retry_state)
+ 
+     def _run_wait(self, retry_state: "RetryCallState") -> None:
+-        # `wait` is annotated as always set, so a type checker sees this guard
+-        # as always true -- but untyped callers legitimately pass `None` or `0`
+-        # to mean "no wait", and `sum([])` over an empty list of strategies
+-        # yields the int 0. Keep honouring those.
+-        if not self.wait:  # type: ignore[truthy-bool]
+-            retry_state.upcoming_sleep = 0.0
++        if self.wait is None or self.wait == 0:
++            retry_state.upcoming_sleep = 0
+         else:
+             retry_state.upcoming_sleep = self.wait(retry_state)
+ 
+--- a/tenacity/asyncio/__init__.py
++++ b/tenacity/asyncio/__init__.py
+@@ -152,10 +152,8 @@
+ 
+     @override
+     async def _run_wait(self, retry_state: "RetryCallState") -> None:  # type: ignore[override]
+-        # See BaseRetrying._run_wait: falsy `wait` values mean "no wait" and
+-        # reach us from untyped callers.
+-        if not self.wait:  # type: ignore[truthy-bool]
+-            retry_state.upcoming_sleep = 0.0
++        if self.wait is None or self.wait == 0:
++            retry_state.upcoming_sleep = 0
+         else:
+             retry_state.upcoming_sleep = await _utils.wrap_to_async_func(self.wait)(
+                 retry_state

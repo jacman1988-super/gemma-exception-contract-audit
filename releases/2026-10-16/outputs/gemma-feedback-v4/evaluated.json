@@ -1,0 +1,1271 @@
+[
+  {
+    "id": "tenacity-new-v2",
+    "review": {
+      "id": "tenacity-new-v2",
+      "generation_sha256": "c414263cb2fe2a9bf36a16e60bf06f800985ca2587bc15def4c8aaabb3a73cca",
+      "parsed": true,
+      "edits": [
+        {
+          "file": "tenacity/__init__.py",
+          "function": "_run_wait",
+          "literal_function": "def _run_wait(self, retry_state: \"RetryCallState\") -> None:\n    if self.wait is None or self.wait == 0:\n        retry_state.upcoming_sleep = 0\n    else:\n        retry_state.upcoming_sleep = self.wait(retry_state)",
+          "ignored_module_context": []
+        },
+        {
+          "file": "tenacity/asyncio/__init__.py",
+          "function": "_run_wait",
+          "literal_function": "async def _run_wait(self, retry_state: \"RetryCallState\") -> None:  # type: ignore[override]\n    if self.wait is None or self.wait == 0:\n        retry_state.upcoming_sleep = 0\n    else:\n        retry_state.upcoming_sleep = await _utils.wrap_to_async_func(self.wait)(\n            retry_state\n        )",
+          "ignored_module_context": []
+        }
+      ],
+      "approved": true,
+      "manual_review": "Read literal generated functions. Tenacity only changes wait condition and assignment; Packaging only changes return expression. No new I/O/imports/commands in extracted functions. Extraneous Packaging module context ignored under function-only interface; functions not semantically edited. Original decorators retained."
+    },
+    "runs": {
+      "upstream": {
+        "execution": {
+          "returncode": 0,
+          "stdout": "........................................................................ [ 50%]\n......................................................................   [100%]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-feedback-v4\\tenacity-new-v2-staged-upstream.xml -\n142 passed in 2.66s\n",
+          "stderr": "",
+          "seconds": 3.1847081999876536,
+          "report": "C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-feedback-v4\\tenacity-new-v2-staged-upstream.xml"
+        },
+        "evidence": {
+          "complete": true,
+          "accepted": true,
+          "reasons": [],
+          "group_pass": {
+            "tests.test_tenacity.TestBase": true,
+            "tests.test_tenacity.TestRetryingName": true,
+            "tests.test_tenacity.TestStopConditions": true,
+            "tests.test_tenacity.TestWaitConditions": true,
+            "tests.test_tenacity.TestRetryConditions": true,
+            "tests.test_tenacity.TestDecoratorWrapper": true,
+            "tests.test_tenacity.TestStatisticsKeys": true,
+            "tests.test_tenacity.TestEnabled": true,
+            "tests.test_tenacity.TestRetryWith": true,
+            "tests.test_tenacity.TestBeforeAfterAttempts": true,
+            "tests.test_tenacity.TestReraiseExceptions": true,
+            "tests.test_tenacity.TestStatistics": true,
+            "tests.test_tenacity.TestRetryErrorCallback": true,
+            "tests.test_tenacity.TestContextManager": true,
+            "tests.test_tenacity.TestInvokeAsCallable": true,
+            "tests.test_tenacity.TestRetryException": true,
+            "tests.test_tenacity.TestRetryTyping": true,
+            "tests.test_tenacity.TestMockingSleep": true,
+            "tests.test_tenacity.TestPickle": true
+          },
+          "groups": {
+            "tests.test_tenacity.TestBase": [
+              {
+                "name": "test_callstate_repr",
+                "passed": true
+              },
+              {
+                "name": "test_retrying_repr",
+                "passed": true
+              }
+            ],
+            "tests.test_tenacity.TestRetryingName": [
+              {
+                "name": "test_get_fn_name_context_manager_no_name",
+                "passed": true
+              },
+              {
+                "name": "test_get_fn_name_context_manager_with_name",
+                "passed": true
+              },
+              {
+                "name": "test_get_fn_name_decorator",
+                "passed": true
+              },
+              {
+                "name": "test_logging_uses_name",
+                "passed": true
+              },
+              {
+                "name": "test_str_default",
+                "passed": true
+              },
+              {
+                "name": "test_str_overridden_by_copy",
+                "passed": true
+              },
+              {
+                "name": "test_str_preserved_by_copy",
+                "passed": true
+              },
+              {
+                "name": "test_str_with_name",
+                "passed": true
+              }
+            ],
+            "tests.test_tenacity.TestStopConditions": [
+              {
+                "name": "test_legacy_explicit_stop_type",
+                "passed": true
+              },
+              {
+                "name": "test_never_stop",
+                "passed": true
+              },
+              {
+                "name": "test_stop_after_attempt",
+                "passed": true
+              },
+              {
+                "name": "test_stop_after_delay",
+                "passed": true
+              },
+              {
+                "name": "test_stop_all",
+                "passed": true
+              },
+              {
+                "name": "test_stop_and",
+                "passed": true
+              },
+              {
+                "name": "test_stop_any",
+                "passed": true
+              },
+              {
+                "name": "test_stop_before_delay",
+                "passed": true
+              },
+              {
+                "name": "test_stop_func_with_retry_state",
+                "passed": true
+              },
+              {
+                "name": "test_stop_or",
+                "passed": true
+              }
+            ],
+            "tests.test_tenacity.TestWaitConditions": [
+              {
+                "name": "test_exponential",
+                "passed": true
+              },
+              {
+                "name": "test_exponential_caps_when_max_multiplier_ratio_underflows",
+                "passed": true
+              },
+              {
+                "name": "test_exponential_skips_power_after_reaching_max",
+                "passed": true
+              },
+              {
+                "name": "test_exponential_with_max_wait",
+                "passed": true
+              },
+              {
+                "name": "test_exponential_with_max_wait_and_multiplier",
+                "passed": true
+              },
+              {
+                "name": "test_exponential_with_min_wait",
+                "passed": true
+              },
+              {
+                "name": "test_exponential_with_min_wait_and_multiplier",
+                "passed": true
+              },
+              {
+                "name": "test_exponential_with_min_wait_andmax__wait",
+                "passed": true
+              },
+              {
+                "name": "test_fixed_sleep",
+                "passed": true
+              },
+              {
+                "name": "test_incrementing_sleep",
+                "passed": true
+              },
+              {
+                "name": "test_legacy_explicit_wait_type",
+                "passed": true
+              },
+              {
+                "name": "test_no_sleep",
+                "passed": true
+              },
+              {
+                "name": "test_random_sleep",
+                "passed": true
+              },
+              {
+                "name": "test_random_sleep_withoutmin_",
+                "passed": true
+              },
+              {
+                "name": "test_wait_arbitrary_sum",
+                "passed": true
+              },
+              {
+                "name": "test_wait_chain",
+                "passed": true
+              },
+              {
+                "name": "test_wait_chain_multiple_invocations",
+                "passed": true
+              },
+              {
+                "name": "test_wait_chain_requires_at_least_one_strategy",
+                "passed": true
+              },
+              {
+                "name": "test_wait_combine",
+                "passed": true
+              },
+              {
+                "name": "test_wait_combine_passes_state_positionally",
+                "passed": true
+              },
+              {
+                "name": "test_wait_double_sum",
+                "passed": true
+              },
+              {
+                "name": "test_wait_exception",
+                "passed": true
+              },
+              {
+                "name": "test_wait_exponential_jitter",
+                "passed": true
+              },
+              {
+                "name": "test_wait_exponential_jitter_initial_and_multiplier_raises",
+                "passed": true
+              },
+              {
+                "name": "test_wait_exponential_jitter_initial_deprecated",
+                "passed": true
+              },
+              {
+                "name": "test_wait_exponential_jitter_min",
+                "passed": true
+              },
+              {
+                "name": "test_wait_exponential_jitter_multiplier",
+                "passed": true
+              },
+              {
+                "name": "test_wait_exponential_jitter_timedelta",
+                "passed": true
+              },
+              {
+                "name": "test_wait_falsy_callable_is_called",
+                "passed": true
+              },
+              {
+                "name": "test_wait_falsy_values_mean_no_wait",
+                "passed": true
+              },
+              {
+                "name": "test_wait_func",
+                "passed": true
+              },
+              {
+                "name": "test_wait_radd_plain_callable",
+                "passed": true
+              },
+              {
+                "name": "test_wait_radd_rejects_non_zero_number",
+                "passed": true
+              },
+              {
+                "name": "test_wait_random_exponential",
+                "passed": true
+              },
+              {
+                "name": "test_wait_random_exponential_statistically",
+                "passed": true
+              },
+              {
+                "name": "test_wait_retry_state_attributes",
+                "passed": true
+              },
+              {
+                "name": "test_wait_triple_sum",
+                "passed": true
+              }
+            ],
+            "tests.test_tenacity.TestRetryConditions": [
+              {
+                "name": "test_retry_all",
+                "passed": true
+              },
+              {
+                "name": "test_retry_and",
+                "passed": true
+              },
+              {
+                "name": "test_retry_and_coalesces",
+                "passed": true
+              },
+              {
+                "name": "test_retry_and_with_plain_function",
+                "passed": true
+              },
+              {
+                "name": "test_retry_any",
+                "passed": true
+              },
+              {
+                "name": "test_retry_if_exception_message_empty_message",
+                "passed": true
+              },
+              {
+                "name": "test_retry_if_exception_message_negative_no_inputs",
+                "passed": true
+              },
+              {
+                "name": "test_retry_if_exception_message_negative_too_many_inputs",
+                "passed": true
+              },
+              {
+                "name": "test_retry_if_not_exception_message_empty_message",
+                "passed": true
+              },
+              {
+                "name": "test_retry_if_not_result",
+                "passed": true
+              },
+              {
+                "name": "test_retry_if_result",
+                "passed": true
+              },
+              {
+                "name": "test_retry_or",
+                "passed": true
+              },
+              {
+                "name": "test_retry_or_coalesces",
+                "passed": true
+              },
+              {
+                "name": "test_retry_or_with_plain_function",
+                "passed": true
+              },
+              {
+                "name": "test_retry_try_again",
+                "passed": true
+              },
+              {
+                "name": "test_retry_try_again_forever",
+                "passed": true
+              },
+              {
+                "name": "test_retry_try_again_forever_reraise",
+                "passed": true
+              },
+              {
+                "name": "test_retry_try_again_from_cause_reraise",
+                "passed": true
+              },
+              {
+                "name": "test_retry_try_again_with_cause_reraise",
+                "passed": true
+              }
+            ],
+            "tests.test_tenacity.TestDecoratorWrapper": [
+              {
+                "name": "test_defaults",
+                "passed": true
+              },
+              {
+                "name": "test_retry_except_exception_of_type",
+                "passed": true
+              },
+              {
+                "name": "test_retry_function_attributes",
+                "passed": true
+              },
+              {
+                "name": "test_retry_function_object",
+                "passed": true
+              },
+              {
+                "name": "test_retry_if_exception_cause_type",
+                "passed": true
+              },
+              {
+                "name": "test_retry_if_exception_cause_type_handles_cause_cycles",
+                "passed": true
+              },
+              {
+                "name": "test_retry_if_exception_message",
+                "passed": true
+              },
+              {
+                "name": "test_retry_if_exception_message_match",
+                "passed": true
+              },
+              {
+                "name": "test_retry_if_exception_of_type",
+                "passed": true
+              },
+              {
+                "name": "test_retry_if_not_exception_message",
+                "passed": true
+              },
+              {
+                "name": "test_retry_if_not_exception_message_delay",
+                "passed": true
+              },
+              {
+                "name": "test_retry_if_not_exception_message_match",
+                "passed": true
+              },
+              {
+                "name": "test_retry_preserves_argument_defaults",
+                "passed": true
+              },
+              {
+                "name": "test_retry_until_exception_of_type_attempt_number",
+                "passed": true
+              },
+              {
+                "name": "test_retry_until_exception_of_type_no_type",
+                "passed": true
+              },
+              {
+                "name": "test_retry_until_exception_of_type_wrong_exception",
+                "passed": true
+              },
+              {
+                "name": "test_with_stop_on_exception",
+                "passed": true
+              },
+              {
+                "name": "test_with_stop_on_return_value",
+                "passed": true
+              },
+              {
+                "name": "test_with_wait",
+                "passed": true
+              }
+            ],
+            "tests.test_tenacity.TestStatisticsKeys": [
+              {
+                "name": "test_delay_since_first_attempt_available_on_first_attempt",
+                "passed": true
+              },
+              {
+                "name": "test_statistics_visible_through_outer_decorator",
+                "passed": true
+              }
+            ],
+            "tests.test_tenacity.TestEnabled": [
+              {
+                "name": "test_enabled_false_skips_retry",
+                "passed": true
+              },
+              {
+                "name": "test_enabled_false_preserves_attributes",
+                "passed": true
+              },
+              {
+                "name": "test_enabled_false_via_retry_with",
+                "passed": true
+              },
+              {
+                "name": "test_enabled_true_retries_normally",
+                "passed": true
+              },
+              {
+                "name": "test_enabled_false_iter_raises_original_exception",
+                "passed": true
+              },
+              {
+                "name": "test_enabled_false_iter_succeeds_on_first_attempt",
+                "passed": true
+              },
+              {
+                "name": "test_enabled_false_call_raises_original_exception",
+                "passed": true
+              },
+              {
+                "name": "test_enabled_false_call_succeeds_on_first_attempt",
+                "passed": true
+              }
+            ],
+            "tests.test_tenacity.TestRetryWith": [
+              {
+                "name": "test_redefine_wait",
+                "passed": true
+              },
+              {
+                "name": "test_redefine_stop",
+                "passed": true
+              },
+              {
+                "name": "test_retry_error_cls_should_be_preserved",
+                "passed": true
+              },
+              {
+                "name": "test_retry_error_callback_should_be_preserved",
+                "passed": true
+              }
+            ],
+            "tests.test_tenacity.TestBeforeAfterAttempts": [
+              {
+                "name": "test_after_attempts",
+                "passed": true
+              },
+              {
+                "name": "test_before_attempts",
+                "passed": true
+              },
+              {
+                "name": "test_before_sleep",
+                "passed": true
+              },
+              {
+                "name": "test_before_sleep_log_raises",
+                "passed": true
+              },
+              {
+                "name": "test_before_sleep_log_raises_with_exc_info",
+                "passed": true
+              },
+              {
+                "name": "test_before_sleep_log_returns",
+                "passed": true
+              },
+              {
+                "name": "test_before_sleep_log_returns_with_exc_info",
+                "passed": true
+              }
+            ],
+            "tests.test_tenacity.TestReraiseExceptions": [
+              {
+                "name": "test_reraise_by_default",
+                "passed": true
+              },
+              {
+                "name": "test_reraise_from_retry_error",
+                "passed": true
+              },
+              {
+                "name": "test_reraise_no_exception",
+                "passed": true
+              },
+              {
+                "name": "test_reraise_timeout_from_retry_error",
+                "passed": true
+              }
+            ],
+            "tests.test_tenacity.TestStatistics": [
+              {
+                "name": "test_retry_object_statistics_during_execution",
+                "passed": true
+              },
+              {
+                "name": "test_retry_object_statistics_synced",
+                "passed": true
+              },
+              {
+                "name": "test_stats",
+                "passed": true
+              },
+              {
+                "name": "test_stats_failing",
+                "passed": true
+              }
+            ],
+            "tests.test_tenacity.TestRetryErrorCallback": [
+              {
+                "name": "test_retry_error_callback",
+                "passed": true
+              }
+            ],
+            "tests.test_tenacity.TestContextManager": [
+              {
+                "name": "test_context_manager_on_error",
+                "passed": true
+              },
+              {
+                "name": "test_context_manager_reraise",
+                "passed": true
+              },
+              {
+                "name": "test_context_manager_retry_error",
+                "passed": true
+              },
+              {
+                "name": "test_context_manager_retry_one",
+                "passed": true
+              }
+            ],
+            "tests.test_tenacity.TestInvokeAsCallable": [
+              {
+                "name": "test_retry_one",
+                "passed": true
+              },
+              {
+                "name": "test_on_error",
+                "passed": true
+              },
+              {
+                "name": "test_retry_error",
+                "passed": true
+              },
+              {
+                "name": "test_reraise",
+                "passed": true
+              }
+            ],
+            "tests.test_tenacity.TestRetryException": [
+              {
+                "name": "test_retry_error_is_pickleable",
+                "passed": true
+              }
+            ],
+            "tests.test_tenacity.TestRetryTyping": [
+              {
+                "name": "test_retry_decorated_method_keeps_bound_signature",
+                "passed": true
+              },
+              {
+                "name": "test_retry_type_annotations",
+                "passed": true
+              }
+            ],
+            "tests.test_tenacity.TestMockingSleep": [
+              {
+                "name": "test_decorated",
+                "passed": true
+              },
+              {
+                "name": "test_decorated_retry_with",
+                "passed": true
+              }
+            ],
+            "tests.test_tenacity.TestPickle": [
+              {
+                "name": "test_retry_strategies_picklable",
+                "passed": true
+              },
+              {
+                "name": "test_retrying_picklable",
+                "passed": true
+              },
+              {
+                "name": "test_retrying_picklable_after_run",
+                "passed": true
+              },
+              {
+                "name": "test_retrying_pickle_round_trip_works",
+                "passed": true
+              }
+            ]
+          }
+        },
+        "expected_counts": {
+          "tests.test_tenacity.TestBase": 2,
+          "tests.test_tenacity.TestRetryingName": 8,
+          "tests.test_tenacity.TestStopConditions": 10,
+          "tests.test_tenacity.TestWaitConditions": 37,
+          "tests.test_tenacity.TestRetryConditions": 19,
+          "tests.test_tenacity.TestDecoratorWrapper": 19,
+          "tests.test_tenacity.TestStatisticsKeys": 2,
+          "tests.test_tenacity.TestEnabled": 8,
+          "tests.test_tenacity.TestRetryWith": 4,
+          "tests.test_tenacity.TestBeforeAfterAttempts": 7,
+          "tests.test_tenacity.TestReraiseExceptions": 4,
+          "tests.test_tenacity.TestStatistics": 4,
+          "tests.test_tenacity.TestRetryErrorCallback": 1,
+          "tests.test_tenacity.TestContextManager": 4,
+          "tests.test_tenacity.TestInvokeAsCallable": 4,
+          "tests.test_tenacity.TestRetryException": 1,
+          "tests.test_tenacity.TestRetryTyping": 2,
+          "tests.test_tenacity.TestMockingSleep": 2,
+          "tests.test_tenacity.TestPickle": 4
+        }
+      },
+      "examples": {
+        "execution": {
+          "returncode": 0,
+          "stdout": "........                                                                 [100%]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-feedback-v4\\tenacity-new-v2-staged-examples.xml -\n8 passed in 0.17s\n",
+          "stderr": "",
+          "seconds": 0.7618309000099543,
+          "report": "C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-feedback-v4\\tenacity-new-v2-staged-examples.xml"
+        },
+        "evidence": {
+          "complete": true,
+          "accepted": true,
+          "reasons": [],
+          "group_pass": {
+            "test_contract_tenacity": true
+          },
+          "groups": {
+            "test_contract_tenacity": [
+              {
+                "name": "test_wait_contract[False-None-0]",
+                "passed": true
+              },
+              {
+                "name": "test_wait_contract[False-0-0]",
+                "passed": true
+              },
+              {
+                "name": "test_wait_contract[False-strategy2-1.25]",
+                "passed": true
+              },
+              {
+                "name": "test_wait_contract[False-strategy3-0.75]",
+                "passed": true
+              },
+              {
+                "name": "test_wait_contract[True-None-0]",
+                "passed": true
+              },
+              {
+                "name": "test_wait_contract[True-0-0]",
+                "passed": true
+              },
+              {
+                "name": "test_wait_contract[True-strategy2-1.25]",
+                "passed": true
+              },
+              {
+                "name": "test_wait_contract[True-strategy3-0.75]",
+                "passed": true
+              }
+            ]
+          }
+        },
+        "expected_counts": {
+          "test_contract_tenacity": 8
+        }
+      },
+      "withheld": {
+        "execution": {
+          "returncode": 0,
+          "stdout": ".........                                                                [100%]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-feedback-v4\\tenacity-new-v2-staged-withheld.xml -\n9 passed in 0.16s\n",
+          "stderr": "",
+          "seconds": 0.5508461999997962,
+          "report": "C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-feedback-v4\\tenacity-new-v2-staged-withheld.xml"
+        },
+        "evidence": {
+          "complete": true,
+          "accepted": true,
+          "reasons": [],
+          "group_pass": {
+            "test_unseen_tenacity": true
+          },
+          "groups": {
+            "test_unseen_tenacity": [
+              {
+                "name": "test_unseen_wait[False-strategy0-2.5]",
+                "passed": true
+              },
+              {
+                "name": "test_unseen_wait[False-strategy1-2.75]",
+                "passed": true
+              },
+              {
+                "name": "test_unseen_wait[False-None-0]",
+                "passed": true
+              },
+              {
+                "name": "test_unseen_wait[False-0.0-0]",
+                "passed": true
+              },
+              {
+                "name": "test_unseen_wait[True-strategy0-2.5]",
+                "passed": true
+              },
+              {
+                "name": "test_unseen_wait[True-strategy1-2.75]",
+                "passed": true
+              },
+              {
+                "name": "test_unseen_wait[True-None-0]",
+                "passed": true
+              },
+              {
+                "name": "test_unseen_wait[True-0.0-0]",
+                "passed": true
+              },
+              {
+                "name": "test_false_async_callable",
+                "passed": true
+              }
+            ]
+          }
+        },
+        "expected_counts": {
+          "test_unseen_tenacity": 9
+        }
+      }
+    },
+    "patched_source_sha256": {
+      "tenacity/__init__.py": "5a4dda762b4e2ee5cf7e16378c33b10c86634c25db3c0eb2ec7c0b96e728925f",
+      "tenacity/asyncio/__init__.py": "8f84e7424b622435f0907337d72482651e5fdd1545011655be81c553a5a9cd50"
+    }
+  },
+  {
+    "id": "packaging-new-v2",
+    "review": {
+      "id": "packaging-new-v2",
+      "generation_sha256": "333983dff0d703f4e4fc23f9b82305b0bb3c7e41d256e5acf2cf3ad41db47fed",
+      "parsed": true,
+      "edits": [
+        {
+          "file": "src/packaging/pylock.py",
+          "function": "is_valid_pylock_path",
+          "literal_function": "def is_valid_pylock_path(path: Path) -> bool:\n    \"\"\"Check if the given path is a valid pylock file path.\"\"\"\n    return bool(_PYLOCK_FILE_NAME_RE.match(path.name))",
+          "ignored_module_context": [
+            "Import",
+            "ImportFrom",
+            "Assign"
+          ]
+        }
+      ],
+      "approved": true,
+      "manual_review": "Read literal generated functions. Tenacity only changes wait condition and assignment; Packaging only changes return expression. No new I/O/imports/commands in extracted functions. Extraneous Packaging module context ignored under function-only interface; functions not semantically edited. Original decorators retained."
+    },
+    "runs": {
+      "upstream": {
+        "execution": {
+          "returncode": 1,
+          "stdout": "F...F................................................................... [ 97%]\n..                                                                       [100%]\n================================== FAILURES ===================================\n___________________ test_pylock_file_name[pylock.toml-True] ___________________\ntests\\test_pylock.py:44: in test_pylock_file_name\n    assert is_valid_pylock_path(Path(file_name)) is valid\nE   AssertionError: assert False is True\nE    +  where False = is_valid_pylock_path(WindowsPath('pylock.toml'))\nE    +    where WindowsPath('pylock.toml') = Path('pylock.toml')\n_______________ test_pylock_file_name[pylock.spam.toml\\n-False] _______________\ntests\\test_pylock.py:44: in test_pylock_file_name\n    assert is_valid_pylock_path(Path(file_name)) is valid\nE   AssertionError: assert True is False\nE    +  where True = is_valid_pylock_path(WindowsPath('pylock.spam.toml\\n'))\nE    +    where WindowsPath('pylock.spam.toml\\n') = Path('pylock.spam.toml\\n')\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-feedback-v4\\packaging-new-v2-staged-upstream.xml -\n=========================== short test summary info ===========================\nFAILED tests/test_pylock.py::test_pylock_file_name[pylock.toml-True] - Assert...\nFAILED tests/test_pylock.py::test_pylock_file_name[pylock.spam.toml\\n-False]\n2 failed, 72 passed in 0.24s\n",
+          "stderr": "",
+          "seconds": 0.727026799984742,
+          "report": "C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-feedback-v4\\packaging-new-v2-staged-upstream.xml"
+        },
+        "evidence": {
+          "complete": true,
+          "accepted": false,
+          "reasons": [],
+          "group_pass": {
+            "tests.test_pylock": false
+          },
+          "groups": {
+            "tests.test_pylock": [
+              {
+                "name": "test_pylock_file_name[pylock.toml-True]",
+                "passed": false
+              },
+              {
+                "name": "test_pylock_file_name[pylock.spam.toml-True]",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_file_name[pylock.json-False]",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_file_name[pylock..toml-False]",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_file_name[pylock.spam.toml\\n-False]",
+                "passed": false
+              },
+              {
+                "name": "test_toml_roundtrip",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_version[1.0]",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_version[1.1]",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_unsupported_version[0.9]",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_unsupported_version[2]",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_unsupported_version[2.0]",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_unsupported_version[2.1]",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_invalid_version",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_unexpected_type",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_bool_rejected_for_int",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_missing_version",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_missing_created_by",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_missing_packages",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_packages_without_dist",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_packages_with_dist_and_archive",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_packages_with_archive_directory_and_vcs",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_basic_package",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_vcs_package",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_invalid_archive",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_invalid_vcs",
+                "passed": true
+              },
+              {
+                "name": "test_dist_filename[dist0-example-1.0.tar.gz]",
+                "passed": true
+              },
+              {
+                "name": "test_dist_filename[dist1-example-1.0.tar.gz]",
+                "passed": true
+              },
+              {
+                "name": "test_dist_filename[dist2-example-1.0.tar.gz]",
+                "passed": true
+              },
+              {
+                "name": "test_dist_filename[dist3-example-1.0.tar.gz]",
+                "passed": true
+              },
+              {
+                "name": "test_dist_filename[dist4-example-1.0.tar.gz]",
+                "passed": true
+              },
+              {
+                "name": "test_dist_filename[dist5-example-2.0.tar.gz]",
+                "passed": true
+              },
+              {
+                "name": "test_dist_filename[dist6-example-2.0.tar.gz]",
+                "passed": true
+              },
+              {
+                "name": "test_dist_filename[dist7-example-1.0.tar.gz]",
+                "passed": true
+              },
+              {
+                "name": "test_dist_filename[dist8-example-1.0-py3-none-any.whl]",
+                "passed": true
+              },
+              {
+                "name": "test_dist_filename[dist9-example-1.0-py3-none-any.whl]",
+                "passed": true
+              },
+              {
+                "name": "test_dist_filename[dist10-example-1.0-py3-none-any.whl]",
+                "passed": true
+              },
+              {
+                "name": "test_dist_filename[dist11-example-1.0-py3-none-any.whl]",
+                "passed": true
+              },
+              {
+                "name": "test_dist_filename[dist12-example-1.0-py3-none-any.whl]",
+                "passed": true
+              },
+              {
+                "name": "test_dist_filename[dist13-example-2.12.1+cu130-py3-none-any.whl]",
+                "passed": true
+              },
+              {
+                "name": "test_dist_filename[dist14-example-2.0-py3-none-any.whl]",
+                "passed": true
+              },
+              {
+                "name": "test_dist_filename[dist15-example-2.0-py3-none-any.whl]",
+                "passed": true
+              },
+              {
+                "name": "test_dist_filename[dist16-example-1.0-py3-none-any.whl]",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_mixed_path_separators[sdist-example-1.0.tar.gz-dist/files\\\\]",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_mixed_path_separators[sdist-example-1.0.tar.gz-dist\\\\files/]",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_mixed_path_separators[sdist-example-1.0.tar.gz-C:/dist\\\\]",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_mixed_path_separators[sdist-example-1.0.tar.gz-C:\\\\dist/]",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_mixed_path_separators[wheels-example-1.0-py3-none-any.whl-dist/files\\\\]",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_mixed_path_separators[wheels-example-1.0-py3-none-any.whl-dist\\\\files/]",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_mixed_path_separators[wheels-example-1.0-py3-none-any.whl-C:/dist\\\\]",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_mixed_path_separators[wheels-example-1.0-py3-none-any.whl-C:\\\\dist/]",
+                "passed": true
+              },
+              {
+                "name": "test_missing_sdist_filename",
+                "passed": true
+              },
+              {
+                "name": "test_missing_wheel_filename",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_invalid_wheel_filename",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_inconsistent_wheel_name",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_inconsistent_wheel_version",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_invalid_sdist_filename",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_inconsistent_sdist_name",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_inconsistent_sdist_version",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_invalid_wheel",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_invalid_environments",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_invalid_environments_type",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_extras_and_groups",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_tool",
+                "passed": true
+              },
+              {
+                "name": "test_pylock_package_not_a_table",
+                "passed": true
+              },
+              {
+                "name": "test_hash_validation[hashes0-Hash values must be strings in 'hashes']",
+                "passed": true
+              },
+              {
+                "name": "test_hash_validation[hashes1-At least one hash must be provided in 'hashes']",
+                "passed": true
+              },
+              {
+                "name": "test_hash_validation[sha256:...-Unexpected type str (expected Mapping) in 'hashes']",
+                "passed": true
+              },
+              {
+                "name": "test_package_name_validation",
+                "passed": true
+              },
+              {
+                "name": "test_extras_name_validation",
+                "passed": true
+              },
+              {
+                "name": "test_is_direct",
+                "passed": true
+              },
+              {
+                "name": "test_validate",
+                "passed": true
+              },
+              {
+                "name": "test_validate_sequence_of_str",
+                "passed": true
+              },
+              {
+                "name": "test_validate_attestation_identity_missing_kind",
+                "passed": true
+              },
+              {
+                "name": "test_validate_attestation_identity_invalid_kind",
+                "passed": true
+              }
+            ]
+          }
+        },
+        "expected_counts": {
+          "tests.test_pylock": 74
+        }
+      },
+      "examples": {
+        "execution": {
+          "returncode": 1,
+          "stdout": "F.F....                                                                  [100%]\n================================== FAILURES ===================================\n__________________ test_complete_filename[pylock.toml-True] ___________________\ntest_contract_packaging.py:11: in test_complete_filename\n    assert is_valid_pylock_path(Path(name)) is valid\nE   AssertionError: assert False is True\nE    +  where False = is_valid_pylock_path(WindowsPath('pylock.toml'))\nE    +    where WindowsPath('pylock.toml') = Path('pylock.toml')\n______________ test_complete_filename[pylock.spam.toml\\n-False] _______________\ntest_contract_packaging.py:11: in test_complete_filename\n    assert is_valid_pylock_path(Path(name)) is valid\nE   AssertionError: assert True is False\nE    +  where True = is_valid_pylock_path(WindowsPath('pylock.spam.toml\\n'))\nE    +    where WindowsPath('pylock.spam.toml\\n') = Path('pylock.spam.toml\\n')\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-feedback-v4\\packaging-new-v2-staged-examples.xml -\n=========================== short test summary info ===========================\nFAILED test_contract_packaging.py::test_complete_filename[pylock.toml-True]\nFAILED test_contract_packaging.py::test_complete_filename[pylock.spam.toml\\n-False]\n2 failed, 5 passed in 0.16s\n",
+          "stderr": "",
+          "seconds": 0.600207200011937,
+          "report": "C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-feedback-v4\\packaging-new-v2-staged-examples.xml"
+        },
+        "evidence": {
+          "complete": true,
+          "accepted": false,
+          "reasons": [],
+          "group_pass": {
+            "test_contract_packaging": false
+          },
+          "groups": {
+            "test_contract_packaging": [
+              {
+                "name": "test_complete_filename[pylock.toml-True]",
+                "passed": false
+              },
+              {
+                "name": "test_complete_filename[pylock.prod.toml-True]",
+                "passed": true
+              },
+              {
+                "name": "test_complete_filename[pylock.spam.toml\\n-False]",
+                "passed": false
+              },
+              {
+                "name": "test_complete_filename[pylock.spam.toml\\r\\n-False]",
+                "passed": true
+              },
+              {
+                "name": "test_complete_filename[pylock.prod.toml.backup-False]",
+                "passed": true
+              },
+              {
+                "name": "test_complete_filename[prefix-pylock.prod.toml-False]",
+                "passed": true
+              },
+              {
+                "name": "test_complete_filename[pylock..toml-False]",
+                "passed": true
+              }
+            ]
+          }
+        },
+        "expected_counts": {
+          "test_contract_packaging": 7
+        }
+      },
+      "withheld": {
+        "execution": {
+          "returncode": 0,
+          "stdout": ".........                                                                [100%]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-feedback-v4\\packaging-new-v2-staged-withheld.xml -\n9 passed in 0.11s\n",
+          "stderr": "",
+          "seconds": 0.5576068999944255,
+          "report": "C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-feedback-v4\\packaging-new-v2-staged-withheld.xml"
+        },
+        "evidence": {
+          "complete": true,
+          "accepted": true,
+          "reasons": [],
+          "group_pass": {
+            "test_unseen_packaging": true
+          },
+          "groups": {
+            "test_unseen_packaging": [
+              {
+                "name": "test_unseen_filename[pylock.production.toml-True]",
+                "passed": true
+              },
+              {
+                "name": "test_unseen_filename[pylock.a-b.toml-True]",
+                "passed": true
+              },
+              {
+                "name": "test_unseen_filename[pylock.dev_2.toml-True]",
+                "passed": true
+              },
+              {
+                "name": "test_unseen_filename[pylock.\\u015brodowisko.toml-True]",
+                "passed": true
+              },
+              {
+                "name": "test_unseen_filename[pylock.prod.toml\\n\\n-False]",
+                "passed": true
+              },
+              {
+                "name": "test_unseen_filename[pylock.toml\\n-False]",
+                "passed": true
+              },
+              {
+                "name": "test_unseen_filename[pylock.prod.toml.old-False]",
+                "passed": true
+              },
+              {
+                "name": "test_unseen_filename[pylock.prod.2.toml-False]",
+                "passed": true
+              },
+              {
+                "name": "test_unseen_filename[notpylock.prod.toml-False]",
+                "passed": true
+              }
+            ]
+          }
+        },
+        "expected_counts": {
+          "test_unseen_packaging": 9
+        }
+      }
+    },
+    "patched_source_sha256": {
+      "src/packaging/pylock.py": "b5e1fcec7f91ed1dbf4e95380c624ac7a74d02d533623238ed214a910c6ff17c"
+    }
+  }
+]

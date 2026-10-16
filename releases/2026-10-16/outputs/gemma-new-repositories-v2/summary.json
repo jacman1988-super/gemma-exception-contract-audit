@@ -1,0 +1,101 @@
+{
+  "cases": [
+    {
+      "id": "tenacity-new-v2",
+      "complete": true,
+      "variants": {
+        "fixed": {
+          "full": {
+            "passed": 142,
+            "failed": 0,
+            "total": 142
+          },
+          "contract": {
+            "passed": 8,
+            "failed": 0,
+            "total": 8
+          }
+        },
+        "parent": {
+          "full": {
+            "passed": 141,
+            "failed": 1,
+            "total": 142
+          },
+          "contract": {
+            "passed": 4,
+            "failed": 4,
+            "total": 8
+          }
+        },
+        "model": {
+          "full": {
+            "passed": 141,
+            "failed": 1,
+            "total": 142
+          },
+          "contract": {
+            "passed": 4,
+            "failed": 4,
+            "total": 8
+          }
+        }
+      },
+      "original_failure_still_present": true,
+      "new_failures_introduced": []
+    },
+    {
+      "id": "packaging-new-v2",
+      "complete": true,
+      "variants": {
+        "fixed": {
+          "full": {
+            "passed": 74,
+            "failed": 0,
+            "total": 74
+          },
+          "contract": {
+            "passed": 7,
+            "failed": 0,
+            "total": 7
+          }
+        },
+        "parent": {
+          "full": {
+            "passed": 73,
+            "failed": 1,
+            "total": 74
+          },
+          "contract": {
+            "passed": 6,
+            "failed": 1,
+            "total": 7
+          }
+        },
+        "model": {
+          "full": {
+            "passed": 73,
+            "failed": 1,
+            "total": 74
+          },
+          "contract": {
+            "passed": 6,
+            "failed": 1,
+            "total": 7
+          }
+        }
+      },
+      "original_failure_still_present": false,
+      "new_failures_introduced": [
+        [
+          "tests.test_pylock",
+          "test_pylock_file_name[pylock.spam.toml-True]"
+        ]
+      ]
+    }
+  ],
+  "fully_repaired": 0,
+  "cases_evaluated": 2,
+  "initial_environment_timeouts": 2,
+  "no_publication_or_submission": true
+}

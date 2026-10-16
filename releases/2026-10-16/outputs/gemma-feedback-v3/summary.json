@@ -1,0 +1,112 @@
+{
+  "cases": [
+    {
+      "id": "tenacity-new-v2",
+      "reference": {
+        "upstream": {
+          "passed": 142,
+          "total": 142,
+          "accepted": true,
+          "complete": true
+        },
+        "feedback_tests": {
+          "passed": 8,
+          "total": 8,
+          "accepted": true,
+          "complete": true
+        },
+        "withheld_tests": {
+          "passed": 9,
+          "total": 9,
+          "accepted": true,
+          "complete": true
+        }
+      },
+      "round1": {
+        "rejection": "Unterminated string starting at: line 1 column 4430 (char 4429)",
+        "tests": {}
+      },
+      "round2": {
+        "rejection": "No-op edit is not a repair",
+        "tests": {}
+      },
+      "fully_repaired": false
+    },
+    {
+      "id": "packaging-new-v2",
+      "reference": {
+        "upstream": {
+          "passed": 74,
+          "total": 74,
+          "accepted": true,
+          "complete": true
+        },
+        "feedback_tests": {
+          "passed": 7,
+          "total": 7,
+          "accepted": true,
+          "complete": true
+        },
+        "withheld_tests": {
+          "passed": 9,
+          "total": 9,
+          "accepted": true,
+          "complete": true
+        }
+      },
+      "round1": {
+        "rejection": null,
+        "tests": {
+          "upstream": {
+            "passed": 73,
+            "total": 74,
+            "accepted": false,
+            "complete": true
+          },
+          "feedback_tests": {
+            "passed": 6,
+            "total": 7,
+            "accepted": false,
+            "complete": true
+          },
+          "withheld_tests": {
+            "passed": 9,
+            "total": 9,
+            "accepted": true,
+            "complete": true
+          }
+        }
+      },
+      "round2": {
+        "rejection": null,
+        "tests": {
+          "upstream": {
+            "passed": 73,
+            "total": 74,
+            "accepted": false,
+            "complete": true
+          },
+          "feedback_tests": {
+            "passed": 6,
+            "total": 7,
+            "accepted": false,
+            "complete": true
+          },
+          "withheld_tests": {
+            "passed": 8,
+            "total": 9,
+            "accepted": false,
+            "complete": true
+          }
+        }
+      },
+      "fully_repaired": false
+    }
+  ],
+  "fully_repaired": 0,
+  "cases_evaluated": 2,
+  "feedback_rounds": 2,
+  "generations_this_turn": 4,
+  "fixed_reference_checks_passed": 249,
+  "no_publication_or_submission": true
+}

@@ -1,0 +1,219 @@
+Auditing Import-Based Test Selection Around a Local Gemma 4 Repair Loop
+Subtitle: A small executable study of uncertainty fallback and patch revision
+
+WORKING DRAFT — unpublished, not submitted; participant review required.
+This pilot does not yet establish a novel research contribution or competitive
+performance. It is a candidate research direction, not a completed paper track entry.
+
+ABSTRACT
+
+Test selection may reduce execution work for local coding assistants while also
+hiding regressions. We implement ImportGuard, an inspectable Python module-import
+selector with explicit full-pool fallback for recognized uncertainty. Eight original
+controlled cases expose two alias-related misses in an initial version. A correction
+detects all eight faults using 33 test-module executions versus 48 for the full
+constructed pool, but those cases informed the correction. We then reproduce two
+public bug/fix pairs with upstream regression tests. The corrected fallback selector
+detects both bugs but selects all five declared test modules, providing no selection
+saving. Actual local Gemma 4 E2B inference proposes one unresolved and one passing
+patch. On the unresolved case, one revision with test feedback and a separate
+revision without feedback produce the same passing patch. These observations
+motivate reporting negative results, global fallback cost and no-feedback controls.
+They do not demonstrate a general agent improvement or a safe selection algorithm.
+
+1. INTRODUCTION
+
+Local coding assistants incur both inference and validation costs. Running fewer
+tests can reduce validation work, but an irrelevant passing subset can conceal an
+incorrect patch. A coarse import graph is attractive because it can be constructed
+without executing a repository. Python's dynamic behavior makes its limitations
+particularly important to expose.
+
+Our question is narrow: what does an explicit uncertainty fallback buy, and when
+does it erase the intended selection saving? A second question concerns revision:
+when a model corrects a patch after seeing failed tests, would a further review
+without those results also have corrected it?
+
+The current work contributes original selector and experiment code, adversarial
+fixtures, pinned upstream reproduction records and actual local model traces. Import
+dependency analysis, conservative fallback, mutation experiments and test-guided
+repair are established ideas. We do not claim their invention. A defensible novel
+contribution requires further study beyond the present pilot.
+
+2. RELATED WORK
+
+Rothermel and Harrold's safe regression-test-selection work [1] uses control-flow
+information and execution history, with a safety argument under stated assumptions.
+ImportGuard's module-level AST graph has no comparable proof. Falling back for some
+recognized dynamic constructs does not make it safe for arbitrary Python.
+
+SWE-bench [2] evaluates real repository issues and generated changes through
+execution. Our eight constructed cases and two convenience-selected public fixes
+are far smaller and are not comparable benchmark results. We use the distinction to
+avoid presenting local fixture success as evidence of general software-engineering
+ability. A systematic review of contemporary selection and agent methods, including
+stronger hybrid and coverage baselines, remains necessary.
+
+3. IMPLEMENTATION AND PROTOCOL
+
+ImportGuard reads Python source, parses ASTs and resolves static module imports,
+including relative imports. Reverse reachability from changed production paths
+selects affected test modules. Recognized uncertainty, parse failures, unknown or
+non-Python changes, package initialization changes and empty static selections
+trigger a full-pool fallback. Source hashes accompany the selection. The corrected
+version tracks directly imported import_module aliases and assignment chains of
+known dynamic-call names. It is deliberately conservative and not scope-sensitive.
+Indirect runtime bindings, plugins, reflection and resource dependencies remain
+limitations. The implementation does not execute the inspected source.
+
+The no-fallback ablation uses the same import graph and keeps an empty selection
+when appropriate. A clean-line-coverage baseline traces each constructed test before
+mutation; it does not observe arbitrary resource reads. Random choices use seeds
+0–19 and match the fallback method's selected-module count for each case. Identical
+random subsets share a recorded execution, rather than being treated as independent
+timing samples. Module count is not runtime or end-to-end compute cost.
+
+The eight original cases cover direct, transitive and relative imports, direct
+dynamic loading, two alias patterns, a non-Python resource change and package
+initialization. Each has six test modules and a deliberate arithmetic fault. An
+irrelevant test in the alias cases imports the changed module, so a nonempty static
+selection cannot accidentally invoke the empty-selection fallback. Clean suites
+must pass, and full faulty runs must fail the expected fee assertion rather than
+an infrastructure error. We preserve the initial selector and all negative outcomes.
+
+After inspecting these controlled cases and correcting alias handling, we freeze
+the selector for a public-source pilot. The cases are boltons IndexedSet.update [3]
+and more-itertools bucket validation [4]. Their BSD-3-Clause and MIT license texts,
+parent/fixed commits, archive hashes and test-file hashes are included. Fixed-version
+tests are held constant while only the changed production file is reverted to its
+parent. Newly added upstream regression tests are thus present on both versions.
+The selector receives the production path, not the regression-test change path.
+
+The declared pool has three boltons modules and two more-itertools modules; these
+are bounded subsets, not complete upstream suites. Selection scans the full source
+tree, then intersects choices with the declared pool. Pytest 8.4.2 runs with automatic
+external plugin loading disabled. No selector change follows the upstream outcomes.
+
+4. SELECTOR RESULTS
+
+Controlled cases                         Faults found / 8   Modules executed
+Full constructed pool                    8                  48
+Initial imports with fallback            6                  23
+Corrected imports with fallback          8                  33
+Imports without fallback                 4                   6
+Clean Python-line coverage               7                   7
+Random at initial fallback budget        3.25 mean           23 per replicate
+Random at corrected fallback budget      5.15 mean           33 per replicate
+
+The initial alias misses demonstrate that a useful-looking nonempty selection can
+hide the relevant test. The corrected 8/8 is a regression result on inspected cases,
+not a held-out estimate. Coverage misses the resource case because Python execution
+coverage does not record arbitrary file dependencies. We do not infer superiority
+over production tools that instrument resources or combine several dependency types.
+The coverage setup cost is additional and absent from the module counts above.
+
+In the public pilot, fixed references pass 74 boltons tests and 768 more-itertools
+tests. Reverting production code yields four expected failures plus 70 passes and
+one expected failure plus 767 passes, respectively. Both bugs are reproduced.
+
+Public pilot                             Bugs found / 2    Modules executed
+Full declared pool                       2                  5
+Imports with fallback                    2                  5
+Imports without fallback                 2                  3
+
+The fallback method provides no module-count saving here. Its global uncertainty
+rule flags dynamic behavior in boltons production code, documentation and function
+builder tests, and in more_itertools/more.py. Recognizing unrelated dynamic behavior
+can erase the intended saving. Random selection at this full-pool budget is the
+same full pool, not an informative independent baseline. The no-fallback success on
+these two fixes does not overturn its controlled alias misses.
+
+5. ACTUAL LOCAL MODEL AND REVISION PILOT
+
+We run Google's official Gemma 4 E2B instruction-tuned QAT Q4_0 GGUF [5], revision
+675cff42a74c774d6cb76f76d8eacb49b48c9b93, with llama.cpp build 11429 [6]. The
+text-only local setup uses two CPU threads, a 2048-token context, a 192-token output
+cap, temperature zero, seed 20261014 and reasoning off. Model and executable hashes,
+exact prompts, raw outputs and process times are recorded. Downloaded weights and
+runtime binaries are excluded from the deliverable. No paid inference is used.
+
+Each initial prompt contains a public bug description and a short buggy function,
+without the gold patch or fixed regression-test source. An assistant had already
+inspected the fixes while constructing the prompts; researcher-choice bias is not
+eliminated. Known public changes can also occur in model training data. We make no
+contamination-free capability claim.
+
+The initial boltons suggestion replaces chain(others) with list(chain(others)),
+which still does not flatten input iterables. It also violates the requested
+single-line edit format by returning a two-line block. Applied without repair after
+inspection, it leaves four failures. The more-itertools suggestion selects the
+default validator only when validator is None, and all 768 declared tests pass.
+Successful subprocess exit alone is never counted as a correct patch.
+
+On the failed boltons case, a protocol is saved before two additional generations.
+Both start from the same previous model edit and permit one revision, with the same
+model, seed, temperature and output cap. The no-feedback arm asks for a further
+review. The feedback arm additionally supplies the first 2000 characters of the
+actual failing test output. Input lengths differ, so input compute is not matched.
+
+Both arms return the identical function using list(chain(*others)); both resolve
+the declared regressions. Because the resulting sources are identical, one actual
+74-test passing run is shared and explicitly marked as reused. The reference fix
+uses a different expression; the model output is not replaced by it. The control
+shows that this case cannot establish a benefit attributable to test feedback.
+Generation process observations are about 19 and 41 seconds, respectively, not
+repeated timing estimates. All proposed assignments are inspected before tests run;
+generated commands are not executed. This is a bounded revision pilot with assistant
+review gates, not a general autonomous coding-agent benchmark.
+
+Initial restricted-process model launches timed out without output. Direct local
+launches succeeded. Failed attempts are retained separately as execution failures,
+not model-quality failures. A protocol audit also records a decoded-text versus
+raw-file hash distinction and verifies that both actual snippets match UTF-8 source.
+
+6. LIMITATIONS AND NEXT RESEARCH GATE
+
+Eight purpose-built cases, two convenience-selected fixes and a single revised case
+do not support population confidence intervals or general success rates. Outcomes
+were inspected during development; there is no untouched repository-level test set.
+We measure selected modules and bounded test outcomes, not complete upstream-suite
+correctness, actual task solving across repositories or net agent acceleration.
+Global uncertainty can over-trigger, while unrecognized dynamics can under-trigger.
+
+The next study must freeze a larger, independently sampled and licensed task set,
+split by repository, preregister total inference/test budgets and include coverage
+setup cost. It should compare actual iterative agents and no-feedback revisions,
+use stronger published baselines and report every infrastructure failure and timeout.
+A novel contribution and contest competitiveness remain unestablished. Until those
+steps are complete, the present work is an auditable pilot with useful negative
+observations rather than a finished competition paper.
+
+7. REPRODUCIBILITY AND AI DISCLOSURE
+
+The package contains selector versions, original fixture generators, actual process
+outputs, pinned upstream acquisition/reproduction scripts, exact model prompts,
+reviewed patch evaluators, third-party notices and source manifests. Nine selector
+tests pass. Python's standard library suffices for the selector and synthetic cases;
+the upstream pilot uses pytest 8.4.2. Raw records are authoritative over rounded
+numbers in this draft. No competition submission or public repository was created.
+
+Codex assisted research, implementation, experiments and drafting. The participant
+must inspect, understand, reproduce and take responsibility for the work before any
+publication. No unperformed experiment, author expertise or organizer endorsement is
+claimed. The fixed upstream regressions are attributed third-party work.
+
+REFERENCES
+
+[1] Gregg Rothermel and Mary Jean Harrold. A Safe, Efficient Regression Test
+Selection Technique. ACM TOSEM 6(2), 173–210, 1997. doi:10.1145/248233.248262.
+https://www.cs.purdue.edu/homes/xyzhang/spring07/Papers/p173-rothermel.pdf
+[2] Carlos E. Jimenez et al. SWE-bench: Can Language Models Resolve Real-World
+GitHub Issues? ICLR 2024. https://arxiv.org/abs/2310.06770
+[3] boltons upstream fix, a180020c760b532e8889f161d97d05647adfee8c.
+https://github.com/mahmoud/boltons/commit/a180020c760b532e8889f161d97d05647adfee8c
+[4] more-itertools upstream fix, 67fcf640477c78605580f5ee703a54c73c1e7a8a.
+https://github.com/more-itertools/more-itertools/commit/67fcf640477c78605580f5ee703a54c73c1e7a8a
+[5] Google. Gemma 4 E2B QAT Q4_0 GGUF model card and weights.
+https://huggingface.co/google/gemma-4-E2B-it-qat-q4_0-gguf
+[6] ggml-org. llama.cpp build b11429.
+https://github.com/ggml-org/llama.cpp/releases/tag/b11429

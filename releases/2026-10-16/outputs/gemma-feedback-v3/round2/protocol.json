@@ -1,0 +1,28 @@
+{
+  "tasks": [
+    {
+      "id": "tenacity-new-v2",
+      "prompt_sha256": "19653ab2482c47ef1c3d7e7c64c1b41a9461b5beaa3b68e66f371eb9ddd7e1c4",
+      "current_source_sha256": {
+        "tenacity/__init__.py": "9e89194368f8bb48fb8e885a2a420f2922568845f57a9e355df77009ed40f073",
+        "tenacity/asyncio/__init__.py": "7ddf04467733f102a51dc1cfacb5333fd5b54d6f7733d56c7b95b9c5d0448e48"
+      }
+    },
+    {
+      "id": "packaging-new-v2",
+      "prompt_sha256": "fb6bd34458d1eaff71133cb17e21c32ee14f23166595d2f75f10a3072de9f7a0",
+      "current_source_sha256": {
+        "src/packaging/pylock.py": "a10d2871bb4015855a6e894790949189afff40ae7364fe0210efa91e299fa32e"
+      }
+    }
+  ],
+  "feedback_round": 2,
+  "attempts_per_case": 1,
+  "max_tokens": 512,
+  "context": 4096,
+  "seed": 20261016,
+  "temperature": 0,
+  "timeout_seconds": 180,
+  "feedback": "Concise cumulative original failure plus regressions; malformed-response feedback. No gold source or patches. Existing withheld tests remain withheld.",
+  "source_sha256": "5f4744d95310f882ec35264a0f4c6cf022e749b2d7803368523ecc65f9ea613a"
+}

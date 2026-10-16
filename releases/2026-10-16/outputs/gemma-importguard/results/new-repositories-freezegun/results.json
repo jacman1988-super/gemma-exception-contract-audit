@@ -1,0 +1,192 @@
+{
+  "cases": [
+    {
+      "id": "itsdangerous-new",
+      "reference": {
+        "returncode": 0,
+        "modules": 1,
+        "stdout": "........................................................................ [ 71%]\n.............................                                            [100%]\n101 passed in 0.78s\n",
+        "stderr": "",
+        "seconds": 1.3642614999989746
+      },
+      "parent_full": {
+        "returncode": 1,
+        "modules": 1,
+        "stdout": "........................................................................ [ 71%]\n....F........................                                            [100%]\n================================== FAILURES ===================================\n_____________ TestTimestampSigner.test_malformed_future_timestamp _____________\ntests\\test_itsdangerous\\test_timed.py:73: in test_malformed_future_timestamp\n    signer.unsign(signed)\nsrc\\itsdangerous\\timed.py:129: in unsign\n    ts_dt = self.timestamp_to_datetime(ts_int)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc\\itsdangerous\\timed.py:48: in timestamp_to_datetime\n    return datetime.fromtimestamp(ts, tz=timezone.utc)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n..\\python-packages\\freezegun\\api.py:392: in fromtimestamp\n    result = real_datetime.fromtimestamp(t, tz)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   OSError: [Errno 22] Invalid argument\n=========================== short test summary info ===========================\nFAILED tests/test_itsdangerous/test_timed.py::TestTimestampSigner::test_malformed_future_timestamp\n1 failed, 100 passed in 0.63s\n",
+        "stderr": "",
+        "seconds": 1.1875944999992498
+      },
+      "selection": {
+        "selected": [
+          "tests/test_itsdangerous/test_encoding.py",
+          "tests/test_itsdangerous/test_serializer.py",
+          "tests/test_itsdangerous/test_signer.py",
+          "tests/test_itsdangerous/test_timed.py",
+          "tests/test_itsdangerous/test_url_safe.py"
+        ],
+        "static_selected": [
+          "tests/test_itsdangerous/test_encoding.py",
+          "tests/test_itsdangerous/test_serializer.py",
+          "tests/test_itsdangerous/test_signer.py",
+          "tests/test_itsdangerous/test_timed.py",
+          "tests/test_itsdangerous/test_url_safe.py"
+        ],
+        "total_tests": 5,
+        "fallback": false,
+        "reasons": [],
+        "changed": [
+          "src/itsdangerous/timed.py"
+        ],
+        "declared_source_roots": [
+          "src"
+        ],
+        "test_filename_patterns": [
+          "test*.py",
+          "*_test.py"
+        ],
+        "source_sha256": {
+          "docs/conf.py": "e9c9a774550ec6be222e0c22bd567e3bd9c8a62108ecc15440664c7293c56421",
+          "setup.py": "8aa2813abd149d4452ece61db88878318dc440e5e7a9b6313d1a2d126b998a4d",
+          "src/itsdangerous/__init__.py": "8b92dbebbcded5744cf602bc1346fe3c753b0e5bc3f0a06e2b6e3a1017d055a8",
+          "src/itsdangerous/_json.py": "c0886cffbfbf5d9a259b2afe26f28d8b2fcb80071f7af611d2a84255d948860f",
+          "src/itsdangerous/encoding.py": "a6087ceac9c70bbe9d3cb3429cf96b8d1e526982ff33c1fe81646288b35b8425",
+          "src/itsdangerous/exc.py": "545c663f694ca12245ab134ccd6a27aacdf944e208e3e7ef0817c6d2fd5391bb",
+          "src/itsdangerous/serializer.py": "ce0675f94ef4e631c3a6deb6c7fa662c976bc842833406ede54909b6791c092c",
+          "src/itsdangerous/signer.py": "4141f4897d229fe393a6d3005ca539cd633098e0979f57ec0ecb9b5e219d14de",
+          "src/itsdangerous/timed.py": "0e0e1328047f2ca8afa43f468ccc3e9626d14ec4cb19b015c5b581d4585932ee",
+          "src/itsdangerous/url_safe.py": "e5b0b88d228e8d6351916ac5b1e89f5955d49c79cf83038b44e8e23b06fe79ea",
+          "tests/test_itsdangerous/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "tests/test_itsdangerous/test_encoding.py": "af71dbee0825fc8ae947b6c789b05f2331afe60efae2aee5145727446385c3f0",
+          "tests/test_itsdangerous/test_serializer.py": "5ef59b554372efb4ae56b77ecbcef3e1c7f3c25eb7b9b0fd19697565833334ff",
+          "tests/test_itsdangerous/test_signer.py": "219c2a399adc874f14534d1311e950c1e29b2c7d05d037770701b2af258b97a2",
+          "tests/test_itsdangerous/test_timed.py": "b75531b8901d48a6d7a5c4bbbb2342f02f6ef022185840121f7705c1e907979a",
+          "tests/test_itsdangerous/test_url_safe.py": "64d2afc9ab467f209549841f0d87125243d646e011c725818eda8e75ad4d830d"
+        },
+        "limitations": "Static imports only; plugins, reflection and runtime monkeypatching may escape detection."
+      },
+      "selected_paths": [
+        "tests/test_itsdangerous/test_timed.py"
+      ],
+      "parent_selected": {
+        "returncode": 1,
+        "modules": 1,
+        "stdout": "........................................................................ [ 71%]\n....F........................                                            [100%]\n================================== FAILURES ===================================\n_____________ TestTimestampSigner.test_malformed_future_timestamp _____________\ntests\\test_itsdangerous\\test_timed.py:73: in test_malformed_future_timestamp\n    signer.unsign(signed)\nsrc\\itsdangerous\\timed.py:129: in unsign\n    ts_dt = self.timestamp_to_datetime(ts_int)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc\\itsdangerous\\timed.py:48: in timestamp_to_datetime\n    return datetime.fromtimestamp(ts, tz=timezone.utc)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n..\\python-packages\\freezegun\\api.py:392: in fromtimestamp\n    result = real_datetime.fromtimestamp(t, tz)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   OSError: [Errno 22] Invalid argument\n=========================== short test summary info ===========================\nFAILED tests/test_itsdangerous/test_timed.py::TestTimestampSigner::test_malformed_future_timestamp\n1 failed, 100 passed in 0.63s\n",
+        "stderr": "",
+        "seconds": 1.1875944999992498
+      },
+      "source_hashes": {
+        "src/itsdangerous/timed.py": {
+          "fixed": "17f620d6c7dd8e771802a220a2349cd0c99e5ff85503e71eaed1b2090b2fae97",
+          "parent": "0e0e1328047f2ca8afa43f468ccc3e9626d14ec4cb19b015c5b581d4585932ee"
+        }
+      },
+      "reproduced": true,
+      "identical_pool_shares_run": true
+    },
+    {
+      "id": "sortedcontainers-new",
+      "reference": {
+        "returncode": 0,
+        "modules": 1,
+        "stdout": "...........................................................              [100%]\n59 passed in 0.24s\n",
+        "stderr": "",
+        "seconds": 0.7453889999960666
+      },
+      "parent_full": {
+        "returncode": 0,
+        "modules": 1,
+        "stdout": "...........................................................              [100%]\n59 passed in 0.20s\n",
+        "stderr": "",
+        "seconds": 0.7457455999974627
+      },
+      "selection": {
+        "selected": [
+          "tests/test_coverage_sorteddict.py",
+          "tests/test_coverage_sortedkeylist_modulo.py",
+          "tests/test_coverage_sortedkeylist_negate.py",
+          "tests/test_coverage_sortedlist.py",
+          "tests/test_coverage_sortedset.py",
+          "tests/test_stress_sorteddict.py",
+          "tests/test_stress_sortedkeylist.py",
+          "tests/test_stress_sortedlist.py",
+          "tests/test_stress_sortedset.py"
+        ],
+        "static_selected": [
+          "tests/test_coverage_sorteddict.py",
+          "tests/test_coverage_sortedkeylist_modulo.py",
+          "tests/test_coverage_sortedkeylist_negate.py",
+          "tests/test_coverage_sortedlist.py",
+          "tests/test_coverage_sortedset.py",
+          "tests/test_stress_sorteddict.py",
+          "tests/test_stress_sortedkeylist.py",
+          "tests/test_stress_sortedlist.py",
+          "tests/test_stress_sortedset.py"
+        ],
+        "total_tests": 9,
+        "fallback": false,
+        "reasons": [],
+        "changed": [
+          "sortedcontainers/sorteddict.py"
+        ],
+        "declared_source_roots": [
+          "."
+        ],
+        "test_filename_patterns": [
+          "test*.py",
+          "*_test.py"
+        ],
+        "source_sha256": {
+          "docs/conf.py": "9ad8be1a02370cd0864b2c855d466d2fc3f7f5567be118b6d835765902f5e199",
+          "setup.py": "411d9c239ff43a5af1ca13ebb209751432513ce31143b26ad5b4d0e27500cd0e",
+          "sortedcontainers/__init__.py": "28d3df49bc3b94b21a22763acc0343683f5cfa94dfc50d07684a487e4e3aa8e4",
+          "sortedcontainers/sorteddict.py": "c862c764ec1c4aa61edc477689970ca501f9447ff2a46feb6dec63fb8e7f9cbd",
+          "sortedcontainers/sortedlist.py": "af003574cf1c7b4f5e6f60cc8cb39f1e88a4842c7f45f9399ee13f352b1faf72",
+          "sortedcontainers/sortedset.py": "e51236094246326d62837f9d85b3abcc397c68fa8378f92824f428ab444e4bb3",
+          "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "tests/benchmark.py": "57115d6dd1a6228f45f2af2cb789d1ab249441ae7c8d5000aba3a72a092c2163",
+          "tests/benchmark_plot.py": "804edcc558dbb8ddcb431cf0122de69372e5cdcd50e5a4ded5da07be1194b232",
+          "tests/benchmark_scale.py": "03893a4b97654611a040c4a85e713e5caa379dface480d8558454b005126bbeb",
+          "tests/benchmark_sorteddict.py": "40d93dabb6bcffbff60a05615615e22952c5d37a093b90ead0644895eb626104",
+          "tests/benchmark_sortedlist.py": "406da47e873a13ed80e12db2e886294b98933d91b66c3bb00e031ec8285e6f1b",
+          "tests/benchmark_sortedset.py": "8772d049a549ccdbf3458fd4c7edfc866159cbc35175624fb80546499fb05bed",
+          "tests/benchmark_splits_fill.py": "7a1eb80cc3b02c2231f04ed789019de830006ebfeae64a5163044045ab94623a",
+          "tests/context.py": "161395f2b46619f9fa936d08819bad782dd95dee1b1d6278a0c9d0009df253c7",
+          "tests/issue_147.py": "ad8509d409f5e13a88e25f6aa88eae8a6447969d7e7d3c97f2e4d6bb2d47a5c3",
+          "tests/plot_lengths_histogram_add.py": "02fbcacef46690d52389716d51d73b41c3687e80d94cacaa7ac767aae0a9253d",
+          "tests/plot_lengths_histogram_delitem.py": "db471e916ac65b8f6397d31cebf8f7a8cf6bd94ab6f2c3e6599b56b13ca694de",
+          "tests/sortedcollection.py": "5fd65b4291bcb6a48b50a075da54d09e9639f63c2daaf7d7c71a6cf61871639a",
+          "tests/test_coverage_sorteddict.py": "258d161cec595580be3e4384e6aeaa8de00eea7270be22ef36b05ca0d7f1b684",
+          "tests/test_coverage_sortedkeylist_modulo.py": "51f8fea5e627c545cd7ca1eab8a85ae68ca455877a399a7c800443617a78d77c",
+          "tests/test_coverage_sortedkeylist_negate.py": "6a31c785acea51b49c7e337b9286277be7a6f7fd3d1dee2af29e97793bd52c54",
+          "tests/test_coverage_sortedlist.py": "7d2f306f168fe8da7d946fc5e2a6d95a00e8bf5f3c17c835fd2aa46e3fee31e3",
+          "tests/test_coverage_sortedset.py": "c9e275915607044875cb3cd9764e2229c14c5847eef6744a58fc76088962264c",
+          "tests/test_stress_sorteddict.py": "862308b0f7eb8bf3c73ca813f5f12ebe6f0b5c6fb449c03e8e232d927683de70",
+          "tests/test_stress_sortedkeylist.py": "726d7a16f986a60314b8826d3df43f533d691f894c43ae2f9806ca1d7bc7f39d",
+          "tests/test_stress_sortedlist.py": "74b020504e745ae12ffc440e84ab8dc7951a582a78331439b87b71795457354c",
+          "tests/test_stress_sortedset.py": "909ae842dec4540911dde4038e7bde472ee3050bce077ab8c5ce5f0127fa2c26"
+        },
+        "limitations": "Static imports only; plugins, reflection and runtime monkeypatching may escape detection."
+      },
+      "selected_paths": [
+        "tests/test_coverage_sorteddict.py"
+      ],
+      "parent_selected": {
+        "returncode": 0,
+        "modules": 1,
+        "stdout": "...........................................................              [100%]\n59 passed in 0.20s\n",
+        "stderr": "",
+        "seconds": 0.7457455999974627
+      },
+      "source_hashes": {
+        "sortedcontainers/sorteddict.py": {
+          "fixed": "cdae4b9c43593063c89ff25912bd12d2d0d77c4b3126c7c49da9e1ea52e54d93",
+          "parent": "c862c764ec1c4aa61edc477689970ca501f9447ff2a46feb6dec63fb8e7f9cbd"
+        }
+      },
+      "reproduced": false,
+      "identical_pool_shares_run": true
+    }
+  ],
+  "complete": true,
+  "model_inference": false
+}

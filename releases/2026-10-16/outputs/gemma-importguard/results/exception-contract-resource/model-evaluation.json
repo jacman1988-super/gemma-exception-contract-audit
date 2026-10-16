@@ -1,0 +1,279 @@
+{
+  "cases": [
+    {
+      "id": "os_bytes",
+      "variant": "model",
+      "returncode": 0,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": true
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": true,
+      "source_sha256": "c7fdfc955feb267f873624aeec0d3242184c880df52e3d2ce2b9feed34da74f0",
+      "seconds": 0.8796446999913314,
+      "stdout": ".......                                                                  [100%]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-os_bytes-model-1792068414557765900\\results.xml -\n7 passed in 0.28s\n",
+      "stderr": ""
+    },
+    {
+      "id": "overflow_mapping",
+      "variant": "model",
+      "returncode": 0,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": true
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": true,
+      "source_sha256": "bf3aa540c3b07e97cbf8da6f1529e0911e9cd9cf3efc8a495789581fbdd6cbf4",
+      "seconds": 0.8648531999933766,
+      "stdout": ".......                                                                  [100%]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-overflow_mapping-model-1792068415428798300\\results.xml -\n7 passed in 0.28s\n",
+      "stderr": ""
+    },
+    {
+      "id": "key_text",
+      "variant": "model",
+      "returncode": 0,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": true
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": true,
+      "source_sha256": "69ae1841a3710784eb084d9a264a86c4d3ea114673004e13acd5efddc32083e5",
+      "seconds": 0.8339555999991717,
+      "stdout": ".......                                                                  [100%]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-key_text-model-1792068416301549400\\results.xml -\n7 passed in 0.27s\n",
+      "stderr": ""
+    },
+    {
+      "id": "index_buffer",
+      "variant": "model",
+      "returncode": 0,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": true
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": true,
+      "source_sha256": "92bc26a09c0d73d78a120b3b991c0f5d024a91f91a1ae907e37af04352b84eee",
+      "seconds": 0.855807999992976,
+      "stdout": ".......                                                                  [100%]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-index_buffer-model-1792068417144076400\\results.xml -\n7 passed in 0.28s\n",
+      "stderr": ""
+    },
+    {
+      "id": "type_tuple",
+      "variant": "model",
+      "returncode": 0,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": true
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": true,
+      "source_sha256": "319be5efc8733417039c2697089f719d2947e23d34b4e89959206f46eb080604",
+      "seconds": 0.8367717000073753,
+      "stdout": ".......                                                                  [100%]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-type_tuple-model-1792068417998288200\\results.xml -\n7 passed in 0.26s\n",
+      "stderr": ""
+    },
+    {
+      "id": "division_list",
+      "variant": "model",
+      "returncode": 0,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": true
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": true,
+      "source_sha256": "2f0aa6bd16054cb098a10c9e38ff855c86b793e66893cdfc806fcca3fa3da1e7",
+      "seconds": 0.8494983999989927,
+      "stdout": ".......                                                                  [100%]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-division_list-model-1792068418840734900\\results.xml -\n7 passed in 0.28s\n",
+      "stderr": ""
+    }
+  ],
+  "complete": true,
+  "mode": "model",
+  "weak_pass_count": 6,
+  "contract_pass_count": 6,
+  "weak_only_count": 0
+}

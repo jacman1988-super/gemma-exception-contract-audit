@@ -1,0 +1,18 @@
+Gemma — nowe repozytoria, 16.10.2026
+Autor: Jacek Adamek
+
+Wynik: 0/2 pełnych napraw. Oficjalne poprawki przechodzą wszystkie 231 sprawdzeń (216 testów z dwóch zmienionych modułów upstream i 15 dodatkowych kontroli). Obie wygenerowane poprawki odrzucono.
+
+Tenacity: 141/142 testów upstream i 4/8 dodatkowych kontroli. Model pozostawił „not self.wait”, więc nadal pomija wywoływalne obiekty o fałszywej wartości logicznej. Nie naprawił także odpowiednika asynchronicznego.
+
+Packaging: 73/74 testy upstream i 6/7 dodatkowych kontroli. Model usuwa objaw dotyczący końcowego znaku nowej linii, ale odrzuca poprawne nazwy pylock.spam.toml i pylock.prod.toml. Sam test pierwotnego błędu zaakceptowałby tę wadliwą poprawkę; pełny moduł ją odrzuca.
+
+Metoda: przypięte rewizje publicznych repozytoriów; oficjalne testy z poprawionej wersji uruchomione na poprawionym i poprzednim kodzie. Gemma 4 E2B Q4_0, ten sam zapisany model, temperatura 0, seed 20261016, kontekst 4096, limit 512 tokenów. Jedna próba w działającym środowisku na przypadek. Model widział publiczny opis commitu i zlokalizowane funkcje z wersji błędnej, bez oficjalnej poprawki i testów. Dodatkowe kontrole powstały po próbach referencyjnych, przed odczytaniem odpowiedzi modelu.
+
+Problemy techniczne zachowane: brak tomli-w przerwał pierwszą kolekcję Packaging; po instalacji 1.2.0 test odtworzono. Dwie próby inferencji w sandboxie przekroczyły 180 s bez odpowiedzi. Neutralna diagnostyka również nie działała w sandboxie, a poza nim zakończyła się w kilka sekund. Powtórzono niezmienione zadania poza sandboxem, bez informacji zwrotnej o naprawach. Testy asyncio także uruchomiono poza sandboxem po zawieszeniu pierwszej kontroli.
+
+Ograniczenia: tylko dwa wygodnie dobrane publiczne przypadki, lokalizacja na podstawie miejsc zmian, opis commitu może podpowiadać rozwiązanie. To rozszerzenie badania walidacji napraw, nie dwa nowe przypadki kontraktów wyjątków ani niezależny szacunek ogólnej skuteczności Gemma. Nie zmieniono wysłanego artykułu ani zgłoszenia.
+
+Źródła:
+https://github.com/jd/tenacity/commit/b6201eceedfc719e996dcbc3f6c17f21011fb236
+https://github.com/pypa/packaging/commit/ae9d39c13b5f5485b6295eb100b08ef9c3dde852

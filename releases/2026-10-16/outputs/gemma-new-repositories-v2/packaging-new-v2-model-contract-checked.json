@@ -1,0 +1,7 @@
+{
+  "returncode": 1,
+  "stdout": ".F.....                                                                  [100%]\n================================== FAILURES ===================================\n________________ test_complete_filename[pylock.prod.toml-True] ________________\ntest_contract_packaging.py:11: in test_complete_filename\n    assert is_valid_pylock_path(Path(name)) is valid\nE   AssertionError: assert False is True\nE    +  where False = is_valid_pylock_path(WindowsPath('pylock.prod.toml'))\nE    +    where WindowsPath('pylock.prod.toml') = Path('pylock.prod.toml')\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-new-repositories-v2\\packaging-new-v2-model-contract-checked.xml -\n=========================== short test summary info ===========================\nFAILED test_contract_packaging.py::test_complete_filename[pylock.prod.toml-True]\n1 failed, 6 passed in 0.16s\n",
+  "stderr": "",
+  "seconds": 0.6225831999909133,
+  "report": "C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-new-repositories-v2\\packaging-new-v2-model-contract-checked.xml"
+}

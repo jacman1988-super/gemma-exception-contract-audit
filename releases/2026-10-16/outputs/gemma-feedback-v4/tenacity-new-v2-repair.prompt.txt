@@ -1,0 +1,34 @@
+Repair the functions below. Return ONLY one FILE: relative/path.py header per file followed by a fenced python block containing the COMPLETE replacement function, preserving its name, signature and indentation. No JSON, no diff, no extra functions or commands.
+Observed behavior requirements:
+Case | expected upcoming_sleep
+wait=None | 0
+wait=0 | 0
+falsey callable returning 1.25 | 1.25
+empty list subclass callable returning .75 | .75
+Both synchronous and asynchronous paths must honor these examples.
+Current buggy source:
+FILE: tenacity/__init__.py
+    def _run_wait(self, retry_state: "RetryCallState") -> None:
+        # `wait` is annotated as always set, so a type checker sees this guard
+        # as always true -- but untyped callers legitimately pass `None` or `0`
+        # to mean "no wait", and `sum([])` over an empty list of strategies
+        # yields the int 0. Keep honouring those.
+        if not self.wait:  # type: ignore[truthy-bool]
+            retry_state.upcoming_sleep = 0.0
+        else:
+            retry_state.upcoming_sleep = self.wait(retry_state)
+
+FILE: tenacity/asyncio/__init__.py
+    async def _run_wait(self, retry_state: "RetryCallState") -> None:  # type: ignore[override]
+        # See BaseRetrying._run_wait: falsy `wait` values mean "no wait" and
+        # reach us from untyped callers.
+        if not self.wait:  # type: ignore[truthy-bool]
+            retry_state.upcoming_sleep = 0.0
+        else:
+            retry_state.upcoming_sleep = await _utils.wrap_to_async_func(self.wait)(
+                retry_state
+            )
+Your diagnosis:
+The failing cases occur because the code uses `if not self.wait:` to check for "no wait." This condition evaluates to `True` when `self.wait` is `None` or `0`, incorrectly setting `upcoming_sleep` to `0.0` instead of the expected `0` (for `wait=None` and `wait=0`) or the result of calling the callable (for other cases).
+
+**Behavioral Rule Needed:** The logic must distinguish between a falsy value indicating "no wait" (like `None` or `0`) and a callable that should be executed. The check should specifically target `None` or `0` to set the sleep to $0$, and otherwise execute the callable.

@@ -1,0 +1,25 @@
+[
+  {
+    "id": "tenacity-new-v2",
+    "generation_sha256": "c414263cb2fe2a9bf36a16e60bf06f800985ca2587bc15def4c8aaabb3a73cca",
+    "parsed": false,
+    "rejection": "Function signature/type changed"
+  },
+  {
+    "id": "packaging-new-v2",
+    "generation_sha256": "333983dff0d703f4e4fc23f9b82305b0bb3c7e41d256e5acf2cf3ad41db47fed",
+    "parsed": true,
+    "edits": [
+      {
+        "file": "src/packaging/pylock.py",
+        "function": "is_valid_pylock_path",
+        "literal_function": "def is_valid_pylock_path(path: Path) -> bool:\n    \"\"\"Check if the given path is a valid pylock file path.\"\"\"\n    return bool(_PYLOCK_FILE_NAME_RE.match(path.name))",
+        "ignored_module_context": [
+          "Import",
+          "ImportFrom",
+          "Assign"
+        ]
+      }
+    ]
+  }
+]

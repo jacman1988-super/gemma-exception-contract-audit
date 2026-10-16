@@ -1,0 +1,62 @@
+Jacek Adamek | Prepared source release 2026.10.16
+1
+Exception contracts and guided repairs
+Research release report | 16 October 2026
+Original finding remains unchanged
+An ItsDangerous timestamp repair passed 297 upstream tests while replacing the original bytes payload
+with diagnostic text. Two feedback repairs did not fix that exception-contract failure. Later repairs in other
+repositories do not resolve this original case.
+Executable contract audit
+ECA-6 is six related templated tasks with 36 constructed faulty variants. The weak gate accepted all 36.
+The first contract gate rejected 35/36; six model repairs passed. A post-outcome v2 gate rejected 36/36
+mutants, accepted 5/6 model repairs and accepted 6/6 references. The stronger gate was designed after
+outcomes and is not independent validation. Local replay reproduces 102 variants and compares every
+recorded case and semantic assertion.
+Additional repositories: final assisted patches
+Case
+Upstream
+Examples
+Withheld
+Final total
+Tenacity: falsey wait callable
+142
+8
+9
+159/159
+Packaging: pylock filename boundary
+74
+7
+9
+90/90
+Both final patches pass 249 checks in total. Tenacity repairs synchronous and asynchronous wait
+handling. Packaging preserves the valid base filename and rejects invalid named filenames. A post hoc
+comparison against the pinned fixed Packaging function found zero differences across 1,245 names; this
+is additional regression evidence, not a fresh withheld benchmark.
+
+
+Jacek Adamek | Prepared source release 2026.10.16
+2
+Assistance, failures and scope
+These are adaptive repair case studies. Initial and feedback attempts failed. The final Tenacity patch used
+staged diagnosis and literal-function output. Packaging required explicit guidance to separate two valid
+filename families into branches after earlier repairs still failed. Public commit descriptions and known
+source localization were provided. This is not an autonomous or contamination-free first-attempt success
+rate.
+The final generated function bodies were applied without manual semantic edits, using recorded source
+replacement rules and retained surrounding decorators. One Tenacity diagnosis incorrectly suggested that
+0 versus 0.0 itself explained the failure; passing tests do not endorse that explanation. Failed outputs and
+preflight corrections remain available in the evidence archive.
+Model and reproducibility
+Local model: Gemma 4 E2B QAT, Q4_0 GGUF; revision 675cff42a74c774d6cb76f76d8eacb49b48c9b93.
+Runtime: llama.cpp b11429, commit d81235049. Recorded settings: context 4096, temperature 0, seed
+20261016, two CPU threads, reasoning off. Model and prompt digests are checked by the release tools.
+reproduce.py replays ECA without a model. replay_repairs.py verifies pinned upstream archive hashes
+and reruns fixed, buggy-parent and final model variants. generate_repairs.py --plan lists the final guided
+prompts and settings; fresh generation records new outputs separately and does not certify them.
+FETCH_UPSTREAM.md supplies exact revisions and archive digests.
+Evidence and publication boundary
+FOLLOWUP.md separates these findings from the unchanged original submitted paper. outputs/ retains
+protocols, prompts, model responses, failures, reviewed patches and results. Original tooling is
+Apache-2.0; third-party licenses and notices are preserved. The original Kaggle writeup remains under its
+accepted terms. Model weights, runtime binaries, complete upstream archives and account records are
+excluded. This package does not publish or submit an update.

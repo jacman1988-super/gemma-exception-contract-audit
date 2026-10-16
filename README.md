@@ -1,39 +1,19 @@
-# Gemma paper-track submission content
+# Exception-contract audit and guided Gemma repairs
 
-Author: Jacek Adamek. Public research archive; no competition submission has been made.
+Author: **Jacek Adamek**. Latest research update: **16 October 2026**.
 
-Current paper: **Beyond 297 Passing Tests: Auditing Exception Contracts in Local Gemma Repairs**.
-Start with GOTOWE-DO-ZGLOSZENIA.txt. The prepared Writeup is submission-writeup.txt;
-submission-paper.pdf is the optional PDF. submission-fields.json lists platform fields.
+The new release preserves the original ItsDangerous counterexample and ECA-6 resource, adding separately documented guided repair case studies in Tenacity and Packaging. The final reviewed patches pass **159/159** and **90/90** bounded tests. Packaging also agrees with the pinned fixed function on 1,245 post-hoc filename cases.
 
-The contribution is an executable ECA-6 diagnostic resource and a bounded local-model
-case study. It does not claim a complete model repair, safe test selection, general
-error rates or a novel differential-testing algorithm. Both positive and negative
-findings are retained. Six constructed tasks are correlated. V2 is post-outcome.
+The repairs followed earlier failures and explicit assistance, including human structural guidance for Packaging. This is not an unassisted first-attempt success rate. **The original ItsDangerous exception-payload failure remains unresolved.** The unchanged original submitted paper remains at [submission-paper.pdf](submission-paper.pdf); the later findings are a separate [follow-up](releases/2026-10-16/FOLLOWUP.md).
 
-Run `python verify_submission.py` for current submission-content checks.
-Run `python -m pytest -q` for implementation tests.
-Run `python reproduce_contract_resource.py FRESH_DESTINATION` to recompute resource
-test outcomes without model weights (Python 3.12, pytest 8.4.2).
-Read ECA-6-DATASHEET.txt for protocols, inference requirements and limitations.
+Release checks: **25 tests passed**; all **102 ECA variants** and the two reviewed repository repairs were reproduced from the prepared release.
 
-submission-review.ipynb reads the recorded results; submission-review-executed.ipynb
-contains actual plain-CPython cell execution, explicitly not a Jupyter-kernel claim.
-The complete resource outputs are in results/exception-contract-resource/.
+## Reproduce this update
 
-Earlier paper/source files and verify_final.py preserve prior project stages.
-Their historical readiness comments describe earlier scope, not this prepared paper.
-Scientific merit and individual eligibility are not guaranteed by local checks.
-The owner authorized this code/report publication. No platform Writeup, new rule acceptance or competition submission is authorized.
+See [release README](releases/2026-10-16/README.md), [reproduction instructions](releases/2026-10-16/REPRODUCE.md), [research report](releases/2026-10-16/REPORT.pdf) and [validation record](releases/2026-10-16/VALIDATION.json).
 
-## Publication scope
+Run the documented commands from `releases/2026-10-16/`. The dated release includes its own file manifest and offline integrity verifier. Its preparation records describe the local checks performed before this GitHub update. Full training and fresh model generations were not repeated during packaging.
 
-This public release was explicitly authorized by the participant. Historical JSON files and local-review documents preserve their original dated publication/submission status; those snapshots do not describe the current visibility of this repository. No Kaggle entry or organizer-form submission is performed by publishing this archive.
+## Earlier version
 
-The current paper is submission-writeup.txt; the optional PDF is submission-paper.pdf. ECA-6 is a small constructed diagnostic resource with post-outcome v2 checks, not an independent generalization benchmark. Model failures and semantic regressions are retained.
-
-## Complete reproducible release
-
-The root contains readable code, notebooks and reports. **Before running the pipeline or verifiers, run `python unpack_release.py` once.** This validates and expands the bundled `source-and-results.zip` into this checkout, adding every results subdirectory, frozen model/configuration, reference excerpt and historical record. The archive is part of this repository; no additional unpublished file is needed. Input images for Solar and optional Gemma weights remain separately acquired resources as documented. The archive contains no credentials, full input dataset or model weights.
-
-Then install the pinned project requirements in your own Python environment and follow the existing reproduction instructions. Publication is not a Kaggle or organizer-form submission. Dated publication flags inside experimental snapshots are historical records.
+The [previous README](README-before-2026-10-16.md), original root code and original reports remain available. This GitHub update does not submit or modify a competition entry. Competition inputs, trained weights and new prediction CSVs are not included in the update.

@@ -1,0 +1,405 @@
+{
+  "cases": [
+    {
+      "id": "cachetools-empty",
+      "reference": {
+        "returncode": 0,
+        "modules": 4,
+        "stdout": "........................................................................ [ 63%]\n.........................................                                [100%]\n113 passed in 0.30s\n",
+        "stderr": "",
+        "seconds": 0.9678569000025163
+      },
+      "status": "reproduced",
+      "selection": {
+        "selected": [
+          "tests/test_cache.py",
+          "tests/test_cached.py",
+          "tests/test_cachedmethod.py",
+          "tests/test_classmethod.py",
+          "tests/test_fifo.py",
+          "tests/test_func.py",
+          "tests/test_keys.py",
+          "tests/test_lfu.py",
+          "tests/test_lru.py",
+          "tests/test_rr.py",
+          "tests/test_threading.py",
+          "tests/test_tlru.py",
+          "tests/test_ttl.py"
+        ],
+        "static_selected": [],
+        "total_tests": 13,
+        "fallback": true,
+        "reasons": [
+          "package initialization or test configuration changed"
+        ],
+        "changed": [
+          "src/cachetools/__init__.py"
+        ],
+        "source_sha256": {
+          "docs/conf.py": "f68affa8dfcf4a20d5fe872cfb0e19f9b284f8feda563dd8e8e23eafe75cd4eb",
+          "src/cachetools/__init__.py": "525ba807fed4af10744f068b5f9b81710903b6f73ee897469d3bf615847e2bd0",
+          "src/cachetools/_cached.py": "e4a75ee34a6d1b582ec8567080ca90eca9c330f0c8f878b7372a861dbc1e18f4",
+          "src/cachetools/_cachedmethod.py": "ad2e75ebb6d3131225f36ce63c6f281700e675aff79ce2d447f8e97132b4ecb4",
+          "src/cachetools/func.py": "87724e4fc82303fd5172cc9fd03c7aaf6a767c6c477f3cb74a245fc45ebf7816",
+          "src/cachetools/keys.py": "9550bd6914744c2fc6fd211dfb83cdae2d6206b1a1bfcf052d017cb23b39b49e",
+          "tests/__init__.py": "72d99005a5d409aa14990b42b54646b726a4f3ca7a091a6f4831ff7701293eb8",
+          "tests/test_cache.py": "dbdf81b02f344a0e62a5dcf2364be7e135e2511e765e93b43864aeb7aa3b115c",
+          "tests/test_cached.py": "27097d0df26efd2e6f72d03e5a8c9cdd7c4b5545ecee38aa439a78538c72fb0a",
+          "tests/test_cachedmethod.py": "d5b131d062ef613bbbcaaf107b4ab0a2f28f4bf505dd00964d2c46cf5ac757bf",
+          "tests/test_classmethod.py": "465e882cf15481277cef959eb5d4ec0072d61c342079cac05684da55fe543851",
+          "tests/test_fifo.py": "c6134627b4d9daab20e67b27fe2ff8d7e225116ae46d6a0e79b2c9b620d25941",
+          "tests/test_func.py": "668e212d3a49b5442578e1a77579bacd20bbd466a8ea4a18ac04969fa4e75827",
+          "tests/test_keys.py": "c6e39d6e781cb737159b43d725c4a0f00ce6f2885376fb6efd01c5d59e196064",
+          "tests/test_lfu.py": "11981704035d965ae733140734efb7cd30615ef492cfeeb464f63992db59b404",
+          "tests/test_lru.py": "dbfd53eb372f24571f70d739faeb6c4963f79c80ef18228f44b38b1112bf1a6c",
+          "tests/test_rr.py": "995ee7555ebe96c8b4f988c23a8923de980b5f0c42ca073906988e28dd773ec2",
+          "tests/test_threading.py": "fd6bfb6b3d0b4c650a1786381ab4c33d04ff348cd5d1e91d8014239df111c165",
+          "tests/test_tlru.py": "461fd80337d3e4a7fba830b30765cce19666611f797568f18740e4f6eea98199",
+          "tests/test_ttl.py": "dad8f3e725176a39a487d23bd4a25930db05380ce0b452f73485506dbe5284d1"
+        },
+        "limitations": "Static imports only; plugins, reflection and runtime monkeypatching may escape detection."
+      },
+      "choices": {
+        "full_declared_pool": [
+          "tests/test_cache.py",
+          "tests/test_lru.py",
+          "tests/test_rr.py",
+          "tests/test_tlru.py"
+        ],
+        "imports_fallback": [
+          "tests/test_cache.py",
+          "tests/test_lru.py",
+          "tests/test_rr.py",
+          "tests/test_tlru.py"
+        ],
+        "imports_no_fallback": []
+      },
+      "runs": {
+        "full_declared_pool": {
+          "returncode": 1,
+          "modules": 4,
+          "stdout": "........................................................................ [ 63%]\n....F....................................                                [100%]\n================================== FAILURES ===================================\n_______________ RRCacheTest.test_rr_popitem_empty_custom_choice _______________\ntests\\test_rr.py:97: in test_rr_popitem_empty_custom_choice\n    cache.popitem()\nsrc\\cachetools\\__init__.py:361: in popitem\n    key = self.__choice(self.__keys)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   ValueError: min() iterable argument is empty\n=========================== short test summary info ===========================\nFAILED tests/test_rr.py::RRCacheTest::test_rr_popitem_empty_custom_choice - V...\n1 failed, 112 passed in 0.38s\n",
+          "stderr": "",
+          "seconds": 1.0959341999987373
+        },
+        "imports_fallback": {
+          "returncode": 1,
+          "modules": 4,
+          "stdout": "........................................................................ [ 63%]\n....F....................................                                [100%]\n================================== FAILURES ===================================\n_______________ RRCacheTest.test_rr_popitem_empty_custom_choice _______________\ntests\\test_rr.py:97: in test_rr_popitem_empty_custom_choice\n    cache.popitem()\nsrc\\cachetools\\__init__.py:361: in popitem\n    key = self.__choice(self.__keys)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   ValueError: min() iterable argument is empty\n=========================== short test summary info ===========================\nFAILED tests/test_rr.py::RRCacheTest::test_rr_popitem_empty_custom_choice - V...\n1 failed, 112 passed in 0.38s\n",
+          "stderr": "",
+          "seconds": 1.0959341999987373
+        },
+        "imports_no_fallback": {
+          "returncode": 0,
+          "modules": 0,
+          "stdout": "No tests selected.",
+          "stderr": "",
+          "seconds": 0
+        }
+      }
+    },
+    {
+      "id": "cachetools-growth",
+      "reference": {
+        "returncode": 0,
+        "modules": 4,
+        "stdout": "........................................................................ [ 72%]\n............................                                             [100%]\n100 passed in 0.28s\n",
+        "stderr": "",
+        "seconds": 0.9127122999998392
+      },
+      "status": "reproduced",
+      "selection": {
+        "selected": [
+          "tests/test_cache.py",
+          "tests/test_cached.py",
+          "tests/test_cachedmethod.py",
+          "tests/test_classmethod.py",
+          "tests/test_fifo.py",
+          "tests/test_func.py",
+          "tests/test_keys.py",
+          "tests/test_lfu.py",
+          "tests/test_lru.py",
+          "tests/test_rr.py",
+          "tests/test_threading.py",
+          "tests/test_tlru.py",
+          "tests/test_ttl.py"
+        ],
+        "static_selected": [],
+        "total_tests": 13,
+        "fallback": true,
+        "reasons": [
+          "package initialization or test configuration changed"
+        ],
+        "changed": [
+          "src/cachetools/__init__.py"
+        ],
+        "source_sha256": {
+          "docs/conf.py": "f68affa8dfcf4a20d5fe872cfb0e19f9b284f8feda563dd8e8e23eafe75cd4eb",
+          "src/cachetools/__init__.py": "f2aac531b8c967e049645544af0a6d38130d9bec98d104afa323280a8f526d75",
+          "src/cachetools/_cached.py": "3f301c0cfbf6a108ca2ffca574568198164f9599439b595c859f6450a4da795b",
+          "src/cachetools/_cachedmethod.py": "ad2e75ebb6d3131225f36ce63c6f281700e675aff79ce2d447f8e97132b4ecb4",
+          "src/cachetools/func.py": "87724e4fc82303fd5172cc9fd03c7aaf6a767c6c477f3cb74a245fc45ebf7816",
+          "src/cachetools/keys.py": "9550bd6914744c2fc6fd211dfb83cdae2d6206b1a1bfcf052d017cb23b39b49e",
+          "tests/__init__.py": "b413cb537390d58740ce2aefa13ee18369f8427bf884d8a1c44bfeb645aa98a1",
+          "tests/test_cache.py": "dbdf81b02f344a0e62a5dcf2364be7e135e2511e765e93b43864aeb7aa3b115c",
+          "tests/test_cached.py": "7da1974ad17095adb15b7d231c23ee20b730f7e70ac175b23ee018c60cc8dae6",
+          "tests/test_cachedmethod.py": "d5b131d062ef613bbbcaaf107b4ab0a2f28f4bf505dd00964d2c46cf5ac757bf",
+          "tests/test_classmethod.py": "465e882cf15481277cef959eb5d4ec0072d61c342079cac05684da55fe543851",
+          "tests/test_fifo.py": "c6134627b4d9daab20e67b27fe2ff8d7e225116ae46d6a0e79b2c9b620d25941",
+          "tests/test_func.py": "668e212d3a49b5442578e1a77579bacd20bbd466a8ea4a18ac04969fa4e75827",
+          "tests/test_keys.py": "c6e39d6e781cb737159b43d725c4a0f00ce6f2885376fb6efd01c5d59e196064",
+          "tests/test_lfu.py": "bd5dc75432800065aec629d650886eacd71bad3c0512400d6030093ed1f4965b",
+          "tests/test_lru.py": "dbfd53eb372f24571f70d739faeb6c4963f79c80ef18228f44b38b1112bf1a6c",
+          "tests/test_rr.py": "7f56f910027e0f38f10757a0b7feb3493ddea6a71ae0ffd3c24d85485803c373",
+          "tests/test_threading.py": "fd6bfb6b3d0b4c650a1786381ab4c33d04ff348cd5d1e91d8014239df111c165",
+          "tests/test_tlru.py": "461fd80337d3e4a7fba830b30765cce19666611f797568f18740e4f6eea98199",
+          "tests/test_ttl.py": "dad8f3e725176a39a487d23bd4a25930db05380ce0b452f73485506dbe5284d1"
+        },
+        "limitations": "Static imports only; plugins, reflection and runtime monkeypatching may escape detection."
+      },
+      "choices": {
+        "full_declared_pool": [
+          "tests/test_cache.py",
+          "tests/test_lru.py",
+          "tests/test_rr.py",
+          "tests/test_tlru.py"
+        ],
+        "imports_fallback": [
+          "tests/test_cache.py",
+          "tests/test_lru.py",
+          "tests/test_rr.py",
+          "tests/test_tlru.py"
+        ],
+        "imports_no_fallback": []
+      },
+      "runs": {
+        "full_declared_pool": {
+          "returncode": 1,
+          "modules": 4,
+          "stdout": ".......F...................F.......................F.................... [ 72%]\n....F.......................                                             [100%]\n================================== FAILURES ===================================\n____________________ CacheTest.test_getsizeof_replace_grow ____________________\ntests\\__init__.py:297: in test_getsizeof_replace_grow\n    self.assertEqual(2, len(cache))\nE   AssertionError: 2 != 1\n__________________ LRUCacheTest.test_getsizeof_replace_grow ___________________\ntests\\__init__.py:297: in test_getsizeof_replace_grow\n    self.assertEqual(2, len(cache))\nE   AssertionError: 2 != 1\n___________________ RRCacheTest.test_getsizeof_replace_grow ___________________\ntests\\__init__.py:297: in test_getsizeof_replace_grow\n    self.assertEqual(2, len(cache))\nE   AssertionError: 2 != 1\n__________________ TLRUCacheTest.test_getsizeof_replace_grow __________________\ntests\\__init__.py:297: in test_getsizeof_replace_grow\n    self.assertEqual(2, len(cache))\nE   AssertionError: 2 != 1\n=========================== short test summary info ===========================\nFAILED tests/test_cache.py::CacheTest::test_getsizeof_replace_grow - Assertio...\nFAILED tests/test_lru.py::LRUCacheTest::test_getsizeof_replace_grow - Asserti...\nFAILED tests/test_rr.py::RRCacheTest::test_getsizeof_replace_grow - Assertion...\nFAILED tests/test_tlru.py::TLRUCacheTest::test_getsizeof_replace_grow - Asser...\n4 failed, 96 passed in 0.35s\n",
+          "stderr": "",
+          "seconds": 0.9699962999948184
+        },
+        "imports_fallback": {
+          "returncode": 1,
+          "modules": 4,
+          "stdout": ".......F...................F.......................F.................... [ 72%]\n....F.......................                                             [100%]\n================================== FAILURES ===================================\n____________________ CacheTest.test_getsizeof_replace_grow ____________________\ntests\\__init__.py:297: in test_getsizeof_replace_grow\n    self.assertEqual(2, len(cache))\nE   AssertionError: 2 != 1\n__________________ LRUCacheTest.test_getsizeof_replace_grow ___________________\ntests\\__init__.py:297: in test_getsizeof_replace_grow\n    self.assertEqual(2, len(cache))\nE   AssertionError: 2 != 1\n___________________ RRCacheTest.test_getsizeof_replace_grow ___________________\ntests\\__init__.py:297: in test_getsizeof_replace_grow\n    self.assertEqual(2, len(cache))\nE   AssertionError: 2 != 1\n__________________ TLRUCacheTest.test_getsizeof_replace_grow __________________\ntests\\__init__.py:297: in test_getsizeof_replace_grow\n    self.assertEqual(2, len(cache))\nE   AssertionError: 2 != 1\n=========================== short test summary info ===========================\nFAILED tests/test_cache.py::CacheTest::test_getsizeof_replace_grow - Assertio...\nFAILED tests/test_lru.py::LRUCacheTest::test_getsizeof_replace_grow - Asserti...\nFAILED tests/test_rr.py::RRCacheTest::test_getsizeof_replace_grow - Assertion...\nFAILED tests/test_tlru.py::TLRUCacheTest::test_getsizeof_replace_grow - Asser...\n4 failed, 96 passed in 0.35s\n",
+          "stderr": "",
+          "seconds": 0.9699962999948184
+        },
+        "imports_no_fallback": {
+          "returncode": 0,
+          "modules": 0,
+          "stdout": "No tests selected.",
+          "stderr": "",
+          "seconds": 0
+        }
+      }
+    },
+    {
+      "id": "cachetools-stale",
+      "reference": {
+        "returncode": 0,
+        "modules": 4,
+        "stdout": "........................................................................ [ 81%]\n................                                                         [100%]\n88 passed in 0.22s\n",
+        "stderr": "",
+        "seconds": 0.8326736999952118
+      },
+      "status": "reproduced",
+      "selection": {
+        "selected": [
+          "tests/test_cache.py",
+          "tests/test_cached.py",
+          "tests/test_cachedmethod.py",
+          "tests/test_classmethod.py",
+          "tests/test_fifo.py",
+          "tests/test_func.py",
+          "tests/test_keys.py",
+          "tests/test_lfu.py",
+          "tests/test_lru.py",
+          "tests/test_rr.py",
+          "tests/test_threading.py",
+          "tests/test_tlru.py",
+          "tests/test_ttl.py"
+        ],
+        "static_selected": [],
+        "total_tests": 13,
+        "fallback": true,
+        "reasons": [
+          "package initialization or test configuration changed"
+        ],
+        "changed": [
+          "src/cachetools/__init__.py"
+        ],
+        "source_sha256": {
+          "docs/conf.py": "4053634e1fe425ca09907f209c60a099e37b78e2b1623431f4591163a4901ad3",
+          "src/cachetools/__init__.py": "a4869ebbdf7be86c5b4f699dba1555d0e2783cf608cf83f7baa2e7e99c7ddc19",
+          "src/cachetools/_cached.py": "3f301c0cfbf6a108ca2ffca574568198164f9599439b595c859f6450a4da795b",
+          "src/cachetools/_cachedmethod.py": "ad2e75ebb6d3131225f36ce63c6f281700e675aff79ce2d447f8e97132b4ecb4",
+          "src/cachetools/func.py": "750ef718eb11fd64193bd0d020e3de575e670194682196560665369fa7bca628",
+          "src/cachetools/keys.py": "9550bd6914744c2fc6fd211dfb83cdae2d6206b1a1bfcf052d017cb23b39b49e",
+          "tests/__init__.py": "0a4ae82698f947ad38838012e88d1a301e0db598d5fb18e2c37085dc298a4ebc",
+          "tests/test_cache.py": "dbdf81b02f344a0e62a5dcf2364be7e135e2511e765e93b43864aeb7aa3b115c",
+          "tests/test_cached.py": "c939240cd396e60f5cfb359728ab3606831607a9a316fe7188391dc7d93168f5",
+          "tests/test_cachedmethod.py": "7b1ddf92d444769a7f6d9248c0ee288505151b2f00cc00d9673306a01428800f",
+          "tests/test_classmethod.py": "465e882cf15481277cef959eb5d4ec0072d61c342079cac05684da55fe543851",
+          "tests/test_fifo.py": "c6134627b4d9daab20e67b27fe2ff8d7e225116ae46d6a0e79b2c9b620d25941",
+          "tests/test_func.py": "44b1a09440a17f9db0b37fe1c79955b9cf9d86b822d3d60642a92422c71f0c3e",
+          "tests/test_keys.py": "c6e39d6e781cb737159b43d725c4a0f00ce6f2885376fb6efd01c5d59e196064",
+          "tests/test_lfu.py": "bd5dc75432800065aec629d650886eacd71bad3c0512400d6030093ed1f4965b",
+          "tests/test_lru.py": "dbfd53eb372f24571f70d739faeb6c4963f79c80ef18228f44b38b1112bf1a6c",
+          "tests/test_rr.py": "7f56f910027e0f38f10757a0b7feb3493ddea6a71ae0ffd3c24d85485803c373",
+          "tests/test_threading.py": "f1e7f114a3b716d0353f3e1769e54f7cfc15e8e2fe9078e9554cd1915d2c806b",
+          "tests/test_tlru.py": "461fd80337d3e4a7fba830b30765cce19666611f797568f18740e4f6eea98199",
+          "tests/test_ttl.py": "dad8f3e725176a39a487d23bd4a25930db05380ce0b452f73485506dbe5284d1"
+        },
+        "limitations": "Static imports only; plugins, reflection and runtime monkeypatching may escape detection."
+      },
+      "choices": {
+        "full_declared_pool": [
+          "tests/test_cache.py",
+          "tests/test_lru.py",
+          "tests/test_rr.py",
+          "tests/test_tlru.py"
+        ],
+        "imports_fallback": [
+          "tests/test_cache.py",
+          "tests/test_lru.py",
+          "tests/test_rr.py",
+          "tests/test_tlru.py"
+        ],
+        "imports_no_fallback": []
+      },
+      "runs": {
+        "full_declared_pool": {
+          "returncode": 1,
+          "modules": 4,
+          "stdout": ".......................................................................F [ 81%]\n................                                                         [100%]\n================================== FAILURES ===================================\n_____________ TLRUCacheTest.test_overwrite_existing_with_expired ______________\ntests\\test_tlru.py:161: in test_overwrite_existing_with_expired\n    self.assertNotIn(1, cache)\nE   AssertionError: 1 unexpectedly found in TLRUCache({1: 5}, maxsize=2, currsize=1)\n=========================== short test summary info ===========================\nFAILED tests/test_tlru.py::TLRUCacheTest::test_overwrite_existing_with_expired\n1 failed, 87 passed in 0.32s\n",
+          "stderr": "",
+          "seconds": 0.9437488999974448
+        },
+        "imports_fallback": {
+          "returncode": 1,
+          "modules": 4,
+          "stdout": ".......................................................................F [ 81%]\n................                                                         [100%]\n================================== FAILURES ===================================\n_____________ TLRUCacheTest.test_overwrite_existing_with_expired ______________\ntests\\test_tlru.py:161: in test_overwrite_existing_with_expired\n    self.assertNotIn(1, cache)\nE   AssertionError: 1 unexpectedly found in TLRUCache({1: 5}, maxsize=2, currsize=1)\n=========================== short test summary info ===========================\nFAILED tests/test_tlru.py::TLRUCacheTest::test_overwrite_existing_with_expired\n1 failed, 87 passed in 0.32s\n",
+          "stderr": "",
+          "seconds": 0.9437488999974448
+        },
+        "imports_no_fallback": {
+          "returncode": 0,
+          "modules": 0,
+          "stdout": "No tests selected.",
+          "stderr": "",
+          "seconds": 0
+        }
+      }
+    },
+    {
+      "id": "jmespath-float",
+      "reference": {
+        "returncode": 2,
+        "modules": 3,
+        "stdout": "\n=================================== ERRORS ====================================\n__________________ ERROR collecting tests/test_compliance.py __________________\ntests\\test_compliance.py:21: in _compliance_tests\n    for given, test_type, test_data in load_cases(full_path):\n                                       ^^^^^^^^^^^^^^^^^^^^^\ntests\\test_compliance.py:51: in load_cases\n    all_test_data = json.load(open(full_path), object_pairs_hook=OrderedDict)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nC:\\Users\\adame\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\json\\__init__.py:293: in load\n    return loads(fp.read(),\n                 ^^^^^^^^^\nC:\\Users\\adame\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\encodings\\cp1250.py:23: in decode\n    return codecs.charmap_decode(input,self.errors,decoding_table)[0]\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   UnicodeDecodeError: 'charmap' codec can't decode byte 0x98 in position 246: character maps to <undefined>\n=========================== short test summary info ===========================\nERROR tests/test_compliance.py - UnicodeDecodeError: 'charmap' codec can't de...\n!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.50s\n",
+        "stderr": "",
+        "seconds": 1.1079412999970373
+      },
+      "status": "reference_failed"
+    },
+    {
+      "id": "jmespath-functions",
+      "reference": {
+        "returncode": 0,
+        "modules": 2,
+        "stdout": ".........s                                                               [100%]\n============================== warnings summary ===============================\njmespath\\visitor.py:32\njmespath\\visitor.py:32\n  C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\expansion-runs\\jmespath-functions-1791980496671542900\\jmespath\\visitor.py:32: SyntaxWarning: \"is\" with 'int' literal. Did you mean \"==\"?\n    if x is 0 or x is 1:\n\njmespath\\visitor.py:34\njmespath\\visitor.py:34\n  C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\expansion-runs\\jmespath-functions-1791980496671542900\\jmespath\\visitor.py:34: SyntaxWarning: \"is\" with 'int' literal. Did you mean \"==\"?\n    elif y is 0 or y is 1:\n\njmespath\\visitor.py:260\n  C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\expansion-runs\\jmespath-functions-1791980496671542900\\jmespath\\visitor.py:260: SyntaxWarning: \"is\" with 'int' literal. Did you mean \"==\"?\n    if original_result is 0:\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n9 passed, 1 skipped, 5 warnings in 0.15s\n",
+        "stderr": "",
+        "seconds": 0.7234814000039478
+      },
+      "status": "not_reproduced",
+      "selection": {
+        "selected": [
+          "extra/test_hypothesis.py",
+          "tests/test_compliance.py",
+          "tests/test_functions.py",
+          "tests/test_lexer.py",
+          "tests/test_parser.py",
+          "tests/test_search.py"
+        ],
+        "static_selected": [
+          "extra/test_hypothesis.py",
+          "tests/test_compliance.py",
+          "tests/test_functions.py",
+          "tests/test_lexer.py",
+          "tests/test_parser.py",
+          "tests/test_search.py"
+        ],
+        "total_tests": 6,
+        "fallback": false,
+        "reasons": [],
+        "changed": [
+          "jmespath/functions.py"
+        ],
+        "source_sha256": {
+          "bin/jp.py": "e1391bd3022d9fed3462dbd9efe82d16c3da0de85bd7f4df709e81d70894caf1",
+          "docs/conf.py": "b2bfb1ff192d196dd44af3cbd1430d223a6ac77e8669a5436e6945f82cf550e3",
+          "extra/test_hypothesis.py": "487876c8c1095cd4b9bd483b6abdc00a518ab91bbe37cc0767d2c4a1496ad872",
+          "jmespath/__init__.py": "a53acfc0829a7af06af42fd2e8549d0d618e2660ab6deaf9842feb14899c2428",
+          "jmespath/ast.py": "4a21d133599d40f46dd76476aa442efc4cdb77e8219391cbcb51e5d631c0caff",
+          "jmespath/compat.py": "43f6be744386aca6bd3229ab85fa6eab9afef69a32073f590ef6f34a93c4d13c",
+          "jmespath/exceptions.py": "e47468b7806fdd209376f87994041d401b2a49d68a8ee4cf4b21a6934f334af0",
+          "jmespath/functions.py": "02c7aa53a94f2fc1278c62b7f361334c9dde1a8f30b357ac3e457f55260e4fa3",
+          "jmespath/lexer.py": "00358d1a44efd2537df633f309f0ac9af29a19a70698124957484c3004738d92",
+          "jmespath/parser.py": "5ad7bb0796cd0176254ae9b67d6ddf2b17c2c581a099e9d95c9217ae96a20474",
+          "jmespath/visitor.py": "966d818b9b0e04222c5d674b6dd06a87adc3051c303d5516bda83a8f5d560749",
+          "perf/perftest.py": "3b3e8f8ade53d9433dfa9b8f18021f26dd0fea2a13ed09d421e2f15b827436dc",
+          "setup.py": "0b8b06e52302189abc1b64d634881b69fcd834b0db1d1eb2366e518631479e9b",
+          "tests/__init__.py": "8eb29134076521362458c30ed8fb22bb4a095fa0abbb4b4df9f9db79d1178df1",
+          "tests/test_compliance.py": "54e7c524dd2d38366dfa3b0c052b94167aef73acaec14a3f96185d49646820b2",
+          "tests/test_functions.py": "c601c18b3e53c15c923884ad3999c3289a29c1ac5aeaa2ac4f05ac951350344b",
+          "tests/test_lexer.py": "e1b060b9c5b716f86f11190b58a4de8367ee33defccb755b5a263ffdc1086a2f",
+          "tests/test_parser.py": "a1689c3e1611018c17f40c1afe1e524e2ea64ccfca4e735280c13af3aba433dd",
+          "tests/test_search.py": "0d9b48a7b7e8ec94a1975c2acc478445b7493533ec9bdac3c4878b2b4e68c917"
+        },
+        "limitations": "Static imports only; plugins, reflection and runtime monkeypatching may escape detection."
+      },
+      "choices": {
+        "full_declared_pool": [
+          "tests/test_functions.py",
+          "tests/test_search.py"
+        ],
+        "imports_fallback": [
+          "tests/test_functions.py",
+          "tests/test_search.py"
+        ],
+        "imports_no_fallback": [
+          "tests/test_functions.py",
+          "tests/test_search.py"
+        ]
+      },
+      "runs": {
+        "full_declared_pool": {
+          "returncode": 0,
+          "modules": 2,
+          "stdout": ".........s                                                               [100%]\n============================== warnings summary ===============================\njmespath\\visitor.py:32\njmespath\\visitor.py:32\n  C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\expansion-runs\\jmespath-functions-1791980496671542900\\jmespath\\visitor.py:32: SyntaxWarning: \"is\" with 'int' literal. Did you mean \"==\"?\n    if x is 0 or x is 1:\n\njmespath\\visitor.py:34\njmespath\\visitor.py:34\n  C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\expansion-runs\\jmespath-functions-1791980496671542900\\jmespath\\visitor.py:34: SyntaxWarning: \"is\" with 'int' literal. Did you mean \"==\"?\n    elif y is 0 or y is 1:\n\njmespath\\visitor.py:260\n  C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\expansion-runs\\jmespath-functions-1791980496671542900\\jmespath\\visitor.py:260: SyntaxWarning: \"is\" with 'int' literal. Did you mean \"==\"?\n    if original_result is 0:\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n9 passed, 1 skipped, 5 warnings in 0.06s\n",
+          "stderr": "",
+          "seconds": 0.6309951000002911
+        },
+        "imports_fallback": {
+          "returncode": 0,
+          "modules": 2,
+          "stdout": ".........s                                                               [100%]\n============================== warnings summary ===============================\njmespath\\visitor.py:32\njmespath\\visitor.py:32\n  C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\expansion-runs\\jmespath-functions-1791980496671542900\\jmespath\\visitor.py:32: SyntaxWarning: \"is\" with 'int' literal. Did you mean \"==\"?\n    if x is 0 or x is 1:\n\njmespath\\visitor.py:34\njmespath\\visitor.py:34\n  C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\expansion-runs\\jmespath-functions-1791980496671542900\\jmespath\\visitor.py:34: SyntaxWarning: \"is\" with 'int' literal. Did you mean \"==\"?\n    elif y is 0 or y is 1:\n\njmespath\\visitor.py:260\n  C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\expansion-runs\\jmespath-functions-1791980496671542900\\jmespath\\visitor.py:260: SyntaxWarning: \"is\" with 'int' literal. Did you mean \"==\"?\n    if original_result is 0:\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n9 passed, 1 skipped, 5 warnings in 0.06s\n",
+          "stderr": "",
+          "seconds": 0.6309951000002911
+        },
+        "imports_no_fallback": {
+          "returncode": 0,
+          "modules": 2,
+          "stdout": ".........s                                                               [100%]\n============================== warnings summary ===============================\njmespath\\visitor.py:32\njmespath\\visitor.py:32\n  C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\expansion-runs\\jmespath-functions-1791980496671542900\\jmespath\\visitor.py:32: SyntaxWarning: \"is\" with 'int' literal. Did you mean \"==\"?\n    if x is 0 or x is 1:\n\njmespath\\visitor.py:34\njmespath\\visitor.py:34\n  C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\expansion-runs\\jmespath-functions-1791980496671542900\\jmespath\\visitor.py:34: SyntaxWarning: \"is\" with 'int' literal. Did you mean \"==\"?\n    elif y is 0 or y is 1:\n\njmespath\\visitor.py:260\n  C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\expansion-runs\\jmespath-functions-1791980496671542900\\jmespath\\visitor.py:260: SyntaxWarning: \"is\" with 'int' literal. Did you mean \"==\"?\n    if original_result is 0:\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n9 passed, 1 skipped, 5 warnings in 0.06s\n",
+          "stderr": "",
+          "seconds": 0.6309951000002911
+        }
+      }
+    }
+  ],
+  "model_used": null,
+  "complete": true
+}

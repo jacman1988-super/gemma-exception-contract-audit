@@ -1,0 +1,27 @@
+{
+  "model_revision": "675cff42a74c774d6cb76f76d8eacb49b48c9b93",
+  "model_sha256": "fa401b55b07ee70a54c6dae3903c783a6e65064312529ea57175cb5f8dec6634",
+  "runtime_executable_sha256": "db2ca6b1255759101d8933370c992a9f2e219a0d62bc6528072eb4e0e7a323ba",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "parent_result_sha256": "febaf3f608cfa3b2ecc2deebf6c1f4ec69a7d7c999cc6bee4902a090e0c73899",
+  "previous_output_sha256": "45a3a6c1741586123efd271a7f193f4f56ae94858b2b75283f2b709ae05bb36e",
+  "current_file_sha256": "ed7c37399843239c7034bf3d5449c5ec843bf3cb9ea6029e0dc754832fe70bf2",
+  "arms": [
+    "no_feedback",
+    "test_feedback"
+  ],
+  "prompts": {
+    "no_feedback": "You are reviewing a Python patch. You get one revision opportunity. Return only JSON with string fields old and new containing an exact source block and its replacement. Do not run commands.\nTask: IndexedSet.update accepts several iterables. Add their elements in order, not the iterables themselves. Preserve the zero-argument and one-argument behavior.\nCurrent source after your previous edit:\n    def update(self, *others):\n        \"update(*others) -> add values from one or more iterables\"\n        if not others:\n            return  # raise?\n        elif len(others) == 1:\n            other = others[0]\n        else:\n            other = list(chain(others))\n        for o in other:\n            self.add(o)\nReview your previous edit once more. No test feedback is provided.",
+    "test_feedback": "You are reviewing a Python patch. You get one revision opportunity. Return only JSON with string fields old and new containing an exact source block and its replacement. Do not run commands.\nTask: IndexedSet.update accepts several iterables. Add their elements in order, not the iterables themselves. Preserve the zero-argument and one-argument behavior.\nCurrent source after your previous edit:\n    def update(self, *others):\n        \"update(*others) -> add values from one or more iterables\"\n        if not others:\n            return  # raise?\n        elif len(others) == 1:\n            other = others[0]\n        else:\n            other = list(chain(others))\n        for o in other:\n            self.add(o)\nThe current edit was tested. Here is the first 2000 characters of the actual test output:\n..FFFF.................................................................. [ 97%]\n..                                                                       [100%]\n================================== FAILURES ===================================\n______________ test_indexed_set_update_multiple_iterables[list] _______________\ntests\\test_setutils.py:35: in test_indexed_set_update_multiple_iterables\n    result = items.update(iterable_type([2, 1, 3]), iterable_type([]),\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n______________ test_indexed_set_update_multiple_iterables[tuple] ______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, (2, 1, 3), (), (3, 4, 2)] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: (2, 1, 3) != 2\nE     Use -v to get more diff\n______________ test_indexed_set_update_multiple_iterables[iter] _______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, <list_ite...021E4F2F93C0>] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: <list_iterator object at 0x0000021E4F2F9E40> != 2\nE     Use -v to get more diff\n_________ test_indexed_set_update_multiple_iterables_with_tuple_items _________\ntests\\test_setutils.py:45: in test_indexed_set_update_multiple_iterables_with_tuple_items\n    items.update([(1, 2)], [(3, 4), (1, 2)])\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n=========================== short test summary info ===========================\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[list]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[t\nRevise the current code to address the failures."
+  },
+  "feedback_rule": "First 2000 characters, unchanged",
+  "max_additional_generations_per_arm": 1,
+  "temperature": 0,
+  "seed": 20261014,
+  "max_generated_tokens": 192,
+  "context_tokens": 2048,
+  "threads": 2,
+  "generation_timeout_seconds": 90,
+  "automatic_execution": false,
+  "scope": "One known failed public case, inspected before protocol. Not a held-out assessment or matched input-token budget; both arms have the same output-token cap."
+}

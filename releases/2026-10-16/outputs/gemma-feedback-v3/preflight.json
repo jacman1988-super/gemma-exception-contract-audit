@@ -1,0 +1,20 @@
+[
+  {
+    "id": "tenacity-new-v2",
+    "generation_sha256": "e6090e7b1d6a802ee60c8b187f0167995ca318efb4f8575038c59d7e5fbb98bf",
+    "parse_valid": false,
+    "rejection": "Unterminated string starting at: line 1 column 4430 (char 4429)"
+  },
+  {
+    "id": "packaging-new-v2",
+    "generation_sha256": "59497c15c136f6caabaa478eefa4667b85365fe0017040ff3268070d0d44000d",
+    "parse_valid": true,
+    "edits": [
+      {
+        "file": "src/packaging/pylock.py",
+        "old": "def is_valid_pylock_path(path: Path) -> bool:\n    \"\"\"Check if the given path is a valid pylock file path.\"\"\"\n    return path.name == \"pylock.toml\" or bool(_PYLOCK_FILE_NAME_RE.match(path.name) and path.name == \"pylock.toml\")",
+        "new": "def is_valid_pylock_path(path: Path) -> bool:\n    \"\"\"Check if the given path is a valid pylock file path.\"\"\"\n    return path.name == \"pylock.toml\" or bool(_PYLOCK_FILE_NAME_RE.match(path.name))"
+      }
+    ]
+  }
+]

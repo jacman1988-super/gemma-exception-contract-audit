@@ -1,0 +1,16 @@
+Repair your current Python function after these EXECUTED counterexamples. Return ONLY a fenced python block containing the complete is_valid_pylock_path function with the same signature. Do not change imports or regex constant. Do not strip or normalize input.
+Current context:
+_PYLOCK_FILE_NAME_RE = re.compile(r"^pylock\.([^.]+)\.toml$")
+def is_valid_pylock_path(path: Path) -> bool:
+    """Check if the given path is a valid pylock file path."""
+    return bool(_PYLOCK_FILE_NAME_RE.match(path.name))
+Executed counterexamples:
+filename repr | your actual result | required
+"pylock.toml" | False | True
+"pylock.spam.toml" | True | True
+"pylock.prod.toml" | True | True
+"pylock.spam.toml\n" (final U+000A) | True | False
+"pylock.prod.toml.backup" | False | False
+Local Python API reference (available methods, not a gold patch):
+{"Pattern.match": "Matches zero or more characters at the beginning of the string.", "Pattern.fullmatch": "Matches against all of the string.", "Pattern.search": "Scan through string looking for a match, and return a corresponding match object instance.\n\nReturn None if no position in the string matches."}
+Satisfy every example simultaneously. Return only the function, no explanation.

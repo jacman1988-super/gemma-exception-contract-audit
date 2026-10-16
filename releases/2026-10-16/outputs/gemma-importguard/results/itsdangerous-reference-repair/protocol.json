@@ -1,0 +1,8 @@
+{
+  "origin": "Manually reconstructed equivalent of the already inspected public upstream correction; not a model repair or novel contribution.",
+  "url": "https://github.com/pallets/itsdangerous/commit/177196d3a5c7ad37b8ccbd0f88445aced07f1ca0",
+  "source_sha256": "0e0e1328047f2ca8afa43f468ccc3e9626d14ec4cb19b015c5b581d4585932ee",
+  "patched_text_sha256": "4bd341afa04980f1460b79cb99f525482f4d8aae802559fcf3c39e682493d1b0",
+  "patch_sha256": "b685b1568203df8818ec397660d0a22791e5710e046ada4be0c338357b20dbce",
+  "review": "Extends only existing datetime conversion catch, preserving payload=value, date_signed and exception chaining; no changes to decoder or direct conversion."
+}

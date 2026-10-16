@@ -1,0 +1,57 @@
+{
+  "cases": [
+    {
+      "id": "itsdangerous-new",
+      "repo": "pallets/itsdangerous",
+      "package": "itsdangerous",
+      "source_root": "src",
+      "changed": [
+        "src/itsdangerous/timed.py"
+      ],
+      "pool": [
+        "tests/test_itsdangerous/test_timed.py"
+      ],
+      "fixed": "177196d3a5c7ad37b8ccbd0f88445aced07f1ca0",
+      "parent": "37f09970fa32a330a6660ded3abdb264086531b5",
+      "url": "https://github.com/pallets/itsdangerous/commit/177196d3a5c7ad37b8ccbd0f88445aced07f1ca0",
+      "archives_sha256": {
+        "fixed": "a495b147c55f94d2d999e46ea3542992043287416ae11c3d68dc5422d1dd364a",
+        "buggy": "de0b2450aac6445a5b886f2bdf084ae2229ff7ead45f508c738572043decebdb"
+      },
+      "license_text": "Copyright 2011 Pallets\n\nRedistribution and use in source and binary forms, with or without\nmodification, are permitted provided that the following conditions are\nmet:\n\n1.  Redistributions of source code must retain the above copyright\n    notice, this list of conditions and the following disclaimer.\n\n2.  Redistributions in binary form must reproduce the above copyright\n    notice, this list of conditions and the following disclaimer in the\n    documentation and/or other materials provided with the distribution.\n\n3.  Neither the name of the copyright holder nor the names of its\n    contributors may be used to endorse or promote products derived from\n    this software without specific prior written permission.\n\nTHIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS\n\"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT\nLIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A\nPARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT\nHOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,\nSPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED\nTO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR\nPROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF\nLIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING\nNEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS\nSOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n",
+      "tests_sha256": {
+        "tests/test_itsdangerous/test_timed.py": "b75531b8901d48a6d7a5c4bbbb2342f02f6ef022185840121f7705c1e907979a"
+      }
+    },
+    {
+      "id": "sortedcontainers-new",
+      "repo": "grantjenks/python-sortedcontainers",
+      "package": "sortedcontainers",
+      "source_root": ".",
+      "changed": [
+        "sortedcontainers/sorteddict.py"
+      ],
+      "pool": [
+        "tests/test_coverage_sorteddict.py"
+      ],
+      "fixed": "2678a78b6dacbe2352bff7876a26759d84971dac",
+      "parent": "9887989b21fc21fe572e0b4c30a3f3aa1eabbdca",
+      "url": "https://github.com/grantjenks/python-sortedcontainers/commit/2678a78b6dacbe2352bff7876a26759d84971dac",
+      "archives_sha256": {
+        "fixed": "d77f480d585bb1435aa44012502642a10950ad41bed96c3ea46033c69e644460",
+        "buggy": "35effbb9700fa452e9ff85ec582b016ffd667a26af08fb76eace644b09d8b368"
+      },
+      "license_text": "Copyright 2014-2019 Grant Jenks\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n",
+      "tests_sha256": {
+        "tests/test_coverage_sorteddict.py": "258d161cec595580be3e4384e6aeaa8de00eea7270be22ef36b05ca0d7f1b684"
+      }
+    }
+  ],
+  "selection": "First newest first-parent source change in latest 100 source-directory commits per root (message contains fix, handle or catch) with modified package Python source and changed test module. Expanded from fix-only before any test outcomes: ItsDangerous uses handle/catch for exception corrections. No replacement after results.",
+  "selector_sha256": "ed07a65e3a0425aa8672f3e4570b7806ab2702a6c302698f8381df1157976d66",
+  "harness_sha256": "c4663968633e92f408e578da18fd43dd7e7adb0370d3264a483050c120344d39",
+  "design": "Frozen before outcomes; upstream tests changed in the chosen commit; fixed tests paired with parent package sources. No outcome-based exclusions or replacements.",
+  "reference_rule": "Fixed exit 0; parent exit 1 without collection errors. Skipped/unreproduced cases retained.",
+  "comparison": "Full declared changed-test pool versus selector intersection with that pool; no whole-repository savings claim.",
+  "model_inference": false
+}

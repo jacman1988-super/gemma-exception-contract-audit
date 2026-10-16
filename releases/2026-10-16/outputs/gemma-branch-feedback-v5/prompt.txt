@@ -1,0 +1,11 @@
+Repair this Python function. Previous one-expression answers omitted a valid case. Use an explicit decision tree with separate if branches for the TWO allowed filename families; do not compress both into only one regex check.
+Requirements:
+Family 1: the exact ordinary filename pylock.toml is valid, even though the named-file regex does not recognize it.
+Family 2: pylock.NAME.toml is valid when NAME is nonempty and contains no dot, and the entire unmodified filename matches.
+All other filenames, including trailing U+000A and suffix garbage, are invalid. Do not strip or normalize input.
+Context:
+_PYLOCK_FILE_NAME_RE = re.compile(r"^pylock\.([^.]+)\.toml$")
+def is_valid_pylock_path(path: Path) -> bool:
+    """Check if the given path is a valid pylock file path."""
+    return bool(_PYLOCK_FILE_NAME_RE.fullmatch(path.name))
+Return ONLY a fenced python block containing the complete is_valid_pylock_path function with the same signature. Do not add imports, constants or helpers. Check both valid families before rejecting. No explanation.

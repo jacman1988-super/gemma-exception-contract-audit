@@ -1,0 +1,40 @@
+[
+  {
+    "id": "tenacity-new-v2",
+    "reference": {
+      "returncode": 0,
+      "stdout": "........................................................................ [ 50%]\n......................................................................   [100%]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-new-repositories-v2\\tenacity-new-v2-reference.xml -\n142 passed in 2.91s\n",
+      "stderr": "",
+      "seconds": 3.74402669997653,
+      "report": "C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-new-repositories-v2\\tenacity-new-v2-reference.xml"
+    },
+    "parent": {
+      "returncode": 1,
+      "stdout": "................................................F....................... [ 50%]\n......................................................................   [100%]\n================================== FAILURES ===================================\n____________ TestWaitConditions.test_wait_falsy_callable_is_called ____________\ntests\\test_tenacity.py:548: in test_wait_falsy_callable_is_called\n    self.assertEqual(sleeps, [1])\nE   AssertionError: Lists differ: [0.0] != [1]\nE   \nE   First differing element 0:\nE   0.0\nE   1\nE   \nE   - [0.0]\nE   + [1]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-new-repositories-v2\\tenacity-new-v2-parent.xml -\n=========================== short test summary info ===========================\nFAILED tests/test_tenacity.py::TestWaitConditions::test_wait_falsy_callable_is_called\n1 failed, 141 passed in 2.93s\n",
+      "stderr": "",
+      "seconds": 3.651584200008074,
+      "report": "C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-new-repositories-v2\\tenacity-new-v2-parent.xml"
+    },
+    "root": "C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tenacity-new-v2-evaluation",
+    "reproduced": true
+  },
+  {
+    "id": "packaging-new-v2",
+    "reference": {
+      "returncode": 0,
+      "stdout": "........................................................................ [ 97%]\n..                                                                       [100%]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-new-repositories-v2\\packaging-new-v2-reference-env-fixed.xml -\n74 passed in 0.43s\n",
+      "stderr": "",
+      "seconds": 1.1422401000163518,
+      "report": "C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-new-repositories-v2\\packaging-new-v2-reference-env-fixed.xml"
+    },
+    "parent": {
+      "returncode": 1,
+      "stdout": "....F................................................................... [ 97%]\n..                                                                       [100%]\n================================== FAILURES ===================================\n_______________ test_pylock_file_name[pylock.spam.toml\\n-False] _______________\ntests\\test_pylock.py:44: in test_pylock_file_name\n    assert is_valid_pylock_path(Path(file_name)) is valid\nE   AssertionError: assert True is False\nE    +  where True = is_valid_pylock_path(WindowsPath('pylock.spam.toml\\n'))\nE    +    where WindowsPath('pylock.spam.toml\\n') = Path('pylock.spam.toml\\n')\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-new-repositories-v2\\packaging-new-v2-parent-env-fixed.xml -\n=========================== short test summary info ===========================\nFAILED tests/test_pylock.py::test_pylock_file_name[pylock.spam.toml\\n-False]\n1 failed, 73 passed in 0.54s\n",
+      "stderr": "",
+      "seconds": 1.2658927000011317,
+      "report": "C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-new-repositories-v2\\packaging-new-v2-parent-env-fixed.xml"
+    },
+    "root": "C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\packaging-new-v2-evaluation",
+    "reproduced": true
+  }
+]

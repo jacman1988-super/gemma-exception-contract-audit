@@ -1,0 +1,40 @@
+[
+  {
+    "id": "tenacity-new-v2",
+    "reference": {
+      "returncode": 0,
+      "stdout": "........................................................................ [ 50%]\n......................................................................   [100%]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-new-repositories-v2\\tenacity-new-v2-reference.xml -\n142 passed in 2.91s\n",
+      "stderr": "",
+      "seconds": 3.74402669997653,
+      "report": "C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-new-repositories-v2\\tenacity-new-v2-reference.xml"
+    },
+    "parent": {
+      "returncode": 1,
+      "stdout": "................................................F....................... [ 50%]\n......................................................................   [100%]\n================================== FAILURES ===================================\n____________ TestWaitConditions.test_wait_falsy_callable_is_called ____________\ntests\\test_tenacity.py:548: in test_wait_falsy_callable_is_called\n    self.assertEqual(sleeps, [1])\nE   AssertionError: Lists differ: [0.0] != [1]\nE   \nE   First differing element 0:\nE   0.0\nE   1\nE   \nE   - [0.0]\nE   + [1]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-new-repositories-v2\\tenacity-new-v2-parent.xml -\n=========================== short test summary info ===========================\nFAILED tests/test_tenacity.py::TestWaitConditions::test_wait_falsy_callable_is_called\n1 failed, 141 passed in 2.93s\n",
+      "stderr": "",
+      "seconds": 3.651584200008074,
+      "report": "C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-new-repositories-v2\\tenacity-new-v2-parent.xml"
+    },
+    "root": "C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\tenacity-new-v2-evaluation",
+    "reproduced": true
+  },
+  {
+    "id": "packaging-new-v2",
+    "reference": {
+      "returncode": 2,
+      "stdout": "\n=================================== ERRORS ====================================\n____________________ ERROR collecting tests/test_pylock.py ____________________\nImportError while importing test module 'C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\packaging-new-v2-evaluation\\tests\\test_pylock.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\nC:\\Users\\adame\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\importlib\\__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests\\test_pylock.py:9: in <module>\n    import tomli_w\nE   ModuleNotFoundError: No module named 'tomli_w'\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-new-repositories-v2\\packaging-new-v2-reference.xml -\n=========================== short test summary info ===========================\nERROR tests/test_pylock.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.62s\n",
+      "stderr": "",
+      "seconds": 1.5879158999887295,
+      "report": "C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-new-repositories-v2\\packaging-new-v2-reference.xml"
+    },
+    "parent": {
+      "returncode": 2,
+      "stdout": "\n=================================== ERRORS ====================================\n____________________ ERROR collecting tests/test_pylock.py ____________________\nImportError while importing test module 'C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\packaging-new-v2-evaluation\\tests\\test_pylock.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\nC:\\Users\\adame\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\Lib\\importlib\\__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests\\test_pylock.py:9: in <module>\n    import tomli_w\nE   ModuleNotFoundError: No module named 'tomli_w'\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-new-repositories-v2\\packaging-new-v2-parent.xml -\n=========================== short test summary info ===========================\nERROR tests/test_pylock.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.54s\n",
+      "stderr": "",
+      "seconds": 1.3641150000039488,
+      "report": "C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-new-repositories-v2\\packaging-new-v2-parent.xml"
+    },
+    "root": "C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\packaging-new-v2-evaluation",
+    "reproduced": false
+  }
+]

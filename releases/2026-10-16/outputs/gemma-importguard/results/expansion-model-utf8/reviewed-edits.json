@@ -1,0 +1,14 @@
+{
+  "reviewed_by": "Codex; not participant approval",
+  "review": "Displayed pure comparison function inspected. No-op edit; no new effects. Reuse actual unchanged-source test failure rather than rerunning it.",
+  "cases": [
+    {
+      "id": "jmespath-float",
+      "output_sha256": "9b57b4cfcb9ec7759b46037114958911cd4247f98a37cb1aeb26a19bedd1dc4b",
+      "reviewed_edit": {
+        "old": "def _equals(x, y):\n    if _is_special_integer_case(x, y):\n        return False\n    else:\n        return x == y",
+        "new": "def _equals(x, y):\n    if _is_special_integer_case(x, y):\n        return False\n    else:\n        return x == y"
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "returncode": 1,
+  "stdout": "....F....                                                                [100%]\n================================== FAILURES ===================================\n______________ test_unseen_filename[pylock.prod.toml\\n\\n-False] _______________\ntest_unseen_packaging.py:13: in test_unseen_filename\n    assert is_valid_pylock_path(Path(name)) is expected\nE   AssertionError: assert True is False\nE    +  where True = is_valid_pylock_path(WindowsPath('pylock.prod.toml\\n\\n'))\nE    +    where WindowsPath('pylock.prod.toml\\n\\n') = Path('pylock.prod.toml\\n\\n')\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-feedback-v3\\round2\\packaging-new-v2-round2-withheld_tests.xml -\n=========================== short test summary info ===========================\nFAILED test_unseen_packaging.py::test_unseen_filename[pylock.prod.toml\\n\\n-False]\n1 failed, 8 passed in 0.16s\n",
+  "stderr": "",
+  "seconds": 0.5916367000027094,
+  "report": "C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-feedback-v3\\round2\\packaging-new-v2-round2-withheld_tests.xml"
+}

@@ -1,0 +1,22 @@
+Repair the functions below. Return ONLY one FILE: relative/path.py header per file followed by a fenced python block containing the COMPLETE replacement function, preserving its name, signature and indentation. No JSON, no diff, no extra functions or commands.
+Observed behavior requirements:
+filename represented with Python repr | expected
+"pylock.toml" | True
+"pylock.spam.toml" | True
+"pylock.prod.toml" | True
+"pylock.spam.toml\n" (final character U+000A) | False
+"pylock.prod.toml.backup" | False
+Match the entire unmodified filename; do not normalize away invalid suffixes.
+Current buggy source:
+FILE: src/packaging/pylock.py
+_PYLOCK_FILE_NAME_RE = re.compile(r"^pylock\.([^.]+)\.toml$")
+
+def is_valid_pylock_path(path: Path) -> bool:
+    """Check if the given path is a valid pylock file path."""
+    return path.name == "pylock.toml" or bool(_PYLOCK_FILE_NAME_RE.match(path.name))
+Your diagnosis:
+The failing cases occur because the current logic incorrectly handles the expected filename matching.
+
+The requirement states that the *entire unmodified filename* must match the pattern, and it explicitly forbids matching filenames with invalid suffixes like `.spam.toml` or `.backup`. The current regex `r"^pylock\.([^.]+)\.toml$"` only matches files ending exactly in `.toml` after the initial part, but the `or` condition allows the hardcoded check for `"pylock.toml"`, which is redundant and doesn't enforce the strict structure for all valid cases.
+
+**Behavioral Rule Needed:** The function must strictly validate that the filename matches the pattern `pylock.<something>.toml` exactly, ensuring no extra suffixes are present.

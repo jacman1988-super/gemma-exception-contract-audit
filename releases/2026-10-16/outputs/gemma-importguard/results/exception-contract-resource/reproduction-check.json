@@ -1,0 +1,22 @@
+{
+  "all_checks_passed": true,
+  "every_case_and_assertion_compared": true,
+  "model_rerun": false,
+  "results": {
+    "calibration-evaluation.json": {
+      "weak_pass_count": 42,
+      "contract_pass_count": 7,
+      "weak_only_count": 35
+    },
+    "model-evaluation.json": {
+      "weak_pass_count": 6,
+      "contract_pass_count": 6,
+      "weak_only_count": 0
+    },
+    "posthoc-v2-evaluation.json": {
+      "model_passes": 5,
+      "reference_passes": 6,
+      "mutants_rejected": 36
+    }
+  }
+}

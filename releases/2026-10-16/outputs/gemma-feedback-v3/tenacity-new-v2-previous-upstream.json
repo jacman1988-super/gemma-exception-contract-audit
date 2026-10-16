@@ -1,0 +1,7 @@
+{
+  "returncode": 1,
+  "stdout": "................................................F....................... [ 50%]\n......................................................................   [100%]\n================================== FAILURES ===================================\n____________ TestWaitConditions.test_wait_falsy_callable_is_called ____________\ntests\\test_tenacity.py:548: in test_wait_falsy_callable_is_called\n    self.assertEqual(sleeps, [1])\nE   AssertionError: Lists differ: [0.0] != [1]\nE   \nE   First differing element 0:\nE   0.0\nE   1\nE   \nE   - [0.0]\nE   + [1]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-feedback-v3\\tenacity-new-v2-previous-upstream.xml -\n=========================== short test summary info ===========================\nFAILED tests/test_tenacity.py::TestWaitConditions::test_wait_falsy_callable_is_called\n1 failed, 141 passed in 2.56s\n",
+  "stderr": "",
+  "seconds": 2.9912437000020873,
+  "report": "C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\outputs\\gemma-feedback-v3\\tenacity-new-v2-previous-upstream.xml"
+}

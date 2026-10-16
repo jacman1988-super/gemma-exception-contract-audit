@@ -1,0 +1,71 @@
+{
+  "cases": [
+    {
+      "id": "boltons-indexedset",
+      "repo": "mahmoud/boltons",
+      "fixed": "a180020c760b532e8889f161d97d05647adfee8c",
+      "changed": [
+        "boltons/setutils.py"
+      ],
+      "pool": [
+        "tests/test_setutils.py",
+        "tests/test_iterutils.py",
+        "tests/test_listutils.py"
+      ],
+      "license": "BSD-3-Clause",
+      "expected_failed_test": "test_indexed_set_update_multiple_iterables",
+      "parent": "e00c10a809525027b8167fbb7ac233cfc25a01f5",
+      "commit_url": "https://github.com/mahmoud/boltons/commit/a180020c760b532e8889f161d97d05647adfee8c",
+      "license_sha256": "c301912653a8d8c99eab6212aa3aea8d164ea249d8ad53c941e0558a0a5ac1e3",
+      "archives_sha256": {
+        "fixed": "2e75224263e43dcbe4f17222ccdf361e505e7dcc3d077f24cfd164faaf0fee98",
+        "buggy": "f1b68b323bf4614e210f6ec1d514abc7070d9e8ee5b30ca63b32267a83972a02"
+      },
+      "fixed_sources_sha256": {
+        "boltons/setutils.py": "d385936effa655abbd6bae772c08089e6c9ac8b266eff13105f4386fe1a58b43"
+      },
+      "parent_sources_sha256": {
+        "boltons/setutils.py": "aa806bb553ca1114e95d730fd7195c02e946db4eba03fc44927180dbb7bbc5bb"
+      },
+      "test_files_sha256": {
+        "tests/test_setutils.py": "645ec71bf7f955c4b9ed478e55b3aacd509dd35e0d78b33cb31ce30f26281613",
+        "tests/test_iterutils.py": "53e87f22a9d57f742a295af65f69fd4c374bf40f917a6cd807e4c2f26a833263",
+        "tests/test_listutils.py": "21bead34c671f15b551da485af6d96ef7d07b360592a044acaac296a89e93a2f"
+      }
+    },
+    {
+      "id": "more-itertools-bucket",
+      "repo": "more-itertools/more-itertools",
+      "fixed": "67fcf640477c78605580f5ee703a54c73c1e7a8a",
+      "changed": [
+        "more_itertools/more.py"
+      ],
+      "pool": [
+        "tests/test_more.py",
+        "tests/test_recipes.py"
+      ],
+      "license": "MIT",
+      "expected_failed_test": "test_falsey_validator_is_honoured",
+      "parent": "1ea82a711c69f590054987b5cb194157f8ce8ac4",
+      "commit_url": "https://github.com/more-itertools/more-itertools/commit/67fcf640477c78605580f5ee703a54c73c1e7a8a",
+      "license_sha256": "09f1c8c9e941af3e584d59641ea9b87d83c0cb0fd007eb5ef391a7e2643c1a46",
+      "archives_sha256": {
+        "fixed": "82671a4c72d0cc55a50860257d1547a00bb9fb2d5eee6f1853b2901c92ca0a5f",
+        "buggy": "a8de21bd320e514096104ba2095218d49a3c3961e2452e5c11f823c9a81b9d3c"
+      },
+      "fixed_sources_sha256": {
+        "more_itertools/more.py": "1bdc5f323ea18906436a42268b942d5b4d15ac8b3ff17c1211a59fb192fa068e"
+      },
+      "parent_sources_sha256": {
+        "more_itertools/more.py": "bc51d6f1c05613084fb566a8310771ab946864f0bb4815d26d4c6bb8d44bf9ff"
+      },
+      "test_files_sha256": {
+        "tests/test_more.py": "c7c87a4a99c16059ce3e6400ce86ef2a3c6c5d84dcfba0e04783136a84f2ed03",
+        "tests/test_recipes.py": "3bd29d44e99492ea8d720593fa0778b35edd933321de18dc6ebf8f24192a6dc4"
+      }
+    }
+  ],
+  "selector_sha256": "057da4d3ef13be32dcda6dc7865965992b589aaacf69401bd5faea0619c49c60",
+  "harness_sha256": "4bfe92f530d4592efb81d31c8509e6ea5f52d14965d8a95aa6542ad2f9d7ec6c",
+  "scope": "Two convenience-selected small fixes; not a held-out benchmark or real-agent experiment."
+}

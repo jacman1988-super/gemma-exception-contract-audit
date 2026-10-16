@@ -1,0 +1,34 @@
+Local upstream extension — Jacek Adamek — 2026-10-16
+
+Do not rerun in this output directory: protocols and original responses must
+remain preserved. Copy the scripts into a fresh sibling directory for reruns.
+Use workspace Python and put work/python-packages and work/solar-ml-packages
+on PYTHONPATH. Test dependency added: tomli-w==1.2.0. No paid services.
+
+1. fetch.py downloads pinned fixed/parent archives and records archive SHA256,
+   upstream metadata, test hashes, and licenses in work/new-upstream-v2.
+   Symlinks are deliberately not extracted; path traversal is rejected.
+2. benchmark.py prepare freezes cases before outcomes and runs fixed tests
+   against fixed sources and the parent sources. A missing test dependency
+   is recorded separately by repair_environment.py, without replacing cases.
+3. benchmark.py generate freezes exact prompts and records the original
+   sandbox timeouts. run_environment_fixed.py repeats identical prompts
+   outside the sandbox after the neutral diagnose_runtime.py failure and a
+   successful neutral external run. Local inference only, same GGUF hash.
+4. Read generated JSON edits before allowing any execution. edit-review.json
+   records the two exact replacements and their generation hashes. It approves
+   safe local execution, not correctness. No generated command is executed.
+5. evaluate.py runs fixed, parent, and manually reviewed model variants in
+   fresh isolated directories. Each variant runs the complete declared changed
+   test module and additional withheld controls. It checks JUnit identities,
+   exact reference counts, failures, errors, skips, and process consistency
+   with the existing fail-closed validation_report.py.
+6. report.py produces summary.json and Wyniki-Gemma.txt. No uploaded paper,
+   published repository, Kaggle writeup, or submission is changed.
+
+Interpretation: two public convenience cases with oracle source localization
+and detailed public commit descriptions. Additional controls were written
+after reference outcomes, before reading generated responses. Retain all
+environment failures and both model failures. Neither case is itself a new
+exception-contract task. Do not pool this extension with the templated ECA6
+resource as an unbiased general success rate.

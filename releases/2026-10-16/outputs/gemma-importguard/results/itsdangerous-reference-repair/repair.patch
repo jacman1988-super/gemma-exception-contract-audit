@@ -1,0 +1,11 @@
+--- a/src/itsdangerous/timed.py
++++ b/src/itsdangerous/timed.py
+@@ -127,7 +127,7 @@
+             if ts_int is not None:
+                 try:
+                     ts_dt = self.timestamp_to_datetime(ts_int)
+-                except ValueError as exc:
++                except (ValueError, OSError) as exc:
+                     raise BadTimeSignature(
+                         "Malformed timestamp", payload=value
+                     ) from exc

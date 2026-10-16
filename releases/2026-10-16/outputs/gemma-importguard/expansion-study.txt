@@ -1,0 +1,86 @@
+Frozen expansion: five prospective cases from two new repositories
+14 October 2026. Local development study, not a general performance estimate.
+
+The selector is frozen at the exact hash in results/expansion/protocol.json.
+Neither it nor its parameters changed after outcomes. Five cases and bounded
+test-module pools were written before test execution. They came from cachetools
+and jmespath, which were not used to develop alias handling. Selection was by
+convenience, commit descriptions, included test changes and dependency review,
+not randomized repository sampling. Cachetools accounts for three cases, so
+the observations are not five independent repository samples.
+
+Primary assessment, Windows default text encoding:
+case                    fixed reference      parent with fixed tests
+cachetools-empty        113 passed           1 failed, 112 passed
+cachetools-growth       100 passed           4 failed, 96 passed
+cachetools-stale         88 passed           1 failed, 87 passed
+jmespath-float          collection failure   not assessed in this primary run
+jmespath-functions       9 passed, 1 skipped same passes; bug not reproduced
+
+All five selected cases remain in the record. Failed or uninformative cases
+were not replaced. The legacy functions case's declared upstream tests did
+not distinguish parent and fixed production code; this does not establish that
+the historical defect was absent. The float case failed to read UTF-8 fixture
+data under the Windows locale, before testing model or selector quality.
+
+After inspecting that environment failure, a separately recorded compatibility
+follow-up set PYTHONUTF8=1, without changing source or selector. Its fixed float
+reference passes 952 tests with one skipped; parent code gives four failures,
+948 passes and one skipped. This secondary result does not replace the primary
+failure. The follow-up protocol was recorded before its test execution.
+
+Selector outcomes:
+- Three primary reproduced cachetools cases: fallback selects all 12 declared
+  module runs, detecting all three faults. Changed source is package __init__.py,
+  so this is expected from the package-initialization fallback policy.
+- The no-fallback ablation selects zero modules in those src-layout cases: the
+  current graph treats src as part of a module name. This is a limitation of the
+  frozen implementation, not a useful test-cost saving or evidence of safety.
+- In the secondary float case both modes select all three declared modules and
+  detect the defect through the existing import graph. No module-count saving.
+No source-layout or fallback correction was applied to improve these outcomes.
+
+Actual model assessment:
+Only reproduced cases were eligible. One local Gemma E2B generation per case,
+same frozen revision, 2048 context, 192 output-token cap, temperature 0, seed
+20261014, two CPU threads, reasoning off, no retry. Exact prompts and outputs
+are in expansion-model/ and expansion-model-utf8/. Localized buggy functions
+were selected using old diff hunk coordinates. Public commit messages, which
+can explain the intended fix, were supplied. Added/deleted gold patch text and
+test source were not supplied. This is oracle-assisted repair, not independent
+bug localization or contamination-free autonomous issue solving.
+
+After inspection, exact edits were applied without repairs:
+- empty cache: wrong exception handling; 1 failure, 112 passes remain.
+- growing value: get() access on an internal helper adds regressions;
+  10 failures, 90 passes.
+- expired overwrite: changes a later bookkeeping block without resolving the
+  expired entry; 1 failure, 87 passes remain.
+- secondary float case: identical old/new function, no change. The actual
+  unchanged-parent failure is reused and marked; no redundant test is claimed.
+All three primary proposals remain unresolved. The secondary proposal is also
+unresolved. These separate denominators must not be collapsed into a general
+model success rate. No extra sample was drawn to replace these failures.
+
+Licensing: cachetools is MIT, Thomas Kemmer and contributors; jmespath is MIT,
+Amazon.com and contributors. Full license texts are beside each protocol.
+Third-party source, regression tests and fixes are not original ImportGuard
+contributions. Model/runtime binaries and complete upstream archives stay out
+of the source release. Dataset/code acquisition uses official public sources.
+
+Reproduce acquisition from this project directory:
+python fetch_pilot.py /path/to/expansion-data --manifest results/expansion/protocol.json
+Install optional requirements-pilot.txt before running pytest.
+Run primary selector assessment with the preserved frozen protocol:
+python expansion_benchmark.py evaluate /path/to/expansion-data /path/to/scratch results/expansion
+For a fresh record use a copied project/protocol directory; evaluation overwrites
+results.json. Keep primary Windows locale settings for the primary reproduction.
+For the recorded secondary protocol, set PYTHONUTF8=1 and use results/expansion-utf8.
+Use expansion_model.py with a fresh output directory for explicit new inference.
+Model output is never executed by the generator. The separate evaluator accepts
+only exact edits recorded after inspection, with output hashes pinned.
+
+No competition entry, external publication or paid service was invoked.
+The research draft is updated to include these negative outcomes. A larger,
+representative and adequately controlled study, stronger baselines and a novel
+contribution remain necessary before a competitive paper submission.

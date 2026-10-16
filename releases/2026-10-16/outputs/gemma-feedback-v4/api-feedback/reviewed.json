@@ -1,0 +1,18 @@
+{
+  "edits": [
+    {
+      "file": "src/packaging/pylock.py",
+      "function": "is_valid_pylock_path",
+      "literal_function": "def is_valid_pylock_path(path: Path) -> bool:\n    \"\"\"Check if the given path is a valid pylock file path.\"\"\"\n    return bool(_PYLOCK_FILE_NAME_RE.fullmatch(path.name))",
+      "ignored_module_context": [
+        "Import",
+        "ImportFrom",
+        "Assign"
+      ]
+    }
+  ],
+  "generation_sha256": "3a5e97515c04b043437ad4b014b3bac56db68336cb33bca8a0d1eea25d2a008d",
+  "function_only_context_policy": "bd40bd06da27ede206a0b5b088b501033cb568f877df640af88786bc27a86bef",
+  "approved": true,
+  "manual_review": "Literal function only: match changed to fullmatch; no imports, commands or I/O in function. Context ignored under recorded policy. Model generation completed and JSON saved before console Unicode print failed; no regeneration."
+}

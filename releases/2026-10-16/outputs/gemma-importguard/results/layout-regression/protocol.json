@@ -1,0 +1,14 @@
+{
+  "kind": "post-outcome_regression_check",
+  "source_roots": [
+    "src"
+  ],
+  "variant_sha256": "df2f0490dd915f1ef90dad3b1842655a7649bb5e63712ab6572d57bf066a45e4",
+  "unchanged_frozen_selector_sha256": "057da4d3ef13be32dcda6dc7865965992b589aaacf69401bd5faea0619c49c60",
+  "cases": [
+    "cachetools-empty",
+    "cachetools-growth",
+    "cachetools-stale"
+  ],
+  "scope": "These cases revealed the source-layout issue. Reusing them checks the correction; it is not independent evidence or a scientific performance gain."
+}

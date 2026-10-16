@@ -1,0 +1,22 @@
+{
+  "results": [
+    {
+      "id": "boltons-indexedset",
+      "returncode": null,
+      "stdout": "",
+      "stderr": "",
+      "timed_out": true,
+      "seconds": 300.26889389999997
+    },
+    {
+      "id": "more-itertools-bucket",
+      "returncode": null,
+      "stdout": "",
+      "stderr": "",
+      "timed_out": true,
+      "seconds": 300.2404334000021
+    }
+  ],
+  "applied": false,
+  "submitted": false
+}

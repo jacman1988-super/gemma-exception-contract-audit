@@ -1,0 +1,13 @@
+{
+  "model_url": "https://huggingface.co/google/gemma-4-E2B-it-qat-q4_0-gguf/resolve/675cff42a74c774d6cb76f76d8eacb49b48c9b93/gemma-4-E2B_q4_0-it.gguf",
+  "model_sha256": "fa401b55b07ee70a54c6dae3903c783a6e65064312529ea57175cb5f8dec6634",
+  "license": "Apache-2.0 (official Google model card)",
+  "runtime_url": "https://github.com/ggml-org/llama.cpp/releases/download/b11429/llama-b11429-bin-win-cpu-x64.zip",
+  "runtime_archive_sha256": "1283323272b04cd07905816a597a0da810918102de958f4ff6f7bbaa70ed2efe",
+  "runtime_license": "MIT",
+  "weights_and_binaries_redistributed": false,
+  "prompt_source_licenses": {
+    "boltons-indexedset": "BSD-3-Clause",
+    "more-itertools-bucket": "MIT"
+  }
+}

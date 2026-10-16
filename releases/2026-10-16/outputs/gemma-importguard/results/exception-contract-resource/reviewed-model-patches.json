@@ -1,0 +1,77 @@
+{
+  "cases": [
+    {
+      "id": "os_bytes",
+      "accepted_for_execution": true,
+      "reviewed_by": "Codex after inspecting all six complete outputs; not participant publication approval",
+      "review": "Only repair body changes; catches declared exception, preserves payload/stamp/chaining in displayed code. Extra branches/message changes are evaluated, not manually removed. No imports, filesystem, network or process operations.",
+      "edit": {
+        "old": "def repair(value, payload):\n    try:\n        return low_level(value)\n    except ValueError as exc:\n        raise ContractError(\"bad\", payload=payload, stamp=None) from exc",
+        "new": "def repair(value, payload):\n    try:\n        return low_level(value)\n    except (ValueError, OSError) as exc:\n        if isinstance(exc, OSError) and str(exc) == \"range\":\n            raise ContractError(\"out-of-range\", payload=payload, stamp=None) from exc\n        elif isinstance(exc, ValueError):\n            raise ContractError(\"bad\", payload=payload, stamp=None) from exc"
+      },
+      "output_sha256": "eba7514fe7b207107450c1b7791d7916078b570e072d6262fa17fded60eea59f",
+      "patched_sha256": "c7fdfc955feb267f873624aeec0d3242184c880df52e3d2ce2b9feed34da74f0"
+    },
+    {
+      "id": "overflow_mapping",
+      "accepted_for_execution": true,
+      "reviewed_by": "Codex after inspecting all six complete outputs; not participant publication approval",
+      "review": "Only repair body changes; catches declared exception, preserves payload/stamp/chaining in displayed code. Extra branches/message changes are evaluated, not manually removed. No imports, filesystem, network or process operations.",
+      "edit": {
+        "old": "def repair(value, payload):\n    try:\n        return low_level(value)\n    except ValueError as exc:\n        raise ContractError(\"bad\", payload=payload, stamp=None) from exc",
+        "new": "def repair(value, payload):\n    try:\n        return low_level(value)\n    except (ValueError, OverflowError) as exc:\n        if isinstance(exc, OverflowError):\n            raise ContractError(\"out-of-range\", payload=payload, stamp=None) from exc\n        raise ContractError(\"bad\", payload=payload, stamp=None) from exc"
+      },
+      "output_sha256": "61d6145bc50859ba0c0a92e230c4f377fa5c1265bac41528266264b08a0fe234",
+      "patched_sha256": "bf3aa540c3b07e97cbf8da6f1529e0911e9cd9cf3efc8a495789581fbdd6cbf4"
+    },
+    {
+      "id": "key_text",
+      "accepted_for_execution": true,
+      "reviewed_by": "Codex after inspecting all six complete outputs; not participant publication approval",
+      "review": "Only repair body changes; catches declared exception, preserves payload/stamp/chaining in displayed code. Extra branches/message changes are evaluated, not manually removed. No imports, filesystem, network or process operations.",
+      "edit": {
+        "old": "def repair(value, payload):\n    try:\n        return low_level(value)\n    except ValueError as exc:\n        raise ContractError(\"bad\", payload=payload, stamp=None) from exc",
+        "new": "def repair(value, payload):\n    try:\n        return low_level(value)\n    except (ValueError, KeyError) as exc:\n        if isinstance(exc, ValueError):\n            raise ContractError(\"bad\", payload=payload, stamp=None) from exc\n        elif isinstance(exc, KeyError):\n            raise ContractError(\"bad\", payload=payload, stamp=None) from exc\n        raise"
+      },
+      "output_sha256": "cd7af3d3abb7cc023aec68f69af8e22242573ac655b6aedfd4bca2b632aeccf1",
+      "patched_sha256": "69ae1841a3710784eb084d9a264a86c4d3ea114673004e13acd5efddc32083e5"
+    },
+    {
+      "id": "index_buffer",
+      "accepted_for_execution": true,
+      "reviewed_by": "Codex after inspecting all six complete outputs; not participant publication approval",
+      "review": "Only repair body changes; catches declared exception, preserves payload/stamp/chaining in displayed code. Extra branches/message changes are evaluated, not manually removed. No imports, filesystem, network or process operations.",
+      "edit": {
+        "old": "def repair(value, payload):\n    try:\n        return low_level(value)\n    except ValueError as exc:\n        raise ContractError(\"bad\", payload=payload, stamp=None) from exc",
+        "new": "def repair(value, payload):\n    try:\n        return low_level(value)\n    except (ValueError, IndexError) as exc:\n        if isinstance(exc, IndexError):\n            raise ContractError(\"out-of-range\", payload=payload, stamp=None) from exc\n        raise ContractError(\"bad\", payload=payload, stamp=None) from exc"
+      },
+      "output_sha256": "0b38af16a560f272d6c2a2a7dbdf8f40f656f94eed33068046dd5e270fba0afc",
+      "patched_sha256": "92bc26a09c0d73d78a120b3b991c0f5d024a91f91a1ae907e37af04352b84eee"
+    },
+    {
+      "id": "type_tuple",
+      "accepted_for_execution": true,
+      "reviewed_by": "Codex after inspecting all six complete outputs; not participant publication approval",
+      "review": "Only repair body changes; catches declared exception, preserves payload/stamp/chaining in displayed code. Extra branches/message changes are evaluated, not manually removed. No imports, filesystem, network or process operations.",
+      "edit": {
+        "old": "def repair(value, payload):\n    try:\n        return low_level(value)\n    except ValueError as exc:\n        raise ContractError(\"bad\", payload=payload, stamp=None) from exc",
+        "new": "def repair(value, payload):\n    try:\n        return low_level(value)\n    except (ValueError, TypeError) as exc:\n        if isinstance(exc, TypeError) and str(exc) == \"range\":\n            raise ContractError(\"out-of-range\", payload=payload, stamp=None) from exc\n        elif isinstance(exc, ValueError):\n            raise ContractError(\"out-of-range\", payload=payload, stamp=None) from exc\n        else:\n            raise ContractError(\"bad\", payload=payload, stamp=None) from exc"
+      },
+      "output_sha256": "e5e3f72f92282859a03c37331ff9bc27eba620dc9872dae1785e6a4422b3b268",
+      "patched_sha256": "319be5efc8733417039c2697089f719d2947e23d34b4e89959206f46eb080604"
+    },
+    {
+      "id": "division_list",
+      "accepted_for_execution": true,
+      "reviewed_by": "Codex after inspecting all six complete outputs; not participant publication approval",
+      "review": "Only repair body changes; catches declared exception, preserves payload/stamp/chaining in displayed code. Extra branches/message changes are evaluated, not manually removed. No imports, filesystem, network or process operations.",
+      "edit": {
+        "old": "def repair(value, payload):\n    try:\n        return low_level(value)\n    except ValueError as exc:\n        raise ContractError(\"bad\", payload=payload, stamp=None) from exc",
+        "new": "def repair(value, payload):\n    try:\n        return low_level(value)\n    except (ValueError, ZeroDivisionError) as exc:\n        if isinstance(exc, ZeroDivisionError):\n            raise ContractError(\"out-of-range\", payload=payload, stamp=None) from exc\n        raise ContractError(\"bad\", payload=payload, stamp=None) from exc"
+      },
+      "output_sha256": "028062fdabbedc2efe2f91aa1dd4b3b25c6aa8a903bf12fee222c98abc194114",
+      "patched_sha256": "2f0aa6bd16054cb098a10c9e38ff855c86b793e66893cdfc806fcca3fa3da1e7"
+    }
+  ],
+  "manual_corrections": false
+}

@@ -1,0 +1,832 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "model_used": null,
+  "cases": [
+    {
+      "id": "boltons-indexedset",
+      "status": "reproduced",
+      "fixed": {
+        "returncode": 0,
+        "modules": 3,
+        "seconds": 1.4878179999941494,
+        "stdout": "........................................................................ [ 97%]\n..                                                                       [100%]\n74 passed in 0.83s\n",
+        "stderr": ""
+      },
+      "selection": {
+        "selected": [
+          "tests/test_cacheutils.py",
+          "tests/test_debugutils_trace.py",
+          "tests/test_dictutils.py",
+          "tests/test_ecoutils.py",
+          "tests/test_fileutils.py",
+          "tests/test_formatutils.py",
+          "tests/test_funcutils.py",
+          "tests/test_funcutils_fb.py",
+          "tests/test_funcutils_fb_py3.py",
+          "tests/test_gcutils.py",
+          "tests/test_ioutils.py",
+          "tests/test_iterutils.py",
+          "tests/test_jsonutils.py",
+          "tests/test_listutils.py",
+          "tests/test_mathutils.py",
+          "tests/test_namedutils.py",
+          "tests/test_pathutils.py",
+          "tests/test_queueutils.py",
+          "tests/test_setutils.py",
+          "tests/test_socketutils.py",
+          "tests/test_statsutils.py",
+          "tests/test_statsutils_histogram.py",
+          "tests/test_strutils.py",
+          "tests/test_tableutils.py",
+          "tests/test_tbutils.py",
+          "tests/test_tbutils_parsed_exc.py",
+          "tests/test_timeutils.py",
+          "tests/test_typeutils.py",
+          "tests/test_urlutils.py"
+        ],
+        "static_selected": [
+          "tests/test_setutils.py"
+        ],
+        "total_tests": 29,
+        "fallback": true,
+        "reasons": [
+          "dynamic execution/import: boltons/funcutils.py",
+          "dynamic execution/import: boltons/namedutils.py",
+          "dynamic execution/import: docs/conf.py",
+          "dynamic execution/import: tests/test_funcutils_fb_py3.py"
+        ],
+        "changed": [
+          "boltons/setutils.py"
+        ],
+        "source_sha256": {
+          "boltons/__init__.py": "57d162d009438f94f8bc71c8b527fc963eb951066f890c97730d4adc27f2c160",
+          "boltons/cacheutils.py": "cb22998f46013d91c96b28e141bfc75de274f793e384b3db9a9db59b0c820ea5",
+          "boltons/debugutils.py": "e701ab82126836aa661f7e9272a9a8b339814ae602977b47213f0aebacfda283",
+          "boltons/deprutils.py": "d8f2c0fdce9d8276466127f093771e1a0a8844bcd1bd92e6880f30d2782e0151",
+          "boltons/dictutils.py": "6319c07cb68f18c2bfc01aa4393d0423463cf5d6357f229173d2d1e485e7b656",
+          "boltons/easterutils.py": "1bfc6e9e05606689ab4087b00585c183ff4fcc4eb4a423f9be153a0be6818d40",
+          "boltons/ecoutils.py": "ce3663d4e772fe871c17dcd0847717f8a610616a6b0141106564bedc5ab8a3b6",
+          "boltons/excutils.py": "6a2eddd26f46dbdceeda125bd20379d52ffc98a941fe867e3434d17b93119957",
+          "boltons/fileutils.py": "0c2025cf1e649eabd511a84303b491c19ea59cdcac2f958f9a90b7e39e0a8b0e",
+          "boltons/formatutils.py": "15c7963d5c97b11ec7a419e9e4aec7c20ca765bcf701306510c9c57c7eaeb1a4",
+          "boltons/funcutils.py": "f290815c9dbe5c4d73ade849935dfb2814411a89aeff89c7afef60c7b3aaba72",
+          "boltons/gcutils.py": "e82a32093560c14bb8298532681a3338d2ec6f48d20ccf2f1a4496dd67a17f97",
+          "boltons/ioutils.py": "36727e503a7483d1f91efc7cd837e502dc4b560e1bff5f7f9e66cda09421b6bc",
+          "boltons/iterutils.py": "7fb67f49dc1d895051549b523c2e21161e3c1f4e21590fa7fd09039386d08510",
+          "boltons/jsonutils.py": "df39d7d0bde25e1470719b7cdc5fdde043458c560a081ecc5cefce7e6303f9b1",
+          "boltons/listutils.py": "7313a63eeec29e73d24f9d4a86d51cab3ed4231aa87bba937c6f576749211710",
+          "boltons/mathutils.py": "c4f32563bb0a9281d5b7a3770c661e5a3ae3c6c3ae2644f5ff0a608edce2d5e6",
+          "boltons/mboxutils.py": "426b5211f7b3ce6ee9d1c80d794b56d9544435865b48a016d1955cd0a1e0320d",
+          "boltons/namedutils.py": "0f5a4a0e196c7d918762928bfd9157c29d411a9d827ae7f45a53c43328887224",
+          "boltons/pathutils.py": "667a4bb46ed79f66af83b07fac419f3f91576c2e7ed404e11f28cd68b4645fbd",
+          "boltons/queueutils.py": "a60f04f5f27803429c7a79f3f51f9b286cba3bd997f122161f252c66ca0499bb",
+          "boltons/setutils.py": "aa806bb553ca1114e95d730fd7195c02e946db4eba03fc44927180dbb7bbc5bb",
+          "boltons/socketutils.py": "b2d5da2d58dd3d05c14153a83f36da928fe6285a4a44850c2eab9877c1959adc",
+          "boltons/statsutils.py": "b1e494927c70cbe0737ea8ec86b137fee141e2bd11c74ae70cfe7b5a31aedb2f",
+          "boltons/strutils.py": "942cf2e33492fa6eb48508d74cd96cf2545dec50c26a2ab361bbf81507317943",
+          "boltons/tableutils.py": "0f01e27d91ab37d322db529f3e08873feefcea822fdbf760262093b3e01524ff",
+          "boltons/tbutils.py": "7cd7fb1b7ce1873c37ee3053bb59d8166b671cf667013bd27e2fdbc52ab03e29",
+          "boltons/timeutils.py": "27f8f2999b698a3e6064f24b1ff312ef86358592a503ad2c0c5b4fd265ff430c",
+          "boltons/typeutils.py": "4da2b26d71386ee9010dfb52104e461ecba486ba5544a8cf50d9e26cd34e9c09",
+          "boltons/urlutils.py": "a887ad3d6b4edaf12724d52063f25ec176b202ade6bcfe114964a6ff7a5968c4",
+          "docs/conf.py": "8a633a9176781b213eb2fa557205d4d4a2a63f415e38cf99a81181c5c9a40af7",
+          "misc/bench_omd.py": "86a29952b3dfc1002f3311166e35bea0090f7459dc02a40712332a033677700b",
+          "misc/linkify_changelog.py": "4abda6ffb41a90de9a4056aabf62e0225bb91431d6fa36429efbb431ffd5feba",
+          "misc/table_html_app.py": "f401a03dc79d9e3ed9328962bf0ad3aa768223a4455f45af275445656c5105cc",
+          "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "tests/conftest.py": "91934bf3791e19404372fe5a9aeb4470c2f0bc3afb592eb2df2f6ffca1df1a2a",
+          "tests/test_cacheutils.py": "11a940de1b4a23d883b2efaacf1ade3b522f1b8ada5ca308de970fa02cc2ebb0",
+          "tests/test_debugutils_trace.py": "b4235e0cfbc84ae1dd0a423590a8901b6eaa46d41e8e1e342c2693887fa4ce55",
+          "tests/test_dictutils.py": "25fc6f2a8cdb0dbe33047f44f315d6f4a8a18e90dfe246efc66c282d9901993b",
+          "tests/test_ecoutils.py": "6be5be5abda19fdb8af07d98454659c2619f0e4afdfe4fe8606e61157b286ff7",
+          "tests/test_fileutils.py": "7eafa18f331092063a3a404b5fbf178a3f132ff12406271c8f29fbb2a4571975",
+          "tests/test_formatutils.py": "7dcee16a8e23f6a78311af4f7d91c5621a5988f00b92133cde258e5714441c7e",
+          "tests/test_funcutils.py": "d1ff81590f22afe49ef2752a16cc59a59eaa880e44aed182c9d8a5bf1035df4c",
+          "tests/test_funcutils_fb.py": "f2ef41088d5cbdd676cb33dfd005a45468230460a313045c26644f016d00b099",
+          "tests/test_funcutils_fb_py3.py": "3c9ba54104aa3804170aae3ac03f684641f48e29072714edf9600ce4e522a005",
+          "tests/test_gcutils.py": "af77f6b9954a8eab25359846fa7feb3af5089b1afced1dd21c02f58e4e213df9",
+          "tests/test_ioutils.py": "b6248a0d49a8610915acb1907d3c5f5e0540d281f23a51f7f9ccb8802c0491db",
+          "tests/test_iterutils.py": "53e87f22a9d57f742a295af65f69fd4c374bf40f917a6cd807e4c2f26a833263",
+          "tests/test_jsonutils.py": "5aec85863e3237d4f1e34ed7d42d38091160ceec0c8ab69f3af0c2dcd806e447",
+          "tests/test_listutils.py": "21bead34c671f15b551da485af6d96ef7d07b360592a044acaac296a89e93a2f",
+          "tests/test_mathutils.py": "4ebade6be193eec32db47e6f329816e335bf7d462acbe4874b4b811699a9df32",
+          "tests/test_namedutils.py": "bfbe635be39c1cdc0b58a23a80ea990967559eb3dfebceb719c02c4be0f62bec",
+          "tests/test_pathutils.py": "b86c0dc75f767c2a7525716ac4a47ae010c000f5575865e24f05ba96e10a5b7d",
+          "tests/test_queueutils.py": "e7140dcde4a96340ce29cfba5c26ee0a3a0e380b145d4e8b848a1970b374062c",
+          "tests/test_setutils.py": "645ec71bf7f955c4b9ed478e55b3aacd509dd35e0d78b33cb31ce30f26281613",
+          "tests/test_socketutils.py": "edfead38b00d1133b7cb33cd72cb411a3cfeb384137a206cd7db7e5d142b9cd5",
+          "tests/test_statsutils.py": "b7fdc1c7a5536f58c9a828aa199d4f56cc77e3d7541ccb6f87c0f90782a79b7f",
+          "tests/test_statsutils_histogram.py": "9d91f83fe983c91823ffb61595bb6e91785ddbf36bb5385b99f62a75ae4c263a",
+          "tests/test_strutils.py": "751244c8b604f8dda320f58ac328a749bcd8dfa80a64426d371a71b74defc43f",
+          "tests/test_tableutils.py": "7b33dc0aad2fdc9d95703646e900ca421f011014aa177f117cde86b85de75394",
+          "tests/test_tbutils.py": "c1a9d5ef6303d55f51484517d7fa6b820adbd38e0777d474ccf5114b3feb5d3a",
+          "tests/test_tbutils_parsed_exc.py": "77f79a73c04b0d605ca2f50174a2ee432c301c69eeba6f8a70f43da0a0a43626",
+          "tests/test_timeutils.py": "1234f5343aeab73889559a6100c677a6d55f786155b6c01eaf0bc71a3144dedb",
+          "tests/test_typeutils.py": "e8b3f2187ff3dffc3151f33667e9baba6e33b72f134c0383968db649e0a19661",
+          "tests/test_urlutils.py": "369c4c90ed0801b5cdcc90832dcff55bf7a917f0eae4f442c988a86e97906aaa"
+        },
+        "limitations": "Static imports only; plugins, reflection and runtime monkeypatching may escape detection."
+      },
+      "choices": {
+        "full_declared_pool": [
+          "tests/test_setutils.py",
+          "tests/test_iterutils.py",
+          "tests/test_listutils.py"
+        ],
+        "imports_fallback": [
+          "tests/test_iterutils.py",
+          "tests/test_listutils.py",
+          "tests/test_setutils.py"
+        ],
+        "imports_no_fallback": [
+          "tests/test_setutils.py"
+        ]
+      },
+      "runs": {
+        "full_declared_pool": {
+          "returncode": 1,
+          "modules": 3,
+          "seconds": 1.3495315999971353,
+          "stdout": "............................................................FFFF........ [ 97%]\n..                                                                       [100%]\n================================== FAILURES ===================================\n______________ test_indexed_set_update_multiple_iterables[list] _______________\ntests\\test_setutils.py:35: in test_indexed_set_update_multiple_iterables\n    result = items.update(iterable_type([2, 1, 3]), iterable_type([]),\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n______________ test_indexed_set_update_multiple_iterables[tuple] ______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, (2, 1, 3), (), (3, 4, 2)] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: (2, 1, 3) != 2\nE     Use -v to get more diff\n______________ test_indexed_set_update_multiple_iterables[iter] _______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, <list_ite...01C7B735C220>] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: <list_iterator object at 0x000001C7B735DA80> != 2\nE     Use -v to get more diff\n_________ test_indexed_set_update_multiple_iterables_with_tuple_items _________\ntests\\test_setutils.py:45: in test_indexed_set_update_multiple_iterables_with_tuple_items\n    items.update([(1, 2)], [(3, 4), (1, 2)])\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n=========================== short test summary info ===========================\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[list]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[tuple]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[iter]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables_with_tuple_items\n4 failed, 70 passed in 0.83s\n",
+          "stderr": ""
+        },
+        "imports_fallback": {
+          "returncode": 1,
+          "modules": 3,
+          "seconds": 1.3495315999971353,
+          "stdout": "............................................................FFFF........ [ 97%]\n..                                                                       [100%]\n================================== FAILURES ===================================\n______________ test_indexed_set_update_multiple_iterables[list] _______________\ntests\\test_setutils.py:35: in test_indexed_set_update_multiple_iterables\n    result = items.update(iterable_type([2, 1, 3]), iterable_type([]),\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n______________ test_indexed_set_update_multiple_iterables[tuple] ______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, (2, 1, 3), (), (3, 4, 2)] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: (2, 1, 3) != 2\nE     Use -v to get more diff\n______________ test_indexed_set_update_multiple_iterables[iter] _______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, <list_ite...01C7B735C220>] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: <list_iterator object at 0x000001C7B735DA80> != 2\nE     Use -v to get more diff\n_________ test_indexed_set_update_multiple_iterables_with_tuple_items _________\ntests\\test_setutils.py:45: in test_indexed_set_update_multiple_iterables_with_tuple_items\n    items.update([(1, 2)], [(3, 4), (1, 2)])\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n=========================== short test summary info ===========================\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[list]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[tuple]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[iter]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables_with_tuple_items\n4 failed, 70 passed in 0.83s\n",
+          "stderr": ""
+        },
+        "imports_no_fallback": {
+          "returncode": 1,
+          "modules": 1,
+          "seconds": 0.8447745999947074,
+          "stdout": "..FFFF..........                                                         [100%]\n================================== FAILURES ===================================\n______________ test_indexed_set_update_multiple_iterables[list] _______________\ntests\\test_setutils.py:35: in test_indexed_set_update_multiple_iterables\n    result = items.update(iterable_type([2, 1, 3]), iterable_type([]),\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n______________ test_indexed_set_update_multiple_iterables[tuple] ______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, (2, 1, 3), (), (3, 4, 2)] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: (2, 1, 3) != 2\nE     Use -v to get more diff\n______________ test_indexed_set_update_multiple_iterables[iter] _______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, <list_ite...01E31C9BD570>] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: <list_iterator object at 0x000001E31C9BDA20> != 2\nE     Use -v to get more diff\n_________ test_indexed_set_update_multiple_iterables_with_tuple_items _________\ntests\\test_setutils.py:45: in test_indexed_set_update_multiple_iterables_with_tuple_items\n    items.update([(1, 2)], [(3, 4), (1, 2)])\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n=========================== short test summary info ===========================\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[list]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[tuple]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[iter]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables_with_tuple_items\n4 failed, 12 passed in 0.30s\n",
+          "stderr": ""
+        }
+      },
+      "random_equal_budget": [
+        {
+          "seed": 0,
+          "selected": [
+            "tests/test_iterutils.py",
+            "tests/test_listutils.py",
+            "tests/test_setutils.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 3,
+            "seconds": 1.3495315999971353,
+            "stdout": "............................................................FFFF........ [ 97%]\n..                                                                       [100%]\n================================== FAILURES ===================================\n______________ test_indexed_set_update_multiple_iterables[list] _______________\ntests\\test_setutils.py:35: in test_indexed_set_update_multiple_iterables\n    result = items.update(iterable_type([2, 1, 3]), iterable_type([]),\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n______________ test_indexed_set_update_multiple_iterables[tuple] ______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, (2, 1, 3), (), (3, 4, 2)] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: (2, 1, 3) != 2\nE     Use -v to get more diff\n______________ test_indexed_set_update_multiple_iterables[iter] _______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, <list_ite...01C7B735C220>] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: <list_iterator object at 0x000001C7B735DA80> != 2\nE     Use -v to get more diff\n_________ test_indexed_set_update_multiple_iterables_with_tuple_items _________\ntests\\test_setutils.py:45: in test_indexed_set_update_multiple_iterables_with_tuple_items\n    items.update([(1, 2)], [(3, 4), (1, 2)])\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n=========================== short test summary info ===========================\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[list]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[tuple]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[iter]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables_with_tuple_items\n4 failed, 70 passed in 0.83s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 1,
+          "selected": [
+            "tests/test_iterutils.py",
+            "tests/test_listutils.py",
+            "tests/test_setutils.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 3,
+            "seconds": 1.3495315999971353,
+            "stdout": "............................................................FFFF........ [ 97%]\n..                                                                       [100%]\n================================== FAILURES ===================================\n______________ test_indexed_set_update_multiple_iterables[list] _______________\ntests\\test_setutils.py:35: in test_indexed_set_update_multiple_iterables\n    result = items.update(iterable_type([2, 1, 3]), iterable_type([]),\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n______________ test_indexed_set_update_multiple_iterables[tuple] ______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, (2, 1, 3), (), (3, 4, 2)] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: (2, 1, 3) != 2\nE     Use -v to get more diff\n______________ test_indexed_set_update_multiple_iterables[iter] _______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, <list_ite...01C7B735C220>] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: <list_iterator object at 0x000001C7B735DA80> != 2\nE     Use -v to get more diff\n_________ test_indexed_set_update_multiple_iterables_with_tuple_items _________\ntests\\test_setutils.py:45: in test_indexed_set_update_multiple_iterables_with_tuple_items\n    items.update([(1, 2)], [(3, 4), (1, 2)])\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n=========================== short test summary info ===========================\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[list]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[tuple]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[iter]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables_with_tuple_items\n4 failed, 70 passed in 0.83s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 2,
+          "selected": [
+            "tests/test_iterutils.py",
+            "tests/test_listutils.py",
+            "tests/test_setutils.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 3,
+            "seconds": 1.3495315999971353,
+            "stdout": "............................................................FFFF........ [ 97%]\n..                                                                       [100%]\n================================== FAILURES ===================================\n______________ test_indexed_set_update_multiple_iterables[list] _______________\ntests\\test_setutils.py:35: in test_indexed_set_update_multiple_iterables\n    result = items.update(iterable_type([2, 1, 3]), iterable_type([]),\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n______________ test_indexed_set_update_multiple_iterables[tuple] ______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, (2, 1, 3), (), (3, 4, 2)] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: (2, 1, 3) != 2\nE     Use -v to get more diff\n______________ test_indexed_set_update_multiple_iterables[iter] _______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, <list_ite...01C7B735C220>] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: <list_iterator object at 0x000001C7B735DA80> != 2\nE     Use -v to get more diff\n_________ test_indexed_set_update_multiple_iterables_with_tuple_items _________\ntests\\test_setutils.py:45: in test_indexed_set_update_multiple_iterables_with_tuple_items\n    items.update([(1, 2)], [(3, 4), (1, 2)])\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n=========================== short test summary info ===========================\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[list]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[tuple]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[iter]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables_with_tuple_items\n4 failed, 70 passed in 0.83s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 3,
+          "selected": [
+            "tests/test_iterutils.py",
+            "tests/test_listutils.py",
+            "tests/test_setutils.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 3,
+            "seconds": 1.3495315999971353,
+            "stdout": "............................................................FFFF........ [ 97%]\n..                                                                       [100%]\n================================== FAILURES ===================================\n______________ test_indexed_set_update_multiple_iterables[list] _______________\ntests\\test_setutils.py:35: in test_indexed_set_update_multiple_iterables\n    result = items.update(iterable_type([2, 1, 3]), iterable_type([]),\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n______________ test_indexed_set_update_multiple_iterables[tuple] ______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, (2, 1, 3), (), (3, 4, 2)] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: (2, 1, 3) != 2\nE     Use -v to get more diff\n______________ test_indexed_set_update_multiple_iterables[iter] _______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, <list_ite...01C7B735C220>] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: <list_iterator object at 0x000001C7B735DA80> != 2\nE     Use -v to get more diff\n_________ test_indexed_set_update_multiple_iterables_with_tuple_items _________\ntests\\test_setutils.py:45: in test_indexed_set_update_multiple_iterables_with_tuple_items\n    items.update([(1, 2)], [(3, 4), (1, 2)])\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n=========================== short test summary info ===========================\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[list]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[tuple]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[iter]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables_with_tuple_items\n4 failed, 70 passed in 0.83s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 4,
+          "selected": [
+            "tests/test_iterutils.py",
+            "tests/test_listutils.py",
+            "tests/test_setutils.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 3,
+            "seconds": 1.3495315999971353,
+            "stdout": "............................................................FFFF........ [ 97%]\n..                                                                       [100%]\n================================== FAILURES ===================================\n______________ test_indexed_set_update_multiple_iterables[list] _______________\ntests\\test_setutils.py:35: in test_indexed_set_update_multiple_iterables\n    result = items.update(iterable_type([2, 1, 3]), iterable_type([]),\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n______________ test_indexed_set_update_multiple_iterables[tuple] ______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, (2, 1, 3), (), (3, 4, 2)] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: (2, 1, 3) != 2\nE     Use -v to get more diff\n______________ test_indexed_set_update_multiple_iterables[iter] _______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, <list_ite...01C7B735C220>] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: <list_iterator object at 0x000001C7B735DA80> != 2\nE     Use -v to get more diff\n_________ test_indexed_set_update_multiple_iterables_with_tuple_items _________\ntests\\test_setutils.py:45: in test_indexed_set_update_multiple_iterables_with_tuple_items\n    items.update([(1, 2)], [(3, 4), (1, 2)])\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n=========================== short test summary info ===========================\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[list]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[tuple]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[iter]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables_with_tuple_items\n4 failed, 70 passed in 0.83s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 5,
+          "selected": [
+            "tests/test_iterutils.py",
+            "tests/test_listutils.py",
+            "tests/test_setutils.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 3,
+            "seconds": 1.3495315999971353,
+            "stdout": "............................................................FFFF........ [ 97%]\n..                                                                       [100%]\n================================== FAILURES ===================================\n______________ test_indexed_set_update_multiple_iterables[list] _______________\ntests\\test_setutils.py:35: in test_indexed_set_update_multiple_iterables\n    result = items.update(iterable_type([2, 1, 3]), iterable_type([]),\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n______________ test_indexed_set_update_multiple_iterables[tuple] ______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, (2, 1, 3), (), (3, 4, 2)] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: (2, 1, 3) != 2\nE     Use -v to get more diff\n______________ test_indexed_set_update_multiple_iterables[iter] _______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, <list_ite...01C7B735C220>] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: <list_iterator object at 0x000001C7B735DA80> != 2\nE     Use -v to get more diff\n_________ test_indexed_set_update_multiple_iterables_with_tuple_items _________\ntests\\test_setutils.py:45: in test_indexed_set_update_multiple_iterables_with_tuple_items\n    items.update([(1, 2)], [(3, 4), (1, 2)])\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n=========================== short test summary info ===========================\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[list]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[tuple]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[iter]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables_with_tuple_items\n4 failed, 70 passed in 0.83s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 6,
+          "selected": [
+            "tests/test_iterutils.py",
+            "tests/test_listutils.py",
+            "tests/test_setutils.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 3,
+            "seconds": 1.3495315999971353,
+            "stdout": "............................................................FFFF........ [ 97%]\n..                                                                       [100%]\n================================== FAILURES ===================================\n______________ test_indexed_set_update_multiple_iterables[list] _______________\ntests\\test_setutils.py:35: in test_indexed_set_update_multiple_iterables\n    result = items.update(iterable_type([2, 1, 3]), iterable_type([]),\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n______________ test_indexed_set_update_multiple_iterables[tuple] ______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, (2, 1, 3), (), (3, 4, 2)] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: (2, 1, 3) != 2\nE     Use -v to get more diff\n______________ test_indexed_set_update_multiple_iterables[iter] _______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, <list_ite...01C7B735C220>] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: <list_iterator object at 0x000001C7B735DA80> != 2\nE     Use -v to get more diff\n_________ test_indexed_set_update_multiple_iterables_with_tuple_items _________\ntests\\test_setutils.py:45: in test_indexed_set_update_multiple_iterables_with_tuple_items\n    items.update([(1, 2)], [(3, 4), (1, 2)])\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n=========================== short test summary info ===========================\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[list]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[tuple]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[iter]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables_with_tuple_items\n4 failed, 70 passed in 0.83s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 7,
+          "selected": [
+            "tests/test_iterutils.py",
+            "tests/test_listutils.py",
+            "tests/test_setutils.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 3,
+            "seconds": 1.3495315999971353,
+            "stdout": "............................................................FFFF........ [ 97%]\n..                                                                       [100%]\n================================== FAILURES ===================================\n______________ test_indexed_set_update_multiple_iterables[list] _______________\ntests\\test_setutils.py:35: in test_indexed_set_update_multiple_iterables\n    result = items.update(iterable_type([2, 1, 3]), iterable_type([]),\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n______________ test_indexed_set_update_multiple_iterables[tuple] ______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, (2, 1, 3), (), (3, 4, 2)] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: (2, 1, 3) != 2\nE     Use -v to get more diff\n______________ test_indexed_set_update_multiple_iterables[iter] _______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, <list_ite...01C7B735C220>] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: <list_iterator object at 0x000001C7B735DA80> != 2\nE     Use -v to get more diff\n_________ test_indexed_set_update_multiple_iterables_with_tuple_items _________\ntests\\test_setutils.py:45: in test_indexed_set_update_multiple_iterables_with_tuple_items\n    items.update([(1, 2)], [(3, 4), (1, 2)])\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n=========================== short test summary info ===========================\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[list]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[tuple]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[iter]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables_with_tuple_items\n4 failed, 70 passed in 0.83s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 8,
+          "selected": [
+            "tests/test_iterutils.py",
+            "tests/test_listutils.py",
+            "tests/test_setutils.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 3,
+            "seconds": 1.3495315999971353,
+            "stdout": "............................................................FFFF........ [ 97%]\n..                                                                       [100%]\n================================== FAILURES ===================================\n______________ test_indexed_set_update_multiple_iterables[list] _______________\ntests\\test_setutils.py:35: in test_indexed_set_update_multiple_iterables\n    result = items.update(iterable_type([2, 1, 3]), iterable_type([]),\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n______________ test_indexed_set_update_multiple_iterables[tuple] ______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, (2, 1, 3), (), (3, 4, 2)] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: (2, 1, 3) != 2\nE     Use -v to get more diff\n______________ test_indexed_set_update_multiple_iterables[iter] _______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, <list_ite...01C7B735C220>] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: <list_iterator object at 0x000001C7B735DA80> != 2\nE     Use -v to get more diff\n_________ test_indexed_set_update_multiple_iterables_with_tuple_items _________\ntests\\test_setutils.py:45: in test_indexed_set_update_multiple_iterables_with_tuple_items\n    items.update([(1, 2)], [(3, 4), (1, 2)])\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n=========================== short test summary info ===========================\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[list]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[tuple]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[iter]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables_with_tuple_items\n4 failed, 70 passed in 0.83s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 9,
+          "selected": [
+            "tests/test_iterutils.py",
+            "tests/test_listutils.py",
+            "tests/test_setutils.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 3,
+            "seconds": 1.3495315999971353,
+            "stdout": "............................................................FFFF........ [ 97%]\n..                                                                       [100%]\n================================== FAILURES ===================================\n______________ test_indexed_set_update_multiple_iterables[list] _______________\ntests\\test_setutils.py:35: in test_indexed_set_update_multiple_iterables\n    result = items.update(iterable_type([2, 1, 3]), iterable_type([]),\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n______________ test_indexed_set_update_multiple_iterables[tuple] ______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, (2, 1, 3), (), (3, 4, 2)] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: (2, 1, 3) != 2\nE     Use -v to get more diff\n______________ test_indexed_set_update_multiple_iterables[iter] _______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, <list_ite...01C7B735C220>] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: <list_iterator object at 0x000001C7B735DA80> != 2\nE     Use -v to get more diff\n_________ test_indexed_set_update_multiple_iterables_with_tuple_items _________\ntests\\test_setutils.py:45: in test_indexed_set_update_multiple_iterables_with_tuple_items\n    items.update([(1, 2)], [(3, 4), (1, 2)])\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n=========================== short test summary info ===========================\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[list]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[tuple]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[iter]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables_with_tuple_items\n4 failed, 70 passed in 0.83s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 10,
+          "selected": [
+            "tests/test_iterutils.py",
+            "tests/test_listutils.py",
+            "tests/test_setutils.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 3,
+            "seconds": 1.3495315999971353,
+            "stdout": "............................................................FFFF........ [ 97%]\n..                                                                       [100%]\n================================== FAILURES ===================================\n______________ test_indexed_set_update_multiple_iterables[list] _______________\ntests\\test_setutils.py:35: in test_indexed_set_update_multiple_iterables\n    result = items.update(iterable_type([2, 1, 3]), iterable_type([]),\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n______________ test_indexed_set_update_multiple_iterables[tuple] ______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, (2, 1, 3), (), (3, 4, 2)] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: (2, 1, 3) != 2\nE     Use -v to get more diff\n______________ test_indexed_set_update_multiple_iterables[iter] _______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, <list_ite...01C7B735C220>] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: <list_iterator object at 0x000001C7B735DA80> != 2\nE     Use -v to get more diff\n_________ test_indexed_set_update_multiple_iterables_with_tuple_items _________\ntests\\test_setutils.py:45: in test_indexed_set_update_multiple_iterables_with_tuple_items\n    items.update([(1, 2)], [(3, 4), (1, 2)])\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n=========================== short test summary info ===========================\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[list]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[tuple]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[iter]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables_with_tuple_items\n4 failed, 70 passed in 0.83s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 11,
+          "selected": [
+            "tests/test_iterutils.py",
+            "tests/test_listutils.py",
+            "tests/test_setutils.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 3,
+            "seconds": 1.3495315999971353,
+            "stdout": "............................................................FFFF........ [ 97%]\n..                                                                       [100%]\n================================== FAILURES ===================================\n______________ test_indexed_set_update_multiple_iterables[list] _______________\ntests\\test_setutils.py:35: in test_indexed_set_update_multiple_iterables\n    result = items.update(iterable_type([2, 1, 3]), iterable_type([]),\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n______________ test_indexed_set_update_multiple_iterables[tuple] ______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, (2, 1, 3), (), (3, 4, 2)] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: (2, 1, 3) != 2\nE     Use -v to get more diff\n______________ test_indexed_set_update_multiple_iterables[iter] _______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, <list_ite...01C7B735C220>] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: <list_iterator object at 0x000001C7B735DA80> != 2\nE     Use -v to get more diff\n_________ test_indexed_set_update_multiple_iterables_with_tuple_items _________\ntests\\test_setutils.py:45: in test_indexed_set_update_multiple_iterables_with_tuple_items\n    items.update([(1, 2)], [(3, 4), (1, 2)])\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n=========================== short test summary info ===========================\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[list]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[tuple]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[iter]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables_with_tuple_items\n4 failed, 70 passed in 0.83s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 12,
+          "selected": [
+            "tests/test_iterutils.py",
+            "tests/test_listutils.py",
+            "tests/test_setutils.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 3,
+            "seconds": 1.3495315999971353,
+            "stdout": "............................................................FFFF........ [ 97%]\n..                                                                       [100%]\n================================== FAILURES ===================================\n______________ test_indexed_set_update_multiple_iterables[list] _______________\ntests\\test_setutils.py:35: in test_indexed_set_update_multiple_iterables\n    result = items.update(iterable_type([2, 1, 3]), iterable_type([]),\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n______________ test_indexed_set_update_multiple_iterables[tuple] ______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, (2, 1, 3), (), (3, 4, 2)] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: (2, 1, 3) != 2\nE     Use -v to get more diff\n______________ test_indexed_set_update_multiple_iterables[iter] _______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, <list_ite...01C7B735C220>] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: <list_iterator object at 0x000001C7B735DA80> != 2\nE     Use -v to get more diff\n_________ test_indexed_set_update_multiple_iterables_with_tuple_items _________\ntests\\test_setutils.py:45: in test_indexed_set_update_multiple_iterables_with_tuple_items\n    items.update([(1, 2)], [(3, 4), (1, 2)])\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n=========================== short test summary info ===========================\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[list]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[tuple]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[iter]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables_with_tuple_items\n4 failed, 70 passed in 0.83s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 13,
+          "selected": [
+            "tests/test_iterutils.py",
+            "tests/test_listutils.py",
+            "tests/test_setutils.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 3,
+            "seconds": 1.3495315999971353,
+            "stdout": "............................................................FFFF........ [ 97%]\n..                                                                       [100%]\n================================== FAILURES ===================================\n______________ test_indexed_set_update_multiple_iterables[list] _______________\ntests\\test_setutils.py:35: in test_indexed_set_update_multiple_iterables\n    result = items.update(iterable_type([2, 1, 3]), iterable_type([]),\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n______________ test_indexed_set_update_multiple_iterables[tuple] ______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, (2, 1, 3), (), (3, 4, 2)] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: (2, 1, 3) != 2\nE     Use -v to get more diff\n______________ test_indexed_set_update_multiple_iterables[iter] _______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, <list_ite...01C7B735C220>] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: <list_iterator object at 0x000001C7B735DA80> != 2\nE     Use -v to get more diff\n_________ test_indexed_set_update_multiple_iterables_with_tuple_items _________\ntests\\test_setutils.py:45: in test_indexed_set_update_multiple_iterables_with_tuple_items\n    items.update([(1, 2)], [(3, 4), (1, 2)])\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n=========================== short test summary info ===========================\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[list]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[tuple]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[iter]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables_with_tuple_items\n4 failed, 70 passed in 0.83s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 14,
+          "selected": [
+            "tests/test_iterutils.py",
+            "tests/test_listutils.py",
+            "tests/test_setutils.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 3,
+            "seconds": 1.3495315999971353,
+            "stdout": "............................................................FFFF........ [ 97%]\n..                                                                       [100%]\n================================== FAILURES ===================================\n______________ test_indexed_set_update_multiple_iterables[list] _______________\ntests\\test_setutils.py:35: in test_indexed_set_update_multiple_iterables\n    result = items.update(iterable_type([2, 1, 3]), iterable_type([]),\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n______________ test_indexed_set_update_multiple_iterables[tuple] ______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, (2, 1, 3), (), (3, 4, 2)] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: (2, 1, 3) != 2\nE     Use -v to get more diff\n______________ test_indexed_set_update_multiple_iterables[iter] _______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, <list_ite...01C7B735C220>] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: <list_iterator object at 0x000001C7B735DA80> != 2\nE     Use -v to get more diff\n_________ test_indexed_set_update_multiple_iterables_with_tuple_items _________\ntests\\test_setutils.py:45: in test_indexed_set_update_multiple_iterables_with_tuple_items\n    items.update([(1, 2)], [(3, 4), (1, 2)])\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n=========================== short test summary info ===========================\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[list]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[tuple]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[iter]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables_with_tuple_items\n4 failed, 70 passed in 0.83s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 15,
+          "selected": [
+            "tests/test_iterutils.py",
+            "tests/test_listutils.py",
+            "tests/test_setutils.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 3,
+            "seconds": 1.3495315999971353,
+            "stdout": "............................................................FFFF........ [ 97%]\n..                                                                       [100%]\n================================== FAILURES ===================================\n______________ test_indexed_set_update_multiple_iterables[list] _______________\ntests\\test_setutils.py:35: in test_indexed_set_update_multiple_iterables\n    result = items.update(iterable_type([2, 1, 3]), iterable_type([]),\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n______________ test_indexed_set_update_multiple_iterables[tuple] ______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, (2, 1, 3), (), (3, 4, 2)] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: (2, 1, 3) != 2\nE     Use -v to get more diff\n______________ test_indexed_set_update_multiple_iterables[iter] _______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, <list_ite...01C7B735C220>] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: <list_iterator object at 0x000001C7B735DA80> != 2\nE     Use -v to get more diff\n_________ test_indexed_set_update_multiple_iterables_with_tuple_items _________\ntests\\test_setutils.py:45: in test_indexed_set_update_multiple_iterables_with_tuple_items\n    items.update([(1, 2)], [(3, 4), (1, 2)])\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n=========================== short test summary info ===========================\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[list]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[tuple]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[iter]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables_with_tuple_items\n4 failed, 70 passed in 0.83s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 16,
+          "selected": [
+            "tests/test_iterutils.py",
+            "tests/test_listutils.py",
+            "tests/test_setutils.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 3,
+            "seconds": 1.3495315999971353,
+            "stdout": "............................................................FFFF........ [ 97%]\n..                                                                       [100%]\n================================== FAILURES ===================================\n______________ test_indexed_set_update_multiple_iterables[list] _______________\ntests\\test_setutils.py:35: in test_indexed_set_update_multiple_iterables\n    result = items.update(iterable_type([2, 1, 3]), iterable_type([]),\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n______________ test_indexed_set_update_multiple_iterables[tuple] ______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, (2, 1, 3), (), (3, 4, 2)] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: (2, 1, 3) != 2\nE     Use -v to get more diff\n______________ test_indexed_set_update_multiple_iterables[iter] _______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, <list_ite...01C7B735C220>] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: <list_iterator object at 0x000001C7B735DA80> != 2\nE     Use -v to get more diff\n_________ test_indexed_set_update_multiple_iterables_with_tuple_items _________\ntests\\test_setutils.py:45: in test_indexed_set_update_multiple_iterables_with_tuple_items\n    items.update([(1, 2)], [(3, 4), (1, 2)])\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n=========================== short test summary info ===========================\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[list]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[tuple]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[iter]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables_with_tuple_items\n4 failed, 70 passed in 0.83s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 17,
+          "selected": [
+            "tests/test_iterutils.py",
+            "tests/test_listutils.py",
+            "tests/test_setutils.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 3,
+            "seconds": 1.3495315999971353,
+            "stdout": "............................................................FFFF........ [ 97%]\n..                                                                       [100%]\n================================== FAILURES ===================================\n______________ test_indexed_set_update_multiple_iterables[list] _______________\ntests\\test_setutils.py:35: in test_indexed_set_update_multiple_iterables\n    result = items.update(iterable_type([2, 1, 3]), iterable_type([]),\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n______________ test_indexed_set_update_multiple_iterables[tuple] ______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, (2, 1, 3), (), (3, 4, 2)] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: (2, 1, 3) != 2\nE     Use -v to get more diff\n______________ test_indexed_set_update_multiple_iterables[iter] _______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, <list_ite...01C7B735C220>] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: <list_iterator object at 0x000001C7B735DA80> != 2\nE     Use -v to get more diff\n_________ test_indexed_set_update_multiple_iterables_with_tuple_items _________\ntests\\test_setutils.py:45: in test_indexed_set_update_multiple_iterables_with_tuple_items\n    items.update([(1, 2)], [(3, 4), (1, 2)])\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n=========================== short test summary info ===========================\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[list]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[tuple]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[iter]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables_with_tuple_items\n4 failed, 70 passed in 0.83s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 18,
+          "selected": [
+            "tests/test_iterutils.py",
+            "tests/test_listutils.py",
+            "tests/test_setutils.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 3,
+            "seconds": 1.3495315999971353,
+            "stdout": "............................................................FFFF........ [ 97%]\n..                                                                       [100%]\n================================== FAILURES ===================================\n______________ test_indexed_set_update_multiple_iterables[list] _______________\ntests\\test_setutils.py:35: in test_indexed_set_update_multiple_iterables\n    result = items.update(iterable_type([2, 1, 3]), iterable_type([]),\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n______________ test_indexed_set_update_multiple_iterables[tuple] ______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, (2, 1, 3), (), (3, 4, 2)] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: (2, 1, 3) != 2\nE     Use -v to get more diff\n______________ test_indexed_set_update_multiple_iterables[iter] _______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, <list_ite...01C7B735C220>] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: <list_iterator object at 0x000001C7B735DA80> != 2\nE     Use -v to get more diff\n_________ test_indexed_set_update_multiple_iterables_with_tuple_items _________\ntests\\test_setutils.py:45: in test_indexed_set_update_multiple_iterables_with_tuple_items\n    items.update([(1, 2)], [(3, 4), (1, 2)])\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n=========================== short test summary info ===========================\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[list]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[tuple]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[iter]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables_with_tuple_items\n4 failed, 70 passed in 0.83s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 19,
+          "selected": [
+            "tests/test_iterutils.py",
+            "tests/test_listutils.py",
+            "tests/test_setutils.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 3,
+            "seconds": 1.3495315999971353,
+            "stdout": "............................................................FFFF........ [ 97%]\n..                                                                       [100%]\n================================== FAILURES ===================================\n______________ test_indexed_set_update_multiple_iterables[list] _______________\ntests\\test_setutils.py:35: in test_indexed_set_update_multiple_iterables\n    result = items.update(iterable_type([2, 1, 3]), iterable_type([]),\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n______________ test_indexed_set_update_multiple_iterables[tuple] ______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, (2, 1, 3), (), (3, 4, 2)] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: (2, 1, 3) != 2\nE     Use -v to get more diff\n______________ test_indexed_set_update_multiple_iterables[iter] _______________\ntests\\test_setutils.py:39: in test_indexed_set_update_multiple_iterables\n    assert list(items) == [1, 2, 3, 4]\nE   assert [1, <list_ite...01C7B735C220>] == [1, 2, 3, 4]\nE     \nE     At index 1 diff: <list_iterator object at 0x000001C7B735DA80> != 2\nE     Use -v to get more diff\n_________ test_indexed_set_update_multiple_iterables_with_tuple_items _________\ntests\\test_setutils.py:45: in test_indexed_set_update_multiple_iterables_with_tuple_items\n    items.update([(1, 2)], [(3, 4), (1, 2)])\nboltons\\setutils.py:368: in update\n    self.add(o)\nboltons\\setutils.py:252: in add\n    if item not in self.item_index_map:\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: unhashable type: 'list'\n=========================== short test summary info ===========================\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[list]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[tuple]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables[iter]\nFAILED tests/test_setutils.py::test_indexed_set_update_multiple_iterables_with_tuple_items\n4 failed, 70 passed in 0.83s\n",
+            "stderr": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "more-itertools-bucket",
+      "status": "reproduced",
+      "fixed": {
+        "returncode": 0,
+        "modules": 2,
+        "seconds": 20.85606310000003,
+        "stdout": "........................................................................ [  9%]\n........................................................................ [ 18%]\n........................................................................ [ 28%]\n........................................................................ [ 37%]\n........................................................................ [ 46%]\n........................................................................ [ 56%]\n........................................................................ [ 65%]\n........................................................................ [ 75%]\n........................................................................ [ 84%]\n........................................................................ [ 93%]\n................................................                         [100%]\n768 passed in 19.99s\n",
+        "stderr": ""
+      },
+      "selection": {
+        "selected": [
+          "tests/test_more.py",
+          "tests/test_recipes.py"
+        ],
+        "static_selected": [
+          "tests/test_more.py",
+          "tests/test_recipes.py"
+        ],
+        "total_tests": 2,
+        "fallback": true,
+        "reasons": [
+          "dynamic execution/import: more_itertools/more.py"
+        ],
+        "changed": [
+          "more_itertools/more.py"
+        ],
+        "source_sha256": {
+          "docs/conf.py": "2d0c0ec85ded2644cd2f6b48997aa722c7f5e729c398ccc0163b6be3c7819c08",
+          "more_itertools/__init__.py": "19cb2d318e8d45eb7d56136a55f1452c9469d21597571c31d752aa8232a2c07b",
+          "more_itertools/more.py": "bc51d6f1c05613084fb566a8310771ab946864f0bb4815d26d4c6bb8d44bf9ff",
+          "more_itertools/recipes.py": "ea9ac19767d3949d72bd0fc24f51aff33f24a693201b5d8e595a0d58ef8f4b1c",
+          "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "tests/test_more.py": "c7c87a4a99c16059ce3e6400ce86ef2a3c6c5d84dcfba0e04783136a84f2ed03",
+          "tests/test_recipes.py": "3bd29d44e99492ea8d720593fa0778b35edd933321de18dc6ebf8f24192a6dc4"
+        },
+        "limitations": "Static imports only; plugins, reflection and runtime monkeypatching may escape detection."
+      },
+      "choices": {
+        "full_declared_pool": [
+          "tests/test_more.py",
+          "tests/test_recipes.py"
+        ],
+        "imports_fallback": [
+          "tests/test_more.py",
+          "tests/test_recipes.py"
+        ],
+        "imports_no_fallback": [
+          "tests/test_more.py",
+          "tests/test_recipes.py"
+        ]
+      },
+      "runs": {
+        "full_declared_pool": {
+          "returncode": 1,
+          "modules": 2,
+          "seconds": 17.855502600003092,
+          "stdout": "........................................................................ [  9%]\n...................F.................................................... [ 18%]\n........................................................................ [ 28%]\n........................................................................ [ 37%]\n........................................................................ [ 46%]\n........................................................................ [ 56%]\n........................................................................ [ 65%]\n........................................................................ [ 75%]\n........................................................................ [ 84%]\n........................................................................ [ 93%]\n................................................                         [100%]\n================================== FAILURES ===================================\n________________ BucketTests.test_falsey_validator_is_honoured ________________\ntests\\test_more.py:1122: in test_falsey_validator_is_honoured\n    self.assertEqual(list(D[10]), [])\nE   AssertionError: Lists differ: [10] != []\nE   \nE   First list contains 1 additional elements.\nE   First extra element 0:\nE   10\nE   \nE   - [10]\nE   + []\n=========================== short test summary info ===========================\nFAILED tests/test_more.py::BucketTests::test_falsey_validator_is_honoured - A...\n1 failed, 767 passed in 17.18s\n",
+          "stderr": ""
+        },
+        "imports_fallback": {
+          "returncode": 1,
+          "modules": 2,
+          "seconds": 17.855502600003092,
+          "stdout": "........................................................................ [  9%]\n...................F.................................................... [ 18%]\n........................................................................ [ 28%]\n........................................................................ [ 37%]\n........................................................................ [ 46%]\n........................................................................ [ 56%]\n........................................................................ [ 65%]\n........................................................................ [ 75%]\n........................................................................ [ 84%]\n........................................................................ [ 93%]\n................................................                         [100%]\n================================== FAILURES ===================================\n________________ BucketTests.test_falsey_validator_is_honoured ________________\ntests\\test_more.py:1122: in test_falsey_validator_is_honoured\n    self.assertEqual(list(D[10]), [])\nE   AssertionError: Lists differ: [10] != []\nE   \nE   First list contains 1 additional elements.\nE   First extra element 0:\nE   10\nE   \nE   - [10]\nE   + []\n=========================== short test summary info ===========================\nFAILED tests/test_more.py::BucketTests::test_falsey_validator_is_honoured - A...\n1 failed, 767 passed in 17.18s\n",
+          "stderr": ""
+        },
+        "imports_no_fallback": {
+          "returncode": 1,
+          "modules": 2,
+          "seconds": 17.855502600003092,
+          "stdout": "........................................................................ [  9%]\n...................F.................................................... [ 18%]\n........................................................................ [ 28%]\n........................................................................ [ 37%]\n........................................................................ [ 46%]\n........................................................................ [ 56%]\n........................................................................ [ 65%]\n........................................................................ [ 75%]\n........................................................................ [ 84%]\n........................................................................ [ 93%]\n................................................                         [100%]\n================================== FAILURES ===================================\n________________ BucketTests.test_falsey_validator_is_honoured ________________\ntests\\test_more.py:1122: in test_falsey_validator_is_honoured\n    self.assertEqual(list(D[10]), [])\nE   AssertionError: Lists differ: [10] != []\nE   \nE   First list contains 1 additional elements.\nE   First extra element 0:\nE   10\nE   \nE   - [10]\nE   + []\n=========================== short test summary info ===========================\nFAILED tests/test_more.py::BucketTests::test_falsey_validator_is_honoured - A...\n1 failed, 767 passed in 17.18s\n",
+          "stderr": ""
+        }
+      },
+      "random_equal_budget": [
+        {
+          "seed": 0,
+          "selected": [
+            "tests/test_more.py",
+            "tests/test_recipes.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 2,
+            "seconds": 17.855502600003092,
+            "stdout": "........................................................................ [  9%]\n...................F.................................................... [ 18%]\n........................................................................ [ 28%]\n........................................................................ [ 37%]\n........................................................................ [ 46%]\n........................................................................ [ 56%]\n........................................................................ [ 65%]\n........................................................................ [ 75%]\n........................................................................ [ 84%]\n........................................................................ [ 93%]\n................................................                         [100%]\n================================== FAILURES ===================================\n________________ BucketTests.test_falsey_validator_is_honoured ________________\ntests\\test_more.py:1122: in test_falsey_validator_is_honoured\n    self.assertEqual(list(D[10]), [])\nE   AssertionError: Lists differ: [10] != []\nE   \nE   First list contains 1 additional elements.\nE   First extra element 0:\nE   10\nE   \nE   - [10]\nE   + []\n=========================== short test summary info ===========================\nFAILED tests/test_more.py::BucketTests::test_falsey_validator_is_honoured - A...\n1 failed, 767 passed in 17.18s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 1,
+          "selected": [
+            "tests/test_more.py",
+            "tests/test_recipes.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 2,
+            "seconds": 17.855502600003092,
+            "stdout": "........................................................................ [  9%]\n...................F.................................................... [ 18%]\n........................................................................ [ 28%]\n........................................................................ [ 37%]\n........................................................................ [ 46%]\n........................................................................ [ 56%]\n........................................................................ [ 65%]\n........................................................................ [ 75%]\n........................................................................ [ 84%]\n........................................................................ [ 93%]\n................................................                         [100%]\n================================== FAILURES ===================================\n________________ BucketTests.test_falsey_validator_is_honoured ________________\ntests\\test_more.py:1122: in test_falsey_validator_is_honoured\n    self.assertEqual(list(D[10]), [])\nE   AssertionError: Lists differ: [10] != []\nE   \nE   First list contains 1 additional elements.\nE   First extra element 0:\nE   10\nE   \nE   - [10]\nE   + []\n=========================== short test summary info ===========================\nFAILED tests/test_more.py::BucketTests::test_falsey_validator_is_honoured - A...\n1 failed, 767 passed in 17.18s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 2,
+          "selected": [
+            "tests/test_more.py",
+            "tests/test_recipes.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 2,
+            "seconds": 17.855502600003092,
+            "stdout": "........................................................................ [  9%]\n...................F.................................................... [ 18%]\n........................................................................ [ 28%]\n........................................................................ [ 37%]\n........................................................................ [ 46%]\n........................................................................ [ 56%]\n........................................................................ [ 65%]\n........................................................................ [ 75%]\n........................................................................ [ 84%]\n........................................................................ [ 93%]\n................................................                         [100%]\n================================== FAILURES ===================================\n________________ BucketTests.test_falsey_validator_is_honoured ________________\ntests\\test_more.py:1122: in test_falsey_validator_is_honoured\n    self.assertEqual(list(D[10]), [])\nE   AssertionError: Lists differ: [10] != []\nE   \nE   First list contains 1 additional elements.\nE   First extra element 0:\nE   10\nE   \nE   - [10]\nE   + []\n=========================== short test summary info ===========================\nFAILED tests/test_more.py::BucketTests::test_falsey_validator_is_honoured - A...\n1 failed, 767 passed in 17.18s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 3,
+          "selected": [
+            "tests/test_more.py",
+            "tests/test_recipes.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 2,
+            "seconds": 17.855502600003092,
+            "stdout": "........................................................................ [  9%]\n...................F.................................................... [ 18%]\n........................................................................ [ 28%]\n........................................................................ [ 37%]\n........................................................................ [ 46%]\n........................................................................ [ 56%]\n........................................................................ [ 65%]\n........................................................................ [ 75%]\n........................................................................ [ 84%]\n........................................................................ [ 93%]\n................................................                         [100%]\n================================== FAILURES ===================================\n________________ BucketTests.test_falsey_validator_is_honoured ________________\ntests\\test_more.py:1122: in test_falsey_validator_is_honoured\n    self.assertEqual(list(D[10]), [])\nE   AssertionError: Lists differ: [10] != []\nE   \nE   First list contains 1 additional elements.\nE   First extra element 0:\nE   10\nE   \nE   - [10]\nE   + []\n=========================== short test summary info ===========================\nFAILED tests/test_more.py::BucketTests::test_falsey_validator_is_honoured - A...\n1 failed, 767 passed in 17.18s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 4,
+          "selected": [
+            "tests/test_more.py",
+            "tests/test_recipes.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 2,
+            "seconds": 17.855502600003092,
+            "stdout": "........................................................................ [  9%]\n...................F.................................................... [ 18%]\n........................................................................ [ 28%]\n........................................................................ [ 37%]\n........................................................................ [ 46%]\n........................................................................ [ 56%]\n........................................................................ [ 65%]\n........................................................................ [ 75%]\n........................................................................ [ 84%]\n........................................................................ [ 93%]\n................................................                         [100%]\n================================== FAILURES ===================================\n________________ BucketTests.test_falsey_validator_is_honoured ________________\ntests\\test_more.py:1122: in test_falsey_validator_is_honoured\n    self.assertEqual(list(D[10]), [])\nE   AssertionError: Lists differ: [10] != []\nE   \nE   First list contains 1 additional elements.\nE   First extra element 0:\nE   10\nE   \nE   - [10]\nE   + []\n=========================== short test summary info ===========================\nFAILED tests/test_more.py::BucketTests::test_falsey_validator_is_honoured - A...\n1 failed, 767 passed in 17.18s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 5,
+          "selected": [
+            "tests/test_more.py",
+            "tests/test_recipes.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 2,
+            "seconds": 17.855502600003092,
+            "stdout": "........................................................................ [  9%]\n...................F.................................................... [ 18%]\n........................................................................ [ 28%]\n........................................................................ [ 37%]\n........................................................................ [ 46%]\n........................................................................ [ 56%]\n........................................................................ [ 65%]\n........................................................................ [ 75%]\n........................................................................ [ 84%]\n........................................................................ [ 93%]\n................................................                         [100%]\n================================== FAILURES ===================================\n________________ BucketTests.test_falsey_validator_is_honoured ________________\ntests\\test_more.py:1122: in test_falsey_validator_is_honoured\n    self.assertEqual(list(D[10]), [])\nE   AssertionError: Lists differ: [10] != []\nE   \nE   First list contains 1 additional elements.\nE   First extra element 0:\nE   10\nE   \nE   - [10]\nE   + []\n=========================== short test summary info ===========================\nFAILED tests/test_more.py::BucketTests::test_falsey_validator_is_honoured - A...\n1 failed, 767 passed in 17.18s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 6,
+          "selected": [
+            "tests/test_more.py",
+            "tests/test_recipes.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 2,
+            "seconds": 17.855502600003092,
+            "stdout": "........................................................................ [  9%]\n...................F.................................................... [ 18%]\n........................................................................ [ 28%]\n........................................................................ [ 37%]\n........................................................................ [ 46%]\n........................................................................ [ 56%]\n........................................................................ [ 65%]\n........................................................................ [ 75%]\n........................................................................ [ 84%]\n........................................................................ [ 93%]\n................................................                         [100%]\n================================== FAILURES ===================================\n________________ BucketTests.test_falsey_validator_is_honoured ________________\ntests\\test_more.py:1122: in test_falsey_validator_is_honoured\n    self.assertEqual(list(D[10]), [])\nE   AssertionError: Lists differ: [10] != []\nE   \nE   First list contains 1 additional elements.\nE   First extra element 0:\nE   10\nE   \nE   - [10]\nE   + []\n=========================== short test summary info ===========================\nFAILED tests/test_more.py::BucketTests::test_falsey_validator_is_honoured - A...\n1 failed, 767 passed in 17.18s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 7,
+          "selected": [
+            "tests/test_more.py",
+            "tests/test_recipes.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 2,
+            "seconds": 17.855502600003092,
+            "stdout": "........................................................................ [  9%]\n...................F.................................................... [ 18%]\n........................................................................ [ 28%]\n........................................................................ [ 37%]\n........................................................................ [ 46%]\n........................................................................ [ 56%]\n........................................................................ [ 65%]\n........................................................................ [ 75%]\n........................................................................ [ 84%]\n........................................................................ [ 93%]\n................................................                         [100%]\n================================== FAILURES ===================================\n________________ BucketTests.test_falsey_validator_is_honoured ________________\ntests\\test_more.py:1122: in test_falsey_validator_is_honoured\n    self.assertEqual(list(D[10]), [])\nE   AssertionError: Lists differ: [10] != []\nE   \nE   First list contains 1 additional elements.\nE   First extra element 0:\nE   10\nE   \nE   - [10]\nE   + []\n=========================== short test summary info ===========================\nFAILED tests/test_more.py::BucketTests::test_falsey_validator_is_honoured - A...\n1 failed, 767 passed in 17.18s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 8,
+          "selected": [
+            "tests/test_more.py",
+            "tests/test_recipes.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 2,
+            "seconds": 17.855502600003092,
+            "stdout": "........................................................................ [  9%]\n...................F.................................................... [ 18%]\n........................................................................ [ 28%]\n........................................................................ [ 37%]\n........................................................................ [ 46%]\n........................................................................ [ 56%]\n........................................................................ [ 65%]\n........................................................................ [ 75%]\n........................................................................ [ 84%]\n........................................................................ [ 93%]\n................................................                         [100%]\n================================== FAILURES ===================================\n________________ BucketTests.test_falsey_validator_is_honoured ________________\ntests\\test_more.py:1122: in test_falsey_validator_is_honoured\n    self.assertEqual(list(D[10]), [])\nE   AssertionError: Lists differ: [10] != []\nE   \nE   First list contains 1 additional elements.\nE   First extra element 0:\nE   10\nE   \nE   - [10]\nE   + []\n=========================== short test summary info ===========================\nFAILED tests/test_more.py::BucketTests::test_falsey_validator_is_honoured - A...\n1 failed, 767 passed in 17.18s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 9,
+          "selected": [
+            "tests/test_more.py",
+            "tests/test_recipes.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 2,
+            "seconds": 17.855502600003092,
+            "stdout": "........................................................................ [  9%]\n...................F.................................................... [ 18%]\n........................................................................ [ 28%]\n........................................................................ [ 37%]\n........................................................................ [ 46%]\n........................................................................ [ 56%]\n........................................................................ [ 65%]\n........................................................................ [ 75%]\n........................................................................ [ 84%]\n........................................................................ [ 93%]\n................................................                         [100%]\n================================== FAILURES ===================================\n________________ BucketTests.test_falsey_validator_is_honoured ________________\ntests\\test_more.py:1122: in test_falsey_validator_is_honoured\n    self.assertEqual(list(D[10]), [])\nE   AssertionError: Lists differ: [10] != []\nE   \nE   First list contains 1 additional elements.\nE   First extra element 0:\nE   10\nE   \nE   - [10]\nE   + []\n=========================== short test summary info ===========================\nFAILED tests/test_more.py::BucketTests::test_falsey_validator_is_honoured - A...\n1 failed, 767 passed in 17.18s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 10,
+          "selected": [
+            "tests/test_more.py",
+            "tests/test_recipes.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 2,
+            "seconds": 17.855502600003092,
+            "stdout": "........................................................................ [  9%]\n...................F.................................................... [ 18%]\n........................................................................ [ 28%]\n........................................................................ [ 37%]\n........................................................................ [ 46%]\n........................................................................ [ 56%]\n........................................................................ [ 65%]\n........................................................................ [ 75%]\n........................................................................ [ 84%]\n........................................................................ [ 93%]\n................................................                         [100%]\n================================== FAILURES ===================================\n________________ BucketTests.test_falsey_validator_is_honoured ________________\ntests\\test_more.py:1122: in test_falsey_validator_is_honoured\n    self.assertEqual(list(D[10]), [])\nE   AssertionError: Lists differ: [10] != []\nE   \nE   First list contains 1 additional elements.\nE   First extra element 0:\nE   10\nE   \nE   - [10]\nE   + []\n=========================== short test summary info ===========================\nFAILED tests/test_more.py::BucketTests::test_falsey_validator_is_honoured - A...\n1 failed, 767 passed in 17.18s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 11,
+          "selected": [
+            "tests/test_more.py",
+            "tests/test_recipes.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 2,
+            "seconds": 17.855502600003092,
+            "stdout": "........................................................................ [  9%]\n...................F.................................................... [ 18%]\n........................................................................ [ 28%]\n........................................................................ [ 37%]\n........................................................................ [ 46%]\n........................................................................ [ 56%]\n........................................................................ [ 65%]\n........................................................................ [ 75%]\n........................................................................ [ 84%]\n........................................................................ [ 93%]\n................................................                         [100%]\n================================== FAILURES ===================================\n________________ BucketTests.test_falsey_validator_is_honoured ________________\ntests\\test_more.py:1122: in test_falsey_validator_is_honoured\n    self.assertEqual(list(D[10]), [])\nE   AssertionError: Lists differ: [10] != []\nE   \nE   First list contains 1 additional elements.\nE   First extra element 0:\nE   10\nE   \nE   - [10]\nE   + []\n=========================== short test summary info ===========================\nFAILED tests/test_more.py::BucketTests::test_falsey_validator_is_honoured - A...\n1 failed, 767 passed in 17.18s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 12,
+          "selected": [
+            "tests/test_more.py",
+            "tests/test_recipes.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 2,
+            "seconds": 17.855502600003092,
+            "stdout": "........................................................................ [  9%]\n...................F.................................................... [ 18%]\n........................................................................ [ 28%]\n........................................................................ [ 37%]\n........................................................................ [ 46%]\n........................................................................ [ 56%]\n........................................................................ [ 65%]\n........................................................................ [ 75%]\n........................................................................ [ 84%]\n........................................................................ [ 93%]\n................................................                         [100%]\n================================== FAILURES ===================================\n________________ BucketTests.test_falsey_validator_is_honoured ________________\ntests\\test_more.py:1122: in test_falsey_validator_is_honoured\n    self.assertEqual(list(D[10]), [])\nE   AssertionError: Lists differ: [10] != []\nE   \nE   First list contains 1 additional elements.\nE   First extra element 0:\nE   10\nE   \nE   - [10]\nE   + []\n=========================== short test summary info ===========================\nFAILED tests/test_more.py::BucketTests::test_falsey_validator_is_honoured - A...\n1 failed, 767 passed in 17.18s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 13,
+          "selected": [
+            "tests/test_more.py",
+            "tests/test_recipes.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 2,
+            "seconds": 17.855502600003092,
+            "stdout": "........................................................................ [  9%]\n...................F.................................................... [ 18%]\n........................................................................ [ 28%]\n........................................................................ [ 37%]\n........................................................................ [ 46%]\n........................................................................ [ 56%]\n........................................................................ [ 65%]\n........................................................................ [ 75%]\n........................................................................ [ 84%]\n........................................................................ [ 93%]\n................................................                         [100%]\n================================== FAILURES ===================================\n________________ BucketTests.test_falsey_validator_is_honoured ________________\ntests\\test_more.py:1122: in test_falsey_validator_is_honoured\n    self.assertEqual(list(D[10]), [])\nE   AssertionError: Lists differ: [10] != []\nE   \nE   First list contains 1 additional elements.\nE   First extra element 0:\nE   10\nE   \nE   - [10]\nE   + []\n=========================== short test summary info ===========================\nFAILED tests/test_more.py::BucketTests::test_falsey_validator_is_honoured - A...\n1 failed, 767 passed in 17.18s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 14,
+          "selected": [
+            "tests/test_more.py",
+            "tests/test_recipes.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 2,
+            "seconds": 17.855502600003092,
+            "stdout": "........................................................................ [  9%]\n...................F.................................................... [ 18%]\n........................................................................ [ 28%]\n........................................................................ [ 37%]\n........................................................................ [ 46%]\n........................................................................ [ 56%]\n........................................................................ [ 65%]\n........................................................................ [ 75%]\n........................................................................ [ 84%]\n........................................................................ [ 93%]\n................................................                         [100%]\n================================== FAILURES ===================================\n________________ BucketTests.test_falsey_validator_is_honoured ________________\ntests\\test_more.py:1122: in test_falsey_validator_is_honoured\n    self.assertEqual(list(D[10]), [])\nE   AssertionError: Lists differ: [10] != []\nE   \nE   First list contains 1 additional elements.\nE   First extra element 0:\nE   10\nE   \nE   - [10]\nE   + []\n=========================== short test summary info ===========================\nFAILED tests/test_more.py::BucketTests::test_falsey_validator_is_honoured - A...\n1 failed, 767 passed in 17.18s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 15,
+          "selected": [
+            "tests/test_more.py",
+            "tests/test_recipes.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 2,
+            "seconds": 17.855502600003092,
+            "stdout": "........................................................................ [  9%]\n...................F.................................................... [ 18%]\n........................................................................ [ 28%]\n........................................................................ [ 37%]\n........................................................................ [ 46%]\n........................................................................ [ 56%]\n........................................................................ [ 65%]\n........................................................................ [ 75%]\n........................................................................ [ 84%]\n........................................................................ [ 93%]\n................................................                         [100%]\n================================== FAILURES ===================================\n________________ BucketTests.test_falsey_validator_is_honoured ________________\ntests\\test_more.py:1122: in test_falsey_validator_is_honoured\n    self.assertEqual(list(D[10]), [])\nE   AssertionError: Lists differ: [10] != []\nE   \nE   First list contains 1 additional elements.\nE   First extra element 0:\nE   10\nE   \nE   - [10]\nE   + []\n=========================== short test summary info ===========================\nFAILED tests/test_more.py::BucketTests::test_falsey_validator_is_honoured - A...\n1 failed, 767 passed in 17.18s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 16,
+          "selected": [
+            "tests/test_more.py",
+            "tests/test_recipes.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 2,
+            "seconds": 17.855502600003092,
+            "stdout": "........................................................................ [  9%]\n...................F.................................................... [ 18%]\n........................................................................ [ 28%]\n........................................................................ [ 37%]\n........................................................................ [ 46%]\n........................................................................ [ 56%]\n........................................................................ [ 65%]\n........................................................................ [ 75%]\n........................................................................ [ 84%]\n........................................................................ [ 93%]\n................................................                         [100%]\n================================== FAILURES ===================================\n________________ BucketTests.test_falsey_validator_is_honoured ________________\ntests\\test_more.py:1122: in test_falsey_validator_is_honoured\n    self.assertEqual(list(D[10]), [])\nE   AssertionError: Lists differ: [10] != []\nE   \nE   First list contains 1 additional elements.\nE   First extra element 0:\nE   10\nE   \nE   - [10]\nE   + []\n=========================== short test summary info ===========================\nFAILED tests/test_more.py::BucketTests::test_falsey_validator_is_honoured - A...\n1 failed, 767 passed in 17.18s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 17,
+          "selected": [
+            "tests/test_more.py",
+            "tests/test_recipes.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 2,
+            "seconds": 17.855502600003092,
+            "stdout": "........................................................................ [  9%]\n...................F.................................................... [ 18%]\n........................................................................ [ 28%]\n........................................................................ [ 37%]\n........................................................................ [ 46%]\n........................................................................ [ 56%]\n........................................................................ [ 65%]\n........................................................................ [ 75%]\n........................................................................ [ 84%]\n........................................................................ [ 93%]\n................................................                         [100%]\n================================== FAILURES ===================================\n________________ BucketTests.test_falsey_validator_is_honoured ________________\ntests\\test_more.py:1122: in test_falsey_validator_is_honoured\n    self.assertEqual(list(D[10]), [])\nE   AssertionError: Lists differ: [10] != []\nE   \nE   First list contains 1 additional elements.\nE   First extra element 0:\nE   10\nE   \nE   - [10]\nE   + []\n=========================== short test summary info ===========================\nFAILED tests/test_more.py::BucketTests::test_falsey_validator_is_honoured - A...\n1 failed, 767 passed in 17.18s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 18,
+          "selected": [
+            "tests/test_more.py",
+            "tests/test_recipes.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 2,
+            "seconds": 17.855502600003092,
+            "stdout": "........................................................................ [  9%]\n...................F.................................................... [ 18%]\n........................................................................ [ 28%]\n........................................................................ [ 37%]\n........................................................................ [ 46%]\n........................................................................ [ 56%]\n........................................................................ [ 65%]\n........................................................................ [ 75%]\n........................................................................ [ 84%]\n........................................................................ [ 93%]\n................................................                         [100%]\n================================== FAILURES ===================================\n________________ BucketTests.test_falsey_validator_is_honoured ________________\ntests\\test_more.py:1122: in test_falsey_validator_is_honoured\n    self.assertEqual(list(D[10]), [])\nE   AssertionError: Lists differ: [10] != []\nE   \nE   First list contains 1 additional elements.\nE   First extra element 0:\nE   10\nE   \nE   - [10]\nE   + []\n=========================== short test summary info ===========================\nFAILED tests/test_more.py::BucketTests::test_falsey_validator_is_honoured - A...\n1 failed, 767 passed in 17.18s\n",
+            "stderr": ""
+          }
+        },
+        {
+          "seed": 19,
+          "selected": [
+            "tests/test_more.py",
+            "tests/test_recipes.py"
+          ],
+          "run": {
+            "returncode": 1,
+            "modules": 2,
+            "seconds": 17.855502600003092,
+            "stdout": "........................................................................ [  9%]\n...................F.................................................... [ 18%]\n........................................................................ [ 28%]\n........................................................................ [ 37%]\n........................................................................ [ 46%]\n........................................................................ [ 56%]\n........................................................................ [ 65%]\n........................................................................ [ 75%]\n........................................................................ [ 84%]\n........................................................................ [ 93%]\n................................................                         [100%]\n================================== FAILURES ===================================\n________________ BucketTests.test_falsey_validator_is_honoured ________________\ntests\\test_more.py:1122: in test_falsey_validator_is_honoured\n    self.assertEqual(list(D[10]), [])\nE   AssertionError: Lists differ: [10] != []\nE   \nE   First list contains 1 additional elements.\nE   First extra element 0:\nE   10\nE   \nE   - [10]\nE   + []\n=========================== short test summary info ===========================\nFAILED tests/test_more.py::BucketTests::test_falsey_validator_is_honoured - A...\n1 failed, 767 passed in 17.18s\n",
+            "stderr": ""
+          }
+        }
+      ]
+    }
+  ],
+  "scope": "Declared module subsets only. Upstream tests transferred to parent production code. Convenience pilot, no population claims; no coverage comparison or Gemma inference in this run."
+}

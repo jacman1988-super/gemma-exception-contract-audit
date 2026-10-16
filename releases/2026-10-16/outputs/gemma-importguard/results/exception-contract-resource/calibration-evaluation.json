@@ -1,0 +1,2169 @@
+{
+  "cases": [
+    {
+      "id": "os_bytes",
+      "variant": "reference",
+      "returncode": 0,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": true
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": true,
+      "source_sha256": "831efedccadc89311b4ffdc9f981fbbc6d1b6165dd078e4ced81c32ebec2b411",
+      "seconds": 1.2499917000095593,
+      "stdout": ".......                                                                  [100%]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-os_bytes-reference-1792068320720489000\\results.xml -\n7 passed in 0.31s\n",
+      "stderr": ""
+    },
+    {
+      "id": "os_bytes",
+      "variant": "buggy",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": false
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": false
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": false,
+      "contract_pass": false,
+      "source_sha256": "90ec14a91e09577c9f73d3aa3152ec5134fdd994345df23deac173404c2c388e",
+      "seconds": 1.3389871999970637,
+      "stdout": "..FF...                                                                  [100%]\n================================== FAILURES ===================================\n____________________________ test_new_range_error _____________________________\n\n    def test_new_range_error():\n>       with pytest.raises(ContractError):repair(20,b\"x\")\n                                          ^^^^^^^^^^^^^^^\n\ntest_weak.py:11: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\nsubject.py:18: in repair\n    return low_level(value)\n           ^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 20\n\n    def low_level(value):\n        if value == 999:\n            raise RuntimeError(\"unrelated\")\n        if value < 0:\n            raise ValueError(\"negative\")\n        if value > 10:\n>           raise OSError(\"range\")\nE           OSError: range\n\nsubject.py:13: OSError\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=b'alpha'\n>       with pytest.raises(ContractError) as caught:repair(20,payload)\n                                                    ^^^^^^^^^^^^^^^^^^\n\ntest_contract.py:6: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\nsubject.py:18: in repair\n    return low_level(value)\n           ^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 20\n\n    def low_level(value):\n        if value == 999:\n            raise RuntimeError(\"unrelated\")\n        if value < 0:\n            raise ValueError(\"negative\")\n        if value > 10:\n>           raise OSError(\"range\")\nE           OSError: range\n\nsubject.py:13: OSError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-os_bytes-buggy-1792068321971847200\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_weak.py::test_new_range_error - OSError: range\nFAILED test_contract.py::test_new_error_contract - OSError: range\n2 failed, 5 passed in 0.45s\n",
+      "stderr": ""
+    },
+    {
+      "id": "os_bytes",
+      "variant": "payload_string",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": false
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "52d4c351d6a3b5bdd4457a907e58ff0f792bf40b8ead9d83073c841ba09e842b",
+      "seconds": 1.414610799998627,
+      "stdout": "...F...                                                                  [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=b'alpha'\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n>       assert caught.value.payload is payload\nE       assert \"b'alpha'\" is b'alpha'\nE        +  where \"b'alpha'\" = ContractError('bad').payload\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:7: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-os_bytes-payload_string-1792068323313222200\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - assert \"b'alpha'\" is b'alpha'\n1 failed, 6 passed in 0.43s\n",
+      "stderr": ""
+    },
+    {
+      "id": "os_bytes",
+      "variant": "lost_cause",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": false
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "fb64bc1ad3de5e114a819fc5d2f2285cada141b3195b1d1029d3bc9293389f8b",
+      "seconds": 1.1165178999945056,
+      "stdout": "...F...                                                                  [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=b'alpha'\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n        assert caught.value.payload is payload\n        assert caught.value.stamp is None\n>       assert isinstance(caught.value.__cause__,OSError)\nE       AssertionError: assert False\nE        +  where False = isinstance(None, OSError)\nE        +    where None = ContractError('bad').__cause__\nE        +      where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:9: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-os_bytes-lost_cause-1792068324726891600\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert False\n1 failed, 6 passed in 0.39s\n",
+      "stderr": ""
+    },
+    {
+      "id": "os_bytes",
+      "variant": "changed_stamp",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": false
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "00ddf7ca573c41a4ef8b29457d1d255e3c557591f095fc354e86c2cea9909bca",
+      "seconds": 1.0251043000025675,
+      "stdout": "...F...                                                                  [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=b'alpha'\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n        assert caught.value.payload is payload\n>       assert caught.value.stamp is None\nE       AssertionError: assert 0 is None\nE        +  where 0 = ContractError('bad').stamp\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:8: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-os_bytes-changed_stamp-1792068325849250800\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert 0 i...\n1 failed, 6 passed in 0.40s\n",
+      "stderr": ""
+    },
+    {
+      "id": "os_bytes",
+      "variant": "overbroad_catch",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": true
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": false
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "9de2a1632170208bf1903ec4af3c56ac54e86f257ef9253edf05b70e22a6e02e",
+      "seconds": 1.0626820000034058,
+      "stdout": ".....F.                                                                  [100%]\n================================== FAILURES ===================================\n_______________________ test_unrelated_error_propagates _______________________\n\nvalue = 999, payload = b'x'\n\n    def repair(value, payload):\n        try:\n>           return low_level(value)\n                   ^^^^^^^^^^^^^^^^\n\nsubject.py:18: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 999\n\n    def low_level(value):\n        if value == 999:\n>           raise RuntimeError(\"unrelated\")\nE           RuntimeError: unrelated\n\nsubject.py:9: RuntimeError\n\nThe above exception was the direct cause of the following exception:\n\n    def test_unrelated_error_propagates():\n>       with pytest.raises(RuntimeError):repair(999,b\"x\")\n                                         ^^^^^^^^^^^^^^^^\n\ntest_contract.py:15: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 999, payload = b'x'\n\n    def repair(value, payload):\n        try:\n            return low_level(value)\n        except Exception as exc:\n>           raise ContractError(\"bad\", payload=payload, stamp=None) from exc\nE           subject.ContractError: bad\n\nsubject.py:20: ContractError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-os_bytes-overbroad_catch-1792068326876838000\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_unrelated_error_propagates - subject.ContractEr...\n1 failed, 6 passed in 0.42s\n",
+      "stderr": ""
+    },
+    {
+      "id": "os_bytes",
+      "variant": "changed_helper",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": false
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": false
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "d1a6a36fa94458f2d74c37f8078aca88a2ecb599a4fc0f69b729496c642ffd23",
+      "seconds": 1.140072499998496,
+      "stdout": "...FF..                                                                  [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=b'alpha'\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n>       assert caught.value.payload is payload\nE       AssertionError: assert None is b'alpha'\nE        +  where None = ContractError('bad').payload\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=3>.value\n\ntest_contract.py:7: AssertionError\n_________________________ test_direct_helper_contract _________________________\n\n    def test_direct_helper_contract():\n>       with pytest.raises(OSError):low_level(20)\n                                    ^^^^^^^^^^^^^\n\ntest_contract.py:12: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 20\n\n    def low_level(value):\n        if value == 999:\n            raise RuntimeError(\"unrelated\")\n        if value < 0:\n            raise ValueError(\"negative\")\n        if value > 10:\n>           raise ContractError(\"bad\")\nE           subject.ContractError: bad\n\nsubject.py:13: ContractError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-os_bytes-changed_helper-1792068327941851600\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert Non...\nFAILED test_contract.py::test_direct_helper_contract - subject.ContractError:...\n2 failed, 5 passed in 0.42s\n",
+      "stderr": ""
+    },
+    {
+      "id": "os_bytes",
+      "variant": "unseen_valid_regression",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": true
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": false
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "8e9951740507cfe125fdbaa2ab2532afbf0d45293aca4aebe199de370ca71793",
+      "seconds": 1.1413614000048256,
+      "stdout": "......F                                                                  [100%]\n================================== FAILURES ===================================\n___________________________ test_other_valid_inputs ___________________________\n\n    def test_other_valid_inputs():\n>       for value in [0,1,3,10]:assert repair(value,b\"x\") == 2*value\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AssertionError: assert 1 == (2 * 0)\nE        +  where 1 = repair(0, b'x')\n\ntest_contract.py:18: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-os_bytes-unseen_valid_regression-1792068329083225700\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_other_valid_inputs - AssertionError: assert 1 =...\n1 failed, 6 passed in 0.42s\n",
+      "stderr": ""
+    },
+    {
+      "id": "overflow_mapping",
+      "variant": "reference",
+      "returncode": 0,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": true
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": true,
+      "source_sha256": "f2b7e323c062c342d6836456919278c5c715b174a3f6bf1029214ff8bded73cf",
+      "seconds": 0.9877981000026921,
+      "stdout": ".......                                                                  [100%]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-overflow_mapping-reference-1792068330227498100\\results.xml -\n7 passed in 0.30s\n",
+      "stderr": ""
+    },
+    {
+      "id": "overflow_mapping",
+      "variant": "buggy",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": false
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": false
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": false,
+      "contract_pass": false,
+      "source_sha256": "8ba28f044276d8e8e64c14d65152fcf52796f9c971899bc557f262cc319add17",
+      "seconds": 1.254118800003198,
+      "stdout": "..FF...                                                                  [100%]\n================================== FAILURES ===================================\n____________________________ test_new_range_error _____________________________\n\n    def test_new_range_error():\n>       with pytest.raises(ContractError):repair(20,b\"x\")\n                                          ^^^^^^^^^^^^^^^\n\ntest_weak.py:11: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\nsubject.py:18: in repair\n    return low_level(value)\n           ^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 20\n\n    def low_level(value):\n        if value == 999:\n            raise RuntimeError(\"unrelated\")\n        if value < 0:\n            raise ValueError(\"negative\")\n        if value > 10:\n>           raise OverflowError(\"range\")\nE           OverflowError: range\n\nsubject.py:13: OverflowError\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload={'item': 7}\n>       with pytest.raises(ContractError) as caught:repair(20,payload)\n                                                    ^^^^^^^^^^^^^^^^^^\n\ntest_contract.py:6: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\nsubject.py:18: in repair\n    return low_level(value)\n           ^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 20\n\n    def low_level(value):\n        if value == 999:\n            raise RuntimeError(\"unrelated\")\n        if value < 0:\n            raise ValueError(\"negative\")\n        if value > 10:\n>           raise OverflowError(\"range\")\nE           OverflowError: range\n\nsubject.py:13: OverflowError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-overflow_mapping-buggy-1792068331217823200\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_weak.py::test_new_range_error - OverflowError: range\nFAILED test_contract.py::test_new_error_contract - OverflowError: range\n2 failed, 5 passed in 0.44s\n",
+      "stderr": ""
+    },
+    {
+      "id": "overflow_mapping",
+      "variant": "payload_string",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": false
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "9a1d1df2b1d0035f14e86d8cbcf358bd7a356a45befcae3dcaac8437a49a3063",
+      "seconds": 1.0958868000016082,
+      "stdout": "...F...                                                                  [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload={'item': 7}\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n>       assert caught.value.payload is payload\nE       assert \"{'item': 7}\" is {'item': 7}\nE        +  where \"{'item': 7}\" = ContractError('bad').payload\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:7: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-overflow_mapping-payload_string-1792068332474348200\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - assert \"{'item': 7}\" is {'...\n1 failed, 6 passed in 0.41s\n",
+      "stderr": ""
+    },
+    {
+      "id": "overflow_mapping",
+      "variant": "lost_cause",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": false
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "9581dc694c8133a1438063ffccc40d41307007efdac6da0963d321284cf97887",
+      "seconds": 1.3015951000124915,
+      "stdout": "...F...                                                                  [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload={'item': 7}\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n        assert caught.value.payload is payload\n        assert caught.value.stamp is None\n>       assert isinstance(caught.value.__cause__,OverflowError)\nE       AssertionError: assert False\nE        +  where False = isinstance(None, OverflowError)\nE        +    where None = ContractError('bad').__cause__\nE        +      where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:9: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-overflow_mapping-lost_cause-1792068333571594800\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert False\n1 failed, 6 passed in 0.42s\n",
+      "stderr": ""
+    },
+    {
+      "id": "overflow_mapping",
+      "variant": "changed_stamp",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": false
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "f02b85cace97130f5807c4dfa8b850aee77ae6738ccf9621de29310e6f771aaf",
+      "seconds": 1.3084928000025684,
+      "stdout": "...F...                                                                  [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload={'item': 7}\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n        assert caught.value.payload is payload\n>       assert caught.value.stamp is None\nE       AssertionError: assert 0 is None\nE        +  where 0 = ContractError('bad').stamp\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:8: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-overflow_mapping-changed_stamp-1792068334875652700\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert 0 i...\n1 failed, 6 passed in 0.44s\n",
+      "stderr": ""
+    },
+    {
+      "id": "overflow_mapping",
+      "variant": "overbroad_catch",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": true
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": false
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "30b3f0a8120d6a6adbd492ce43647b94ae203f426e42e3385e77165806b9ecc2",
+      "seconds": 1.4005948999983957,
+      "stdout": ".....F.                                                                  [100%]\n================================== FAILURES ===================================\n_______________________ test_unrelated_error_propagates _______________________\n\nvalue = 999, payload = b'x'\n\n    def repair(value, payload):\n        try:\n>           return low_level(value)\n                   ^^^^^^^^^^^^^^^^\n\nsubject.py:18: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 999\n\n    def low_level(value):\n        if value == 999:\n>           raise RuntimeError(\"unrelated\")\nE           RuntimeError: unrelated\n\nsubject.py:9: RuntimeError\n\nThe above exception was the direct cause of the following exception:\n\n    def test_unrelated_error_propagates():\n>       with pytest.raises(RuntimeError):repair(999,b\"x\")\n                                         ^^^^^^^^^^^^^^^^\n\ntest_contract.py:15: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 999, payload = b'x'\n\n    def repair(value, payload):\n        try:\n            return low_level(value)\n        except Exception as exc:\n>           raise ContractError(\"bad\", payload=payload, stamp=None) from exc\nE           subject.ContractError: bad\n\nsubject.py:20: ContractError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-overflow_mapping-overbroad_catch-1792068336186638600\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_unrelated_error_propagates - subject.ContractEr...\n1 failed, 6 passed in 0.48s\n",
+      "stderr": ""
+    },
+    {
+      "id": "overflow_mapping",
+      "variant": "changed_helper",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": false
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": false
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "4b52a5e87cddb209edf59796080157eead60d727b490a25d24994ff82c69589c",
+      "seconds": 1.2111009000072954,
+      "stdout": "...FF..                                                                  [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload={'item': 7}\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n>       assert caught.value.payload is payload\nE       AssertionError: assert None is {'item': 7}\nE        +  where None = ContractError('bad').payload\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=3>.value\n\ntest_contract.py:7: AssertionError\n_________________________ test_direct_helper_contract _________________________\n\n    def test_direct_helper_contract():\n>       with pytest.raises(OverflowError):low_level(20)\n                                          ^^^^^^^^^^^^^\n\ntest_contract.py:12: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 20\n\n    def low_level(value):\n        if value == 999:\n            raise RuntimeError(\"unrelated\")\n        if value < 0:\n            raise ValueError(\"negative\")\n        if value > 10:\n>           raise ContractError(\"bad\")\nE           subject.ContractError: bad\n\nsubject.py:13: ContractError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-overflow_mapping-changed_helper-1792068337589184700\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert Non...\nFAILED test_contract.py::test_direct_helper_contract - subject.ContractError:...\n2 failed, 5 passed in 0.44s\n",
+      "stderr": ""
+    },
+    {
+      "id": "overflow_mapping",
+      "variant": "unseen_valid_regression",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": true
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": false
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "40917c36e4ceb9b0b563f84a49fea0d36636e48e6bd682cb318b6297c6ca6928",
+      "seconds": 1.2151031999965198,
+      "stdout": "......F                                                                  [100%]\n================================== FAILURES ===================================\n___________________________ test_other_valid_inputs ___________________________\n\n    def test_other_valid_inputs():\n>       for value in [0,1,3,10]:assert repair(value,b\"x\") == 2*value\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AssertionError: assert 1 == (2 * 0)\nE        +  where 1 = repair(0, b'x')\n\ntest_contract.py:18: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-overflow_mapping-unseen_valid_regression-1792068338802832100\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_other_valid_inputs - AssertionError: assert 1 =...\n1 failed, 6 passed in 0.43s\n",
+      "stderr": ""
+    },
+    {
+      "id": "key_text",
+      "variant": "reference",
+      "returncode": 0,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": true
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": true,
+      "source_sha256": "3c2db59679dadb0204f7b23d240363f34e9f9f664abb297cf008519441f104d5",
+      "seconds": 1.1432127000007313,
+      "stdout": ".......                                                                  [100%]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-key_text-reference-1792068340019852500\\results.xml -\n7 passed in 0.32s\n",
+      "stderr": ""
+    },
+    {
+      "id": "key_text",
+      "variant": "buggy",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": false
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": false
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": false,
+      "contract_pass": false,
+      "source_sha256": "097e5a5e534af6c28c2645919692815bc2b39c99b5384ab7a19aebfbe63dbfcb",
+      "seconds": 1.3405653000081657,
+      "stdout": "..FF...                                                                  [100%]\n================================== FAILURES ===================================\n____________________________ test_new_range_error _____________________________\n\n    def test_new_range_error():\n>       with pytest.raises(ContractError):repair(20,b\"x\")\n                                          ^^^^^^^^^^^^^^^\n\ntest_weak.py:11: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\nsubject.py:18: in repair\n    return low_level(value)\n           ^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 20\n\n    def low_level(value):\n        if value == 999:\n            raise RuntimeError(\"unrelated\")\n        if value < 0:\n            raise ValueError(\"negative\")\n        if value > 10:\n>           raise KeyError(\"range\")\nE           KeyError: 'range'\n\nsubject.py:13: KeyError\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload='source'\n>       with pytest.raises(ContractError) as caught:repair(20,payload)\n                                                    ^^^^^^^^^^^^^^^^^^\n\ntest_contract.py:6: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\nsubject.py:18: in repair\n    return low_level(value)\n           ^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 20\n\n    def low_level(value):\n        if value == 999:\n            raise RuntimeError(\"unrelated\")\n        if value < 0:\n            raise ValueError(\"negative\")\n        if value > 10:\n>           raise KeyError(\"range\")\nE           KeyError: 'range'\n\nsubject.py:13: KeyError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-key_text-buggy-1792068341167293400\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_weak.py::test_new_range_error - KeyError: 'range'\nFAILED test_contract.py::test_new_error_contract - KeyError: 'range'\n2 failed, 5 passed in 0.46s\n",
+      "stderr": ""
+    },
+    {
+      "id": "key_text",
+      "variant": "payload_string",
+      "returncode": 0,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": true
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": true,
+      "source_sha256": "da16f82b937a7a388d7684e7adc3f398ba8583102b904b8970c1a216d12f79b2",
+      "seconds": 1.3175786999927368,
+      "stdout": ".......                                                                  [100%]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-key_text-payload_string-1792068342509984900\\results.xml -\n7 passed in 0.34s\n",
+      "stderr": ""
+    },
+    {
+      "id": "key_text",
+      "variant": "lost_cause",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": false
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "64d2deb15c5bc51a45cc5bceef757c9ed004c86dc7a56d19716f4734b8184b29",
+      "seconds": 1.0638009999966016,
+      "stdout": "...F...                                                                  [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload='source'\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n        assert caught.value.payload is payload\n        assert caught.value.stamp is None\n>       assert isinstance(caught.value.__cause__,KeyError)\nE       AssertionError: assert False\nE        +  where False = isinstance(None, KeyError)\nE        +    where None = ContractError('bad').__cause__\nE        +      where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:9: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-key_text-lost_cause-1792068343824013600\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert False\n1 failed, 6 passed in 0.41s\n",
+      "stderr": ""
+    },
+    {
+      "id": "key_text",
+      "variant": "changed_stamp",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": false
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "6f378e16a42bb8b40222ea4d64259703729d3f6f0674b15b90dc1874f99f0daa",
+      "seconds": 1.0658606000069994,
+      "stdout": "...F...                                                                  [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload='source'\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n        assert caught.value.payload is payload\n>       assert caught.value.stamp is None\nE       AssertionError: assert 0 is None\nE        +  where 0 = ContractError('bad').stamp\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:8: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-key_text-changed_stamp-1792068344896279100\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert 0 i...\n1 failed, 6 passed in 0.41s\n",
+      "stderr": ""
+    },
+    {
+      "id": "key_text",
+      "variant": "overbroad_catch",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": true
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": false
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "5e195bbdce3cf359c3795f44cae0b9f57a2c4602e0373ead78082bcbe576ea27",
+      "seconds": 1.1804190999973798,
+      "stdout": ".....F.                                                                  [100%]\n================================== FAILURES ===================================\n_______________________ test_unrelated_error_propagates _______________________\n\nvalue = 999, payload = b'x'\n\n    def repair(value, payload):\n        try:\n>           return low_level(value)\n                   ^^^^^^^^^^^^^^^^\n\nsubject.py:18: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 999\n\n    def low_level(value):\n        if value == 999:\n>           raise RuntimeError(\"unrelated\")\nE           RuntimeError: unrelated\n\nsubject.py:9: RuntimeError\n\nThe above exception was the direct cause of the following exception:\n\n    def test_unrelated_error_propagates():\n>       with pytest.raises(RuntimeError):repair(999,b\"x\")\n                                         ^^^^^^^^^^^^^^^^\n\ntest_contract.py:15: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 999, payload = b'x'\n\n    def repair(value, payload):\n        try:\n            return low_level(value)\n        except Exception as exc:\n>           raise ContractError(\"bad\", payload=payload, stamp=None) from exc\nE           subject.ContractError: bad\n\nsubject.py:20: ContractError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-key_text-overbroad_catch-1792068345963658500\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_unrelated_error_propagates - subject.ContractEr...\n1 failed, 6 passed in 0.45s\n",
+      "stderr": ""
+    },
+    {
+      "id": "key_text",
+      "variant": "changed_helper",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": false
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": false
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "04b8529f915dd2a5dafe3e413d01879317aa14a32fe75756a6603dd21aceb40f",
+      "seconds": 1.146861400004127,
+      "stdout": "...FF..                                                                  [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload='source'\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n>       assert caught.value.payload is payload\nE       AssertionError: assert None is 'source'\nE        +  where None = ContractError('bad').payload\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=3>.value\n\ntest_contract.py:7: AssertionError\n_________________________ test_direct_helper_contract _________________________\n\n    def test_direct_helper_contract():\n>       with pytest.raises(KeyError):low_level(20)\n                                     ^^^^^^^^^^^^^\n\ntest_contract.py:12: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 20\n\n    def low_level(value):\n        if value == 999:\n            raise RuntimeError(\"unrelated\")\n        if value < 0:\n            raise ValueError(\"negative\")\n        if value > 10:\n>           raise ContractError(\"bad\")\nE           subject.ContractError: bad\n\nsubject.py:13: ContractError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-key_text-changed_helper-1792068347146744200\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert Non...\nFAILED test_contract.py::test_direct_helper_contract - subject.ContractError:...\n2 failed, 5 passed in 0.43s\n",
+      "stderr": ""
+    },
+    {
+      "id": "key_text",
+      "variant": "unseen_valid_regression",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": true
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": false
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "2a7d2a3f0e6675eb27968afa9068de34767ec0ccb2c92ed95b1f1990f11be387",
+      "seconds": 1.1041393000050448,
+      "stdout": "......F                                                                  [100%]\n================================== FAILURES ===================================\n___________________________ test_other_valid_inputs ___________________________\n\n    def test_other_valid_inputs():\n>       for value in [0,1,3,10]:assert repair(value,b\"x\") == 2*value\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AssertionError: assert 1 == (2 * 0)\nE        +  where 1 = repair(0, b'x')\n\ntest_contract.py:18: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-key_text-unseen_valid_regression-1792068348295433800\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_other_valid_inputs - AssertionError: assert 1 =...\n1 failed, 6 passed in 0.41s\n",
+      "stderr": ""
+    },
+    {
+      "id": "index_buffer",
+      "variant": "reference",
+      "returncode": 0,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": true
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": true,
+      "source_sha256": "6c8bbedf119a97fd39580191573477258b3051c622941649ca78a071856c716e",
+      "seconds": 0.9817135000048438,
+      "stdout": ".......                                                                  [100%]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-index_buffer-reference-1792068349402575300\\results.xml -\n7 passed in 0.30s\n",
+      "stderr": ""
+    },
+    {
+      "id": "index_buffer",
+      "variant": "buggy",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": false
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": false
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": false,
+      "contract_pass": false,
+      "source_sha256": "2234c479ab6969fa654f85620fd24bc10f4c95d7eec696b5b0716d3ddf252362",
+      "seconds": 1.043387999990955,
+      "stdout": "..FF...                                                                  [100%]\n================================== FAILURES ===================================\n____________________________ test_new_range_error _____________________________\n\n    def test_new_range_error():\n>       with pytest.raises(ContractError):repair(20,b\"x\")\n                                          ^^^^^^^^^^^^^^^\n\ntest_weak.py:11: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\nsubject.py:18: in repair\n    return low_level(value)\n           ^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 20\n\n    def low_level(value):\n        if value == 999:\n            raise RuntimeError(\"unrelated\")\n        if value < 0:\n            raise ValueError(\"negative\")\n        if value > 10:\n>           raise IndexError(\"range\")\nE           IndexError: range\n\nsubject.py:13: IndexError\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=bytearray(b'abc')\n>       with pytest.raises(ContractError) as caught:repair(20,payload)\n                                                    ^^^^^^^^^^^^^^^^^^\n\ntest_contract.py:6: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\nsubject.py:18: in repair\n    return low_level(value)\n           ^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 20\n\n    def low_level(value):\n        if value == 999:\n            raise RuntimeError(\"unrelated\")\n        if value < 0:\n            raise ValueError(\"negative\")\n        if value > 10:\n>           raise IndexError(\"range\")\nE           IndexError: range\n\nsubject.py:13: IndexError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-index_buffer-buggy-1792068350386966400\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_weak.py::test_new_range_error - IndexError: range\nFAILED test_contract.py::test_new_error_contract - IndexError: range\n2 failed, 5 passed in 0.41s\n",
+      "stderr": ""
+    },
+    {
+      "id": "index_buffer",
+      "variant": "payload_string",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": false
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "dca0a075435c57804250557b6623c07670b33954b2783648544af3d4084dd09e",
+      "seconds": 1.1863507999951253,
+      "stdout": "...F...                                                                  [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=bytearray(b'abc')\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n>       assert caught.value.payload is payload\nE       assert \"bytearray(b'abc')\" is bytearray(b'abc')\nE        +  where \"bytearray(b'abc')\" = ContractError('bad').payload\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:7: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-index_buffer-payload_string-1792068351423273800\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - assert \"bytearray(b'abc')\"...\n1 failed, 6 passed in 0.42s\n",
+      "stderr": ""
+    },
+    {
+      "id": "index_buffer",
+      "variant": "lost_cause",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": false
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "ba70c3364dd78fa1899a92c3e4b20de7223f89fdf6c11b5ba54788c97b86691b",
+      "seconds": 1.3978016000037314,
+      "stdout": "...F...                                                                  [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=bytearray(b'abc')\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n        assert caught.value.payload is payload\n        assert caught.value.stamp is None\n>       assert isinstance(caught.value.__cause__,IndexError)\nE       AssertionError: assert False\nE        +  where False = isinstance(None, IndexError)\nE        +    where None = ContractError('bad').__cause__\nE        +      where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:9: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-index_buffer-lost_cause-1792068352617807100\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert False\n1 failed, 6 passed in 0.46s\n",
+      "stderr": ""
+    },
+    {
+      "id": "index_buffer",
+      "variant": "changed_stamp",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": false
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "186a1fab70309f2104bd3e70bea3e081069ad0532690a4a7b64c29ce1c886d33",
+      "seconds": 1.3616501999931643,
+      "stdout": "...F...                                                                  [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=bytearray(b'abc')\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n        assert caught.value.payload is payload\n>       assert caught.value.stamp is None\nE       AssertionError: assert 0 is None\nE        +  where 0 = ContractError('bad').stamp\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:8: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-index_buffer-changed_stamp-1792068354021865400\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert 0 i...\n1 failed, 6 passed in 0.45s\n",
+      "stderr": ""
+    },
+    {
+      "id": "index_buffer",
+      "variant": "overbroad_catch",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": true
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": false
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "af1d218ea68ce875d3b942a3346f7fb8842f99837bb3388ad0e6d2fa4ddc1793",
+      "seconds": 1.3106728999991901,
+      "stdout": ".....F.                                                                  [100%]\n================================== FAILURES ===================================\n_______________________ test_unrelated_error_propagates _______________________\n\nvalue = 999, payload = b'x'\n\n    def repair(value, payload):\n        try:\n>           return low_level(value)\n                   ^^^^^^^^^^^^^^^^\n\nsubject.py:18: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 999\n\n    def low_level(value):\n        if value == 999:\n>           raise RuntimeError(\"unrelated\")\nE           RuntimeError: unrelated\n\nsubject.py:9: RuntimeError\n\nThe above exception was the direct cause of the following exception:\n\n    def test_unrelated_error_propagates():\n>       with pytest.raises(RuntimeError):repair(999,b\"x\")\n                                         ^^^^^^^^^^^^^^^^\n\ntest_contract.py:15: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 999, payload = b'x'\n\n    def repair(value, payload):\n        try:\n            return low_level(value)\n        except Exception as exc:\n>           raise ContractError(\"bad\", payload=payload, stamp=None) from exc\nE           subject.ContractError: bad\n\nsubject.py:20: ContractError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-index_buffer-overbroad_catch-1792068355385884600\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_unrelated_error_propagates - subject.ContractEr...\n1 failed, 6 passed in 0.43s\n",
+      "stderr": ""
+    },
+    {
+      "id": "index_buffer",
+      "variant": "changed_helper",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": false
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": false
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "cbff9023fc03740725adbb359f3ac49c812ba62e1924b955061cf3c1f1b730e3",
+      "seconds": 1.2529440999933286,
+      "stdout": "...FF..                                                                  [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=bytearray(b'abc')\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n>       assert caught.value.payload is payload\nE       AssertionError: assert None is bytearray(b'abc')\nE        +  where None = ContractError('bad').payload\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=3>.value\n\ntest_contract.py:7: AssertionError\n_________________________ test_direct_helper_contract _________________________\n\n    def test_direct_helper_contract():\n>       with pytest.raises(IndexError):low_level(20)\n                                       ^^^^^^^^^^^^^\n\ntest_contract.py:12: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 20\n\n    def low_level(value):\n        if value == 999:\n            raise RuntimeError(\"unrelated\")\n        if value < 0:\n            raise ValueError(\"negative\")\n        if value > 10:\n>           raise ContractError(\"bad\")\nE           subject.ContractError: bad\n\nsubject.py:13: ContractError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-index_buffer-changed_helper-1792068356699642600\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert Non...\nFAILED test_contract.py::test_direct_helper_contract - subject.ContractError:...\n2 failed, 5 passed in 0.45s\n",
+      "stderr": ""
+    },
+    {
+      "id": "index_buffer",
+      "variant": "unseen_valid_regression",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": true
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": false
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "2f620010657a57aca75e0971358c5c53dc8cf81d1060be9d823bd8ce9db7d7ce",
+      "seconds": 1.259752700003446,
+      "stdout": "......F                                                                  [100%]\n================================== FAILURES ===================================\n___________________________ test_other_valid_inputs ___________________________\n\n    def test_other_valid_inputs():\n>       for value in [0,1,3,10]:assert repair(value,b\"x\") == 2*value\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AssertionError: assert 1 == (2 * 0)\nE        +  where 1 = repair(0, b'x')\n\ntest_contract.py:18: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-index_buffer-unseen_valid_regression-1792068357954942000\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_other_valid_inputs - AssertionError: assert 1 =...\n1 failed, 6 passed in 0.44s\n",
+      "stderr": ""
+    },
+    {
+      "id": "type_tuple",
+      "variant": "reference",
+      "returncode": 0,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": true
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": true,
+      "source_sha256": "89162c5d860e6067d2823d6e02cbf30c0c74ad12bab672ddd2ec426369addf13",
+      "seconds": 1.0740340000047581,
+      "stdout": ".......                                                                  [100%]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-type_tuple-reference-1792068359217527800\\results.xml -\n7 passed in 0.30s\n",
+      "stderr": ""
+    },
+    {
+      "id": "type_tuple",
+      "variant": "buggy",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": false
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": false
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": false,
+      "contract_pass": false,
+      "source_sha256": "1ec82168dad0d88eae22f3e06e8b51fd5e83c60082e1ecb6129660c60a754655",
+      "seconds": 1.218210499995621,
+      "stdout": "..FF...                                                                  [100%]\n================================== FAILURES ===================================\n____________________________ test_new_range_error _____________________________\n\n    def test_new_range_error():\n>       with pytest.raises(ContractError):repair(20,b\"x\")\n                                          ^^^^^^^^^^^^^^^\n\ntest_weak.py:11: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\nsubject.py:18: in repair\n    return low_level(value)\n           ^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 20\n\n    def low_level(value):\n        if value == 999:\n            raise RuntimeError(\"unrelated\")\n        if value < 0:\n            raise ValueError(\"negative\")\n        if value > 10:\n>           raise TypeError(\"range\")\nE           TypeError: range\n\nsubject.py:13: TypeError\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=('a', 3)\n>       with pytest.raises(ContractError) as caught:repair(20,payload)\n                                                    ^^^^^^^^^^^^^^^^^^\n\ntest_contract.py:6: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\nsubject.py:18: in repair\n    return low_level(value)\n           ^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 20\n\n    def low_level(value):\n        if value == 999:\n            raise RuntimeError(\"unrelated\")\n        if value < 0:\n            raise ValueError(\"negative\")\n        if value > 10:\n>           raise TypeError(\"range\")\nE           TypeError: range\n\nsubject.py:13: TypeError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-type_tuple-buggy-1792068360290316200\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_weak.py::test_new_range_error - TypeError: range\nFAILED test_contract.py::test_new_error_contract - TypeError: range\n2 failed, 5 passed in 0.43s\n",
+      "stderr": ""
+    },
+    {
+      "id": "type_tuple",
+      "variant": "payload_string",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": false
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "dae58c0067051c712da855f64797e68372f469541a31a6903d7425763eb1e9c8",
+      "seconds": 1.2109759000013582,
+      "stdout": "...F...                                                                  [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=('a', 3)\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n>       assert caught.value.payload is payload\nE       assert \"('a', 3)\" is ('a', 3)\nE        +  where \"('a', 3)\" = ContractError('bad').payload\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:7: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-type_tuple-payload_string-1792068361514242800\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - assert \"('a', 3)\" is ('a', 3)\n1 failed, 6 passed in 0.41s\n",
+      "stderr": ""
+    },
+    {
+      "id": "type_tuple",
+      "variant": "lost_cause",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": false
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "d7cc866848a00d39fa7d494c23c97c0ed238a606e894e8a65a27998df342a340",
+      "seconds": 1.2086319999943953,
+      "stdout": "...F...                                                                  [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=('a', 3)\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n        assert caught.value.payload is payload\n        assert caught.value.stamp is None\n>       assert isinstance(caught.value.__cause__,TypeError)\nE       AssertionError: assert False\nE        +  where False = isinstance(None, TypeError)\nE        +    where None = ContractError('bad').__cause__\nE        +      where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:9: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-type_tuple-lost_cause-1792068362727766500\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert False\n1 failed, 6 passed in 0.42s\n",
+      "stderr": ""
+    },
+    {
+      "id": "type_tuple",
+      "variant": "changed_stamp",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": false
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "d4e2148548dd2e3bd57fbf649c1774055d954b1c3efcadf44b3917a3c10b19c1",
+      "seconds": 1.226123699991149,
+      "stdout": "...F...                                                                  [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=('a', 3)\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n        assert caught.value.payload is payload\n>       assert caught.value.stamp is None\nE       AssertionError: assert 0 is None\nE        +  where 0 = ContractError('bad').stamp\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:8: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-type_tuple-changed_stamp-1792068363939898100\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert 0 i...\n1 failed, 6 passed in 0.42s\n",
+      "stderr": ""
+    },
+    {
+      "id": "type_tuple",
+      "variant": "overbroad_catch",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": true
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": false
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "ef5596f56c5237c3c3463304701fe373582574d8d794532c6752987b7786fe65",
+      "seconds": 1.0882393999927444,
+      "stdout": ".....F.                                                                  [100%]\n================================== FAILURES ===================================\n_______________________ test_unrelated_error_propagates _______________________\n\nvalue = 999, payload = b'x'\n\n    def repair(value, payload):\n        try:\n>           return low_level(value)\n                   ^^^^^^^^^^^^^^^^\n\nsubject.py:18: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 999\n\n    def low_level(value):\n        if value == 999:\n>           raise RuntimeError(\"unrelated\")\nE           RuntimeError: unrelated\n\nsubject.py:9: RuntimeError\n\nThe above exception was the direct cause of the following exception:\n\n    def test_unrelated_error_propagates():\n>       with pytest.raises(RuntimeError):repair(999,b\"x\")\n                                         ^^^^^^^^^^^^^^^^\n\ntest_contract.py:15: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 999, payload = b'x'\n\n    def repair(value, payload):\n        try:\n            return low_level(value)\n        except Exception as exc:\n>           raise ContractError(\"bad\", payload=payload, stamp=None) from exc\nE           subject.ContractError: bad\n\nsubject.py:20: ContractError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-type_tuple-overbroad_catch-1792068365158229100\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_unrelated_error_propagates - subject.ContractEr...\n1 failed, 6 passed in 0.40s\n",
+      "stderr": ""
+    },
+    {
+      "id": "type_tuple",
+      "variant": "changed_helper",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": false
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": false
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "f390371ea12f3ea8f93db902ebb624636435c1791fc3d66692ae8781e4a2fb3e",
+      "seconds": 1.0232495999953244,
+      "stdout": "...FF..                                                                  [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=('a', 3)\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n>       assert caught.value.payload is payload\nE       AssertionError: assert None is ('a', 3)\nE        +  where None = ContractError('bad').payload\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=3>.value\n\ntest_contract.py:7: AssertionError\n_________________________ test_direct_helper_contract _________________________\n\n    def test_direct_helper_contract():\n>       with pytest.raises(TypeError):low_level(20)\n                                      ^^^^^^^^^^^^^\n\ntest_contract.py:12: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 20\n\n    def low_level(value):\n        if value == 999:\n            raise RuntimeError(\"unrelated\")\n        if value < 0:\n            raise ValueError(\"negative\")\n        if value > 10:\n>           raise ContractError(\"bad\")\nE           subject.ContractError: bad\n\nsubject.py:13: ContractError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-type_tuple-changed_helper-1792068366259716700\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert Non...\nFAILED test_contract.py::test_direct_helper_contract - subject.ContractError:...\n2 failed, 5 passed in 0.40s\n",
+      "stderr": ""
+    },
+    {
+      "id": "type_tuple",
+      "variant": "unseen_valid_regression",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": true
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": false
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "09fdcd3ec228b16185d318c67ff9386f6b4245e6192f581e9d68ff6661d42f5d",
+      "seconds": 1.040126500010956,
+      "stdout": "......F                                                                  [100%]\n================================== FAILURES ===================================\n___________________________ test_other_valid_inputs ___________________________\n\n    def test_other_valid_inputs():\n>       for value in [0,1,3,10]:assert repair(value,b\"x\") == 2*value\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AssertionError: assert 1 == (2 * 0)\nE        +  where 1 = repair(0, b'x')\n\ntest_contract.py:18: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-type_tuple-unseen_valid_regression-1792068367285004500\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_other_valid_inputs - AssertionError: assert 1 =...\n1 failed, 6 passed in 0.41s\n",
+      "stderr": ""
+    },
+    {
+      "id": "division_list",
+      "variant": "reference",
+      "returncode": 0,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": true
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": true,
+      "source_sha256": "ee56bd19023e9f9a0377c42d7f7051c9fbb95c7c1dd63cd1d17aeeb8d0e5a5e5",
+      "seconds": 0.9855891000042902,
+      "stdout": ".......                                                                  [100%]\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-division_list-reference-1792068368326272400\\results.xml -\n7 passed in 0.30s\n",
+      "stderr": ""
+    },
+    {
+      "id": "division_list",
+      "variant": "buggy",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": false
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": false
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": false,
+      "contract_pass": false,
+      "source_sha256": "f51547f5f76fa06cb29f4103096231ccc6b5ba92094ad664394e0690a187d20d",
+      "seconds": 1.0676188000070397,
+      "stdout": "..FF...                                                                  [100%]\n================================== FAILURES ===================================\n____________________________ test_new_range_error _____________________________\n\n    def test_new_range_error():\n>       with pytest.raises(ContractError):repair(20,b\"x\")\n                                          ^^^^^^^^^^^^^^^\n\ntest_weak.py:11: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\nsubject.py:18: in repair\n    return low_level(value)\n           ^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 20\n\n    def low_level(value):\n        if value == 999:\n            raise RuntimeError(\"unrelated\")\n        if value < 0:\n            raise ValueError(\"negative\")\n        if value > 10:\n>           raise ZeroDivisionError(\"range\")\nE           ZeroDivisionError: range\n\nsubject.py:13: ZeroDivisionError\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=[1, 2]\n>       with pytest.raises(ContractError) as caught:repair(20,payload)\n                                                    ^^^^^^^^^^^^^^^^^^\n\ntest_contract.py:6: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\nsubject.py:18: in repair\n    return low_level(value)\n           ^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 20\n\n    def low_level(value):\n        if value == 999:\n            raise RuntimeError(\"unrelated\")\n        if value < 0:\n            raise ValueError(\"negative\")\n        if value > 10:\n>           raise ZeroDivisionError(\"range\")\nE           ZeroDivisionError: range\n\nsubject.py:13: ZeroDivisionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-division_list-buggy-1792068369315175500\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_weak.py::test_new_range_error - ZeroDivisionError: range\nFAILED test_contract.py::test_new_error_contract - ZeroDivisionError: range\n2 failed, 5 passed in 0.43s\n",
+      "stderr": ""
+    },
+    {
+      "id": "division_list",
+      "variant": "payload_string",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": false
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "029ce0657f4b88b4cc8800db776ad7b49b4fadde25e281cb538817103d7d708c",
+      "seconds": 1.004219499998726,
+      "stdout": "...F...                                                                  [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=[1, 2]\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n>       assert caught.value.payload is payload\nE       AssertionError: assert '[1, 2]' is [1, 2]\nE        +  where '[1, 2]' = ContractError('bad').payload\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:7: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-division_list-payload_string-1792068370385108500\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert '[1...\n1 failed, 6 passed in 0.38s\n",
+      "stderr": ""
+    },
+    {
+      "id": "division_list",
+      "variant": "lost_cause",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": false
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "289b1ead488e8dda25d90f580c4b9f3f4b1557174b2400abecd372484f67cf18",
+      "seconds": 1.022092100000009,
+      "stdout": "...F...                                                                  [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=[1, 2]\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n        assert caught.value.payload is payload\n        assert caught.value.stamp is None\n>       assert isinstance(caught.value.__cause__,ZeroDivisionError)\nE       AssertionError: assert False\nE        +  where False = isinstance(None, ZeroDivisionError)\nE        +    where None = ContractError('bad').__cause__\nE        +      where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:9: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-division_list-lost_cause-1792068371385204400\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert False\n1 failed, 6 passed in 0.38s\n",
+      "stderr": ""
+    },
+    {
+      "id": "division_list",
+      "variant": "changed_stamp",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": false
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "41394a4ce708057df7d1786cd4fab7f89b7ecb67c8a7d7195e7b3293c0629374",
+      "seconds": 0.9861667999939527,
+      "stdout": "...F...                                                                  [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=[1, 2]\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n        assert caught.value.payload is payload\n>       assert caught.value.stamp is None\nE       AssertionError: assert 0 is None\nE        +  where 0 = ContractError('bad').stamp\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=2>.value\n\ntest_contract.py:8: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-division_list-changed_stamp-1792068372414719800\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert 0 i...\n1 failed, 6 passed in 0.38s\n",
+      "stderr": ""
+    },
+    {
+      "id": "division_list",
+      "variant": "overbroad_catch",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": true
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": false
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "f49add716b88734ed15e26091a3b2c53e35574b36e339f095b9794cda0fe06dd",
+      "seconds": 1.2085583000007318,
+      "stdout": ".....F.                                                                  [100%]\n================================== FAILURES ===================================\n_______________________ test_unrelated_error_propagates _______________________\n\nvalue = 999, payload = b'x'\n\n    def repair(value, payload):\n        try:\n>           return low_level(value)\n                   ^^^^^^^^^^^^^^^^\n\nsubject.py:18: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 999\n\n    def low_level(value):\n        if value == 999:\n>           raise RuntimeError(\"unrelated\")\nE           RuntimeError: unrelated\n\nsubject.py:9: RuntimeError\n\nThe above exception was the direct cause of the following exception:\n\n    def test_unrelated_error_propagates():\n>       with pytest.raises(RuntimeError):repair(999,b\"x\")\n                                         ^^^^^^^^^^^^^^^^\n\ntest_contract.py:15: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 999, payload = b'x'\n\n    def repair(value, payload):\n        try:\n            return low_level(value)\n        except Exception as exc:\n>           raise ContractError(\"bad\", payload=payload, stamp=None) from exc\nE           subject.ContractError: bad\n\nsubject.py:20: ContractError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-division_list-overbroad_catch-1792068373403444700\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_unrelated_error_propagates - subject.ContractEr...\n1 failed, 6 passed in 0.43s\n",
+      "stderr": ""
+    },
+    {
+      "id": "division_list",
+      "variant": "changed_helper",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": false
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": false
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": true
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "f3ac3045bc6af2f3632b0a1b4c584ad0821a595e8813c7ba43d0caa8546aa9c6",
+      "seconds": 1.2039408999989973,
+      "stdout": "...FF..                                                                  [100%]\n================================== FAILURES ===================================\n___________________________ test_new_error_contract ___________________________\n\n    def test_new_error_contract():\n        payload=[1, 2]\n        with pytest.raises(ContractError) as caught:repair(20,payload)\n>       assert caught.value.payload is payload\nE       AssertionError: assert None is [1, 2]\nE        +  where None = ContractError('bad').payload\nE        +    where ContractError('bad') = <ExceptionInfo ContractError('bad') tblen=3>.value\n\ntest_contract.py:7: AssertionError\n_________________________ test_direct_helper_contract _________________________\n\n    def test_direct_helper_contract():\n>       with pytest.raises(ZeroDivisionError):low_level(20)\n                                              ^^^^^^^^^^^^^\n\ntest_contract.py:12: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvalue = 20\n\n    def low_level(value):\n        if value == 999:\n            raise RuntimeError(\"unrelated\")\n        if value < 0:\n            raise ValueError(\"negative\")\n        if value > 10:\n>           raise ContractError(\"bad\")\nE           subject.ContractError: bad\n\nsubject.py:13: ContractError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-division_list-changed_helper-1792068374614150100\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_new_error_contract - AssertionError: assert Non...\nFAILED test_contract.py::test_direct_helper_contract - subject.ContractError:...\n2 failed, 5 passed in 0.41s\n",
+      "stderr": ""
+    },
+    {
+      "id": "division_list",
+      "variant": "unseen_valid_regression",
+      "returncode": 1,
+      "groups": {
+        "weak": [
+          {
+            "name": "test_valid",
+            "passed": true
+          },
+          {
+            "name": "test_negative",
+            "passed": true
+          },
+          {
+            "name": "test_new_range_error",
+            "passed": true
+          }
+        ],
+        "contract": [
+          {
+            "name": "test_new_error_contract",
+            "passed": true
+          },
+          {
+            "name": "test_direct_helper_contract",
+            "passed": true
+          },
+          {
+            "name": "test_unrelated_error_propagates",
+            "passed": true
+          },
+          {
+            "name": "test_other_valid_inputs",
+            "passed": false
+          }
+        ]
+      },
+      "weak_pass": true,
+      "contract_pass": false,
+      "source_sha256": "1d7e63a0c2b2314fd10da06f1c1dcb1f9ade7ce7fab17ea29b52fa1b12257fb2",
+      "seconds": 1.173655599995982,
+      "stdout": "......F                                                                  [100%]\n================================== FAILURES ===================================\n___________________________ test_other_valid_inputs ___________________________\n\n    def test_other_valid_inputs():\n>       for value in [0,1,3,10]:assert repair(value,b\"x\") == 2*value\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AssertionError: assert 1 == (2 * 0)\nE        +  where 1 = repair(0, b'x')\n\ntest_contract.py:18: AssertionError\n- generated xml file: C:\\Users\\adame\\Documents\\Codex\\2026-10-14\\referenced-chatgpt-conversation-this-is-an\\work\\eca-division_list-unseen_valid_regression-1792068375820225400\\results.xml -\n=========================== short test summary info ===========================\nFAILED test_contract.py::test_other_valid_inputs - AssertionError: assert 1 =...\n1 failed, 6 passed in 0.42s\n",
+      "stderr": ""
+    }
+  ],
+  "complete": true,
+  "mode": "calibration",
+  "weak_pass_count": 42,
+  "contract_pass_count": 7,
+  "weak_only_count": 35
+}

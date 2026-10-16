@@ -1,0 +1,87 @@
+Fix a Python bug. Return only JSON with string fields old and new for an exact source block and its replacement. Make the smallest edit, preserve unrelated behavior, and do not run commands.
+Task description (public commit message):
+Merge branch 'float_fix' into develop
+
+PR #281
+
+* float_fix:
+  Add additional compliance tests for verifying float/boolean correctness
+  Add support for proper bool/float comparison
+Buggy source:
+File: jmespath/visitor.py
+def _equals(x, y):
+    if _is_special_integer_case(x, y):
+        return False
+    else:
+        return x == y
+
+def _is_special_integer_case(x, y):
+    # We need to special case comparing 0 or 1 to
+    # True/False.  While normally comparing any
+    # integer other than 0/1 to True/False will always
+    # return False.  However 0/1 have this:
+    # >>> 0 == True
+    # False
+    # >>> 0 == False
+    # True
+    # >>> 1 == True
+    # True
+    # >>> 1 == False
+    # False
+    #
+    # Also need to consider that:
+    # >>> 0 in [True, False]
+    # True
+    if _is_boolean_int(x):
+        return isinstance(y, bool)
+    elif _is_boolean_int(y):
+        return isinstance(x, bool)
+
+def _is_boolean_int(num):
+    """
+    For backwards compatibility, Python considers bool to be an int.
+    This causes issues when doing type comparison with isinstance(x, int).
+    This function ensures the value is an actual int respresenting a boolean.
+    """
+    return (
+        not isinstance(num, bool)
+        and isinstance(num, int)
+        and num in (0, 1)
+    )
+
+    This function ensures the value is an actual int respresenting a boolean.
+    """
+    return (
+        not isinstance(num, bool)
+        and isinstance(num, int)
+        and num in (0, 1)
+    )
+
+
+def _is_comparable(x):
+    # The spec doesn't officially support string types yet,
+    # but enough people are relying on this behavior that
+    # it's been added back.  This should eventually become
+    # part of the official spec.
+    return _is_actual_number(x) or isinstance(x, string_type)
+
+
+def _is_actual_number(x):
+    # We need to handle python's quirkiness with booleans,
+    # specifically:
+    #
+    # >>> isinstance(False, int)
+    # True
+    # >>> isinstance(True, int)
+    # True
+    if x is True or x is False:
+        return False
+    return isinstance(x, Number)
+
+    def visit_not_expression(self, node, value):
+        original_result = self.visit(node['children'][0], value)
+        if type(original_result) is int and original_result == 0:
+            # Special case for 0, !0 should be false, not true.
+            # 0 is not a special cased integer in jmespath.
+            return False
+        return not original_result

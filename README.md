@@ -1,5 +1,12 @@
 # Exception-contract audit and guided Gemma repairs
 
+Author: **Jacek Adamek**.
+
+## Complete competition-update materials
+
+Start with [submission-update-2026-10-16/README.md](submission-update-2026-10-16/README.md) for the latest notebook, exact commands, integrity checks and proposed competition-update documents.
+
+
 Author: **Jacek Adamek**. Latest research update: **16 October 2026**.
 
 The new release preserves the original ItsDangerous counterexample and ECA-6 resource, adding separately documented guided repair case studies in Tenacity and Packaging. The final reviewed patches pass **159/159** and **90/90** bounded tests. Packaging also agrees with the pinned fixed function on 1,245 post-hoc filename cases.

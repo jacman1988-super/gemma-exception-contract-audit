@@ -1,0 +1,13 @@
+PROPOSED WRITEUP UPDATE - NOT UPLOADED
+
+Preserve the original title and submitted Writeup identity. Update subtitle,
+abstract and methods to separate original ECA-6 from the 16 October follow-up.
+Add sections 3.4, 4.3 and 4.4 and references 8-10.
+
+New evidence: final Tenacity patch 159/159; Packaging 90/90;
+1,245 post-hoc differential filename cases with no difference;
+fresh-clone reproducibility audit and 102-variant ECA replay.
+Disclose previous failures, adaptive attempts, human structural guidance,
+different follow-up seed, public-case contamination risk, and bounded scope.
+Do not change the ItsDangerous failure or count the two new cases as ECA-6.
+The original paper and submitted Writeup remain untouched.

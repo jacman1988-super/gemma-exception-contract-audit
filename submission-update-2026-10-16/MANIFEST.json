@@ -1,0 +1,17 @@
+{
+  "version": "2026-10-16-complete-reproduction",
+  "files": {
+    "change-summary.txt": "79cf4613a673642957b6dc28e926a633f6866573d94886d2dd00542347e7dcb4",
+    "PAPER-LICENSE.txt": "463316c0bc797bf3555575f2393a4f3251b901d9c6d4f228f44c77c58c5d96d0",
+    "paper-update.pdf": "1f4cba78d2cedc8a37f551f3b725b0d3d4e247111bbbaa6acbe1705838ffd2df",
+    "PUBLIC-REPRODUCTION.json": "6581a8ea1cdf4d7d011061308e5cbe8776d84c9d30781dca0a3c93e4d5944894",
+    "README.md": "c4254189b001372aed43b7a78e4972b01cd144c70f7d9a138378fb8945ff73e9",
+    "REPRODUCIBILITY-SCOPE.txt": "f5b36a3593fada0937ed0328671df5320b379a618700037fc362aab0e1e0a911",
+    "requirements-docs.txt": "aff9e2a7514ab38c61169ff48cd7e414e424068c9216e3a9e277318c38a8dac8",
+    "requirements.txt": "6cd34073f3caa54c00285430584c01faf537086bdb49d849793a54462e6141c9",
+    "review-update.ipynb": "46f395ef05d8a921f2f000aefc9ff0944607cbdf56a9f9531cf2a26215cbbf95",
+    "verify_materials.py": "452bf38261f89cfd97379f6f0d843689d44c9374c2102c74fccdf78ebd2e25bc",
+    "writeup-update.txt": "3f1019d016d2dc1f24aba640bc54fc5e4ace5016697c0a8ef249df38127ac464"
+  },
+  "competition_submitted": false
+}

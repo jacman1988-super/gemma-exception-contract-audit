@@ -1,4 +1,176 @@
 {
-  "status": "verification_in_progress",
-  "competition_submitted": false
+  "status": "passed",
+  "date": "2026-10-16",
+  "source_commit": "277311d16e76d934be3fe6676e3fb73d12db4d41",
+  "source_clone": "Fresh Git clone using --no-local; tested source commit is retained in published Git history.",
+  "python": "3.12.14",
+  "notebook_code_cells_executed": 3,
+  "execution_engine": "Plain CPython, not a Jupyter server",
+  "private_reference_weight_directory_used": false,
+  "full_training_or_fresh_gemma_generation_repeated": false,
+  "competition_submitted": false,
+  "checks": [
+    {
+      "name": "pip-check",
+      "returncode": 0
+    },
+    {
+      "name": "source-integrity",
+      "returncode": 0
+    },
+    {
+      "name": "tests",
+      "returncode": 0
+    },
+    {
+      "name": "eca-replay",
+      "returncode": 0
+    },
+    {
+      "name": "repair-replay",
+      "returncode": 0
+    }
+  ],
+  "eca_replay": {
+    "all_checks_passed": true,
+    "every_case_and_assertion_compared": true,
+    "model_rerun": false,
+    "results": {
+      "calibration-evaluation.json": {
+        "weak_pass_count": 42,
+        "contract_pass_count": 7,
+        "weak_only_count": 35
+      },
+      "model-evaluation.json": {
+        "weak_pass_count": 6,
+        "contract_pass_count": 6,
+        "weak_only_count": 0
+      },
+      "posthoc-v2-evaluation.json": {
+        "model_passes": 5,
+        "reference_passes": 6,
+        "mutants_rejected": 36
+      }
+    }
+  },
+  "reviewed_repairs": {
+    "cases": [
+      {
+        "id": "tenacity-new-v2",
+        "runs": {
+          "fixed": {
+            "upstream": {
+              "accepted": true,
+              "returncode": 0,
+              "tests": 142
+            },
+            "examples": {
+              "accepted": true,
+              "returncode": 0,
+              "tests": 8
+            },
+            "withheld": {
+              "accepted": true,
+              "returncode": 0,
+              "tests": 9
+            }
+          },
+          "parent": {
+            "upstream": {
+              "accepted": false,
+              "returncode": 1,
+              "tests": 142
+            },
+            "examples": {
+              "accepted": false,
+              "returncode": 1,
+              "tests": 8
+            },
+            "withheld": {
+              "accepted": false,
+              "returncode": 1,
+              "tests": 9
+            }
+          },
+          "model": {
+            "upstream": {
+              "accepted": true,
+              "returncode": 0,
+              "tests": 142
+            },
+            "examples": {
+              "accepted": true,
+              "returncode": 0,
+              "tests": 8
+            },
+            "withheld": {
+              "accepted": true,
+              "returncode": 0,
+              "tests": 9
+            }
+          }
+        }
+      },
+      {
+        "id": "packaging-new-v2",
+        "runs": {
+          "fixed": {
+            "upstream": {
+              "accepted": true,
+              "returncode": 0,
+              "tests": 74
+            },
+            "examples": {
+              "accepted": true,
+              "returncode": 0,
+              "tests": 7
+            },
+            "withheld": {
+              "accepted": true,
+              "returncode": 0,
+              "tests": 9
+            }
+          },
+          "parent": {
+            "upstream": {
+              "accepted": false,
+              "returncode": 1,
+              "tests": 74
+            },
+            "examples": {
+              "accepted": false,
+              "returncode": 1,
+              "tests": 7
+            },
+            "withheld": {
+              "accepted": true,
+              "returncode": 0,
+              "tests": 9
+            }
+          },
+          "model": {
+            "upstream": {
+              "accepted": true,
+              "returncode": 0,
+              "tests": 74
+            },
+            "examples": {
+              "accepted": true,
+              "returncode": 0,
+              "tests": 7
+            },
+            "withheld": {
+              "accepted": true,
+              "returncode": 0,
+              "tests": 9
+            }
+          }
+        }
+      }
+    ],
+    "all_checks_passed": true
+  },
+  "reviewed_model_checks_passed": 249,
+  "seconds": 93.63,
+  "public_notebook_runner_smoke_test": true
 }

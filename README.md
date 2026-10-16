@@ -1,26 +1,15 @@
 # Exception-contract audit and guided Gemma repairs
 
-Author: **Jacek Adamek**.
+Author: **Jacek Adamek**. Complete reproducibility update: **16 October 2026**.
 
-## Complete competition-update materials
+Start with the [complete proposed Writeup update](submission-update-2026-10-16/README.md), [public PDF](submission-update-2026-10-16/paper-update.pdf), [review notebook](submission-update-2026-10-16/review-update.ipynb), and [executed review](submission-update-2026-10-16/review-update-executed.ipynb). The replacement text has **2369 words**, with the later guided experiments clearly separated from the original ECA-6.
 
-Start with [submission-update-2026-10-16/README.md](submission-update-2026-10-16/README.md) for the latest notebook, exact commands, integrity checks and proposed competition-update documents.
+The clean-clone audit passed **25 release tests**, replayed all **102 ECA variants**, and reproduced the final Tenacity and Packaging repairs (**159/159 + 90/90 checks**). [Verification record](submission-update-2026-10-16/PUBLIC-REPRODUCTION.json).
 
+These repairs followed failed attempts and substantial explicit guidance; they are not a first-attempt success rate. **The original ItsDangerous exception-payload failure remains unresolved.** The unchanged original submitted paper remains at [submission-paper.pdf](submission-paper.pdf). On future authorization, edit the existing Writeup rather than creating a duplicate.
 
-Author: **Jacek Adamek**. Latest research update: **16 October 2026**.
+## Earlier evidence and source release
 
-The new release preserves the original ItsDangerous counterexample and ECA-6 resource, adding separately documented guided repair case studies in Tenacity and Packaging. The final reviewed patches pass **159/159** and **90/90** bounded tests. Packaging also agrees with the pinned fixed function on 1,245 post-hoc filename cases.
+The immutable [16 October source release](releases/2026-10-16/README.md), original root code and earlier reports remain available. The older release remains the frozen research evidence and replay implementation. Historical manifests describe their own artifacts and are unchanged.
 
-The repairs followed earlier failures and explicit assistance, including human structural guidance for Packaging. This is not an unassisted first-attempt success rate. **The original ItsDangerous exception-payload failure remains unresolved.** The unchanged original submitted paper remains at [submission-paper.pdf](submission-paper.pdf); the later findings are a separate [follow-up](releases/2026-10-16/FOLLOWUP.md).
-
-Release checks: **25 tests passed**; all **102 ECA variants** and the two reviewed repository repairs were reproduced from the prepared release.
-
-## Reproduce this update
-
-See [release README](releases/2026-10-16/README.md), [reproduction instructions](releases/2026-10-16/REPRODUCE.md), [research report](releases/2026-10-16/REPORT.pdf) and [validation record](releases/2026-10-16/VALIDATION.json).
-
-Run the documented commands from `releases/2026-10-16/`. The dated release includes its own file manifest and offline integrity verifier. Its preparation records describe the local checks performed before this GitHub update. Full training and fresh model generations were not repeated during packaging.
-
-## Earlier version
-
-The [previous README](README-before-2026-10-16.md), original root code and original reports remain available. This GitHub update does not submit or modify a competition entry. Competition inputs, trained weights and new prediction CSVs are not included in the update.
+**No competition update has been submitted by this GitHub publication.**

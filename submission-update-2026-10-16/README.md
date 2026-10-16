@@ -23,3 +23,13 @@ python releases/2026-10-16/reproduce.py NEW_ECA_OUTPUT
 The review notebook can run from this directory or the repository root. It reads frozen evidence and checks prompt digests; it does not execute model-generated repairs. For complete repair replay, follow the older release's REPRODUCE.md and FETCH_UPSTREAM.md (four public hash-pinned archives). For optional fresh generation, the model weights/runtime must be separately obtained from their official sources, as described in that release. No proprietary account or paid inference service is required for the published outcome replay. Model weights and upstream archives are not republished here.
 
 The executed notebook records explicit plain CPython execution of its three code cells; it does not claim a Jupyter-server execution. Use your existing Jupyter frontend if desired. PDF generation used ReportLab 4.4.9; requirements-docs.txt lists optional document tooling. Proposed paper text is CC BY 4.0 in line with the accepted Writeup terms; original tooling remains Apache-2.0, and upstream notices remain unchanged. The original submitted paper stays at the repository root. On future authorization, update the existing Kaggle Writeup rather than creating a duplicate entry.
+
+## Execute the notebook without a Jupyter installation
+
+The public run_notebook.py executes only the notebook supplied in this directory using plain CPython. Use a new output path:
+
+```text
+python submission-update-2026-10-16/run_notebook.py --output work/executed-gemma.ipynb
+```
+
+This review reads and checks frozen evidence. Follow the separate release commands above for ECA and repaired-upstream replay.
